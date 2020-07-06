@@ -8,6 +8,7 @@
     "dev": "next",
     "build": "next build",
     "start": "next start",
+    "format": "npx prettier --write .",
     "lint:es": "npx eslint . --ext .ts,.tsx"
   },
   "repository": {
@@ -33,6 +34,7 @@
     "@typescript-eslint/parser": "^3.6.0",
     "eslint": "^7.4.0",
     "eslint-plugin-react": "^7.20.3",
+    "prettier": "^2.0.5",
     "typescript": "^3.9.6"
   }
 }
