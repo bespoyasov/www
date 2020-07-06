@@ -9,7 +9,8 @@
     "build": "next build",
     "start": "next start",
     "format": "npx prettier --write .",
-    "lint:es": "npx eslint . --ext .ts,.tsx"
+    "lint:es": "npx eslint . --ext .ts,.tsx",
+    "lint:fix": "npm run lint:es -- --fix"
   },
   "repository": {
     "type": "git",
@@ -35,6 +36,7 @@
     "eslint": "^7.4.0",
     "eslint-plugin-react": "^7.20.3",
     "husky": "^4.2.5",
+    "lint-staged": "^10.2.11",
     "prettier": "^2.0.5",
     "typescript": "^3.9.6"
   }
