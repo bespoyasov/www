@@ -1,0 +1,7 @@
+{
+  "hooks": {
+    "hooks": {
+      "pre-commit": "npm run format"
+    }
+  }
+}
