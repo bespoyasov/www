@@ -17,5 +17,10 @@
   "bugs": {
     "url": "https://github.com/bespoyasov/site/issues"
   },
-  "homepage": "https://github.com/bespoyasov/site#readme"
+  "homepage": "https://github.com/bespoyasov/site#readme",
+  "dependencies": {
+    "next": "^9.4.4",
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1"
+  }
 }
