@@ -10,7 +10,8 @@
     "start": "next start",
     "format": "npx prettier --write .",
     "lint:es": "npx eslint . --ext .ts,.tsx",
-    "lint:fix": "npm run lint:es -- --fix"
+    "lint:fix": "npm run lint:es -- --fix",
+    "lint:style": "npx stylelint '**/*.css'"
   },
   "repository": {
     "type": "git",
@@ -38,6 +39,10 @@
     "husky": "^4.2.5",
     "lint-staged": "^10.2.11",
     "prettier": "^2.0.5",
+    "stylelint": "^13.6.1",
+    "stylelint-config-rational-order": "^0.1.2",
+    "stylelint-config-standard": "^20.0.0",
+    "stylelint-order": "^4.1.0",
     "typescript": "^3.9.6"
   }
 }
