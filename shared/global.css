@@ -1,0 +1,20 @@
+*,
+*::after,
+*::before {
+  box-sizing: border-box;
+}
+
+html {
+  -webkit-font-smoothing: antialiased;
+  -webkit-text-size-adjust: none;
+  min-width: 320px;
+  color: var(--text-color);
+  font-size: 18px;
+  font-family: var(--font-sans-serif);
+  line-height: 1.4em;
+  background: var(--background-color);
+}
+
+body {
+  margin: 0;
+}
