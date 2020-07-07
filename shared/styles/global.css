@@ -18,3 +18,18 @@ html {
 body {
   margin: 0;
 }
+
+h1 {
+  font-size: var(--header-font-size);
+  line-height: var(--header-line-height);
+}
+
+h2 {
+  font-size: var(--subheader-font-size);
+  line-height: var(--subheader-line-height);
+}
+
+h3 {
+  font-size: var(--base-font-size);
+  line-height: var(--base-line-height);
+}
