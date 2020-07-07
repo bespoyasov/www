@@ -1,6 +1,6 @@
 import React from "react";
 import { useRouter } from "next/router";
-import { onMainPage } from "../../shared/onMainPage";
+import { onMainPage } from "@shared/onMainPage";
 import styles from "./Logo.module.css";
 
 export const Logo: React.FC = () => {

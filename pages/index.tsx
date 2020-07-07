@@ -1,6 +1,6 @@
 import React from "react";
 import Head from "next/head";
-import { Center } from "../components/Center";
+import { Center } from "@components/Center";
 
 const Main = () => (
   <main>
