@@ -1,0 +1,26 @@
+.logo {
+  display: flex;
+  align-items: flex-start;
+}
+
+.label {
+  order: 1;
+  margin: 5px 0 0 10px;
+  font-weight: 700;
+  font-size: 1rem;
+  font-family: var(--font-sans-serif);
+}
+
+.photo {
+  width: 60px;
+  height: 60px;
+  overflow: hidden;
+  border-radius: 50%;
+}
+
+.photo img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  user-select: none;
+}
