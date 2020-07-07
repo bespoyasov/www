@@ -1,4 +1,7 @@
 :root {
+  --base-font-size: 18px;
+  --base-line-height: 1.4em;
+
   --font-sans-serif: "PT Sans", sans-serif;
   --font-monospace: "PT Mono", monospace;
 }

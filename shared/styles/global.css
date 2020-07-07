@@ -9,9 +9,9 @@ html {
   -webkit-text-size-adjust: none;
   min-width: 320px;
   color: var(--text-color);
-  font-size: 18px;
+  font-size: var(--base-font-size);
   font-family: var(--font-sans-serif);
-  line-height: 1.4em;
+  line-height: var(--base-line-height);
   background: var(--background-color);
 }
 
