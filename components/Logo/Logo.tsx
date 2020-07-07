@@ -1,10 +1,11 @@
 import React from "react";
 import { useRouter } from "next/router";
+import { onMainPage } from "../../shared/onMainPage";
 import styles from "./Logo.module.css";
 
 export const Logo: React.FC = () => {
   const { pathname } = useRouter();
-  const Header = pathname === "/" ? "h1" : "span";
+  const Header = onMainPage(pathname) ? "h1" : "span";
 
   return (
     <span className={styles.logo}>
