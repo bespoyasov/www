@@ -1,0 +1,12 @@
+.header {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr;
+  padding: 30px 0;
+}
+
+.nav {
+  --offset-top: calc(var(--logo-image-size) / -2);
+  --offset-left: calc(var(--logo-image-size) + 10px);
+
+  margin: var(--offset-top) 0 0 var(--offset-left);
+}
