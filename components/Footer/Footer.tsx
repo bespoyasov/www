@@ -1,6 +1,6 @@
 import React from "react";
 import { Copyright } from "@components/Copyright";
-import { Socials } from "@components/Socials";
+import { Contacts } from "@components/Contacts";
 import { Person } from "@components/MicroData";
 import styles from "./Footer.module.css";
 
@@ -8,7 +8,7 @@ export const Footer: React.FC = () => {
   return (
     <footer className={styles.footer}>
       <Copyright />
-      <Socials />
+      <Contacts />
       <Person />
     </footer>
   );
