@@ -1,12 +1,17 @@
 .header {
   display: grid;
-  grid-template-columns: 2fr 1fr 1fr;
+  grid-template-columns: 1fr 1fr;
   padding: 30px 0;
+  column-gap: var(--gap);
 }
 
 .nav {
   --offset-top: calc(var(--logo-image-size) / -2);
-  --offset-left: calc(var(--logo-image-size) + 10px);
+  --offset-left: calc(var(--logo-image-size) + 5px);
 
   margin: var(--offset-top) 0 0 var(--offset-left);
+}
+
+.logo {
+  margin: -5px 0 0 -5px;
 }
