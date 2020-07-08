@@ -1,4 +1,7 @@
 import React from "react";
+import { Header } from "@components/Header";
+import { Footer } from "@components/Footer";
+import { Center } from "@components/Center";
 
 import "@shared/styles/typography.css";
 import "@shared/styles/palette.css";
@@ -9,5 +12,13 @@ import "@shared/styles/theme.css";
 import "@shared/styles/global.css";
 
 export default function MyApp({ Component, pageProps }) {
-  return <Component {...pageProps} />;
+  return (
+    <Center>
+      <div className="wrap">
+        <Header />
+        <Component {...pageProps} />
+      </div>
+      <Footer />
+    </Center>
+  );
 }
