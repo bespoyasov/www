@@ -1,5 +1,5 @@
 .center {
-  max-width: 1500px;
+  max-width: var(--max-width);
   margin: auto;
   padding: 0 var(--offset);
 }
