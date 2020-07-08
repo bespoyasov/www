@@ -1,0 +1,9 @@
+.footer {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  height: var(--footer-height);
+  padding: 20px 0;
+  font-size: var(--small-font-size);
+  line-height: var(--small-line-height);
+}
