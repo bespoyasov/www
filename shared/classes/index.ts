@@ -1,5 +1,7 @@
+import { List } from "@shared/types";
+
 type ClassName = string;
 
-export function classes(...list: ClassName[]): ClassName {
+export function classes(...list: List<ClassName>): ClassName {
   return list.join(" ");
 }
