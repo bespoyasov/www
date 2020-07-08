@@ -13,7 +13,7 @@ export const Header: React.FC = () => {
 
   return (
     <header className={styles.header}>
-      <div>
+      <div className={styles.main}>
         <Link to="/" if={!mainPage}>
           <Logo className={styles.logo} />
         </Link>

@@ -15,3 +15,13 @@
 .logo {
   margin: -5px 0 0 -5px;
 }
+
+.main > a,
+.main > a:visited {
+  color: var(--text-color);
+  text-decoration: none;
+}
+
+.main > a:hover {
+  color: var(--link-accent-color);
+}
