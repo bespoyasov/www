@@ -5,10 +5,11 @@
 
 .label {
   order: 1;
-  margin: 5px 0 0 10px;
+  margin: 10px 0 0 10px;
   font-weight: 700;
   font-size: 1rem;
   font-family: var(--font-sans-serif);
+  line-height: 1;
 }
 
 .photo {
