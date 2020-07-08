@@ -8,6 +8,7 @@
   --blue: rgb(0, 100, 168);
   --red-transparent: rgba(160, 48, 0, 0.3);
   --blue-transparent: rgba(0, 100, 168, 0.2);
+  --grey-transparent: rgba(0, 0, 0, 0.2);
 }
 
 @media (prefers-color-scheme: dark) {
@@ -15,6 +16,7 @@
     --red: rgb(255, 85, 85);
     --blue: rgb(0, 161, 254);
     --red-transparent: rgb(255, 85, 85, 0.3);
-    --blue-transparent: rgba(107, 111, 114, 0.2);
+    --blue-transparent: rgba(0, 161, 254, 0.4);
+    --grey-transparent: rgba(255, 255, 255, 0.3);
   }
 }

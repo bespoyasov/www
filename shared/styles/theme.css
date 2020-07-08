@@ -1,6 +1,13 @@
 :root {
   --background-color: var(--white);
   --text-color: var(--black);
+
+  --link-color: var(--blue);
+  --link-accent-color: var(--red);
+
+  --decoration-link-color: var(--blue-transparent);
+  --decoration-text-color: var(--grey-transparent);
+  --decoration-accent-color: var(--red-transparent);
 }
 
 @media (prefers-color-scheme: dark) {
