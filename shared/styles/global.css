@@ -33,3 +33,8 @@ h3 {
   font-size: var(--base-font-size);
   line-height: var(--base-line-height);
 }
+
+.wrap {
+  min-height: 100vh;
+  min-height: calc(100vh - var(--footer-height));
+}
