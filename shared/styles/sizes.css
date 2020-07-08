@@ -1,0 +1,6 @@
+:root {
+  --min-width: 320px;
+  --max-width: 1400px;
+
+  --footer-height: 80px;
+}
