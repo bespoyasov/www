@@ -34,6 +34,14 @@ h3 {
   line-height: var(--base-line-height);
 }
 
+p {
+  margin: 0.5em 0;
+}
+
+p:first-child {
+  margin-top: 0;
+}
+
 a,
 a:visited {
   color: var(--link-color);
