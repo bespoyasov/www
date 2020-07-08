@@ -1,0 +1,18 @@
+.nav li,
+.nav ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.nav ul {
+  display: flex;
+}
+
+.nav li {
+  margin: 0 0.3em;
+}
+
+.nav li:first-child {
+  margin-left: 0;
+}
