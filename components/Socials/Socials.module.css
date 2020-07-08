@@ -1,0 +1,15 @@
+.socials {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.socials,
+.socials li {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.socials li:nth-child(n + 2) {
+  margin-left: 5px;
+}
