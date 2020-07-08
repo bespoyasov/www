@@ -13,8 +13,8 @@
 }
 
 .photo {
-  width: 60px;
-  height: 60px;
+  width: var(--logo-image-size);
+  height: var(--logo-image-size);
   overflow: hidden;
   border-radius: 50%;
 }
