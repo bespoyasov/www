@@ -9,7 +9,9 @@
   --offset-top: calc(var(--logo-image-size) / -2);
   --offset-left: calc(var(--logo-image-size) + 5px);
 
+  position: relative;
   margin: var(--offset-top) 0 0 var(--offset-left);
+  line-height: 1;
 }
 
 .logo {

@@ -1,15 +1,17 @@
 .logo {
-  display: flex;
+  display: inline-flex;
   align-items: flex-start;
+  line-height: 1;
 }
 
 .label {
+  display: block;
   order: 1;
   margin: 10px 0 0 10px;
   font-weight: 700;
   font-size: 1rem;
   font-family: var(--font-sans-serif);
-  line-height: 1;
+  line-height: inherit;
 }
 
 .photo {
