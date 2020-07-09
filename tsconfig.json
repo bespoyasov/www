@@ -16,6 +16,7 @@
     "jsx": "preserve",
     "paths": {
       "@components/*": ["components/*"],
+      "@domain/*": ["domain/*"],
       "@layouts/*": ["layouts/*"],
       "@shared/*": ["shared/*"]
     }
