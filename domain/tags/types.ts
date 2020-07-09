@@ -1,4 +1,4 @@
-export type Tags = keyof Tag;
+export type Tags = keyof typeof Tag;
 export enum Tag {
   Advice = "Совет",
   Ai = "Искусственный интеллект",
