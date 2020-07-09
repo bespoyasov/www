@@ -34,22 +34,6 @@ h3 {
   line-height: var(--base-line-height);
 }
 
-blockquote {
-  position: relative;
-  display: block;
-  padding-left: 1.5rem;
-}
-
-blockquote::before {
-  position: absolute;
-  top: 0;
-  left: 0.1rem;
-  color: var(--adornment-element-color);
-  font-size: 2em;
-  line-height: 0.6;
-  content: "«";
-}
-
 a,
 a:visited {
   color: var(--link-color);
