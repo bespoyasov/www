@@ -1,12 +1,12 @@
 import React from "react";
 import Head from "next/head";
 import { MDXProvider } from "@mdx-js/react";
+import { Metadata } from "@domain/metadata/types";
 import { Blockquote } from "@components/Blockquote";
-import { PostMetadata } from "./types";
 import styles from "./Post.module.css";
 
 type Props = {
-  metadata: PostMetadata;
+  metadata: Metadata;
 };
 
 export const PostLayout: React.FC<Props> = ({ metadata, children }) => {
