@@ -6,3 +6,7 @@
 .post h1 {
   margin-top: 0;
 }
+
+.post main {
+  margin-bottom: 1rem;
+}
