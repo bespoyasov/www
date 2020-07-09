@@ -1,17 +1,25 @@
+:root {
+  --vertical-gap: 1.5rem;
+  --vertical-gap-small: 0.5rem;
+  --vertical-gap-large: 2.5rem;
+}
+
 h1,
 h2,
 h3 {
-  margin: 2.5rem 0 0.5rem;
+  margin: 0;
+  margin-top: var(--vertical-gap-large);
+  margin-bottom: var(--vertical-gap-small);
 }
 
 p,
 blockquote {
-  margin: 1.5rem 0;
+  margin: var(--vertical-gap) 0;
 }
 
 ol,
 ul {
-  margin: -1.5rem 0 0;
+  margin: calc(-1 * var(--vertical-gap)) 0 0;
   padding: 0;
   list-style-position: inside;
 }
