@@ -1,6 +1,7 @@
 :root {
   --background-color: var(--white);
   --text-color: var(--black);
+  --details-color: var(--grey);
 
   --link-color: var(--blue);
   --link-accent-color: var(--red);
