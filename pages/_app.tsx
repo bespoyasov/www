@@ -10,6 +10,7 @@ import "@shared/styles/grid.css";
 
 import "@shared/styles/theme.css";
 import "@shared/styles/global.css";
+import "@shared/styles/rhythm.css";
 
 export default function MyApp({ Component, pageProps }) {
   return (

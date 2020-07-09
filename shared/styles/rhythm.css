@@ -1,0 +1,24 @@
+h1,
+h2,
+h3 {
+  margin: 2.5rem 0 0.5rem;
+}
+
+p,
+blockquote {
+  margin: 1.5rem 0;
+}
+
+ol,
+ul {
+  margin: -1.5rem 0 0;
+  padding: 0;
+  list-style-position: inside;
+}
+
+h1 + p,
+h2 + p,
+h3 + p,
+p:first-child {
+  margin-top: 0;
+}
