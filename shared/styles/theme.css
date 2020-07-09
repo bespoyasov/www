@@ -8,6 +8,8 @@
   --decoration-link-color: var(--blue-transparent);
   --decoration-text-color: var(--grey-transparent);
   --decoration-accent-color: var(--red-transparent);
+
+  --adornment-element-color: var(--grey-transparent);
 }
 
 @media (prefers-color-scheme: dark) {
