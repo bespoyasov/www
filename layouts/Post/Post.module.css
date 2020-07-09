@@ -1,6 +1,7 @@
 .post {
   max-width: var(--max-content-width);
-  padding: 20px 0 40px;
+  padding-top: var(--vertical-gap);
+  padding-bottom: var(--vertical-gap-large);
 }
 
 .post h1 {
@@ -8,5 +9,5 @@
 }
 
 .post main {
-  margin-bottom: 1rem;
+  margin-bottom: var(--vertical-gap);
 }
