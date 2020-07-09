@@ -1,4 +1,5 @@
 export type DateTimeIsoString = string;
+export type LocalizedDateString = string;
 
 export type AbsoluteUrl = string;
 export type UrlSlug = string;
