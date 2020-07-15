@@ -5,4 +5,6 @@ export type AbsoluteUrl = string;
 export type UrlSlug = string;
 
 export type List<TEntity> = TEntity[];
-export type AnyObject = Record<string, unknown>;
+export type Dict<TValue> = Record<string, TValue>;
+
+export type AnyObject = Dict<unknown>;
