@@ -8,6 +8,10 @@ h1,
 h2,
 h3 {
   margin: 0;
+}
+
+h1,
+h2 {
   margin-top: var(--vertical-gap-large);
   margin-bottom: var(--vertical-gap-small);
 }
