@@ -6,3 +6,21 @@
 .picture img {
   max-width: 100%;
 }
+
+.picture figcaption {
+  margin: 0;
+  padding: 0;
+  font-style: italic;
+}
+
+.picture > a {
+  position: relative;
+  display: block;
+  transition: transform var(--transition-duration);
+  will-change: transform;
+}
+
+.picture > a:hover {
+  --translate: calc(-1 * var(--accent-translate));
+  transform: translateY(var(--translate)) scale(var(--accent-scale));
+}
