@@ -1,0 +1,6 @@
+:root {
+  --transition-duration: 0.15s;
+
+  --accent-scale: 1.005;
+  --accent-translate: 5px;
+}
