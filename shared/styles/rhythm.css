@@ -32,6 +32,8 @@ ul {
 h1 + p,
 h2 + p,
 h3 + p,
+h3 + ol,
+h3 + ul,
 p:first-child {
   margin-top: 0;
 }
