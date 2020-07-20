@@ -1,0 +1,7 @@
+.picture {
+  max-width: 600px;
+}
+
+.picture img {
+  max-width: 100%;
+}
