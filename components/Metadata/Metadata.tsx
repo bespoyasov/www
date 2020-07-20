@@ -1,7 +1,7 @@
 import React from "react";
 import { Metadata as MetadataType } from "@domain/metadata/types";
+import { DateTime } from "@components/DateTime";
 import { Tags } from "@components/Tags";
-import { toLocalizedDateString } from "./toLocalizedDateString";
 import styles from "./Metadata.module.css";
 
 type Props = {
@@ -13,7 +13,7 @@ export const Metadata: React.FC<Props> = ({ metadata }) => {
 
   return (
     <footer className={styles.metadata}>
-      <time dateTime={datetime}>{toLocalizedDateString(datetime)}</time>
+      <DateTime datetime={datetime} />
       {!!tags && <Tags tags={tags} />}
     </footer>
   );
