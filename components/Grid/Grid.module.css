@@ -1,0 +1,8 @@
+.grid {
+  display: grid;
+  gap: var(--gap);
+}
+
+.of-4 {
+  grid-template-columns: repeat(4, 1fr);
+}
