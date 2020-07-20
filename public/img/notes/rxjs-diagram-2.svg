@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="370px" height="302px" viewBox="0 0 370 302" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 46.2 (44496) - http://www.bohemiancoding.com/sketch -->
+    <title>second diagram</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <rect id="path-1" x="0" y="0" width="338" height="25"></rect>
+        <rect id="path-2" x="0" y="0" width="338" height="25"></rect>
+    </defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="second-diagram">
+            <g id="Third-line" transform="translate(16.000000, 218.000000)">
+                <path d="M0.5,58.5 L337.5,58.5" id="Line" stroke="#979797" stroke-linecap="square"></path>
+                <circle id="Oval" stroke="#656565" fill="#BB7DFF" cx="108.5" cy="58.5" r="10.5"></circle>
+                <circle id="Oval" stroke="#656565" fill="#BB7DFF" cx="188.5" cy="58.5" r="10.5"></circle>
+                <circle id="Oval" stroke="#656565" fill="#BB7DFF" cx="229.5" cy="58.5" r="10.5"></circle>
+                <circle id="Oval" stroke="#656565" fill="#BB7DFF" cx="309.5" cy="58.5" r="10.5"></circle>
+                <text id="Каждый-элемент-—-так" font-family="PTSans-Regular, PT Sans" font-size="12" font-weight="normal" fill="#000000">
+                    <tspan x="0" y="11">Каждый элемент — такой же объект, </tspan>
+                    <tspan x="0" y="25">но появляются они только, если курсор </tspan>
+                    <tspan x="0" y="39">был в пределах 10 пк от кнопки</tspan>
+                </text>
+            </g>
+            <g id="Second-processor" transform="translate(16.000000, 177.000000)">
+                <g id="Rectangle">
+                    <use fill="#D8D8D8" fill-rule="evenodd" xlink:href="#path-1"></use>
+                    <rect stroke="#979797" stroke-width="1" x="0.5" y="0.5" width="337" height="24"></rect>
+                </g>
+                <text id="({x,-y})-=&gt;-inRange(" font-family="PTSans-Regular, PT Sans" font-size="12" font-weight="normal" fill="#000000">
+                    <tspan x="76.012" y="16">({x, y}) =&gt; inRange(x) &amp;&amp; inRange(y)</tspan>
+                </text>
+            </g>
+            <g id="Second-line" transform="translate(16.000000, 117.000000)">
+                <path d="M0.5,32.5 L337.5,32.5" id="Line" stroke="#979797" stroke-linecap="square"></path>
+                <circle id="Oval" stroke="#717171" fill="#669FFF" cx="68.5" cy="32.5" r="10.5"></circle>
+                <circle id="Oval" stroke="#717171" fill="#669FFF" cx="27.5" cy="32.5" r="10.5"></circle>
+                <circle id="Oval" stroke="#717171" fill="#669FFF" cx="108.5" cy="32.5" r="10.5"></circle>
+                <circle id="Oval" stroke="#717171" fill="#669FFF" cx="148.5" cy="32.5" r="10.5"></circle>
+                <circle id="Oval" stroke="#717171" fill="#669FFF" cx="188.5" cy="32.5" r="10.5"></circle>
+                <circle id="Oval" stroke="#717171" fill="#669FFF" cx="229.5" cy="32.5" r="10.5"></circle>
+                <circle id="Oval" stroke="#717171" fill="#669FFF" cx="269.5" cy="32.5" r="10.5"></circle>
+                <circle id="Oval" stroke="#717171" fill="#669FFF" cx="309.5" cy="32.5" r="10.5"></circle>
+                <text id="Каждый-элемент-—-объ" font-family="PTSans-Regular, PT Sans" font-size="12" font-weight="normal" fill="#000000">
+                    <tspan x="0" y="11">Каждый элемент — объект с полями x, y</tspan>
+                </text>
+            </g>
+            <g id="First-processor" transform="translate(16.000000, 77.000000)">
+                <g id="Rectangle">
+                    <use fill="#D8D8D8" fill-rule="evenodd" xlink:href="#path-2"></use>
+                    <rect stroke="#979797" stroke-width="1" x="0.5" y="0.5" width="337" height="24"></rect>
+                </g>
+                <text id="(event:-MouseEvent)" font-family="PTSans-Regular, PT Sans" font-size="12" font-weight="normal" fill="#000000">
+                    <tspan x="48.85" y="16">(event: MouseEvent) =&gt; ({x: event.x, y: event.y})</tspan>
+                </text>
+            </g>
+            <g id="First-line" transform="translate(16.000000, 14.000000)">
+                <path d="M0.5,32.5 L337.5,32.5" id="Line" stroke="#979797" stroke-linecap="square"></path>
+                <circle id="Oval" stroke="#979797" fill="#D8D8D8" cx="27.5" cy="32.5" r="10.5"></circle>
+                <circle id="Oval" stroke="#979797" fill="#D8D8D8" cx="68.5" cy="32.5" r="10.5"></circle>
+                <circle id="Oval" stroke="#979797" fill="#D8D8D8" cx="108.5" cy="32.5" r="10.5"></circle>
+                <circle id="Oval" stroke="#979797" fill="#D8D8D8" cx="148.5" cy="32.5" r="10.5"></circle>
+                <circle id="Oval" stroke="#979797" fill="#D8D8D8" cx="188.5" cy="32.5" r="10.5"></circle>
+                <circle id="Oval" stroke="#979797" fill="#D8D8D8" cx="229.5" cy="32.5" r="10.5"></circle>
+                <circle id="Oval" stroke="#979797" fill="#D8D8D8" cx="269.5" cy="32.5" r="10.5"></circle>
+                <circle id="Oval" stroke="#979797" fill="#D8D8D8" cx="309.5" cy="32.5" r="10.5"></circle>
+                <text id="Каждый-элемент-—-mou" font-family="PTSans-Regular, PT Sans" font-size="12" font-weight="normal" fill="#000000">
+                    <tspan x="0" y="11">Каждый элемент — mousemove event</tspan>
+                </text>
+            </g>
+            <rect id="Rectangle-2" stroke="#FFFFFF" x="0.5" y="0.5" width="369" height="301"></rect>
+        </g>
+    </g>
+</svg>

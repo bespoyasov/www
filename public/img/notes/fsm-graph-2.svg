@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="744px" height="464px" viewBox="0 0 744 464" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 46.2 (44496) - http://www.bohemiancoding.com/sketch -->
+    <title>Group</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <rect id="path-1" x="0" y="0" width="744" height="464"></rect>
+    </defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Group">
+            <g id="Rectangle">
+                <use fill="#FFFFFF" fill-rule="evenodd" xlink:href="#path-1"></use>
+                <rect stroke="#FFFFFF" stroke-width="1" x="0.5" y="0.5" width="743" height="463"></rect>
+            </g>
+            <path d="M244.470588,87.6470588 L360.156863,87.6470588" id="Line-2" stroke="#979797" stroke-linecap="square"></path>
+            <path id="Line-2-decoration-1" d="M360.156863,87.6470588 L349.356863,84.6470588 L349.356863,90.6470588 L360.156863,87.6470588 Z" stroke="#979797" stroke-linecap="square"></path>
+            <path d="M260.156863,291.568627 L158.196078,160.196078" id="Line-2" stroke="#979797" stroke-linecap="square"></path>
+            <path id="Line-2-decoration-1" d="M158.196078,160.196078 L162.447858,170.567307 L167.187778,166.888563 L158.196078,160.196078 Z" stroke="#979797" stroke-linecap="square"></path>
+            <path d="M585.647059,413.137255 C465.856063,445.749724 346.517456,451.875874 227.631238,431.515704 C108.74502,411.155534 65.3385292,320.715659 97.4117647,160.196078" id="Line-2" stroke="#979797" stroke-linecap="square"></path>
+            <path id="Line-2-decoration-1" d="M97.4117647,160.196078 L92.3538067,170.198931 L98.237507,171.374547 L97.4117647,160.196078 Z" stroke="#979797" stroke-linecap="square"></path>
+            <path d="M338.588235,270 L397.411765,138.627451" id="Line-2" stroke="#979797" stroke-linecap="square"></path>
+            <path id="Line-2-decoration-1" d="M397.411765,138.627451 L390.260132,147.25845 L395.736239,149.710439 L397.411765,138.627451 Z" stroke="#979797" stroke-linecap="square"></path>
+            <path d="M464.078431,160.196078 L450.352941,287.647059" id="Line-2" stroke="#979797" stroke-linecap="square"></path>
+            <path id="Line-2-decoration-1" d="M450.352941,287.647059 L454.492085,277.230366 L448.526578,276.587927 L450.352941,287.647059 Z" stroke="#979797" stroke-linecap="square"></path>
+            <path d="M579.764706,122.941176 L603.294118,266.078431" id="Line-2" stroke="#979797" stroke-linecap="square"></path>
+            <path id="Line-2-decoration-1" d="M603.294118,266.078431 L604.502557,254.934838 L598.582016,255.908078 L603.294118,266.078431 Z" stroke="#979797" stroke-linecap="square"></path>
+            <g id="Group-5" transform="translate(18.000000, 20.000000)">
+                <ellipse id="Oval" stroke="#979797" fill="#D8D8D8" cx="108.823529" cy="67.6470588" rx="108.823529" ry="67.6470588"></ellipse>
+                <text id="Главная" font-family="PTSans-Regular, PT Sans" font-size="18" font-weight="normal" fill="#000000">
+                    <tspan x="75.8037451" y="71.1764706">Главная</tspan>
+                </text>
+            </g>
+            <text id="Успешная-загрузка" font-family="PTSans-Regular, PT Sans" font-size="18" font-weight="normal" fill="#000000">
+                <tspan x="469.177529" y="231">Успешная </tspan>
+                <tspan x="474.271529" y="252">загрузка</tspan>
+            </text>
+            <g id="Group-2" transform="translate(243.490196, 272.941176)">
+                <ellipse id="Oval" stroke="#979797" fill="#D8D8D8" cx="108.823529" cy="67.6470588" rx="108.823529" ry="67.6470588"></ellipse>
+                <text id="Показываем-данные,-к" font-family="PTSans-Regular, PT Sans" font-size="18" font-weight="normal" fill="#000000">
+                    <tspan x="24.3777451" y="57.4901961">Показываем данные, </tspan>
+                    <tspan x="19.0407451" y="78.4901961">которые запрашивали</tspan>
+                </text>
+            </g>
+            <g id="Group-3" transform="translate(368.980392, 20.000000)">
+                <ellipse id="Oval" stroke="#979797" fill="#D8D8D8" cx="108.823529" cy="67.6470588" rx="108.823529" ry="67.6470588"></ellipse>
+                <text id="Загрузка" font-family="PTSans-Regular, PT Sans" font-size="18" font-weight="normal" fill="#000000">
+                    <tspan x="74.3715294" y="70.9803922">Загрузка</tspan>
+                </text>
+            </g>
+            <g id="Group-4" transform="translate(478.784314, 272.941176)">
+                <ellipse id="Oval" stroke="#979797" fill="#D8D8D8" cx="108.823529" cy="67.6470588" rx="108.823529" ry="67.6470588"></ellipse>
+                <text id="Показываем-сообщение" font-family="PTSans-Regular, PT Sans" font-size="18" font-weight="normal" fill="#000000">
+                    <tspan x="60.0615294" y="57.4509804">Показываем </tspan>
+                    <tspan x="20.0835294" y="78.4509804">сообщение об ошибке</tspan>
+                </text>
+            </g>
+            <text id="Возврат-на-главную" font-family="PTSans-Regular, PT Sans" font-size="18" font-weight="normal" fill="#000000">
+                <tspan x="115.643506" y="222">Возврат </tspan>
+                <tspan x="103.034506" y="243">на главную</tspan>
+            </text>
+            <text id="Начало-запроса" font-family="PTSans-Regular, PT Sans" font-size="18" font-weight="normal" fill="#000000">
+                <tspan x="268.906744" y="44.9607843">Начало </tspan>
+                <tspan x="266.179744" y="65.9607843">запроса</tspan>
+            </text>
+            <text id="Неудачная-загрузка" font-family="PTSans-Regular, PT Sans" font-size="18" font-weight="normal" fill="#000000">
+                <tspan x="608.667529" y="217">Неудачная </tspan>
+                <tspan x="617.271529" y="238">загрузка</tspan>
+            </text>
+            <text id="«Загрузить-ещё»" font-family="PTSans-Regular, PT Sans" font-size="18" font-weight="normal" fill="#000000">
+                <tspan x="286.541763" y="173">«Загрузить </tspan>
+                <tspan x="308.969763" y="194">ещё»</tspan>
+            </text>
+        </g>
+    </g>
+</svg>

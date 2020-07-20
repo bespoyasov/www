@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="759px" height="345px" viewBox="0 0 759 345" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 46.2 (44496) - http://www.bohemiancoding.com/sketch -->
+    <title>Group</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Group" transform="translate(1.000000, 1.000000)">
+            <rect id="Path" stroke="#FFFFFF" fill="#FFFFFF" x="0" y="0" width="757" height="343"></rect>
+            <ellipse id="Oval" stroke="#979797" fill="#D8D8D8" cx="149.278638" cy="174.452012" rx="120.278638" ry="74.7678019"></ellipse>
+            <text id="Выключена" font-family="PTSans-Regular, PT Sans" font-size="18" font-weight="normal" fill="#000000">
+                <tspan x="103.476638" y="177.03096">Выключена</tspan>
+            </text>
+            <ellipse id="Oval" stroke="#979797" fill="#D8D8D8" cx="608.721362" cy="174.452012" rx="120.278638" ry="74.7678019"></ellipse>
+            <text id="Включена" font-family="PTSans-Regular, PT Sans" font-size="18" font-weight="normal" fill="#000000">
+                <tspan x="569.859362" y="177.03096">Включена</tspan>
+            </text>
+            <path d="M206.708978,249.219814 C262.69453,268.118562 318.680083,277.567936 374.665635,277.567936 C430.651187,277.567936 486.636739,268.118562 542.622291,249.219814" id="Line" stroke="#979797" stroke-linecap="square"></path>
+            <path id="Line-decoration-1" d="M542.622291,249.219814 L531.430074,249.831597 L533.349076,255.516439 L542.622291,249.219814 Z" stroke="#979797" stroke-linecap="square"></path>
+            <text id="Выключение" font-family="PTSans-Regular, PT Sans" font-size="18" font-weight="normal" fill="#000000">
+                <tspan x="377.968842" y="38"></tspan>
+                <tspan x="328.144842" y="59">Выключение</tspan>
+            </text>
+            <text id="Включение" font-family="PTSans-Regular, PT Sans" font-size="18" font-weight="normal" fill="#000000">
+                <tspan x="334.084842" y="300.894737">Включение</tspan>
+            </text>
+            <path d="M541.5387,105.102167 C489.92196,84.9808354 437.187182,74.9201695 383.334365,74.9201695 C329.481548,74.9201695 276.74677,84.9808354 225.130031,105.102167" id="Line-3" stroke="#979797" stroke-linecap="square"></path>
+            <path id="Line-3-decoration-1" d="M225.130031,105.102167 L236.28211,103.974727 L234.102903,98.3844622 L225.130031,105.102167 Z" stroke="#979797" stroke-linecap="square"></path>
+        </g>
+    </g>
+</svg>
