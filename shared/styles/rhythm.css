@@ -34,6 +34,9 @@ h2 + p,
 h3 + p,
 h3 + ol,
 h3 + ul,
+h3 + blockquote,
+blockquote > ul,
+blockquote > ol,
 p:first-child {
   margin-top: 0;
 }
