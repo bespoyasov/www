@@ -1,14 +1,14 @@
 import React from "react";
-import { UrlSlug, AbsoluteUrl } from "@shared/types";
+import { RelativePath, AbsoluteUrl } from "@shared/types";
 import styles from "./Picture.module.css";
 
-type ImageRelativePath = UrlSlug;
+type ImageFileSource = RelativePath;
 type AlternativeText = string;
 type VisibleCaption = string;
 type CitationSource = AbsoluteUrl;
 
 type Props = {
-  src: ImageRelativePath;
+  src: ImageFileSource;
   alt: AlternativeText;
   caption?: VisibleCaption;
   cite?: CitationSource;
