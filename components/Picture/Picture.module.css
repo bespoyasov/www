@@ -18,14 +18,14 @@
   font-style: italic;
 }
 
-.picture > a {
+.picture > a[href] {
   position: relative;
   display: block;
   transition: transform var(--transition-duration);
   will-change: transform;
 }
 
-.picture > a:hover {
+.picture > a[href]:hover {
   --translate: calc(-1 * var(--accent-translate));
   transform: translateY(var(--translate)) scale(var(--accent-scale));
 }

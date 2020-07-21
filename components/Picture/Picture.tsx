@@ -15,15 +15,13 @@ type Props = {
 };
 
 export const Picture: React.FC<Props> = ({ src, alt, cite, caption }) => {
-  const Container = cite ? "a" : React.Fragment;
-
   return (
     <figure className={styles.picture}>
-      <Container href={cite}>
+      <a href={cite}>
         <picture>
           <img src={src} alt={alt} />
         </picture>
-      </Container>
+      </a>
       {!!caption && <figcaption>{caption}</figcaption>}
     </figure>
   );
