@@ -11,11 +11,16 @@ type Props = {
   metadata: MetadataType;
 };
 
+const substitutes = {
+  blockquote: Blockquote,
+  img: Picture,
+};
+
 export const PostLayout: React.FC<Props> = ({ metadata, children }) => {
   const { title, description } = metadata;
 
   return (
-    <MDXProvider components={{ blockquote: Blockquote, img: Picture }}>
+    <MDXProvider components={substitutes}>
       <Head>
         <title>{title}</title>
         <meta name="description" content={description} />
