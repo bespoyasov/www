@@ -4,6 +4,7 @@ import { MDXProvider } from "@mdx-js/react";
 import { Metadata as MetadataType } from "@domain/metadata/types";
 import { Blockquote } from "@components/Blockquote";
 import { Metadata } from "@components/Metadata";
+import { Picture } from "@components/Picture";
 import styles from "./Post.module.css";
 
 type Props = {
@@ -14,7 +15,7 @@ export const PostLayout: React.FC<Props> = ({ metadata, children }) => {
   const { title, description } = metadata;
 
   return (
-    <MDXProvider components={{ blockquote: Blockquote }}>
+    <MDXProvider components={{ blockquote: Blockquote, img: Picture }}>
       <Head>
         <title>{title}</title>
         <meta name="description" content={description} />
