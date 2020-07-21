@@ -17,6 +17,7 @@
     "paths": {
       "@components/*": ["components/*"],
       "@domain/*": ["domain/*"],
+      "@effects/*": ["effects/*"],
       "@layouts/*": ["layouts/*"],
       "@server/*": ["server/*"],
       "@shared/*": ["shared/*"]
