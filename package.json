@@ -46,6 +46,7 @@
     "prettier": "^2.0.5",
     "remark": "^12.0.0",
     "remark-mdx": "^1.6.6",
+    "remark-unwrap-images": "^2.0.0",
     "stylelint": "^13.6.1",
     "stylelint-config-rational-order": "^0.1.2",
     "stylelint-config-standard": "^20.0.0",
