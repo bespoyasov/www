@@ -1,0 +1,4 @@
+.title {
+  font-size: var(--header-font-size);
+  line-height: var(--header-line-height);
+}
