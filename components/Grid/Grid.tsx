@@ -3,14 +3,14 @@ import { classes } from "@shared/classes";
 import styles from "./Grid.module.css";
 
 type ColumnsCount = number;
-type ClassModifier = string;
+type ClassNameModifier = string;
 
-function of(columns: ColumnsCount): ClassModifier {
+function of(columns: ColumnsCount): ClassNameModifier {
   return styles[`of-${columns}`];
 }
 
 export const Grid: React.FC = ({ children }) => {
   const { grid } = styles;
-  const columns = React.Children.count(children);
-  return <div className={classes(grid, of(columns))}>{children}</div>;
+  const columnsCount = React.Children.count(children);
+  return <div className={classes(grid, of(columnsCount))}>{children}</div>;
 };
