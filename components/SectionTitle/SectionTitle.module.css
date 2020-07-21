@@ -1,4 +1,5 @@
 .title {
+  margin: 0;
   font-size: var(--header-font-size);
   line-height: var(--header-line-height);
 }
