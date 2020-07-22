@@ -1,0 +1,14 @@
+.container {
+  margin: 0;
+}
+
+.container iframe {
+  width: 100%;
+  max-width: var(--max-media-width);
+  height: 60vw;
+  max-height: 450px;
+}
+
+.container figcaption {
+  font-style: italic;
+}
