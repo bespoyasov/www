@@ -1,10 +1,10 @@
 .picture {
-  max-width: var(--max-image-width);
+  max-width: var(--max-media-width);
   margin: 0;
 }
 
 .limited {
-  max-width: calc(var(--max-image-width) / 2);
+  max-width: calc(var(--max-media-width) / 2);
 }
 
 .picture picture {
