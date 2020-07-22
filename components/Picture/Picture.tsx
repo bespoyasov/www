@@ -1,22 +1,14 @@
 import React from "react";
-import { RelativePath, AbsoluteUrl } from "@shared/types";
+import { classes } from "@shared/classes";
+import { PictureProps } from "./types";
+import { isLimited } from "./isLimited";
 import styles from "./Picture.module.css";
 
-type ImageFileSource = RelativePath;
-type AlternativeText = string;
-type VisibleCaption = string;
-type CitationSource = AbsoluteUrl;
+const { picture, limited } = styles;
 
-type Props = {
-  src: ImageFileSource;
-  alt: AlternativeText;
-  caption?: VisibleCaption;
-  cite?: CitationSource;
-};
-
-export const Picture: React.FC<Props> = ({ src, alt, cite, caption }) => {
+export const Picture: React.FC<PictureProps> = ({ src, alt, cite, caption }) => {
   return (
-    <figure className={styles.picture}>
+    <figure className={classes(picture, isLimited(src) && limited)}>
       <a href={cite}>
         <picture>
           <img src={src} alt={alt} />
