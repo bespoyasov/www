@@ -4,6 +4,7 @@ import { MDXProvider } from "@mdx-js/react";
 import { Metadata as MetadataType } from "@domain/metadata/types";
 import { Blockquote } from "@components/Blockquote";
 import { Highlight } from "@components/Highlight";
+import { LinkProxy } from "@components/LinkProxy";
 import { Metadata } from "@components/Metadata";
 import { Picture } from "@components/Picture";
 import styles from "./Post.module.css";
@@ -16,6 +17,7 @@ const substitutes = {
   blockquote: Blockquote,
   mark: Highlight,
   img: Picture,
+  a: LinkProxy,
 };
 
 export const PostLayout: React.FC<Props> = ({ metadata, children }) => {
