@@ -3,6 +3,7 @@ import Head from "next/head";
 import { MDXProvider } from "@mdx-js/react";
 import { Metadata as MetadataType } from "@domain/metadata/types";
 import { Blockquote } from "@components/Blockquote";
+import { Highlight } from "@components/Highlight";
 import { Metadata } from "@components/Metadata";
 import { Picture } from "@components/Picture";
 import styles from "./Post.module.css";
@@ -13,6 +14,7 @@ type Props = {
 
 const substitutes = {
   blockquote: Blockquote,
+  mark: Highlight,
   img: Picture,
 };
 
