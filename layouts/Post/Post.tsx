@@ -1,7 +1,7 @@
 import React from "react";
 import Head from "next/head";
 import { MDXProvider } from "@mdx-js/react";
-import { Metadata as MetadataType } from "@domain/metadata/types";
+import { Metadata as MetadataType } from "@domain/metadata";
 import { Blockquote } from "@components/Blockquote";
 import { Highlight } from "@components/Highlight";
 import { LinkProxy } from "@components/LinkProxy";

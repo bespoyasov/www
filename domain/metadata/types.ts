@@ -1,5 +1,5 @@
 import { List, DateTimeIsoString } from "@shared/types";
-import { Tags } from "@domain/tags/types";
+import { Tags } from "@domain/tags";
 
 type Title = string;
 type Description = string;
