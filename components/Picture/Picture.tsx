@@ -11,7 +11,7 @@ export const Picture: React.FC<PictureProps> = ({ src, alt, cite, caption }) => 
     <figure className={classes(picture, isLimited(src) && limited)}>
       <a href={cite}>
         <picture>
-          <img src={src} alt={alt} />
+          <img src={src} alt={alt} loading="lazy" />
         </picture>
       </a>
       {!!caption && <figcaption>{caption}</figcaption>}
