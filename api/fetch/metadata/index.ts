@@ -9,8 +9,8 @@ import { allProjects, allBlogPosts } from "@persistence/source";
 type Query = typeof allProjects | typeof allBlogPosts;
 type FetchRequest = () => Promise<List<Metadata>>;
 
-function requestFor(query: Query): FetchRequest {
-  return async function fetchData(): Promise<List<Metadata>> {
+function metadataFor(query: Query): FetchRequest {
+  return async function request(): Promise<List<Metadata>> {
     const posts = query();
     const results = [];
 
@@ -29,5 +29,5 @@ function requestFor(query: Query): FetchRequest {
   };
 }
 
-export const fetchProjects = requestFor(allProjects);
-export const fetchBlogPosts = requestFor(allBlogPosts);
+export const projectsMetadata = metadataFor(allProjects);
+export const blogPostsMetadata = metadataFor(allBlogPosts);

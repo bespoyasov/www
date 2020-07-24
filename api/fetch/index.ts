@@ -1,1 +1,1 @@
-export * from "./all";
+export * from "./metadata";
