@@ -4,11 +4,11 @@ import { DateTime } from "@components/DateTime";
 import { Tags } from "@components/Tags";
 import styles from "./Metadata.module.css";
 
-type Props = {
+type MetadataProps = {
   metadata: MetadataType;
 };
 
-export const Metadata: React.FC<Props> = ({ metadata }) => {
+export const Metadata: React.FC<MetadataProps> = ({ metadata }) => {
   const { datetime, tags } = metadata;
 
   return (

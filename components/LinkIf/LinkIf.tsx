@@ -5,12 +5,12 @@ import NextLink from "next/link";
 type Condition = boolean;
 type Destination = UrlSlug;
 
-type Props = {
+type LinkIfProps = {
   if: Condition;
   to: Destination;
 };
 
-export const Link: React.FC<Props> = ({ if: condition, to, children }) => {
+export const Link: React.FC<LinkIfProps> = ({ if: condition, to, children }) => {
   if (condition) {
     return (
       <NextLink href={to}>

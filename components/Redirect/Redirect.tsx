@@ -2,11 +2,11 @@ import React from "react";
 import { useMount } from "@effects/useMount";
 import { AbsoluteUrl } from "@shared/types";
 
-type Props = {
+type RedirectProps = {
   to: AbsoluteUrl;
 };
 
-export const Redirect: React.FC<Props> = ({ to }) => {
+export const Redirect: React.FC<RedirectProps> = ({ to }) => {
   useMount(() => {
     location.href = to;
   });
