@@ -1,5 +1,5 @@
 import React from "react";
-import { classes } from "@shared/classes";
+import { classes as is } from "@shared/classes";
 import styles from "./Grid.module.css";
 
 type ColumnsCount = number;
@@ -9,8 +9,16 @@ function of(columns: ColumnsCount): ClassNameModifier {
   return styles[`of-${columns}`];
 }
 
-export const Grid: React.FC = ({ children }) => {
+type GridProps = {
+  element?: keyof JSX.IntrinsicElements;
+  columns?: ColumnsCount;
+};
+
+export const Grid: React.FC<GridProps> = ({
+  children,
+  columns: columnsCount = 4,
+  element: Element = "div",
+}) => {
   const { grid } = styles;
-  const columnsCount = React.Children.count(children);
-  return <div className={classes(grid, of(columnsCount))}>{children}</div>;
+  return <Element className={is(grid, of(columnsCount))}>{children}</Element>;
 };
