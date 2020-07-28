@@ -1,5 +1,7 @@
 .about {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: repeat(2, 1fr);
+  margin-top: calc(-1 * var(--header-height));
+  padding: var(--vertical-gap) 0 0 50%;
   column-gap: var(--gap);
 }
