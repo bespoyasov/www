@@ -13,7 +13,6 @@ class MyDocument extends Document {
         <Head>
           <meta charSet="utf-8" />
           <meta name="viewport" content="width=device-width, initial-scale=1" />
-          <meta name="description" content="Иногда работаю, иногда не работаю." />
 
           <link
             href="https://fonts.googleapis.com/css?family=PT+Mono%7CPT+Sans:400,400i,700%7C&amp;subset=cyrillic-ext&amp;display=swap"
