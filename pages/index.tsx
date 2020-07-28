@@ -1,12 +1,16 @@
 import React from "react";
 import Head from "next/head";
+import { About } from "@components/About";
+import { Description } from "@components/Description";
 
-const Main = () => (
-  <main>
+const Main: React.FC = () => (
+  <>
     <Head>
       <title>АБ</title>
+      <Description>Иногда работаю, иногда не работаю.</Description>
     </Head>
-  </main>
+    <About />
+  </>
 );
 
 export default Main;
