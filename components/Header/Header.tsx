@@ -11,12 +11,10 @@ export const Header: React.FC = () => {
 
   return (
     <header className={styles.header}>
-      <div className={styles.main}>
-        <Link to="/" if={!onMainPage(pathname)}>
-          <Logo className={styles.logo} />
-        </Link>
-        <Nav className={styles.nav} />
-      </div>
+      <Link to="/" if={!onMainPage(pathname)}>
+        <Logo className={styles.logo} />
+      </Link>
+      <Nav className={styles.nav} />
     </header>
   );
 };

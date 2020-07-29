@@ -1,9 +1,17 @@
 .header {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
+  width: 50%;
   height: var(--header-height);
   padding: var(--vertical-gap) 0;
-  column-gap: var(--gap);
+}
+
+.header > a,
+.header > a:visited {
+  color: var(--text-color);
+  text-decoration: none;
+}
+
+.header > a:hover {
+  color: var(--link-accent-color);
 }
 
 .nav {
@@ -17,14 +25,4 @@
 
 .logo {
   margin: -5px 0 0 -5px;
-}
-
-.main > a,
-.main > a:visited {
-  color: var(--text-color);
-  text-decoration: none;
-}
-
-.main > a:hover {
-  color: var(--link-accent-color);
 }
