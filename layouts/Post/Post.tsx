@@ -2,6 +2,7 @@ import React from "react";
 import Head from "next/head";
 import { MDXProvider } from "@mdx-js/react";
 import { Metadata as MetadataType } from "@domain/metadata";
+import { Description } from "@components/Description";
 import { Blockquote } from "@components/Blockquote";
 import { Highlight } from "@components/Highlight";
 import { LinkProxy } from "@components/LinkProxy";
@@ -27,7 +28,7 @@ export const PostLayout: React.FC<Props> = ({ metadata, children }) => {
     <MDXProvider components={substitutes}>
       <Head>
         <title>{title}</title>
-        <meta name="description" content={description} />
+        <Description>{description}</Description>
       </Head>
       <div className={styles.post}>
         <main>{children}</main>
