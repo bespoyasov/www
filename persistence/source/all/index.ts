@@ -9,8 +9,11 @@ type Executor = () => List<PostContents>;
 
 function queryFor(directory: QueryKind): Executor {
   return function execute(): List<PostContents> {
-    const fileNames = fs.readdirSync(directory);
-    const posts = fileNames.map((fileName) => fs.readFileSync(path.join(directory, fileName), "utf-8"));
+    const posts = fs
+      .readdirSync(directory)
+      .filter((fileName) => fileName.includes(".mdx"))
+      .map((fileName) => fs.readFileSync(path.join(directory, fileName), "utf-8"));
+
     return posts;
   };
 }
