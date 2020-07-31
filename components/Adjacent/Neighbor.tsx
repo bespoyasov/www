@@ -1,5 +1,6 @@
 import React from "react";
 import Link from "next/link";
+import { useRouter } from "next/router";
 import { Metadata } from "@domain/metadata";
 
 type ItemProps = {
@@ -7,8 +8,10 @@ type ItemProps = {
 };
 
 export const Neighbor: React.FC<ItemProps> = ({ is: entity }) => {
+  const { pathname } = useRouter();
+
   return (
-    <Link href={entity.slug} as={entity.slug}>
+    <Link href={pathname} as={entity.slug}>
       <a>{entity.title}</a>
     </Link>
   );
