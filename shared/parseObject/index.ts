@@ -1,7 +1,7 @@
 import JSON5 from "json5";
 import { AnyObject, Nullable } from "@shared/types";
 
-export function parseObject(text: string): Nullable<AnyObject> {
+export function parseObject<TParsed extends AnyObject>(text: string): Nullable<TParsed> {
   try {
     const objectStart = text.indexOf("{");
     const objectEnding = text.lastIndexOf("}") + 1;
