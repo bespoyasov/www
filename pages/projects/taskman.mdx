@@ -1,4 +1,3 @@
-import { PostLayout } from "@layouts/Post";
 import { YouTube } from "@components/YouTube";
 
 export const metadata = {
@@ -7,8 +6,6 @@ export const metadata = {
   datetime: "2017-03-15T12:00",
   slug: "/projects/taskman",
 };
-
-export default ({ children }) => <PostLayout metadata={metadata}>{children}</PostLayout>;
 
 # Задачник
 
@@ -58,7 +55,10 @@ export default ({ children }) => <PostLayout metadata={metadata}>{children}</Pos
 
 Выбиралка времени работает как барабанчик селекта в Айосе. Цифра, которая находится в бежевой обложке — выделенная. Сам барабанчик крутится колесом мыши, а при отпускании барабана ближайшая цифра «примагничивается» к подложке.
 
-<YouTube src="https://www.youtube.com/embed/x02VWuBProE?ecver=2" caption="Компонент календаря для настройки срока" />
+<YouTube
+  src="https://www.youtube.com/embed/x02VWuBProE?ecver=2"
+  caption="Компонент календаря для настройки срока"
+/>
 
 В разделе с аналитикой менеджеры наблюдают за производительностью сотрудников. Сотрудники разделены по отделам, у каждого описана статистика по его задачам. Сколько задач ему поставили, сколько выполнено в срок, сколько просрочено <nobr>и т.д.</nobr>
 

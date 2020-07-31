@@ -1,4 +1,3 @@
-import { PostLayout } from "@layouts/Post";
 import { YouTube } from "@components/YouTube";
 
 export const metadata = {
@@ -7,8 +6,6 @@ export const metadata = {
   datetime: "2019-01-30T17:00",
   slug: "/projects/mrkt",
 };
-
-export default ({ children }) => <PostLayout metadata={metadata}>{children}</PostLayout>;
 
 # MRKT
 
@@ -57,7 +54,10 @@ export default ({ children }) => <PostLayout metadata={metadata}>{children}</Pos
 
 Внизу страницы отображается структура отделов и иерархия сотрудников. Администратор компании назначает руководителей отделов и аудиторов для каждого отдела, а также определяет, кто из участников может просматривать торги и участвовать в них от имени компании.
 
-<YouTube src="https://www.youtube.com/embed/Yz5P67s-Luc?ecver=2" caption="Структура отделов компании" />
+<YouTube
+  src="https://www.youtube.com/embed/Yz5P67s-Luc?ecver=2"
+  caption="Структура отделов компании"
+/>
 
 ## Создание торгов
 
@@ -65,7 +65,10 @@ export default ({ children }) => <PostLayout metadata={metadata}>{children}</Pos
 
 Одной из самых сложный частей был конструктор позиций в создании торгов:
 
-<YouTube src="https://www.youtube.com/embed/ex27v2C-Xpo?ecver=2" caption="Конструктор позиций в создании торгов" />
+<YouTube
+  src="https://www.youtube.com/embed/ex27v2C-Xpo?ecver=2"
+  caption="Конструктор позиций в создании торгов"
+/>
 
 В торгах участники откликаются на позиции и делают предложения по ним.
 
