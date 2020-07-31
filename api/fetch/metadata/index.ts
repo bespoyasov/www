@@ -12,7 +12,7 @@ type FetchRequest = () => Promise<List<Metadata>>;
 function metadataFor(query: Query): FetchRequest {
   return async function request(): Promise<List<Metadata>> {
     const posts = query();
-    const results = [];
+    const results: List<Metadata> = [];
 
     for await (const post of posts) {
       const result = await remark()
@@ -21,7 +21,7 @@ function metadataFor(query: Query): FetchRequest {
         .use(metadataOf)
         .process(post);
 
-      const object = parseObject(result.toString());
+      const object = parseObject<Metadata>(result.toString());
       results.push(object);
     }
 
