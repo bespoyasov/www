@@ -12,6 +12,7 @@ import { projectsMetadata, projectsNames } from "@api/fetch";
 import { PostLayout } from "@layouts/Post";
 import { Picture } from "@components/Picture";
 import { Metadata } from "@components/Metadata";
+import { Adjacent } from "@components/Adjacent";
 import { Highlight } from "@components/Highlight";
 import { LinkProxy } from "@components/LinkProxy";
 import { Blockquote } from "@components/Blockquote";
@@ -50,7 +51,7 @@ const substitutes = {
   a: LinkProxy,
 };
 
-const Project: React.FC<ProjectProps> = ({ metadata }) => {
+const Project: React.FC<ProjectProps> = ({ metadata, prevPost, nextPost }) => {
   const { title, description } = metadata;
   const { query } = useRouter();
   const PostContents = dynamic(() => import(`./${query.id}.mdx`));
@@ -66,6 +67,7 @@ const Project: React.FC<ProjectProps> = ({ metadata }) => {
           <PostContents />
         </main>
         <Metadata metadata={metadata} />
+        <Adjacent prev={prevPost} next={nextPost} />
       </PostLayout>
     </MDXProvider>
   );
