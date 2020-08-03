@@ -12,6 +12,8 @@ export type Dict<TValue> = Record<string, TValue>;
 export type Nullable<TEntity> = TEntity | null;
 export type Optional<TEntity> = TEntity | undefined;
 export type Unique<TEntity> = TEntity;
-export type Comparable = string | number;
+
+export type AnyComparable = string | number;
+export type Comparable<TEntity extends AnyComparable> = TEntity;
 
 export type AnyObject = Dict<unknown>;
