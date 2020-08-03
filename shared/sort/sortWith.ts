@@ -1,11 +1,11 @@
-import { AnyObject, Comparable } from "@shared/types";
+import { AnyObject, AnyComparable } from "@shared/types";
 
 export enum SortDirection {
   Ascending = "asc",
   Descending = "desc",
 }
 
-type TransformFunction = (arg: AnyObject) => Comparable;
+type TransformFunction = (arg: AnyObject) => AnyComparable;
 type CompareFunction = (a: AnyObject, b: AnyObject) => number;
 
 export function sortWith(
