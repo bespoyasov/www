@@ -15,7 +15,7 @@ export const Nav: React.FC<HTMLAttributes<HTMLElement>> = ({ className }) => {
         {internal.map(({ url, title }) => (
           <li key={title}>
             <Link href={url}>
-              <a className={activeIf(url === pathname)}>{title}</a>
+              <a className={activeIf(pathname.includes(url))}>{title}</a>
             </Link>
           </li>
         ))}
