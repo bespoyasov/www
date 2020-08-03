@@ -6,6 +6,8 @@ export type RelativePath = string;
 export type AbsoluteUrl = string;
 export type UrlSlug = string;
 
+export type ClassName = string;
+
 export type List<TEntity> = TEntity[];
 export type Dict<TValue> = Record<string, TValue>;
 
