@@ -1,0 +1,7 @@
+.showcase {
+  padding: var(--vertical-gap) 0 0 0;
+}
+
+.showcase h1:first-child {
+  margin-top: 0;
+}
