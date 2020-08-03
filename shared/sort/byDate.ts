@@ -1,5 +1,10 @@
-import { UnixTimeStamp } from "@shared/types";
+import { UnixTimeStamp, Comparable } from "@shared/types";
 import { Metadata } from "@domain/metadata";
-import { sortWith } from "./sortWith";
+import { sortWith, SortDirection } from "./sortWith";
 
-export const byDate = sortWith(({ datetime }: Metadata): UnixTimeStamp => Date.parse(datetime));
+function extractComparableDate({ datetime }: Metadata): Comparable<UnixTimeStamp> {
+  return Date.parse(datetime);
+}
+
+export const byDate = sortWith(extractComparableDate);
+export const byDateDescending = sortWith(extractComparableDate, SortDirection.Descending);
