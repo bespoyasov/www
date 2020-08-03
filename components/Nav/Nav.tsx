@@ -1,17 +1,21 @@
 import React, { HTMLAttributes } from "react";
 import Link from "next/link";
+import { useRouter } from "next/router";
 import { classes } from "@shared/classes";
 import { internal, external } from "./routes";
+import { activeIf } from "./activeIf";
 import styles from "./Nav.module.css";
 
 export const Nav: React.FC<HTMLAttributes<HTMLElement>> = ({ className }) => {
+  const { pathname } = useRouter();
+
   return (
     <nav className={classes(styles.nav, className)}>
       <ul>
         {internal.map(({ url, title }) => (
           <li key={title}>
             <Link href={url}>
-              <a>{title}</a>
+              <a className={activeIf(url === pathname)}>{title}</a>
             </Link>
           </li>
         ))}
