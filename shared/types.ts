@@ -1,3 +1,4 @@
+export type UnixTimeStamp = number;
 export type DateTimeIsoString = string;
 export type LocalizedDateString = string;
 
