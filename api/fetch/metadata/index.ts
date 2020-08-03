@@ -1,6 +1,7 @@
 import remark from "remark";
 import markdown from "remark-mdx";
 import { List } from "@shared/types";
+import { byDateDescending } from "@shared/sort";
 import { parseObject } from "@shared/parseObject";
 import { Metadata } from "@domain/metadata";
 import { exportsOf, metadataOf } from "@domain/ast";
@@ -25,6 +26,7 @@ function metadataFor(query: Query): FetchRequest {
       results.push(object);
     }
 
+    results.sort(byDateDescending);
     return results;
   };
 }
