@@ -19,17 +19,20 @@ body {
   margin: 0;
 }
 
-h1 {
+h1,
+.title {
   font-size: var(--header-font-size);
   line-height: var(--header-line-height);
 }
 
-h2 {
+h2,
+.header {
   font-size: var(--subheader-font-size);
   line-height: var(--subheader-line-height);
 }
 
-h3 {
+h3,
+.subheader {
   font-size: var(--base-font-size);
   line-height: var(--base-line-height);
 }
