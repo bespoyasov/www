@@ -1,0 +1,7 @@
+.section {
+  padding-top: var(--vertical-gap);
+}
+
+.section h2 {
+  margin-top: 0;
+}
