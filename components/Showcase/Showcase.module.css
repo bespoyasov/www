@@ -5,3 +5,9 @@
 .showcase h1:first-child {
   margin-top: 0;
 }
+
+.showcase ul {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  column-gap: var(--gap);
+}
