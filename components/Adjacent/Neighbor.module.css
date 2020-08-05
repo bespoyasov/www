@@ -1,0 +1,7 @@
+.prev::before {
+  content: "←";
+}
+
+.next::after {
+  content: "→";
+}

@@ -16,11 +16,3 @@
 .adjacent > *:last-child {
   margin-right: 0;
 }
-
-.adjacent a:first-of-type::before {
-  content: "←";
-}
-
-.adjacent a:last-of-type::after {
-  content: "→";
-}
