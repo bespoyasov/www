@@ -12,10 +12,11 @@ type NeighborProps = {
 
 export const Neighbor: React.FC<NeighborProps> = ({ is: kind, describes: entity }) => {
   const { pathname } = useRouter();
+  const className = styles[kind];
 
   return (
     <Link href={pathname} as={entity.slug}>
-      <a className={styles[kind]}>{entity.title}</a>
+      <a className={className}>{entity.title}</a>
     </Link>
   );
 };
