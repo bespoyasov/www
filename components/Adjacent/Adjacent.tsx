@@ -11,8 +11,8 @@ type AdjacentProps = {
 export const Adjacent: React.FC<AdjacentProps> = ({ prev, next }) => {
   return (
     <menu className={styles.adjacent}>
-      {!!prev && <Neighbor is={prev} />}
-      {!!next && <Neighbor is={next} />}
+      {!!prev && <Neighbor is="prev" describes={prev} />}
+      {!!next && <Neighbor is="next" describes={next} />}
     </menu>
   );
 };
