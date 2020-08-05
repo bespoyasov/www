@@ -10,6 +10,7 @@ export type ClassName = string;
 
 export type List<TEntity> = TEntity[];
 export type Dict<TValue> = Record<string, TValue>;
+export type Collection<TValue> = List<TValue> | Dict<TValue>;
 
 export type Nullable<TEntity> = TEntity | null;
 export type Optional<TEntity> = TEntity | undefined;
@@ -19,3 +20,5 @@ export type AnyComparable = string | number;
 export type Comparable<TEntity extends AnyComparable> = TEntity;
 
 export type AnyObject = Dict<unknown>;
+export type AnyList = List<unknown>;
+export type AnyCollection = Collection<unknown>;
