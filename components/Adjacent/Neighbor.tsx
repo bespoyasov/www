@@ -4,12 +4,13 @@ import { useRouter } from "next/router";
 import { Metadata } from "@domain/metadata";
 import styles from "./Neighbor.module.css";
 
-type ItemProps = {
+type NeighborKind = "prev" | "next";
+type NeighborProps = {
   describes: Metadata;
-  is: "prev" | "next";
+  is: NeighborKind;
 };
 
-export const Neighbor: React.FC<ItemProps> = ({ is: kind, describes: entity }) => {
+export const Neighbor: React.FC<NeighborProps> = ({ is: kind, describes: entity }) => {
   const { pathname } = useRouter();
 
   return (
