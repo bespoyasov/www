@@ -5,10 +5,11 @@ type BlogSectionProps = {
   title: string;
 };
 
-export const BlogSection: React.FC<BlogSectionProps> = ({ title }) => {
+export const BlogSection: React.FC<BlogSectionProps> = ({ title, children }) => {
   return (
     <section className={styles.section}>
       <h2 className="title">{title}</h2>
+      {children}
     </section>
   );
 };
