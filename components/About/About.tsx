@@ -5,7 +5,7 @@ import styles from "./About.module.css";
 export const About: React.FC = () => {
   return (
     <main className={styles.about}>
-      <VisuallyHidden element="h2">Обо мне</VisuallyHidden>
+      <VisuallyHidden as="h2">Обо мне</VisuallyHidden>
       <div>
         <p>Фронтенд‑разработчик из Москвы.</p>
         <p>
