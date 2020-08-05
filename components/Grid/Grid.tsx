@@ -10,14 +10,14 @@ function of(columns: ColumnsCount): ClassNameModifier {
 }
 
 type GridProps = {
-  element?: keyof JSX.IntrinsicElements;
-  columns?: ColumnsCount;
+  as?: keyof JSX.IntrinsicElements;
+  of?: ColumnsCount;
 };
 
 export const Grid: React.FC<GridProps> = ({
   children,
-  columns: columnsCount = 4,
-  element: Element = "div",
+  of: columnsCount = 4,
+  as: Element = "div",
 }) => {
   const { grid } = styles;
   return <Element className={is(grid, of(columnsCount))}>{children}</Element>;

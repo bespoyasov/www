@@ -14,7 +14,7 @@ export const Showcase: React.FC<ShowcaseProps> = ({ projects }) => {
       <h1>Все проекты</h1>
       <p>Сайты, приложения и книги, над которыми я успел поработать.</p>
 
-      <Grid element="ul">
+      <Grid as="ul">
         {projects.map((project) => (
           <li key={project.slug}>
             <Preview metadata={project} />
