@@ -14,7 +14,7 @@ export const Picture: React.FC<PictureProps> = ({ src, alt, cite, caption }) => 
           <img src={src} alt={alt} loading="lazy" />
         </picture>
       </a>
-      {!!caption && <figcaption>{caption}</figcaption>}
+      <figcaption>{caption || alt}</figcaption>
     </figure>
   );
 };
