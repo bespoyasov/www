@@ -4,12 +4,14 @@ import { MDXProvider } from "@mdx-js/react";
 import { Blockquote } from "@components/Blockquote";
 import { Highlight } from "@components/Highlight";
 import { LinkProxy } from "@components/LinkProxy";
+import { CodeBlock } from "@components/CodeBlock";
 import { Picture } from "@components/Picture";
 import styles from "./Post.module.css";
 
 const substitutes = {
   blockquote: Blockquote,
   mark: Highlight,
+  pre: CodeBlock,
   img: Picture,
   a: LinkProxy,
 };
