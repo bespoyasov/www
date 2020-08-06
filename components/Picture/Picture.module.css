@@ -1,10 +1,6 @@
 .picture {
   max-width: var(--max-media-width);
-  margin: 0;
-}
-
-.picture + .picture {
-  margin-top: var(--vertical-gap);
+  margin: 0 0 var(--vertical-gap);
 }
 
 .limited {
