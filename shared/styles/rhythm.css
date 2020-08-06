@@ -32,6 +32,8 @@ ul {
 h1 + p,
 h2 + p,
 h3 + p,
+h2 + ol,
+h2 + ul,
 h3 + ol,
 h3 + ul,
 h3 + blockquote,
