@@ -4,6 +4,10 @@
   column-gap: var(--gap);
 }
 
+.section h3 {
+  margin: 0;
+}
+
 .section ul + h3 {
   margin-top: var(--vertical-gap);
 }
