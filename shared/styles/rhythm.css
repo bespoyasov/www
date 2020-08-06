@@ -16,6 +16,10 @@ h2 {
   margin-bottom: var(--vertical-gap-small);
 }
 
+h3 {
+  margin-top: var(--vertical-gap);
+}
+
 p,
 pre,
 mark,
