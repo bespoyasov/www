@@ -1,5 +1,5 @@
 import React from "react";
-import { chunk } from "@shared/chunk";
+import { splitInto } from "@shared/splitInto";
 import { Metadata } from "@domain/metadata";
 import { List } from "@components/Notes/List";
 import styles from "./All.module.css";
@@ -10,7 +10,7 @@ type AllNotesProps = {
 
 export const AllNotes: React.FC<AllNotesProps> = ({ notes }) => {
   const columnsCount = 2;
-  const columnsContent = chunk(notes, columnsCount);
+  const columnsContent = splitInto(notes, columnsCount);
 
   return (
     <div className={styles.section}>
