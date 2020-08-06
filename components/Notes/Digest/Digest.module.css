@@ -1,13 +1,18 @@
 .section {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
+  margin-top: calc(-1 * var(--vertical-gap));
   column-gap: var(--gap);
 }
 
-.section h3 {
-  margin: 0;
+@media (max-width: 1000px) {
+  .section {
+    grid-template-columns: repeat(2, 1fr);
+  }
 }
 
-.section ul + h3 {
-  margin-top: var(--vertical-gap);
+@media (max-width: 640px) {
+  .section {
+    grid-template-columns: 1fr;
+  }
 }
