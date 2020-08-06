@@ -17,6 +17,7 @@ h2 {
 }
 
 p,
+pre,
 mark,
 blockquote {
   margin: var(--vertical-gap) 0;
