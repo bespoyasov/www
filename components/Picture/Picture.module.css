@@ -3,6 +3,10 @@
   margin: 0;
 }
 
+.picture + .picture {
+  margin-top: var(--vertical-gap);
+}
+
 .limited {
   max-width: calc(var(--max-media-width) / 2);
 }
