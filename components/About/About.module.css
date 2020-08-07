@@ -1,7 +1,31 @@
 .about {
+  --columns-count: 1;
+
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  margin-top: calc(-1 * var(--header-height));
-  padding: var(--vertical-gap) 0 0 50%;
+  grid-template-columns: repeat(var(--columns-count), 1fr);
   column-gap: var(--gap);
+}
+
+@media (min-width: 640px) {
+  .about {
+    --columns-count: 2;
+  }
+}
+
+@media (min-width: 860px) {
+  .about {
+    --left-offset: 65%;
+    --columns-count: 1;
+
+    margin-top: calc(-1 * var(--header-height));
+    padding-top: var(--vertical-gap);
+    padding-left: var(--left-offset);
+  }
+}
+
+@media (min-width: 1200px) {
+  .about {
+    --left-offset: 50%;
+    --columns-count: 2;
+  }
 }
