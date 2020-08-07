@@ -7,7 +7,27 @@
 }
 
 .showcase ul {
+  --columns-count: 1;
+
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(var(--columns-count), 1fr);
   column-gap: var(--gap);
+}
+
+@media (min-width: 640px) {
+  .showcase ul {
+    --columns-count: 2;
+  }
+}
+
+@media (min-width: 860px) {
+  .showcase ul {
+    --columns-count: 3;
+  }
+}
+
+@media (min-width: 1000px) {
+  .showcase ul {
+    --columns-count: 4;
+  }
 }
