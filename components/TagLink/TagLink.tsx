@@ -1,9 +1,9 @@
 import React from "react";
 import Link from "next/link";
-import { Tag as TagEnum, Tags } from "@domain/tags";
+import { Tag as TagEnum, TagKind } from "@domain/tags";
 
 type TagLinkProps = {
-  tag: Tags;
+  tag: TagKind;
 };
 
 export const TagLink: React.FC<TagLinkProps> = ({ tag }) => {

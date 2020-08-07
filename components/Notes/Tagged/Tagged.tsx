@@ -1,11 +1,11 @@
 import React from "react";
-import { Tags } from "@domain/tags";
+import { TagKind } from "@domain/tags";
 import { Metadata } from "@domain/metadata";
 import { TagLink } from "@components/TagLink";
 import { List } from "@components/Notes/List";
 
 type TaggedProps = {
-  with: Tags;
+  with: TagKind;
   from: Metadata[];
 };
 

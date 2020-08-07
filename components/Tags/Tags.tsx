@@ -1,11 +1,11 @@
 import React from "react";
 import { List } from "@shared/types";
 import { TagLink } from "@components/TagLink";
-import { Tags as TagsType } from "@domain/tags/types";
+import { TagKind } from "@domain/tags/types";
 import styles from "./Tags.module.css";
 
 type TagsProps = {
-  tags: List<TagsType>;
+  tags: List<TagKind>;
 };
 
 export const Tags: React.FC<TagsProps> = ({ tags }) => {
