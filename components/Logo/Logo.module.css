@@ -8,6 +8,7 @@
   display: block;
   order: 1;
   margin: 0;
+  font-weight: 700;
   font-size: 1rem;
   font-family: var(--font-sans-serif);
   line-height: inherit;
