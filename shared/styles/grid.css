@@ -1,4 +1,10 @@
 :root {
-  --offset: 30px;
+  --offset: 20px;
   --gap: 20px;
+}
+
+@media (min-width: 1000px) {
+  :root {
+    --offset: 30px;
+  }
 }
