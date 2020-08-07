@@ -10,7 +10,7 @@ type TaggedProps = {
 };
 
 export const Tagged: React.FC<TaggedProps> = ({ with: tag, from: notes }) => {
-  const notesCount = 10;
+  const notesCount = 7;
   const forTag = notes.filter(({ tags }) => tags.includes(tag)).slice(0, notesCount);
 
   return (

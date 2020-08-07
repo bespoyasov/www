@@ -13,17 +13,17 @@ export const Digest: React.FC<DigestProps> = ({ notes }) => {
     <div className={styles.section}>
       <div>
         <h3>Последние заметки</h3>
-        <List notes={notes.slice(0, 20)} />
+        <List notes={notes.slice(0, 15)} />
       </div>
 
       <div>
         <Tagged with="Dev" from={notes} />
-        <Tagged with="Opinion" from={notes} />
+        <Tagged with="Travel" from={notes} />
       </div>
 
       <div>
         <Tagged with="Books" from={notes} />
-        <Tagged with="Travel" from={notes} />
+        <Tagged with="Opinion" from={notes} />
       </div>
 
       <div>
