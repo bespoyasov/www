@@ -6,10 +6,12 @@ import { Highlight } from "@components/Highlight";
 import { LinkProxy } from "@components/LinkProxy";
 import { CodeBlock } from "@components/CodeBlock";
 import { Picture } from "@components/Picture";
+import { Table } from "@components/Table";
 import styles from "./Post.module.css";
 
 const substitutes = {
   blockquote: Blockquote,
+  table: Table,
   mark: Highlight,
   pre: CodeBlock,
   img: Picture,
