@@ -2,7 +2,7 @@
   --font-sans-serif: "PT Sans", sans-serif;
   --font-monospace: "PT Mono", monospace;
 
-  --base-font-size: 18px;
+  --base-font-size: 16px;
   --base-line-height: 1.5;
 
   --small-font-size: 0.8rem;
@@ -15,8 +15,8 @@
   --subheader-line-height: 1.33;
 }
 
-@media (max-width: 1000px) {
+@media (min-width: 1000px) {
   :root {
-    --base-font-size: 16px;
+    --base-font-size: 18px;
   }
 }
