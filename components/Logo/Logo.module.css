@@ -7,18 +7,14 @@
 .label {
   display: block;
   order: 1;
-  margin: 10px 0 0 10px;
-  font-weight: 700;
+  margin: 0;
   font-size: 1rem;
   font-family: var(--font-sans-serif);
   line-height: inherit;
 }
 
 .photo {
-  width: var(--logo-image-size);
-  height: var(--logo-image-size);
-  overflow: hidden;
-  border-radius: 50%;
+  display: none;
 }
 
 .photo img {
@@ -26,4 +22,19 @@
   width: 100%;
   height: 100%;
   user-select: none;
+}
+
+@media (min-width: 640px) {
+  .photo {
+    display: block;
+    width: var(--logo-image-size);
+    height: var(--logo-image-size);
+    overflow: hidden;
+    border-radius: 50%;
+  }
+
+  .label {
+    margin-top: 10px;
+    margin-left: 10px;
+  }
 }
