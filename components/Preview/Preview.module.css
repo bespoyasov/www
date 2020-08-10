@@ -1,0 +1,25 @@
+.preview {
+  position: relative;
+}
+
+.preview img {
+  max-width: 100%;
+  border-radius: 5px;
+}
+
+.preview p {
+  margin: 0;
+}
+
+.preview h2 {
+  margin-top: 0;
+}
+
+.preview a::before {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  content: "";
+}
