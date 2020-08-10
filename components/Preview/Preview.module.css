@@ -4,7 +4,7 @@
 
 .preview img {
   max-width: 100%;
-  border-radius: 5px;
+  border-radius: var(--corner-radius);
 }
 
 .preview p {
