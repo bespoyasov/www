@@ -25,7 +25,7 @@ export enum Tag {
   Learning = "Обучение",
   Links = "Ссылки",
 
-  Math = "Математика",
+  Maths = "Математика",
   Management = "Управление",
   Music = "Музыка",
 
