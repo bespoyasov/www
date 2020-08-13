@@ -1,6 +1,7 @@
 import React from "react";
 import Link from "next/link";
 import { Metadata } from "@domain/metadata";
+import { Cover } from "./Cover";
 import styles from "./Preview.module.css";
 
 type PreviewProps = {
@@ -8,11 +9,11 @@ type PreviewProps = {
 };
 
 export const Preview: React.FC<PreviewProps> = ({ metadata }) => {
-  const { slug, title, description, preview: cover } = metadata;
+  const { slug, title, description } = metadata;
 
   return (
     <div className={styles.preview}>
-      {!!cover && <img src={cover} alt={title} />}
+      <Cover metadata={metadata} />
       <h2>
         <Link href={slug} as={slug}>
           <a className="text-color">{title}</a>
