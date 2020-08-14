@@ -23,7 +23,6 @@ export enum Tag {
   History = "История",
 
   Learning = "Обучение",
-  Links = "Ссылки",
 
   Maths = "Математика",
   Management = "Управление",
@@ -42,13 +41,16 @@ export enum Tag {
   Reflection = "Рефлексия",
   Running = "Пробежки",
 
+  Solid = "SOLID",
   Space = "Космос",
   Story = "Офигительная история",
   Summary = "Конспект",
 
-  Text = "Редактура",
+  Tdd = "TDD",
+  Text = "Тексты и редактура",
   Tools = "Инструменты",
   Travel = "Мир",
+  Tzlvt = "Тяжеловато",
 
   Urban = "Урбанистика",
 }
