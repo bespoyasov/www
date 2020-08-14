@@ -1,0 +1,12 @@
+User-agent: *
+Disallow: /projects-fish*
+Disallow: /css*
+Disallow: /js*
+Disallow: /img*
+Disallow: /disk*
+Disallow: /favicons*
+Disallow: /taskman*
+Disallow: /test*
+Disallow: /video*
+Disallow: /drive2
+Disallow: /subdomains*
