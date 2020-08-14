@@ -11,7 +11,7 @@ export const Showcase: React.FC<ShowcaseProps> = ({ projects }) => {
   return (
     <main className={styles.showcase}>
       <h1>Все проекты</h1>
-      <p>Сайты, приложения и книги, над которыми я успел поработать.</p>
+      <p>Последние сайты, приложения и книги, над которыми я работал.</p>
 
       <ul className="reset">
         {projects.map((project) => (
