@@ -1,4 +1,5 @@
 .header {
+  margin: 0 0 var(--vertical-gap);
   padding: var(--vertical-gap) 0;
 }
 

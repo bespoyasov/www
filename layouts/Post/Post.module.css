@@ -1,6 +1,5 @@
 .post {
   max-width: var(--max-content-width);
-  padding-top: var(--vertical-gap);
   padding-bottom: var(--vertical-gap-large);
 }
 
