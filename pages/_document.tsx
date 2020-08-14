@@ -1,5 +1,6 @@
 import React from "react";
 import Document, { Html, Head, Main, NextScript, DocumentContext } from "next/document";
+import { HeadContents } from "@components/HeadContents";
 
 class MyDocument extends Document {
   static async getInitialProps(ctx: DocumentContext) {
@@ -11,12 +12,7 @@ class MyDocument extends Document {
     return (
       <Html>
         <Head>
-          <meta charSet="utf-8" />
-
-          <link
-            href="https://fonts.googleapis.com/css?family=PT+Mono%7CPT+Sans:400,400i,700%7C&amp;subset=cyrillic-ext&amp;display=swap"
-            rel="stylesheet"
-          />
+          <HeadContents />
         </Head>
         <body>
           <Main />
