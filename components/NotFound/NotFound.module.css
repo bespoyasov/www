@@ -1,0 +1,12 @@
+.container {
+  display: grid;
+  align-content: center;
+  justify-content: center;
+  min-height: 70vh;
+  text-align: center;
+}
+
+.container h1 {
+  font-size: 8rem;
+  line-height: 0.8;
+}
