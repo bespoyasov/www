@@ -1,19 +1,15 @@
 import React from "react";
-import { UrlSlug, RelativePath } from "@shared/types";
 import { Metadata } from "@domain/metadata";
-
-type PostSlug = UrlSlug;
-type ImageSource = RelativePath;
-
-function composeSource(slug: PostSlug): ImageSource {
-  return ["/img", slug, "/cover.png"].join("");
-}
+import { ImageExtension } from "@domain/image";
+import { imageSourceFor } from "./imageSourceFor";
 
 type CoverProps = {
   for: Metadata;
+  withExtension?: ImageExtension;
 };
 
-export const Cover: React.FC<CoverProps> = ({ for: entity }) => {
-  const { slug, title } = entity;
-  return <img src={composeSource(slug)} alt={title} />;
+export const Cover: React.FC<CoverProps> = ({ for: entity, withExtension = "png" }) => {
+  const { title } = entity;
+  const source = imageSourceFor(entity, withExtension);
+  return <img src={source} alt={title} />;
 };
