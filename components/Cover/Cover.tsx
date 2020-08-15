@@ -2,10 +2,10 @@ import React from "react";
 import { UrlSlug, RelativePath } from "@shared/types";
 import { Metadata } from "@domain/metadata";
 
-type ProjectSlug = UrlSlug;
+type PostSlug = UrlSlug;
 type ImageSource = RelativePath;
 
-function composeSource(slug: ProjectSlug): ImageSource {
+function composeSource(slug: PostSlug): ImageSource {
   return ["/img", slug, "/cover.png"].join("");
 }
 
