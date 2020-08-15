@@ -10,10 +10,10 @@ function composeSource(slug: ProjectSlug): ImageSource {
 }
 
 type CoverProps = {
-  metadata: Metadata;
+  for: Metadata;
 };
 
-export const Cover: React.FC<CoverProps> = ({ metadata }) => {
-  const { slug, title } = metadata;
+export const Cover: React.FC<CoverProps> = ({ for: entity }) => {
+  const { slug, title } = entity;
   return <img src={composeSource(slug)} alt={title} />;
 };
