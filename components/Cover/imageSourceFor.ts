@@ -6,6 +6,6 @@ type PathComponents = List<UrlSlug | ImageExtension>;
 
 export function imageSourceFor({ slug }: Metadata, extension: ImageExtension): ImageSource {
   const directory: PathComponents = ["/img", slug];
-  const filename: PathComponents = ["/cover", extension];
+  const filename: PathComponents = ["/cover", `.${extension}`];
   return [...directory, ...filename].join("");
 }
