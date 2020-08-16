@@ -1,6 +1,6 @@
 :root {
   --offset: 20px;
-  --gap: 20px;
+  --gap: 25px;
 }
 
 @media (min-width: 1000px) {
