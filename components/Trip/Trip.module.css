@@ -1,0 +1,18 @@
+.trip h2,
+.trip p {
+  margin: 0;
+}
+
+.cover {
+  position: relative;
+  margin-bottom: var(--vertical-gap-small);
+  padding-top: 66.66%;
+}
+
+.cover img {
+  position: absolute;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
