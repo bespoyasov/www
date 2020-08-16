@@ -1,11 +1,11 @@
 import React from "react";
-import styles from "./BlogSection.module.css";
+import styles from "./Section.module.css";
 
-type BlogSectionProps = {
+type SectionProps = {
   title: string;
 };
 
-export const BlogSection: React.FC<BlogSectionProps> = ({ title, children }) => {
+export const Section: React.FC<SectionProps> = ({ title, children }) => {
   return (
     <section className={styles.section}>
       <h2 className="title">{title}</h2>

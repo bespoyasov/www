@@ -4,7 +4,7 @@ import { GetStaticProps } from "next";
 
 import { VisuallyHidden } from "@components/VisuallyHidden";
 import { Description } from "@components/Description";
-import { BlogSection } from "@components/BlogSection";
+import { Section } from "@components/Section";
 import { AllNotes, Digest } from "@components/Notes";
 
 import { Metadata } from "@domain/metadata";
@@ -32,13 +32,13 @@ const Blog: React.FC<BlogProps> = ({ posts }) => {
 
       <VisuallyHidden as="h1">Все заметки</VisuallyHidden>
 
-      <BlogSection title="Свежее">
+      <Section title="Свежее">
         <Digest notes={posts} />
-      </BlogSection>
+      </Section>
 
-      <BlogSection title="Всё подряд">
+      <Section title="Всё подряд">
         <AllNotes notes={posts} />
-      </BlogSection>
+      </Section>
     </main>
   );
 };
