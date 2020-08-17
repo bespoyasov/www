@@ -8,4 +8,5 @@ export function withTag(tag: TagKind): FilterFunction<Metadata> {
   };
 }
 
+export const withTravelTag = withTag("Travel");
 export const withDevTag = withTag("Dev");

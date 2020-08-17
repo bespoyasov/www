@@ -6,6 +6,7 @@ import { Description } from "@components/Description";
 import { Trips } from "@components/Trips";
 
 import { Metadata } from "@domain/metadata";
+import { withTravelTag } from "@shared/filter";
 import { blogPostsMetadata } from "@api/fetch";
 
 type TravelProps = {
@@ -14,7 +15,7 @@ type TravelProps = {
 
 export const getStaticProps: GetStaticProps<TravelProps> = async () => {
   const allPosts = await blogPostsMetadata();
-  const travelPosts = allPosts.filter((post) => post.tags.includes("Travel"));
+  const travelPosts = allPosts.filter(withTravelTag);
 
   return {
     props: {
