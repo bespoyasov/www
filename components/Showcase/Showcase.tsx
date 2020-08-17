@@ -1,6 +1,6 @@
 import React from "react";
 import { Metadata } from "@domain/metadata";
-import { Preview } from "@components/Preview";
+import { ProjectsList } from "@components/ProjectsList";
 import styles from "./Showcase.module.css";
 
 type ShowcaseProps = {
@@ -12,14 +12,7 @@ export const Showcase: React.FC<ShowcaseProps> = ({ projects }) => {
     <main className={styles.showcase}>
       <h1>Все проекты</h1>
       <p>Последние сайты, приложения и книги, над которыми я работал.</p>
-
-      <ul className="reset">
-        {projects.map((project) => (
-          <li key={project.slug}>
-            <Preview metadata={project} />
-          </li>
-        ))}
-      </ul>
+      <ProjectsList projects={projects} />
     </main>
   );
 };
