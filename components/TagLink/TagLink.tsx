@@ -8,10 +8,8 @@ type TagLinkProps = {
 };
 
 export const TagLink: React.FC<TagLinkProps> = ({ tag }) => {
-  const id = tag.toLowerCase();
   const value = TagEnum[tag];
-
-  const realPath = `/tag/${id}`;
+  const realPath = `/tag/${tag}`;
   const pathTemplate = "/tag/[id]";
   const path = isStatic(tag) ? realPath : pathTemplate;
 

@@ -17,18 +17,18 @@ export const Digest: React.FC<DigestProps> = ({ notes }) => {
       </div>
 
       <div>
-        <Tagged with="Dev" from={notes} />
-        <Tagged with="Travel" from={notes} />
+        <Tagged with="dev" from={notes} />
+        <Tagged with="travel" from={notes} />
       </div>
 
       <div>
-        <Tagged with="Books" from={notes} />
-        <Tagged with="Opinion" from={notes} />
+        <Tagged with="books" from={notes} />
+        <Tagged with="opinion" from={notes} />
       </div>
 
       <div>
-        <Tagged with="Process" from={notes} />
-        <Tagged with="Brain" from={notes} />
+        <Tagged with="process" from={notes} />
+        <Tagged with="brain" from={notes} />
       </div>
     </div>
   );
