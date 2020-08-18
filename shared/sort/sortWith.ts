@@ -5,14 +5,15 @@ export enum SortDirection {
   Descending = "desc",
 }
 
-type TransformFunction = (arg: AnyObject) => AnyComparable;
-type CompareFunction = (a: AnyObject, b: AnyObject) => number;
+type Sortable = AnyObject | AnyComparable;
+type CompareFunction = (a: Sortable, b: Sortable) => number;
+type TransformFunction = (arg: Sortable) => AnyComparable;
 
 export function sortWith(
   transform: TransformFunction,
   direction: SortDirection = SortDirection.Ascending,
 ): CompareFunction {
-  return function (a: AnyObject, b: AnyObject): number {
+  return function (a: Sortable, b: Sortable): number {
     const compareResult = direction === SortDirection.Ascending ? -1 : 1;
     return transform(a) < transform(b) ? compareResult : -compareResult;
   };
