@@ -8,6 +8,7 @@ import { ProjectsList } from "@components/ProjectsList";
 import { AllNotes } from "@components/Notes";
 import { Section } from "@components/Section";
 
+import { assureType } from "@shared/assureType";
 import { UrlSlug } from "@shared/types";
 import { withTag } from "@shared/filter";
 import { Metadata } from "@domain/metadata";
@@ -18,10 +19,6 @@ type TagProps = {
   projects: Metadata[];
   notes: Metadata[];
 };
-
-function assureType<TType>(id: unknown): TType {
-  return id as TType;
-}
 
 function excludeTravel(tag: TagKind): boolean {
   return tag !== "travel";
