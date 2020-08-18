@@ -44,6 +44,7 @@ h3 + ul,
 h3 + blockquote,
 blockquote > ul,
 blockquote > ol,
-p:first-child {
+p:first-child,
+.frontline {
   margin-top: 0;
 }
