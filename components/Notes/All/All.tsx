@@ -1,4 +1,5 @@
 import React from "react";
+import { sizeOf } from "@shared/sizeOf";
 import { splitInto } from "@shared/splitInto";
 import { Metadata } from "@domain/metadata";
 import { List } from "@components/Notes/List";
@@ -9,7 +10,8 @@ type AllNotesProps = {
 };
 
 export const AllNotes: React.FC<AllNotesProps> = ({ notes }) => {
-  const columnsCount = 2;
+  const minNotesInColumn = 5;
+  const columnsCount = sizeOf(notes) >= minNotesInColumn ? 2 : 1;
   const columnsContent = splitInto(notes, columnsCount);
 
   return (
