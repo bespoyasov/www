@@ -1,11 +1,12 @@
 import { Metadata } from "@domain/metadata";
 import { OverloadsFor } from "./types";
+import { defaultDatetime } from "./datetime";
 
 export function generate(overloads: OverloadsFor<Metadata> = {}): Metadata {
   return {
     title: overloads.title ?? "Title",
     description: overloads.description ?? "Description",
-    datetime: overloads.datetime ?? "2020-08-04T12:00:00.000Z",
+    datetime: overloads.datetime ?? defaultDatetime,
     slug: overloads.slug ?? "/",
     tags: overloads.tags ?? [],
   };
