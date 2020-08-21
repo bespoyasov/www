@@ -1,0 +1,16 @@
+{
+  "testMatch": ["**/__tests__/**/*.+(ts|tsx)", "**/?(*.)+(spec|test).+(ts|tsx)"],
+  "transform": {
+    "^.+\\.(ts|tsx)$": "ts-jest"
+  },
+  "moduleNameMapper": {
+    "^@api(.*)$": "<rootDir>/api$1",
+    "^@components(.*)$": "<rootDir>/components$1",
+    "^@domain(.*)$": "<rootDir>/domain$1",
+    "^@effects(.*)$": "<rootDir>/effects$1",
+    "^@layouts(.*)$": "<rootDir>/layouts$1",
+    "^@persistence(.*)$": "<rootDir>/persistence$1",
+    "^@server(.*)$": "<rootDir>/server$1",
+    "^@shared(.*)$": "<rootDir>/shared$1"
+  }
+}
