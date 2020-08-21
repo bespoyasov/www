@@ -12,7 +12,8 @@
     "lint:es": "npx eslint . --ext .ts,.tsx",
     "lint:fix": "npm run lint:es -- --fix",
     "lint:style": "npx stylelint '**/*.css'",
-    "test": "npx jest --watch"
+    "test": "npx jest",
+    "test:dev": "npx jest --watch"
   },
   "repository": {
     "type": "git",
