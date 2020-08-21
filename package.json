@@ -11,7 +11,8 @@
     "format": "npx prettier --write .",
     "lint:es": "npx eslint . --ext .ts,.tsx",
     "lint:fix": "npm run lint:es -- --fix",
-    "lint:style": "npx stylelint '**/*.css'"
+    "lint:style": "npx stylelint '**/*.css'",
+    "test": "npx jest --watch"
   },
   "repository": {
     "type": "git",
