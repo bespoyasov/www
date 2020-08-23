@@ -12,8 +12,8 @@ describe("shared > sort > byDate", () => {
   });
 
   it("should throw if there is no `datetime` field in list objects", () => {
-    const record: AnyObject = {};
-    const call = () => byDate(record, record);
+    const fakeRecord: AnyObject = {};
+    const call = () => byDate(fakeRecord, fakeRecord);
     expect(call).toThrowErrorMatchingInlineSnapshot(`"Failed to sort by missing datetime field."`);
   });
 });
