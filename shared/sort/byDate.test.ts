@@ -1,6 +1,6 @@
-import { byDate, CompareResult } from ".";
 import { AnyObject } from "@shared/types";
 import { generate, metadata, oneDayAfter } from "@shared/stubs";
+import { byDate, CompareResult, byDateDescending } from ".";
 
 describe("shared > sort > byDate", () => {
   it("should return a compare result by `datetime` field, ascending", () => {
@@ -15,5 +15,15 @@ describe("shared > sort > byDate", () => {
     const record: AnyObject = {};
     const call = () => byDate(record, record);
     expect(call).toThrowErrorMatchingInlineSnapshot(`"Failed to sort by missing datetime field."`);
+  });
+});
+
+describe("shared > sort > byDateDescending", () => {
+  it("should return a compare result by `datetime` field, descending", () => {
+    const earlier = metadata;
+    const later = generate({ datetime: oneDayAfter });
+
+    expect(byDateDescending(earlier, later)).toEqual(CompareResult.BThenA);
+    expect(byDateDescending(later, earlier)).toEqual(CompareResult.AThenB);
   });
 });
