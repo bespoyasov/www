@@ -1,15 +1,5 @@
 import { AnyObject, AnyComparable } from "@shared/types";
-
-export enum SortDirection {
-  Ascending = "asc",
-  Descending = "desc",
-}
-
-export enum CompareResult {
-  AThenB = -1,
-  BThenA = 1,
-  Equal = 0,
-}
+import { CompareResult, SortDirection } from "./types";
 
 type Sortable = AnyObject | AnyComparable;
 type CompareFunction = (a: Sortable, b: Sortable) => CompareResult;

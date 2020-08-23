@@ -1,7 +1,6 @@
-import { byDate } from ".";
+import { byDate, CompareResult } from ".";
 import { AnyObject } from "@shared/types";
 import { generate, metadata, oneDayAfter } from "@shared/stubs";
-import { CompareResult } from "./sortWith";
 
 describe("shared > sort > byDate", () => {
   it("should return a compare result by `datetime` field, ascending", () => {
