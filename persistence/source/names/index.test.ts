@@ -1,6 +1,7 @@
+import { RelativePath } from "@shared/types";
 import { assureType } from "@shared/assureType";
 import { SystemType } from "../composition";
-import { projectsList } from ".";
+import { projectsList, blogPostsList } from ".";
 
 function mockSystem(method: keyof SystemType, implementation: () => unknown): SystemType {
   return assureType<SystemType>({ [method]: implementation });
@@ -20,4 +21,25 @@ describe("persistence > source > names > executor", () => {
     const system = mockSystem("readdirSync", () => files);
     expect(projectsList({ system })).toEqual(expected);
   });
+});
+
+type Executor = typeof projectsList | typeof blogPostsList;
+
+function testDirectory(directory: RelativePath, executor: Executor): void {
+  const mock = jest.fn();
+  const system = mockSystem("readdirSync", (...args) => {
+    mock(...args);
+    return [];
+  });
+
+  executor({ system });
+  expect(mock.mock.calls[0][0].endsWith(directory)).toEqual(true);
+}
+
+describe("persistence > source > names > projectsList", () => {
+  it("should read projects directory", () => testDirectory("pages/projects", projectsList));
+});
+
+describe("persistence > source > names > blogPostsList", () => {
+  it("should read blog directory", () => testDirectory("pages/blog", blogPostsList));
 });
