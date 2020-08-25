@@ -5,10 +5,10 @@ import { PROJECTS_DIRECTORY, BLOG_DIRECTORY } from "@persistence/const";
 import { Dependencies, di } from "../composition";
 
 type QueryKind = typeof PROJECTS_DIRECTORY | typeof BLOG_DIRECTORY;
-type Executor = () => List<PostId>;
+type Executor = (di?: Dependencies) => List<PostId>;
 
-function queryFor(directory: QueryKind, { system }: Dependencies = di): Executor {
-  return function execute(): List<PostId> {
+function queryFor(directory: QueryKind): Executor {
+  return function execute({ system }: Dependencies = di): List<PostId> {
     return system
       .readdirSync(directory)
       .filter(onlyMdx)
