@@ -6,7 +6,7 @@ function mockSystem(method: keyof SystemType, implementation: () => unknown): Sy
   return assureType<SystemType>({ [method]: implementation });
 }
 
-describe("persistence > source > names > projectsList", () => {
+describe("persistence > source > names > executor", () => {
   it("should return a list of filenames without extensions in projects directory", () => {
     const files = ["file1.mdx", "file2.mdx", "3.mdx"];
     const expected = ["file1", "file2", "3"];
