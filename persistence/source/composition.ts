@@ -1,7 +1,8 @@
 import fs from "fs";
 
+export type SystemType = typeof fs;
 export type Dependencies = {
-  system?: typeof fs;
+  system?: SystemType;
 };
 
 export const di: Dependencies = { system: fs };
