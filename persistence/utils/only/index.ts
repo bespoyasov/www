@@ -3,7 +3,7 @@ type FileName = string;
 
 function only(extension: FileExtension) {
   return function withExtension(fileName: FileName): boolean {
-    return fileName.includes(`.${extension}`);
+    return fileName.endsWith(`.${extension}`);
   };
 }
 
