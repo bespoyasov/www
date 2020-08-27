@@ -1,23 +1,19 @@
 import { RelativePath } from "@shared/types";
-import { assureType } from "@shared/assureType";
+import { mockSystem } from "@shared/mocks";
 import { projectsList, blogPostsList } from ".";
-
-function mockSystem(method: keyof SystemType, implementation: () => unknown): SystemType {
-  return assureType<SystemType>({ [method]: implementation });
-}
 
 describe("persistence > source > names > executor", () => {
   it("should return a list of filenames without extensions in projects directory", () => {
     const files = ["file1.mdx", "file2.mdx", "3.mdx"];
     const expected = ["file1", "file2", "3"];
-    const system = mockSystem("readdirSync", () => files);
+    const system = mockSystem({ readdirSync: () => files });
     expect(projectsList({ system })).toEqual(expected);
   });
 
   it("should keep only .mdx files and filter out every other extension", () => {
     const files = ["file1.mdx", "file2.mdx", "file3.md", "file4.tsx", "file5.ts"];
     const expected = ["file1", "file2"];
-    const system = mockSystem("readdirSync", () => files);
+    const system = mockSystem({ readdirSync: () => files });
     expect(projectsList({ system })).toEqual(expected);
   });
 });
@@ -26,9 +22,11 @@ type Executor = typeof projectsList | typeof blogPostsList;
 
 function testDirectory(directory: RelativePath, executor: Executor): void {
   const mock = jest.fn();
-  const system = mockSystem("readdirSync", (...args) => {
-    mock(...args);
-    return [];
+  const system = mockSystem({
+    readdirSync: (...args) => {
+      mock(...args);
+      return [];
+    },
   });
 
   executor({ system });
