@@ -1,1 +1,0 @@
-type SystemType = typeof fs;
