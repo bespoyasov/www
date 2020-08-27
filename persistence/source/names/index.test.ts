@@ -1,6 +1,5 @@
 import { RelativePath } from "@shared/types";
 import { assureType } from "@shared/assureType";
-import { SystemType } from "../composition";
 import { projectsList, blogPostsList } from ".";
 
 function mockSystem(method: keyof SystemType, implementation: () => unknown): SystemType {
