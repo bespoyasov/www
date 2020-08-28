@@ -1,16 +1,16 @@
 import remark from "remark";
 import markdown from "remark-mdx";
 import { List } from "@shared/types";
-import { byDateDescending } from "@shared/sort";
 import { parseObject } from "@shared/parseObject";
 import { Metadata } from "@domain/metadata";
 import { exportsOf, metadataOf } from "@domain/ast";
 import { allProjects, allBlogPosts } from "@persistence/source";
+import { Settings, settings } from "./settings";
 
 type Query = typeof allProjects | typeof allBlogPosts;
 type FetchRequest = () => Promise<List<Metadata>>;
 
-export function metadataFor(query: Query): FetchRequest {
+export function metadataFor(query: Query, { sorter }: Settings = settings): FetchRequest {
   return async function request(): Promise<List<Metadata>> {
     const posts = query();
     const results: List<Metadata> = [];
@@ -26,7 +26,7 @@ export function metadataFor(query: Query): FetchRequest {
       results.push(object);
     }
 
-    results.sort(byDateDescending);
+    results.sort(sorter);
     return results;
   };
 }
