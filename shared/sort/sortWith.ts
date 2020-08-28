@@ -1,14 +1,13 @@
 import { AnyObject, AnyComparable } from "@shared/types";
-import { CompareResult, SortDirection } from "./types";
+import { CompareResult, SortDirection, CompareFunction } from "./types";
 
 type Sortable = AnyObject | AnyComparable;
-type CompareFunction = (a: Sortable, b: Sortable) => CompareResult;
 type TransformFunction = (arg: Sortable) => AnyComparable;
 
 export function sortWith(
   transform: TransformFunction,
   direction: SortDirection = SortDirection.Ascending,
-): CompareFunction {
+): CompareFunction<Sortable> {
   return function (a: Sortable, b: Sortable): CompareResult {
     const ascending = direction === SortDirection.Ascending;
     const result = ascending ? CompareResult.AThenB : CompareResult.BThenA;

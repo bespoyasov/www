@@ -8,3 +8,5 @@ export enum CompareResult {
   BThenA = 1,
   Equal = 0,
 }
+
+export type CompareFunction<TComparable> = (a: TComparable, b: TComparable) => CompareResult;
