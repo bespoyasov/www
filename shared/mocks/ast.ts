@@ -12,8 +12,7 @@ export class FileContentProcessorMock {
     return this;
   };
 
-  public process = async (...args: AnyList): Promise<FakeFileContent> => {
-    this.inspect(...args);
+  public process = async (): Promise<FakeFileContent> => {
     return this.processResult;
   };
 }
