@@ -21,22 +21,17 @@ describe("persistence > source > names > executor", () => {
 type Executor = typeof projectsList | typeof blogPostsList;
 
 function testDirectory(directory: RelativePath, executor: Executor): void {
-  const mock = jest.fn();
-  const system = mockSystem({
-    readdirSync: (...args) => {
-      mock(...args);
-      return [];
-    },
-  });
+  const readdirSync = jest.fn(() => []);
+  const system = mockSystem({ readdirSync });
 
   executor({ system });
-  expect(mock.mock.calls[0][0].endsWith(directory)).toEqual(true);
+  expect(readdirSync).toHaveBeenCalledWith(process.cwd() + directory);
 }
 
 describe("persistence > source > names > projectsList", () => {
-  it("should read projects directory", () => testDirectory("pages/projects", projectsList));
+  it("should read projects directory", () => testDirectory("/pages/projects", projectsList));
 });
 
 describe("persistence > source > names > blogPostsList", () => {
-  it("should read blog directory", () => testDirectory("pages/blog", blogPostsList));
+  it("should read blog directory", () => testDirectory("/pages/blog", blogPostsList));
 });
