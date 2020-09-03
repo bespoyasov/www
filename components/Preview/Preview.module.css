@@ -4,6 +4,7 @@
 
 .preview img {
   max-width: 100%;
+  margin-bottom: var(--vertical-gap-small);
   border-radius: var(--corner-radius);
 }
 
