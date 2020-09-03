@@ -6,7 +6,7 @@
   "main": "index.js",
   "scripts": {
     "dev": "next",
-    "build": "next build",
+    "build": "next build && next export",
     "start": "next start",
     "format": "npx prettier --write .",
     "lint:es": "npx eslint . --ext .ts,.tsx",
