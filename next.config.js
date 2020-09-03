@@ -17,5 +17,5 @@ const withMDX = require("@next/mdx")({
 
 module.exports = withMDX({
   pageExtensions: ["tsx"],
-  exportTrailingSlash: true,
+  trailingSlash: true,
 });
