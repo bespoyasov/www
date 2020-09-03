@@ -5,9 +5,8 @@
   "description": "bespoyasov.ru",
   "main": "index.js",
   "scripts": {
-    "dev": "next",
+    "start": "next",
     "build": "next build && next export",
-    "start": "next start",
     "format": "npx prettier --write .",
     "lint:es": "npx eslint . --ext .ts,.tsx",
     "lint:fix": "npm run lint:es -- --fix",
