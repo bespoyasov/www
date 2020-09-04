@@ -1,4 +1,4 @@
-/* eslint-disable */
+/* eslint-disable no-undef, @typescript-eslint/no-var-requires */
 const withMDX = require("@next/mdx")({
   options: {
     remarkPlugins: [
