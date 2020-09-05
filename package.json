@@ -16,7 +16,7 @@
     "test": "npx jest",
     "test:dev": "npx jest --watch",
     "test:changed": "npx jest --changedSince master",
-    "images:convert": "node ./graphics"
+    "images:convert": "node ./ops"
   },
   "repository": {
     "type": "git",

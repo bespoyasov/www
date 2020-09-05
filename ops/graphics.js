@@ -47,8 +47,7 @@ async function convert(image) {
   });
 }
 
-(async () => {
-  for (const image of await imagesToConvert()) {
-    await convert(image);
-  }
-})();
+module.exports = {
+  imagesToConvert,
+  convert,
+};
