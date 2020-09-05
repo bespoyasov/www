@@ -1,6 +1,5 @@
 import React from "react";
 import Head from "next/head";
-import dynamic from "next/dynamic";
 import { useRouter } from "next/router";
 import { GetStaticProps, GetStaticPaths } from "next";
 
@@ -42,7 +41,9 @@ export const getStaticPaths: GetStaticPaths = async () => {
 const BlogPost: React.FC<BlogPostProps> = ({ metadata, prevPost, nextPost }) => {
   const { title, description } = metadata;
   const { query } = useRouter();
-  const PostContents = dynamic(() => import(`./${query.id}.mdx`));
+
+  // eslint-disable-next-line @typescript-eslint/no-var-requires
+  const PostContents = require(`./${query.id}.mdx`).default;
 
   return (
     <PostLayout>
