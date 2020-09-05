@@ -41,8 +41,6 @@ export const getStaticPaths: GetStaticPaths = async () => {
 const Project: React.FC<ProjectProps> = ({ metadata, prevPost, nextPost }) => {
   const { title, description } = metadata;
   const { query } = useRouter();
-
-  // eslint-disable-next-line @typescript-eslint/no-var-requires
   const PostContents = require(`./${query.id}.mdx`).default;
 
   return (
