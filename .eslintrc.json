@@ -24,6 +24,7 @@
   },
   "rules": {
     "@typescript-eslint/explicit-module-boundary-types": "off",
+    "@typescript-eslint/no-var-requires": "off",
     "no-irregular-whitespace": "off",
     "react/prop-types": "off"
   }
