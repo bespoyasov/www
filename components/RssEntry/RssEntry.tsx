@@ -1,6 +1,5 @@
 import React from "react";
 import { Metadata } from "@domain/metadata";
-import { DateTime } from "@components/DateTime";
 import { absoluteUrlFor } from "./absoluteUrl";
 import styles from "./RssEntry.module.css";
 
@@ -15,20 +14,13 @@ export const RssEntry: React.FC<RssEntryProps> = ({ entry }) => {
   const Contents = require(`../../pages${slug}.mdx`).default;
 
   return (
-    <article className={styles.entry}>
-      <h1 data-title>
-        <a className="text-color" href={absoluteUrlFor(slug)} data-link>
-          {title}
-        </a>
-      </h1>
-
-      <div data-description>
-        <Contents />
-      </div>
-
-      <footer data-datetime={datetime}>
-        <DateTime datetime={datetime} />
-      </footer>
+    <article
+      data-title={title}
+      data-link={absoluteUrlFor(slug)}
+      data-datetime={datetime}
+      className={styles.entry}
+    >
+      <Contents />
     </article>
   );
 };

@@ -1,7 +1,3 @@
 .entry + .entry {
   margin-top: var(--vertical-gap);
 }
-
-.entry h1:not([data-title]) {
-  display: none;
-}
