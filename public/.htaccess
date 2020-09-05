@@ -7,6 +7,8 @@ RewriteBase /
 RewriteRule rss$ rss.xml [L,R=301]
 RewriteRule rss/$ rss.xml [L,R=301]
 
+Redirect 301 /editorial /tag/editorial
+
 <FilesMatch ".(jpg|jpeg|png|ico|svg|webp|js|css|pdf)$">
   Header set Cache-Control "max-age=2592000"
 </FilesMatch>
