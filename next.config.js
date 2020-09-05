@@ -1,4 +1,5 @@
 /* eslint-disable no-undef, @typescript-eslint/no-var-requires */
+const withOffline = require("next-offline");
 const withMDX = require("@next/mdx")({
   options: {
     remarkPlugins: [
@@ -15,7 +16,9 @@ const withMDX = require("@next/mdx")({
   },
 });
 
-module.exports = withMDX({
-  pageExtensions: ["tsx"],
-  trailingSlash: true,
-});
+module.exports = withOffline(
+  withMDX({
+    pageExtensions: ["tsx"],
+    trailingSlash: true,
+  }),
+);
