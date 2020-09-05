@@ -1,5 +1,4 @@
 import React from "react";
-import dynamic from "next/dynamic";
 import { Metadata } from "@domain/metadata";
 import { DateTime } from "@components/DateTime";
 import { absoluteUrlFor } from "./absoluteUrl";
@@ -11,7 +10,9 @@ type RssEntryProps = {
 
 export const RssEntry: React.FC<RssEntryProps> = ({ entry }) => {
   const { slug, title, datetime } = entry;
-  const Contents = dynamic(() => import(`../../pages${slug}.mdx`));
+
+  // eslint-disable-next-line @typescript-eslint/no-var-requires
+  const Contents = require(`../../pages${slug}.mdx`).default;
 
   return (
     <article className={styles.entry}>
