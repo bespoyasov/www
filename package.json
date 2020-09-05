@@ -10,7 +10,7 @@
     "export": "next export",
     "prestart": "npm run images:convert",
     "prebuild": "npm run images:convert",
-    "postbuild": "npm run export",
+    "postbuild": "npm run export && npm run rss:generate",
     "format": "npx prettier --write .",
     "lint:es": "npx eslint . --ext .ts,.tsx",
     "lint:fix": "npm run lint:es -- --fix",
