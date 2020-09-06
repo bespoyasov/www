@@ -18,6 +18,7 @@
     "test": "npx jest",
     "test:dev": "npx jest --watch",
     "test:changed": "npx jest --changedSince master",
+    "test:smoke": "node ./ops/smoke",
     "images:convert": "node ./ops/graphics",
     "rss:generate": "node ./ops/rss"
   },
