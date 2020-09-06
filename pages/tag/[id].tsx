@@ -10,6 +10,7 @@ import { Section } from "@components/Section";
 
 import { assureType } from "@shared/assureType";
 import { UrlSlug } from "@shared/types";
+import { sizeOf } from "@shared/sizeOf";
 import { withTag } from "@shared/filter";
 import { Metadata } from "@domain/metadata";
 import { Tag as TagEnum, TagKind } from "@domain/tags";
@@ -61,9 +62,11 @@ const Tag: React.FC<TagProps> = ({ projects, notes }) => {
       </Head>
 
       <main>
-        <Section title="Проекты">
-          <ProjectsList projects={projects} />
-        </Section>
+        {sizeOf(projects) > 0 && (
+          <Section title="Проекты">
+            <ProjectsList projects={projects} />
+          </Section>
+        )}
 
         <Section title="Заметки">
           <AllNotes notes={notes} />
