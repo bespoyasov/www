@@ -21,7 +21,7 @@ type BlogPostProps = {
 export const getStaticProps: GetStaticProps<BlogPostProps> = async (context) => {
   const { id } = context.params;
   const blogPosts = await blogPostsMetadata();
-  const index = blogPosts.findIndex((post) => post.slug.includes(String(id)));
+  const index = blogPosts.findIndex((post) => post.slug.endsWith(String(id)));
 
   return {
     props: {

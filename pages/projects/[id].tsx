@@ -21,7 +21,7 @@ type ProjectProps = {
 export const getStaticProps: GetStaticProps<ProjectProps> = async (context) => {
   const { id } = context.params;
   const projects = await projectsMetadata();
-  const index = projects.findIndex((project) => project.slug.includes(String(id)));
+  const index = projects.findIndex((project) => project.slug.endsWith(String(id)));
 
   return {
     props: {
