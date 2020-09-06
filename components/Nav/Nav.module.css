@@ -10,9 +10,15 @@
 }
 
 .nav li {
-  margin: 0 0.3em;
+  margin: 0 0.2em;
 }
 
 .nav li:first-child {
   margin-left: 0;
+}
+
+@media (min-width: 640px) {
+  .nav li {
+    margin: 0 0.3em;
+  }
 }
