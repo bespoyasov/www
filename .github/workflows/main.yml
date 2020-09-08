@@ -4,6 +4,7 @@ on:
   push:
     branches:
       - master
+      - feature/cleanup-stale-deployments
 
 jobs:
   publish:
@@ -19,6 +20,14 @@ jobs:
       - run: npm run test
       - run: npm run build
       - run: npm run test:smoke
+
+      - name: Cleanup stale deployments
+        uses: appleboy/ssh-action@master
+        with:
+          username: ${{ secrets.REMOTE_USER }}
+          host: ${{ secrets.REMOTE_HOST }}
+          key: ${{ secrets.SSH_PRIVATE_KEY }}
+          script: cd ./public_html && ls -a
 
       - name: Deploy
         uses: easingthemes/ssh-deploy@v2.1.4
