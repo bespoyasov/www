@@ -6,7 +6,7 @@ on:
       - master
 
 jobs:
-  build:
+  publish:
     runs-on: ubuntu-latest
 
     steps:
@@ -20,7 +20,8 @@ jobs:
       - run: npm run build
       - run: npm run test:smoke
 
-      - uses: easingthemes/ssh-deploy@v2.1.4
+      - name: Deploy
+        uses: easingthemes/ssh-deploy@v2.1.4
         env:
           SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
           REMOTE_HOST: ${{ secrets.REMOTE_HOST }}
