@@ -26,6 +26,7 @@ jobs:
           username: ${{ secrets.REMOTE_USER }}
           host: ${{ secrets.REMOTE_HOST }}
           key: ${{ secrets.SSH_PRIVATE_KEY }}
+          script: cd ./public_html && rm -r _next
 
       - name: Deploy
         uses: easingthemes/ssh-deploy@v2.1.4
