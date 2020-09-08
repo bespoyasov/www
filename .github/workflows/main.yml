@@ -6,7 +6,7 @@ on:
       - master
 
 jobs:
-  build:
+  publish:
     runs-on: ubuntu-latest
 
     steps:
@@ -14,14 +14,25 @@ jobs:
       - uses: actions/setup-node@v1
         with:
           node-version: "14"
+
       - run: npm install
       - run: npm run test
       - run: npm run build
       - run: npm run test:smoke
-      - uses: easingthemes/ssh-deploy@v2.1.4
+
+      - name: Cleanup stale deployments
+        uses: appleboy/ssh-action@master
+        with:
+          username: ${{ secrets.REMOTE_USER }}
+          host: ${{ secrets.REMOTE_HOST }}
+          key: ${{ secrets.SSH_PRIVATE_KEY }}
+          script: cd ./public_html && rm -r _next
+
+      - name: Deploy
+        uses: easingthemes/ssh-deploy@v2.1.4
         env:
           SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
-          SOURCE: ${{ secrets.SOURCE }}
           REMOTE_HOST: ${{ secrets.REMOTE_HOST }}
           REMOTE_USER: ${{ secrets.REMOTE_USER }}
+          SOURCE: ${{ secrets.SOURCE }}
           TARGET: ${{ secrets.TARGET }}
