@@ -7,7 +7,7 @@ import { activeIf } from "./activeIf";
 import styles from "./Nav.module.css";
 
 export const Nav: React.FC<HTMLAttributes<HTMLElement>> = ({ className }) => {
-  const { pathname } = useRouter();
+  const { asPath: path } = useRouter();
 
   return (
     <nav className={classes(styles.nav, className)}>
@@ -15,7 +15,7 @@ export const Nav: React.FC<HTMLAttributes<HTMLElement>> = ({ className }) => {
         {internal.map(({ url, title }) => (
           <li key={title}>
             <Link href={url}>
-              <a className={activeIf(pathname.includes(url))}>{title}</a>
+              <a className={activeIf(path.includes(url))}>{title}</a>
             </Link>
           </li>
         ))}
