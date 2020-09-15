@@ -1,13 +1,13 @@
 import React from "react";
 import { classes } from "@shared/classes";
-import { PictureProps } from "./types";
+import { FigureProps } from "./types";
 import { isLimited } from "./isLimited";
 import { withWebp } from "./withWebp";
 import styles from "./Picture.module.css";
 
 const { picture, limited } = styles;
 
-export const Picture: React.FC<PictureProps> = ({ src, alt, cite, caption }) => {
+export const Figure: React.FC<FigureProps> = ({ src, alt, cite, caption }) => {
   return (
     <figure className={classes(picture, isLimited(src) && limited)}>
       <a href={cite}>
