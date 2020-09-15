@@ -5,6 +5,5 @@
 
 .picture img {
   max-width: 100%;
-  background-color: white;
   border-radius: var(--corner-radius);
 }
