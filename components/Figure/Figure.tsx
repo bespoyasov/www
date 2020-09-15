@@ -3,13 +3,13 @@ import { classes } from "@shared/classes";
 import { FigureProps } from "./types";
 import { isLimited } from "./isLimited";
 import { withWebp } from "./withWebp";
-import styles from "./Picture.module.css";
+import styles from "./Figure.module.css";
 
-const { picture, limited } = styles;
+const { figure, limited } = styles;
 
 export const Figure: React.FC<FigureProps> = ({ src, alt, cite, caption }) => {
   return (
-    <figure className={classes(picture, isLimited(src) && limited)}>
+    <figure className={classes(figure, isLimited(src) && limited)}>
       <a href={cite}>
         <picture>
           <source srcSet={withWebp(src)} type="image/webp" />

@@ -5,7 +5,7 @@ import { Blockquote } from "@components/Blockquote";
 import { Highlight } from "@components/Highlight";
 import { LinkProxy } from "@components/LinkProxy";
 import { CodeBlock } from "@components/CodeBlock";
-import { Figure } from "@components/Picture";
+import { Figure } from "@components/Figure";
 import { Table } from "@components/Table";
 import styles from "./Post.module.css";
 

@@ -1,4 +1,4 @@
-.picture {
+.figure {
   max-width: var(--max-media-width);
   margin: 0 0 var(--vertical-gap);
 }
@@ -7,31 +7,31 @@
   max-width: calc(var(--max-media-width) / 2);
 }
 
-.picture picture {
+.figure picture {
   display: block;
   line-height: 0;
 }
 
-.picture img {
+.figure img {
   max-width: 100%;
   background-color: white;
   border-radius: var(--corner-radius);
 }
 
-.picture figcaption {
+.figure figcaption {
   margin: 0;
   padding: 0.5em 0 0;
   font-style: italic;
 }
 
-.picture > a[href] {
+.figure > a[href] {
   position: relative;
   display: block;
   transition: transform var(--transition-duration);
   will-change: transform;
 }
 
-.picture > a[href]:hover {
+.figure > a[href]:hover {
   --translate: calc(-1 * var(--accent-translate));
   transform: translateY(var(--translate)) scale(var(--accent-scale));
 }
