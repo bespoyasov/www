@@ -1,0 +1,10 @@
+.picture {
+  display: block;
+  line-height: 0;
+}
+
+.picture img {
+  max-width: 100%;
+  background-color: white;
+  border-radius: var(--corner-radius);
+}
