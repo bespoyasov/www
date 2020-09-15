@@ -7,17 +7,6 @@
   max-width: calc(var(--max-media-width) / 2);
 }
 
-.figure picture {
-  display: block;
-  line-height: 0;
-}
-
-.figure img {
-  max-width: 100%;
-  background-color: white;
-  border-radius: var(--corner-radius);
-}
-
 .figure figcaption {
   margin: 0;
   padding: 0.5em 0 0;
