@@ -1,7 +1,7 @@
 import React from "react";
 import { classes } from "@shared/classes";
 import { AbsoluteUrl } from "@shared/types";
-import { ImageSource, ImageDescription } from "@domain/image";
+import { ImageFileSource, ImageDescription } from "@domain/image";
 import { Picture } from "@components/Picture";
 import { isLimited } from "./isLimited";
 import styles from "./Figure.module.css";
@@ -12,7 +12,7 @@ type CitationSource = AbsoluteUrl;
 type VisibleCaption = string;
 
 type FigureProps = {
-  src: ImageSource;
+  src: ImageFileSource;
   alt: ImageDescription;
   cite?: CitationSource;
   caption?: VisibleCaption;

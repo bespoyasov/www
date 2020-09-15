@@ -1,10 +1,10 @@
 import React from "react";
-import { ImageSource, ImageDescription } from "@domain/image";
+import { ImageFileSource, ImageDescription } from "@domain/image";
 import { withWebp } from "./withWebp";
 import styles from "./Picture.module.css";
 
 type PictureProps = {
-  src: ImageSource;
+  src: ImageFileSource;
   alt: ImageDescription;
 };
 
