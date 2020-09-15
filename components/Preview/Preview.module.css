@@ -4,10 +4,7 @@
 
 .preview img {
   --with-optical-compensation: calc(var(--vertical-gap) / 2);
-
-  max-width: 100%;
   margin-bottom: var(--with-optical-compensation);
-  border-radius: var(--corner-radius);
 }
 
 .preview p {
