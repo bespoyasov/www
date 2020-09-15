@@ -1,10 +1,18 @@
 .preview {
+  --with-optical-compensation: calc(var(--vertical-gap) / 2);
+  --image-vertical-gap: var(--with-optical-compensation);
+  --image-height: 125%;
+
   position: relative;
 }
 
-.preview img {
-  --with-optical-compensation: calc(var(--vertical-gap) / 2);
-  margin-bottom: var(--with-optical-compensation);
+.preview picture {
+  margin-bottom: var(--image-vertical-gap);
+  padding-top: var(--image-height);
+}
+
+.preview picture img {
+  margin-top: calc(-1 * var(--image-height));
 }
 
 .preview p {
