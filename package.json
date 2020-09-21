@@ -11,6 +11,7 @@
     "secrete": "next telemetry disable",
     "prestart": "npm run images:convert",
     "prebuild": "npm run images:convert",
+    "postinstall": "npm run secrete",
     "postbuild": "npm run export && npm run rss:generate",
     "format": "npx prettier --write .",
     "lint:es": "npx eslint . --ext .ts,.tsx",
