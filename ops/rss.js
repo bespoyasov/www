@@ -10,10 +10,10 @@ function toRFC822(date) {
 
 function fromTemplate({ title, description, lastBuildDate, channel }) {
   return `<?xml version="1.0" encoding="UTF-8" ?>
-  <rss version="2.0" xmlns:dc="http://purl.org/dc/elements/1.1/">
+  <rss version="2.0">
     <channel>
       <title>${title}</title>
-      <link>https://bespoyasov.ru/rss.xml</link>
+      <link>https://bespoyasov.ru</link>
       <description>${description}</description>
       <language>ru-ru</language>
       <lastBuildDate>${lastBuildDate}</lastBuildDate>
