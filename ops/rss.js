@@ -42,7 +42,7 @@ async function fromFile() {
 }
 
 async function saveAsFile(contents) {
-  await writeFile(DESTINATION_PATH, contents);
+  await writeFile(DESTINATION_PATH, contents, "utf-8");
 }
 
 async function generateRss() {
