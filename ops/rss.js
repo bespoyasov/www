@@ -56,12 +56,13 @@ async function generateRss() {
   const description = feed.querySelector(`[name="description"]`).getAttribute("content");
 
   const posts = feed.querySelectorAll("article");
-  const lastBuildDate = posts[0].dataset.datetime;
+  const lastBuildDate = toRFC822(posts[0].dataset.datetime);
 
   let channel = "";
 
   for (const post of posts) {
-    const { title, link, datetime } = post.dataset;
+    const { title, link, datetime: datetimeISO } = post.dataset;
+    const datetime = toRFC822(datetimeISO);
     const description = post.innerHTML;
     channel += fromPostTemplate({ title, link, datetime, description });
   }
