@@ -8,6 +8,7 @@
     "start": "next",
     "build": "next build",
     "export": "next export",
+    "secrete": "next telemetry disable",
     "prestart": "npm run images:convert",
     "prebuild": "npm run images:convert",
     "postbuild": "npm run export && npm run rss:generate",
