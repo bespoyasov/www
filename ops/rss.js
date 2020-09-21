@@ -4,6 +4,10 @@ const path = require("path");
 const jsdom = require("jsdom");
 const { JSDOM } = jsdom;
 
+function toRFC822(date) {
+  return new Date(date).toUTCString();
+}
+
 function fromTemplate({ title, description, lastBuildDate, channel }) {
   return `<?xml version="1.0" encoding="UTF-8" ?>
   <rss version="2.0" xmlns:dc="http://purl.org/dc/elements/1.1/">
