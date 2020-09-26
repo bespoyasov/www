@@ -9,5 +9,5 @@ export type Metadata = {
   description: Description;
   datetime: DateTimeIsoString;
   slug: Unique<UrlSlug>;
-  tags?: List<TagKind>;
+  tags: List<TagKind>;
 };

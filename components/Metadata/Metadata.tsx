@@ -14,7 +14,7 @@ export const Metadata: React.FC<MetadataProps> = ({ metadata }) => {
   return (
     <footer className={styles.metadata}>
       <DateTime datetime={datetime} />
-      {!!tags && <Tags tags={tags} />}
+      <Tags tags={tags} />
     </footer>
   );
 };
