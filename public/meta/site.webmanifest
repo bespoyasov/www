@@ -1,6 +1,9 @@
 {
-  "name": "\u0410\u0411",
-  "short_name": "\u0410\u0411",
+  "dir": "ltr",
+  "lang": "Russian",
+  "name": "Саша Беспоясов",
+  "short_name": "АБ",
+
   "icons": [
     {
       "src": "/favicons/android-chrome-192x192.png",
