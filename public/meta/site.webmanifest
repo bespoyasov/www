@@ -4,6 +4,10 @@
   "name": "Саша Беспоясов",
   "short_name": "АБ",
 
+  "theme_color": "#ffffff",
+  "background_color": "#ffffff",
+  "display": "standalone",
+
   "icons": [
     {
       "src": "/favicons/android-chrome-192x192.png",
@@ -15,8 +19,5 @@
       "sizes": "512x512",
       "type": "image/png"
     }
-  ],
-  "theme_color": "#ffffff",
-  "background_color": "#ffffff",
-  "display": "standalone"
+  ]
 }
