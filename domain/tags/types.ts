@@ -34,6 +34,7 @@ export enum Tag {
   productivity = "Продуктивность",
   psychology = "Психология",
 
+  react = "React",
   reading = "Чтение",
   running = "Пробежки",
 
@@ -45,6 +46,7 @@ export enum Tag {
   text = "Тексты и редактура",
   tools = "Инструменты",
   travel = "Мир",
+  ts = "TypeScript",
   tzlvt = "Тяжеловато",
 
   urban = "Урбанистика",
