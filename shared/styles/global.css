@@ -53,8 +53,3 @@ a:hover {
   color: var(--link-accent-color);
   text-decoration-color: var(--decoration-accent-color);
 }
-
-.wrap {
-  min-height: 100vh;
-  min-height: calc(100vh - var(--footer-height));
-}
