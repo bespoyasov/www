@@ -39,3 +39,9 @@ jobs:
           REMOTE_USER: ${{ secrets.REMOTE_USER }}
           SOURCE: ${{ secrets.SOURCE }}
           TARGET: ${{ secrets.TARGET }}
+
+      - name: Cache dependencies
+        uses: actions/cache@v2
+        with:
+          path: ${{ github.workspace }}/.next/cache
+          key: ${{ runner.os }}-${{ hashFiles('**/package-lock.json') }}
