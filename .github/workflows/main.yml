@@ -38,11 +38,10 @@ jobs:
           script: cd ./public_html && rm -r _next
 
       - name: Deploy
-        uses: burnett01/rsync-deployments@4.1
-        with:
-          switches: -avzr
-          path: ${{ secrets.SOURCE }}
-          remote_key: ${{ secrets.SSH_PRIVATE_KEY }}
-          remote_path: ${{ secrets.TARGET }}
-          remote_host: ${{ secrets.REMOTE_HOST }}
-          remote_user: ${{ secrets.REMOTE_USER }}
+        uses: easingthemes/ssh-deploy@master
+        env:
+          SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
+          REMOTE_HOST: ${{ secrets.REMOTE_HOST }}
+          REMOTE_USER: ${{ secrets.REMOTE_USER }}
+          SOURCE: ${{ secrets.SOURCE }}
+          TARGET: ${{ secrets.TARGET }}
