@@ -39,6 +39,7 @@ jobs:
           REMOTE_USER: ${{ secrets.REMOTE_USER }}
           SOURCE: ${{ secrets.SOURCE }}
           TARGET: ${{ secrets.TARGET }}
+          ARGS: "-avz"
 
       - name: Cache dependencies
         uses: actions/cache@v2
