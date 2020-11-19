@@ -24,6 +24,7 @@
     "images:convert": "node ./ops/graphics",
     "rss:generate": "node ./ops/rss",
     "new:component": "npx hygen component new",
+    "new:project": "npx hygen project new",
     "new:post": "npx hygen post new"
   },
   "repository": {
