@@ -22,7 +22,8 @@
     "test:changed": "npx jest --changedSince master",
     "test:smoke": "node ./ops/smoke",
     "images:convert": "node ./ops/graphics",
-    "rss:generate": "node ./ops/rss"
+    "rss:generate": "node ./ops/rss",
+    "new:component": "npx hygen component new"
   },
   "repository": {
     "type": "git",
