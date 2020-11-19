@@ -23,7 +23,8 @@
     "test:smoke": "node ./ops/smoke",
     "images:convert": "node ./ops/graphics",
     "rss:generate": "node ./ops/rss",
-    "new:component": "npx hygen component new"
+    "new:component": "npx hygen component new",
+    "new:post": "npx hygen post new"
   },
   "repository": {
     "type": "git",
