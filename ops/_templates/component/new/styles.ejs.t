@@ -1,4 +1,4 @@
 ---
 to: ./components/<%= name %>/<%= name %>.module.css
 ---
-.<%= name.toLowerCase() %> {}
+.<%= h.changeCase.camel(name) %> {}
