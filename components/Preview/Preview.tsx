@@ -15,7 +15,7 @@ export const Preview: React.FC<PreviewProps> = ({ metadata }) => {
     <div className={styles.preview}>
       <Cover for={metadata} />
       <h2>
-        <Link href={slug} as={slug}>
+        <Link href={slug}>
           <a className="text-color">{title}</a>
         </Link>
       </h2>

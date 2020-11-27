@@ -1,6 +1,5 @@
 import React from "react";
 import Link from "next/link";
-import { useRouter } from "next/router";
 import { Metadata } from "@domain/metadata";
 import styles from "./Neighbor.module.css";
 
@@ -11,11 +10,10 @@ type NeighborProps = {
 };
 
 export const Neighbor: React.FC<NeighborProps> = ({ is: kind, describes: entity }) => {
-  const { pathname } = useRouter();
   const className = styles[kind];
 
   return (
-    <Link href={pathname} as={entity.slug}>
+    <Link href={entity.slug}>
       <a className={className}>{entity.title}</a>
     </Link>
   );
