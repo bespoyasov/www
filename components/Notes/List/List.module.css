@@ -1,0 +1,4 @@
+.list a {
+  --line-gap-compensation: 2px;
+  padding: var(--line-gap-compensation) 0;
+}
