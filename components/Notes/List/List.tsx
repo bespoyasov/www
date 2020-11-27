@@ -12,7 +12,7 @@ export const List: React.FC<ListProps> = ({ notes }) => {
       {notes.map(({ slug, title }) => {
         return (
           <li key={slug}>
-            <Link href="/blog/[id]" as={slug}>
+            <Link href={slug}>
               <a>{title}</a>
             </Link>
           </li>
