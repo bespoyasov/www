@@ -56,6 +56,7 @@
     "@typescript-eslint/parser": "^4.8.1",
     "eslint": "^7.13.0",
     "eslint-plugin-react": "^7.21.5",
+    "feed": "^4.2.1",
     "husky": "^4.3.0",
     "hygen": "^6.0.4",
     "imagemin": "^7.0.1",
