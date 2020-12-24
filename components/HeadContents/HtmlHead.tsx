@@ -14,7 +14,6 @@ export const HeadContents: React.FC = () => {
       <link rel="manifest" href="/meta/site.webmanifest" />
 
       <meta name="msapplication-TileColor" content="#ffffff" />
-      <meta name="msapplication-config" content="/meta/browserconfig.xml" />
       <meta name="theme-color" content="#ffffff" />
 
       <link
