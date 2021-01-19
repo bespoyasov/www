@@ -1,4 +1,3 @@
-import React from "react";
 import { Tag, TagKind } from "@domain/tags";
 import { byTagValue } from "@shared/sort";
 import { splitInto } from "@shared/splitInto";

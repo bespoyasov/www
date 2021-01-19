@@ -1,4 +1,3 @@
-import React from "react";
 import { Metadata } from "@domain/metadata";
 import { RssEntry } from "@components/RssEntry";
 import { PostLayout } from "@layouts/Post";

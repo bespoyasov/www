@@ -1,4 +1,3 @@
-import React from "react";
 import { TagKind } from "@domain/tags";
 import { Metadata } from "@domain/metadata";
 import { TagLink } from "@components/TagLink";

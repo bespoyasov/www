@@ -1,4 +1,3 @@
-import React from "react";
 import { useMount } from "@effects/useMount";
 import { AbsoluteUrl } from "@shared/types";
 

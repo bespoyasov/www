@@ -1,4 +1,3 @@
-import React from "react";
 import { Metadata } from "@domain/metadata";
 import { Preview } from "@components/Preview";
 import styles from "./ProjectsList.module.css";

@@ -1,4 +1,3 @@
-import React from "react";
 import { DateTimeIsoString } from "@shared/types";
 import { toLocalizedDateString } from "./toLocalizedDateString";
 

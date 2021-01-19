@@ -1,4 +1,3 @@
-import React from "react";
 import { Metadata } from "@domain/metadata";
 import { ProjectsList } from "@components/ProjectsList";
 import styles from "./Showcase.module.css";

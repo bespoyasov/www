@@ -1,4 +1,3 @@
-import React from "react";
 import { Metadata } from "@domain/metadata";
 import { Tagged } from "@components/Notes/Tagged";
 import { List } from "@components/Notes/List";

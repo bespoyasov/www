@@ -1,4 +1,3 @@
-import React from "react";
 import { useRouter } from "next/router";
 import { onMainPage } from "@shared/onMainPage";
 import { Link } from "@components/LinkIf";

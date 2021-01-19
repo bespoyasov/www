@@ -1,4 +1,3 @@
-import React from "react";
 import { Copyright } from "@components/Copyright";
 import { Contacts } from "@components/Contacts";
 import { Person } from "@components/MicroData";

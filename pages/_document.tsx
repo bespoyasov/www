@@ -1,4 +1,3 @@
-import React from "react";
 import Document, { Html, Head, Main, NextScript, DocumentContext } from "next/document";
 import { HeadContents } from "@components/HeadContents";
 

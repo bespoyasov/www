@@ -1,4 +1,3 @@
-import React from "react";
 import { VisuallyHidden } from "@components/VisuallyHidden";
 import styles from "./About.module.css";
 

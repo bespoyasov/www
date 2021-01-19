@@ -1,4 +1,3 @@
-import React from "react";
 import { ImageExtension } from "@domain/image";
 import { Metadata } from "@domain/metadata";
 import { Picture } from "@components/Picture";

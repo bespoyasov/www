@@ -1,4 +1,3 @@
-import React from "react";
 import Link from "next/link";
 import { Metadata } from "@domain/metadata";
 import styles from "./Neighbor.module.css";

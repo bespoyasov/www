@@ -1,4 +1,4 @@
-import React, { HtmlHTMLAttributes } from "react";
+import { HtmlHTMLAttributes } from "react";
 import { WithChildren } from "@domain/components";
 import styles from "./VisuallyHidden.module.css";
 

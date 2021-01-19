@@ -1,4 +1,3 @@
-import React from "react";
 import { AbsoluteUrl } from "@shared/types";
 import styles from "./YouTube.module.css";
 

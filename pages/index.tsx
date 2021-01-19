@@ -1,4 +1,3 @@
-import React from "react";
 import Head from "next/head";
 import { About } from "@components/About";
 import { Description } from "@components/Description";

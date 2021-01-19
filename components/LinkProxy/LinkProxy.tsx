@@ -1,4 +1,4 @@
-import React, { AnchorHTMLAttributes } from "react";
+import { AnchorHTMLAttributes } from "react";
 import { AbsoluteUrl, UrlSlug } from "@shared/types";
 import Link from "next/link";
 

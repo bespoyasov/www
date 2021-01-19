@@ -1,4 +1,3 @@
-import React from "react";
 import Link from "next/link";
 import { classes } from "@shared/classes";
 import { Metadata } from "@domain/metadata";

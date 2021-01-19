@@ -1,4 +1,3 @@
-import React from "react";
 import { classes } from "@shared/classes";
 import { AbsoluteUrl } from "@shared/types";
 import { ImageFileSource, ImageDescription } from "@domain/image";

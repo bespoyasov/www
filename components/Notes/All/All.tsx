@@ -1,4 +1,3 @@
-import React from "react";
 import { sizeOf } from "@shared/sizeOf";
 import { splitInto } from "@shared/splitInto";
 import { Metadata } from "@domain/metadata";

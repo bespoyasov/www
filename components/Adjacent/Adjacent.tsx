@@ -1,4 +1,3 @@
-import React from "react";
 import { Metadata } from "@domain/metadata";
 import { Neighbor } from "./Neighbor";
 import styles from "./Adjacent.module.css";

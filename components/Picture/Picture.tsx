@@ -1,4 +1,3 @@
-import React from "react";
 import { ImageFileSource, ImageDescription } from "@domain/image";
 import { withWebp } from "./withWebp";
 import styles from "./Picture.module.css";

@@ -1,4 +1,3 @@
-import React from "react";
 import { Metadata } from "@domain/metadata";
 import { Trip } from "@components/Trip";
 import styles from "./Trips.module.css";

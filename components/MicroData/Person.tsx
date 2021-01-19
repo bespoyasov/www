@@ -1,4 +1,3 @@
-import React from "react";
 import { VisuallyHidden } from "@components/VisuallyHidden";
 
 export const Person = () => {

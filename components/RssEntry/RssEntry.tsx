@@ -1,4 +1,3 @@
-import React from "react";
 import { Metadata } from "@domain/metadata";
 import { absoluteUrlFor } from "./absoluteUrl";
 import styles from "./RssEntry.module.css";

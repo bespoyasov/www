@@ -1,4 +1,3 @@
-import React from "react";
 import { WithChildren } from "@domain/components";
 import styles from "./Highlight.module.css";
 
