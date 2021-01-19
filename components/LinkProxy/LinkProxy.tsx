@@ -1,5 +1,4 @@
 import { AnchorHTMLAttributes } from "react";
-import { AbsoluteUrl, UrlSlug } from "@shared/types";
 import Link from "next/link";
 
 function isExternalRoute(uri: AbsoluteUrl | UrlSlug): boolean {

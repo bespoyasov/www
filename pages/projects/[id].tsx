@@ -2,7 +2,6 @@ import Head from "next/head";
 import { useRouter } from "next/router";
 import { GetStaticProps, GetStaticPaths } from "next";
 
-import { Nullable } from "@shared/types";
 import { Metadata as MetadataType } from "@domain/metadata";
 import { projectsMetadata, projectsNames } from "@api/fetch";
 

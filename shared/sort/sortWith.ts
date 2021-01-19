@@ -1,4 +1,3 @@
-import { AnyObject, AnyComparable } from "@shared/types";
 import { CompareResult, SortDirection, CompareFunction } from "./types";
 
 type Sortable = AnyObject | AnyComparable;

@@ -1,6 +1,5 @@
 import remark from "remark";
 import markdown from "remark-mdx";
-import { List } from "@shared/types";
 import { parseObject } from "@shared/parseObject";
 import { Metadata } from "@domain/metadata";
 import { exportsOf, metadataOf } from "@domain/ast";

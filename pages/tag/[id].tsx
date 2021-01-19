@@ -8,7 +8,6 @@ import { AllNotes } from "@components/Notes";
 import { Section } from "@components/Section";
 
 import { assureType } from "@shared/assureType";
-import { UrlSlug } from "@shared/types";
 import { sizeOf } from "@shared/sizeOf";
 import { withTag } from "@shared/filter";
 import { Metadata } from "@domain/metadata";

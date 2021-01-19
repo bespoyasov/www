@@ -1,4 +1,3 @@
-import { DateTimeIsoString } from "@shared/types";
 import { toLocalizedDateString } from "./toLocalizedDateString";
 
 type DateTimeProps = {

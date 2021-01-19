@@ -1,5 +1,4 @@
 import { onMainPage } from ".";
-import { UrlSlug } from "@shared/types";
 
 describe("shared > onMainPage", () => {
   const mainPageUrl: UrlSlug = "/";

@@ -1,4 +1,3 @@
-import { List } from "@shared/types";
 import { NavRoute, RouteKind } from "./types";
 
 export const internal: List<NavRoute<RouteKind.Internal>> = [

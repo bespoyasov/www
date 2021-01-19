@@ -1,4 +1,3 @@
-import { UnixTimeStamp, Comparable } from "@shared/types";
 import { Metadata } from "@domain/metadata";
 import { SortDirection } from "./types";
 import { sortWith } from "./sortWith";
