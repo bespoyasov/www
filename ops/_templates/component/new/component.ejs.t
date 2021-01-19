@@ -6,6 +6,6 @@ import styles from "./<%= name %>.module.css";
 
 type <%= name %>Props = {};
 
-export const <%= name %>: React.FC<<%= name %>Props> = () => {
+export const <%= name %> = ({}: <%= name %>Props) => {
   return null;
 };
