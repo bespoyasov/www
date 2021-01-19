@@ -1,4 +1,3 @@
-import { AnyCollection } from "shared/types";
 import { isCollection } from "@shared/isCollection";
 
 type CollectionSize = number;
