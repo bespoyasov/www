@@ -1,25 +1,32 @@
 import { withTag } from "./withTag";
 import { generate } from "@shared/stubs";
 
-describe("shared > filter > withTag", () => {
-  const containsDevTag = withTag("dev");
+const containsDevTag = withTag("dev");
 
+const entityWithDevTag = generate({ tags: ["dev"] });
+const entityWithoutDevTag = generate({ tags: ["design"] });
+const entityWithoutAnyTags = generate();
+
+describe("when called a factory", () => {
   it("should return a function", () => {
     expect(typeof containsDevTag).toEqual("function");
   });
+});
 
-  it("should return true if a given entity's tags list contains a given tag", () => {
-    const entityWithDevTag = generate({ tags: ["dev"] });
+describe("when a given entity's tags list contains a given tag", () => {
+  it("should return `true`", () => {
     expect(containsDevTag(entityWithDevTag)).toEqual(true);
   });
+});
 
-  it("should return false if a given entity's tags list is empty", () => {
-    const entityWithoutDevTag = generate();
-    expect(containsDevTag(entityWithoutDevTag)).toEqual(false);
+describe("when a given entity's tags list is empty", () => {
+  it("should return `false`", () => {
+    expect(containsDevTag(entityWithoutAnyTags)).toEqual(false);
   });
+});
 
-  it("should return false if a given entity's tags list doesn't contain a given tag", () => {
-    const entityWithoutDevTag = generate({ tags: ["design"] });
+describe("when a given entity's tags list doesn't contain a given tag", () => {
+  it("should return `false`", () => {
     expect(containsDevTag(entityWithoutDevTag)).toEqual(false);
   });
 });

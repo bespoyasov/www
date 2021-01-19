@@ -6,8 +6,8 @@ import { metadataFor } from "./factory";
 const mockInstance = new FileContentProcessorMock(`{datetime: "2020-08-28T12:00:00"}`);
 jest.mock("remark", () => () => mockInstance);
 
-describe("api > fetch > metadata > metadataFor", () => {
-  it("should call a given query when request fired", () => {
+describe("when received a request", () => {
+  it("should call a given query", () => {
     const query = jest.fn(() => []);
     const request = metadataFor(query);
 
@@ -15,7 +15,7 @@ describe("api > fetch > metadata > metadataFor", () => {
     expect(query).toHaveBeenCalled();
   });
 
-  it("should apply all the `remark` plugins on each post in query result", async () => {
+  it("should apply all the `remark` plugins on each post in the query result", async () => {
     const posts = ["post1", "post2"];
     const plugins = [markdown, exportsOf, metadataOf];
 

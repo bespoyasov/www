@@ -1,19 +1,25 @@
 import { onlyMdx } from ".";
 
-describe("persistence > utils > onlyMdx", () => {
-  it("should return true if given a file with .mdx extension", () => {
+describe("when given a file with the `.mdx` extension", () => {
+  it("should return `true`", () => {
     expect(onlyMdx("file.mdx")).toBe(true);
   });
+});
 
-  it("should return false if given a file with other extension", () => {
+describe("when given a file with another extension", () => {
+  it("should return `false`", () => {
     expect(onlyMdx("file.tsx")).toBe(false);
   });
+});
 
-  it("should return false if given a file without extension", () => {
+describe("when given a file without any extension", () => {
+  it("should return `false`", () => {
     expect(onlyMdx("file-without-extension")).toBe(false);
   });
+});
 
-  it("should return false if .mdx is not an extension", () => {
+describe("when given a file where `.mdx` is not an extension", () => {
+  it("should return `false`", () => {
     expect(onlyMdx("file.mdx.tsx")).toBe(false);
   });
 });

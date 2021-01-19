@@ -1,9 +1,13 @@
 import { isLimited } from "./isLimited";
 
-describe("components > Picture > isLimited", () => {
-  it("should return true if given a path that ends with `?limited`", () =>
-    expect(isLimited("some-image-path.jpg?limited")).toBe(true));
+describe("when given a path that ends with `?limited`", () => {
+  it("should return `true`", () => {
+    expect(isLimited("some-image-path.jpg?limited")).toBe(true);
+  });
+});
 
-  it("should return false if given a path doesn't end with `?limited`", () =>
-    expect(isLimited("some-image-path.jpg")).toBe(false));
+describe("when given path doesn't end with `?limited`", () => {
+  it("should return `false`", () => {
+    expect(isLimited("some-image-path.jpg")).toBe(false);
+  });
 });

@@ -1,12 +1,14 @@
 import { createTree, createExportNode, createNode } from "@shared/stubs";
 import { exportsOf } from ".";
 
-describe("domain > AST > exportsOf", () => {
+describe("when called a factory", () => {
   it("should return a transformer function", () => {
     const transformer = exportsOf();
     expect(typeof transformer).toBe("function");
   });
+});
 
+describe("when called the transformer with the default settings", () => {
   it("should keep the `root` node in a given tree", () => {
     const tree = createTree();
     const transform = exportsOf();
@@ -23,8 +25,10 @@ describe("domain > AST > exportsOf", () => {
     const transform = exportsOf();
     expect(transform(initialTree)).toEqual(expectedTree);
   });
+});
 
-  it("should not keep a named import node if not allowed", () => {
+describe("when `ignoreNamed` option is specified", () => {
+  it("should not keep named import nodes", () => {
     const namedExport = createExportNode("named");
     const defaultExport = createExportNode("default");
     const initialTree = createTree([namedExport, defaultExport]);
@@ -33,8 +37,10 @@ describe("domain > AST > exportsOf", () => {
     const transform = exportsOf({ ignoreNamed: true });
     expect(transform(initialTree)).toEqual(expectedTree);
   });
+});
 
-  it("should not keep a default import node if not allowed", () => {
+describe("when `ignoreDefaults` option is specified", () => {
+  it("should not keep default import nodes", () => {
     const namedExport = createExportNode("named");
     const defaultExport = createExportNode("default");
     const initialTree = createTree([namedExport, defaultExport]);

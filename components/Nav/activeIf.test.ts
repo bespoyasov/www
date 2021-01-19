@@ -1,9 +1,13 @@
 import { activeIf } from "./activeIf";
 
-describe("components > Nav > activeIf", () => {
-  it("should append a `text-color` className if a condition satisfied", () =>
-    expect(activeIf(true)).toEqual("text-color"));
+describe("when a condition is satisfied", () => {
+  it("should append a `text-color` className", () => {
+    expect(activeIf(true)).toEqual("text-color");
+  });
+});
 
-  it("should not append a `text-color` className if a condition is not satisfied", () =>
-    expect(activeIf(false)).toEqual(""));
+describe("when a condition is not satisfied", () => {
+  it("should not append a `text-color` className", () => {
+    expect(activeIf(false)).toEqual("");
+  });
 });

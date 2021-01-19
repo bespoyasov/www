@@ -1,7 +1,7 @@
 import { absoluteUrlFor } from "./absoluteUrl";
 
-describe("components > RssEntry > absoluteUrlFor", () => {
-  it("should prepend site url to a given slug", () => {
+describe("when given a url slug", () => {
+  it("should prepend the site url to the given slug", () => {
     expect(absoluteUrlFor("/hello-world")).toEqual("https://bespoyasov.ru/hello-world");
   });
 });

@@ -7,13 +7,15 @@ function createProcessFor(env: EnvironmentKind): ProcessType {
   });
 }
 
-describe("shared > env > isProduction", () => {
-  it("should return true if is in production mode", () => {
+describe("in production mode", () => {
+  it("should return `true`", () => {
     const processMock = createProcessFor("production");
     expect(isProduction(processMock)).toBe(true);
   });
+});
 
-  it("should return true if is in production mode", () => {
+describe("not in production mode", () => {
+  it("should return `false`", () => {
     const processMock = createProcessFor("development");
     expect(isProduction(processMock)).toBe(false);
   });
