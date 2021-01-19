@@ -1,5 +1,4 @@
 import { PropsWithChildren } from "react";
-import { Dict } from "@shared/types";
 
-export type EmptyProps = Dict<never>;
-export type WithChildren<TProps = EmptyProps> = PropsWithChildren<TProps>;
+export type AnyProps = unknown;
+export type WithChildren<TProps = AnyProps> = PropsWithChildren<TProps>;
