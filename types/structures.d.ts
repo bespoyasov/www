@@ -1,13 +1,3 @@
-type UnixTimeStamp = number;
-type DateTimeIsoString = string;
-type LocalizedDateString = string;
-
-type RelativePath = string;
-type AbsoluteUrl = string;
-type UrlSlug = string;
-
-type ClassName = string;
-
 type List<TEntity> = TEntity[];
 type Dict<TValue> = Record<string, TValue>;
 type Collection<TValue> = List<TValue> | Dict<TValue>;
