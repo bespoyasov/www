@@ -1,4 +1,3 @@
-import { RelativePath } from "@shared/types";
 import { mockSystem } from "@shared/mocks";
 import { projectsList, blogPostsList } from ".";
 

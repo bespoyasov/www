@@ -1,5 +1,4 @@
 import { TagKind, Tag, valueOf } from "@domain/tags";
-import { Comparable } from "@shared/types";
 import { sortWith } from "./sortWith";
 
 function comparableTagValue(tag: TagKind): Comparable<Tag> {

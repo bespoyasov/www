@@ -1,5 +1,3 @@
-import { AnyList } from "@shared/types";
-
 type FakeFileContent = string;
 
 export class FileContentProcessorMock {

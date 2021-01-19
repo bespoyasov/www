@@ -1,4 +1,3 @@
-import { ClassName } from "@shared/types";
 import { classes } from "@shared/classes";
 
 type ActiveLinkClassName = ClassName;

@@ -1,4 +1,3 @@
-import { List, AnyList } from "@shared/types";
 import { isEmpty } from "@shared/isEmpty";
 
 type ChunkSize = number;

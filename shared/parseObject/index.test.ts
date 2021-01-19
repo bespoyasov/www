@@ -1,5 +1,4 @@
 import { parseObject } from ".";
-import { AnyObject } from "@shared/types";
 
 type TestConditions = {
   input: string;

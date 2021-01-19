@@ -1,4 +1,3 @@
-import { AbsoluteUrl } from "@shared/types";
 import styles from "./YouTube.module.css";
 
 type YouTubeVideoSource = AbsoluteUrl;

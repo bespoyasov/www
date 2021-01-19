@@ -1,4 +1,3 @@
-import { List } from "@shared/types";
 import { SimpleNode } from "@domain/ast/types";
 import { ROOT_NODE_TYPE } from "./const";
 

@@ -1,6 +1,5 @@
-import { UrlSlug, List } from "@shared/types";
-import { Metadata } from "@domain/metadata";
 import { ImageFileSource, ImageExtension } from "@domain/image";
+import { Metadata } from "@domain/metadata";
 
 type PathComponents = List<UrlSlug | ImageExtension>;
 

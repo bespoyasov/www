@@ -1,4 +1,3 @@
-import { List } from "@shared/types";
 import { TagLink } from "@components/TagLink";
 import { TagKind } from "@domain/tags/types";
 import styles from "./Tags.module.css";

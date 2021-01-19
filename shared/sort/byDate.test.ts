@@ -1,4 +1,3 @@
-import { AnyObject } from "@shared/types";
 import { generate, metadata, oneDayAfter } from "@shared/stubs";
 import { byDate, CompareResult, byDateDescending } from ".";
 

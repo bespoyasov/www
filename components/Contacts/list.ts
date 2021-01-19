@@ -1,5 +1,3 @@
-import { UrlSlug, AbsoluteUrl, List } from "@shared/types";
-
 type Contact = {
   url: AbsoluteUrl | UrlSlug;
   type: string;

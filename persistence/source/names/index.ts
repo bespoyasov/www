@@ -1,4 +1,3 @@
-import { List } from "@shared/types";
 import { PostId } from "@domain/post";
 import { onlyMdx } from "@persistence/utils";
 import { PROJECTS_DIRECTORY, BLOG_DIRECTORY } from "@persistence/const";

@@ -1,5 +1,4 @@
 import { useMount } from "@effects/useMount";
-import { AbsoluteUrl } from "@shared/types";
 
 type RedirectProps = {
   to: AbsoluteUrl;

@@ -1,5 +1,4 @@
 import { classes } from "@shared/classes";
-import { AbsoluteUrl } from "@shared/types";
 import { ImageFileSource, ImageDescription } from "@domain/image";
 import { Picture } from "@components/Picture";
 import { isLimited } from "./isLimited";

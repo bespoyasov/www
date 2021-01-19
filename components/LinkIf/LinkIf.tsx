@@ -1,5 +1,4 @@
 import { WithChildren } from "@domain/components";
-import { UrlSlug } from "@shared/types";
 import NextLink from "next/link";
 
 type Condition = boolean;

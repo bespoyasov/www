@@ -1,5 +1,4 @@
 import JSON5 from "json5";
-import { AnyObject, Nullable } from "@shared/types";
 
 export function parseObject<TParsed extends AnyObject>(text: string): Nullable<TParsed> {
   try {

@@ -1,4 +1,3 @@
-import { List, UrlSlug } from "@shared/types";
 import { projectsList, blogPostsList } from "@persistence/source";
 
 type Query = typeof projectsList | typeof blogPostsList;

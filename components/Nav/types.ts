@@ -1,5 +1,3 @@
-import { AbsoluteUrl, UrlSlug } from "@shared/types";
-
 export enum RouteKind {
   Internal,
   External,
