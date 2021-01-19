@@ -1,4 +1,5 @@
 import React from "react";
+import { WithChildren } from "@domain/components";
 import { UrlSlug } from "@shared/types";
 import NextLink from "next/link";
 
@@ -10,7 +11,7 @@ type LinkIfProps = {
   to: Destination;
 };
 
-export const Link: React.FC<LinkIfProps> = ({ if: condition, to, children }) => {
+export const Link = ({ if: condition, to, children }: WithChildren<LinkIfProps>) => {
   if (condition) {
     return (
       <NextLink href={to}>

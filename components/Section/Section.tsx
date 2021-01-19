@@ -1,11 +1,12 @@
 import React from "react";
+import { WithChildren } from "@domain/components";
 import styles from "./Section.module.css";
 
 type SectionProps = {
   title: string;
 };
 
-export const Section: React.FC<SectionProps> = ({ title, children }) => {
+export const Section = ({ title, children }: WithChildren<SectionProps>) => {
   return (
     <section className={styles.section}>
       <h2 className="title">{title}</h2>
