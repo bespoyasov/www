@@ -20,7 +20,7 @@ export const getStaticProps: GetStaticProps<ProjectsProps> = async () => {
   };
 };
 
-const Projects: React.FC<ProjectsProps> = ({ projects }) => {
+const Projects = ({ projects }: ProjectsProps) => {
   return (
     <>
       <Head>

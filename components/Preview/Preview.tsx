@@ -8,7 +8,7 @@ type PreviewProps = {
   metadata: Metadata;
 };
 
-export const Preview: React.FC<PreviewProps> = ({ metadata }) => {
+export const Preview = ({ metadata }: PreviewProps) => {
   const { slug, title, description } = metadata;
 
   return (

@@ -8,7 +8,7 @@ type ProjectsListProps = {
   projects: Metadata[];
 };
 
-export const ProjectsList: React.FC<ProjectsListProps> = ({ projects }) => {
+export const ProjectsList = ({ projects }: ProjectsListProps) => {
   return (
     <ul className={classes("reset", styles.list)}>
       {projects.map((project) => (

@@ -8,7 +8,7 @@ type TripProps = {
   place: Metadata;
 };
 
-export const Trip: React.FC<TripProps> = ({ place }) => {
+export const Trip = ({ place }: TripProps) => {
   const { title, description, slug } = place;
 
   return (

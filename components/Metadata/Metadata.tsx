@@ -8,7 +8,7 @@ type MetadataProps = {
   metadata: MetadataType;
 };
 
-export const Metadata: React.FC<MetadataProps> = ({ metadata }) => {
+export const Metadata = ({ metadata }: MetadataProps) => {
   const { datetime, tags } = metadata;
 
   return (

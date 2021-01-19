@@ -10,7 +10,7 @@ type YouTubeProps = {
   caption?: VisibleCaption;
 };
 
-export const YouTube: React.FC<YouTubeProps> = ({ src, caption }) => {
+export const YouTube = ({ src, caption }: YouTubeProps) => {
   return (
     <figure className={styles.container}>
       <iframe src={src} frameBorder="0" allow="autoplay; encrypted-media" allowFullScreen />

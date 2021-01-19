@@ -1,7 +1,7 @@
 import React from "react";
 import styles from "./Copyright.module.css";
 
-export const Copyright: React.FC = () => {
+export const Copyright = () => {
   return (
     <div>
       <span className={styles.dates}>2010+</span>

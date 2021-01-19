@@ -9,7 +9,7 @@ type CoverProps = {
   withExtension?: ImageExtension;
 };
 
-export const Cover: React.FC<CoverProps> = ({ for: entity, withExtension = "png" }) => {
+export const Cover = ({ for: entity, withExtension = "png" }: CoverProps) => {
   const { title } = entity;
   const source = imageSourceFor(entity, withExtension);
   return <Picture src={source} alt={title} />;

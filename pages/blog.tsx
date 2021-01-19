@@ -22,7 +22,7 @@ export const getStaticProps: GetStaticProps<BlogProps> = async () => {
   };
 };
 
-const Blog: React.FC<BlogProps> = ({ posts }) => {
+const Blog = ({ posts }: BlogProps) => {
   return (
     <main>
       <Head>

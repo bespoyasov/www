@@ -1,7 +1,7 @@
 import React from "react";
 import { NotFound } from "@components/NotFound";
 
-const ErrorPage: React.FC = () => {
+const ErrorPage = () => {
   return <NotFound />;
 };
 

@@ -7,7 +7,7 @@ type RssFeedProps = {
   entries: Metadata[];
 };
 
-export const RssFeed: React.FC<RssFeedProps> = ({ entries }) => {
+export const RssFeed = ({ entries }: RssFeedProps) => {
   return (
     <PostLayout>
       {entries.map((entry) => (

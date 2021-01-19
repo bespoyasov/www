@@ -38,7 +38,7 @@ export const getStaticPaths: GetStaticPaths = async () => {
   return { paths, fallback: false };
 };
 
-const Project: React.FC<ProjectProps> = ({ metadata, prevPost, nextPost }) => {
+const Project = ({ metadata, prevPost, nextPost }: ProjectProps) => {
   const { title, description } = metadata;
   const { query } = useRouter();
   const PostContents = require(`./${query.id}.mdx`).default;

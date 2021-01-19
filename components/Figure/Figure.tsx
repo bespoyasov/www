@@ -18,7 +18,7 @@ type FigureProps = {
   caption?: VisibleCaption;
 };
 
-export const Figure: React.FC<FigureProps> = ({ src, alt, cite, caption }) => {
+export const Figure = ({ src, alt, cite, caption }: FigureProps) => {
   return (
     <figure className={classes(figure, isLimited(src) && limited)}>
       <a href={cite}>

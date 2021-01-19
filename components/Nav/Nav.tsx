@@ -6,7 +6,7 @@ import { internal, external } from "./routes";
 import { activeIf } from "./activeIf";
 import styles from "./Nav.module.css";
 
-export const Nav: React.FC<HTMLAttributes<HTMLElement>> = ({ className }) => {
+export const Nav = ({ className }: HTMLAttributes<HTMLElement>) => {
   const { asPath: path } = useRouter();
 
   return (

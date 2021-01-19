@@ -4,7 +4,7 @@ import { Contacts } from "@components/Contacts";
 import { Person } from "@components/MicroData";
 import styles from "./Footer.module.css";
 
-export const Footer: React.FC = () => {
+export const Footer = () => {
   return (
     <footer className={styles.footer}>
       <Copyright />

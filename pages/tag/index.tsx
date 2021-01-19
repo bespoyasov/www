@@ -3,7 +3,7 @@ import Head from "next/head";
 import { Description } from "@components/Description";
 import { AllTags } from "@components/AllTags";
 
-const Tags: React.FC = () => {
+const Tags = () => {
   return (
     <main>
       <Head>

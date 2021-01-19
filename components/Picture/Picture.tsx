@@ -8,7 +8,7 @@ type PictureProps = {
   alt: ImageDescription;
 };
 
-export const Picture: React.FC<PictureProps> = ({ src, alt }) => {
+export const Picture = ({ src, alt }: PictureProps) => {
   return (
     <picture className={styles.picture}>
       <source srcSet={withWebp(src)} type="image/webp" />

@@ -22,7 +22,7 @@ export const getStaticProps: GetStaticProps<BlogProps> = async () => {
   };
 };
 
-const Blog: React.FC<BlogProps> = ({ posts }) => {
+const Blog = ({ posts }: BlogProps) => {
   const maxAmount = isProduction() ? sizeOf(posts) : 5;
   const latestPosts = posts.slice(0, maxAmount);
 

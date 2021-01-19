@@ -6,7 +6,7 @@ type RedirectProps = {
   to: AbsoluteUrl;
 };
 
-export const Redirect: React.FC<RedirectProps> = ({ to }) => {
+export const Redirect = ({ to }: RedirectProps) => {
   useMount(() => {
     location.href = to;
   });

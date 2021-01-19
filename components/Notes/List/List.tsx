@@ -8,7 +8,7 @@ type ListProps = {
   notes: Metadata[];
 };
 
-export const List: React.FC<ListProps> = ({ notes }) => {
+export const List = ({ notes }: ListProps) => {
   return (
     <ul className={classes(styles.list, "reset")}>
       {notes.map(({ slug, title }) => {
