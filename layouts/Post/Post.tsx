@@ -1,5 +1,6 @@
 import React from "react";
 import { MDXProvider } from "@mdx-js/react";
+import { WithChildren } from "@domain/components";
 
 import { Blockquote } from "@components/Blockquote";
 import { Highlight } from "@components/Highlight";
@@ -18,7 +19,7 @@ const substitutes = {
   a: LinkProxy,
 };
 
-export const PostLayout: React.FC = ({ children }) => {
+export const PostLayout = ({ children }: WithChildren) => {
   return (
     <MDXProvider components={substitutes}>
       <div className={styles.post}>{children}</div>
