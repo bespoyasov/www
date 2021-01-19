@@ -6,7 +6,7 @@ import { Nav } from "@components/Nav";
 import { Logo } from "@components/Logo";
 import styles from "./Header.module.css";
 
-export const Header: React.FC = () => {
+export const Header = () => {
   const { pathname } = useRouter();
 
   return (

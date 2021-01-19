@@ -2,7 +2,7 @@ import React from "react";
 import { VisuallyHidden } from "@components/VisuallyHidden";
 import styles from "./About.module.css";
 
-export const About: React.FC = () => {
+export const About = () => {
   return (
     <main className={styles.about}>
       <VisuallyHidden as="h2">Обо мне</VisuallyHidden>

@@ -6,7 +6,7 @@ function isExternalRoute(uri: AbsoluteUrl | UrlSlug): boolean {
   return uri.startsWith("http") || uri.startsWith("mailto");
 }
 
-export const LinkProxy: React.FC<AnchorHTMLAttributes<HTMLAnchorElement>> = (props) => {
+export const LinkProxy = (props: AnchorHTMLAttributes<HTMLAnchorElement>) => {
   const { href, ...rest } = props;
 
   return isExternalRoute(href) ? (

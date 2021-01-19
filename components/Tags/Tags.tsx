@@ -8,7 +8,7 @@ type TagsProps = {
   tags: List<TagKind>;
 };
 
-export const Tags: React.FC<TagsProps> = ({ tags }) => {
+export const Tags = ({ tags }: TagsProps) => {
   return (
     <menu className={styles.tags}>
       <ul>

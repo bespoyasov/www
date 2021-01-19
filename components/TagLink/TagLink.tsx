@@ -6,7 +6,7 @@ type TagLinkProps = {
   tag: TagKind;
 };
 
-export const TagLink: React.FC<TagLinkProps> = ({ tag }) => {
+export const TagLink = ({ tag }: TagLinkProps) => {
   const value = valueOf(tag);
 
   return (

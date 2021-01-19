@@ -7,7 +7,7 @@ type RssEntryProps = {
   entry: Metadata;
 };
 
-export const RssEntry: React.FC<RssEntryProps> = ({ entry }) => {
+export const RssEntry = ({ entry }: RssEntryProps) => {
   const { slug, title, datetime } = entry;
   const Contents = require(`../../pages${slug}.mdx`).default;
 

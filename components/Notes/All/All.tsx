@@ -9,7 +9,7 @@ type AllNotesProps = {
   notes: Metadata[];
 };
 
-export const AllNotes: React.FC<AllNotesProps> = ({ notes }) => {
+export const AllNotes = ({ notes }: AllNotesProps) => {
   const minNotesInColumn = 5;
   const columnsCount = sizeOf(notes) >= minNotesInColumn ? 2 : 1;
   const columnsContent = splitInto(notes, columnsCount);

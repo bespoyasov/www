@@ -4,7 +4,7 @@ import { onMainPage } from "@shared/onMainPage";
 import { classes } from "@shared/classes";
 import styles from "./Logo.module.css";
 
-export const Logo: React.FC<HTMLAttributes<HTMLSpanElement>> = ({ className }) => {
+export const Logo = ({ className }: HTMLAttributes<HTMLSpanElement>) => {
   const { pathname } = useRouter();
   const Header = onMainPage(pathname) ? "h1" : "span";
 

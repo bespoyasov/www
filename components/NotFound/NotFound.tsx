@@ -1,7 +1,7 @@
 import React from "react";
 import styles from "./NotFound.module.css";
 
-export const NotFound: React.FC = () => {
+export const NotFound = () => {
   return (
     <main className={styles.container}>
       <article>

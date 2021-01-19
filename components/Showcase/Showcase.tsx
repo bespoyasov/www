@@ -7,7 +7,7 @@ type ShowcaseProps = {
   projects: Metadata[];
 };
 
-export const Showcase: React.FC<ShowcaseProps> = ({ projects }) => {
+export const Showcase = ({ projects }: ShowcaseProps) => {
   return (
     <main className={styles.showcase}>
       <h1>Все проекты</h1>

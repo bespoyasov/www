@@ -7,7 +7,7 @@ type TripsProps = {
   posts: Metadata[];
 };
 
-export const Trips: React.FC<TripsProps> = ({ posts }) => {
+export const Trips = ({ posts }: TripsProps) => {
   return (
     <main className={styles.trips}>
       <h1>Мир</h1>

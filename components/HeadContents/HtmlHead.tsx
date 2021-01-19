@@ -1,6 +1,6 @@
 import React from "react";
 
-export const HeadContents: React.FC = () => {
+export const HeadContents = () => {
   return (
     <>
       <meta charSet="utf-8" />

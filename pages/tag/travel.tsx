@@ -24,7 +24,7 @@ export const getStaticProps: GetStaticProps<TravelProps> = async () => {
   };
 };
 
-const Travel: React.FC<TravelProps> = ({ posts }) => {
+const Travel = ({ posts }: TravelProps) => {
   return (
     <>
       <Head>

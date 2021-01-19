@@ -1,7 +1,7 @@
 import React from "react";
 import { VisuallyHidden } from "@components/VisuallyHidden";
 
-export const Person: React.FC = () => {
+export const Person = () => {
   return (
     <VisuallyHidden itemScope itemType="//schema.org/Person">
       <span itemProp="name">Саша Беспоясов</span>

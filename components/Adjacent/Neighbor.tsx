@@ -9,7 +9,7 @@ type NeighborProps = {
   is: NeighborKind;
 };
 
-export const Neighbor: React.FC<NeighborProps> = ({ is: kind, describes: entity }) => {
+export const Neighbor = ({ is: kind, describes: entity }: NeighborProps) => {
   const className = styles[kind];
 
   return (

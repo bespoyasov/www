@@ -8,7 +8,7 @@ type AdjacentProps = {
   next?: Metadata;
 };
 
-export const Adjacent: React.FC<AdjacentProps> = ({ prev, next }) => {
+export const Adjacent = ({ prev, next }: AdjacentProps) => {
   return (
     <menu className={styles.adjacent}>
       {!!prev && <Neighbor is="prev" describes={prev} />}

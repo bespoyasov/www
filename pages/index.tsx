@@ -3,7 +3,7 @@ import Head from "next/head";
 import { About } from "@components/About";
 import { Description } from "@components/Description";
 
-const Main: React.FC = () => (
+const Main = () => (
   <>
     <Head>
       <title>АБ</title>

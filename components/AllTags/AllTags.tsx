@@ -5,7 +5,7 @@ import { splitInto } from "@shared/splitInto";
 import { TagLink } from "@components/TagLink";
 import styles from "./AllTags.module.css";
 
-export const AllTags: React.FC = () => {
+export const AllTags = () => {
   const allTags = Object.keys(Tag).sort(byTagValue);
 
   const columnsCount = 2;

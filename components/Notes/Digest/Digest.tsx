@@ -8,7 +8,7 @@ type DigestProps = {
   notes: Metadata[];
 };
 
-export const Digest: React.FC<DigestProps> = ({ notes }) => {
+export const Digest = ({ notes }: DigestProps) => {
   return (
     <div className={styles.section}>
       <div>

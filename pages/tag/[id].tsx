@@ -49,7 +49,7 @@ export const getStaticPaths: GetStaticPaths = async () => {
   return { paths, fallback: false };
 };
 
-const Tag: React.FC<TagProps> = ({ projects, notes }) => {
+const Tag = ({ projects, notes }: TagProps) => {
   const { query } = useRouter();
   const tag = TagEnum[assureType<TagKind>(query.id)];
   const summary = `Все проекты и заметки с тегом «${tag}»`;

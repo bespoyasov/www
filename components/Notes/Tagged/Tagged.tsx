@@ -9,7 +9,7 @@ type TaggedProps = {
   from: Metadata[];
 };
 
-export const Tagged: React.FC<TaggedProps> = ({ with: tag, from: notes }) => {
+export const Tagged = ({ with: tag, from: notes }: TaggedProps) => {
   const notesCount = 7;
   const forTag = notes.filter(({ tags }) => tags.includes(tag)).slice(0, notesCount);
 
