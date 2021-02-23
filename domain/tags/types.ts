@@ -18,6 +18,7 @@ export enum Tag {
   editorial = "Выбор редакции",
   emotions = "Эмоции",
 
+  hardware = "Железо",
   history = "История",
 
   learning = "Обучение",
