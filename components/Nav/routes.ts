@@ -7,6 +7,6 @@ export const internal: List<NavRoute<RouteKind.Internal>> = [
 ];
 
 export const external: List<NavRoute<RouteKind.External>> = [
-  { url: "mailto:bespoyasov@me.com", title: "Почта" },
-  { url: "https://t.me/bespoyasov", title: "Телеграм" },
+  { url: "https://twitter.com/bespoyasov", title: "Твиттер" },
+  { url: "https://github.com/bespoyasov", title: "Гитхаб" },
 ];
