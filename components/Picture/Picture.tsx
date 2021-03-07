@@ -11,7 +11,7 @@ export const Picture = ({ src, alt }: PictureProps) => {
   return (
     <picture className={styles.picture}>
       <source srcSet={withWebp(src)} type="image/webp" />
-      <img src={src} alt={alt} loading="lazy" />
+      <img src={src} alt={alt} loading="lazy" decoding="async" />
     </picture>
   );
 };
