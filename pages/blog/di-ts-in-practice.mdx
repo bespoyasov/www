@@ -23,12 +23,12 @@ export const metadata = {
 
 Если немного отойти от академических определений, то зависимости можно сравнить с аргументами функции. И те, и другие как-то используются, ото всех _зависит_ функциональность и работоспособность модуля.
 
-```
+```ts
 // Функция не заработает без аргументов min и max:
 
 function random(min, max) {
-  if (typeof min === 'undefined' || typeof max === 'undefined') {
-    throw new Error('All arguments are required');
+  if (typeof min === "undefined" || typeof max === "undefined") {
+    throw new Error("All arguments are required");
   }
 
   return Math.random() * (max - min) + min;
@@ -41,10 +41,14 @@ function random(min, max) {
 
 Мы даже можем показать это явно, сделав его аргументом:
 
-```
+```ts
 function random(a, b, randomSource) {
-  if (typeof min === 'undefined' || typeof max === 'undefined' || typeof randomSource === 'undefined') {
-    throw new Error('All arguments are required');
+  if (
+    typeof min === "undefined" ||
+    typeof max === "undefined" ||
+    typeof randomSource === "undefined"
+  ) {
+    throw new Error("All arguments are required");
   }
 
   return randomSource.random() * (max - min) + min;
@@ -53,13 +57,13 @@ function random(a, b, randomSource) {
 
 Теперь мы видим, что функция `random` на самом деле использует не только два числа, но ещё и какой-то генератор случайных чисел. Такую функцию мы будем вызывать так:
 
-```
+```ts
 const randomBetweenTenAndTwenty = random(10, 20, Math);
 ```
 
 Либо, если мы не хотим постоянно писать руками `Math` последним аргументом, мы можем сделать его значением по умолчанию для последнего аргумента в `random`:
 
-```
+```ts
 function random(a, b, randomSource = Math) {
   // …
 }
@@ -84,13 +88,13 @@ _[Фиктивные объекты](https://ru.wikipedia.org/wiki/Mock-объе
 
 Они как правило сильно облегчают тестирование, а иногда без них что-то протестировать вообще нельзя. Как в случае с нашей функцией `random` — мы не можем проверить конечный результат, который она возвращает, потому что он случаен. Зато мы можем проверить то, как наша функция обошлась с зависимостями.
 
-```
+```ts
 // Мы можем создать фиктивный объект,
 // который будет всегда возвращать 0.1 вместо случайного числа:
 
 const fakeRandomSource = {
   random: () => 0.1,
-}
+};
 
 // Дальше мы вызовем нашу функцию,
 // передав ей последним аргументом фиктивный объект:
@@ -107,15 +111,15 @@ randomBetweenTenAndTwenty === 11; // true
 
 Если новый модуль ведёт себя так же как старый, мы можем заменить один на другой:
 
-```
+```ts
 // Если новый объект содержит метод random(),
 // мы можем заменить им старую зависимость.
 
 const otherRandomSource = {
   random() {
     // ...Другая реализация выбора случайного числа.
-  }
-}
+  },
+};
 
 const randomNumber = random(10, 20, otherRandomSource);
 ```
@@ -132,7 +136,7 @@ const randomNumber = random(10, 20, otherRandomSource);
 
 Чтобы объявить, что _какой-то объект_ обязан иметь метод `random`, который возвращает число, мы создадим интерфейс:
 
-```
+```ts
 interface RandomSource {
   random(): number;
 }
@@ -140,7 +144,7 @@ interface RandomSource {
 
 Чтобы объявить, что _конкретный объект_ обязан иметь метод `random`, мы указываем, что этот объект реализует этот интерфейс:
 
-```
+```ts
 // С помощью двоеточия мы говорим,
 // что этот объект реализует интерфейс RandomSource,
 // а значит — обязан вести себя так, как описано в этом интерфейсе.
@@ -150,16 +154,16 @@ const otherRandomSource: RandomSource = {
     // Он должен вернуть число,
     // иначе TypeScript-компилятор укажет на ошибку.
     return 42;
-  }
-}
+  },
+};
 ```
 
 Теперь нам осталось в функции `random` указать, что последним аргументом мы ждём исключительно объект, который реализует интерфейс `RandomSource`.
 
-```
+```ts
 function random(a: number, b: number, source: RandomSource): number {
-  if (typeof min === 'undefined' || typeof max === 'undefined' || typeof source === 'undefined') {
-    throw new Error('All arguments are required');
+  if (typeof min === "undefined" || typeof max === "undefined" || typeof source === "undefined") {
+    throw new Error("All arguments are required");
   }
 
   return source.random() * (max - min) + min;
@@ -168,7 +172,7 @@ function random(a: number, b: number, source: RandomSource): number {
 
 Если теперь мы попробуем в эту функцию передать объект, который не реализует этот интерфейс, TypeScript укажет на ошибку:
 
-```
+```ts
 const randomNumber1 = random(1, 10, Math);
 // Ок, Math содержит метод random(), проблем нет.
 
@@ -205,17 +209,17 @@ const randomNumber4 = random(1, 10, otherObject);
 
 Простейший пример объекта с состоянием — это счётчик. В виде класса он бы выглядел так:
 
-```
+```ts
 class Counter {
   private state: number = 0;
 
   public increase = (): void => {
     this.state++;
-  }
+  };
 
   public decrease = (): void => {
     this.state--;
-  }
+  };
 
   get stateOf(): number {
     return this.state;
@@ -225,7 +229,7 @@ class Counter {
 
 Методы дают возможность этим состоянием управлять:
 
-```
+```ts
 const counter = new Counter();
 counter.stateOf; // 0
 
@@ -238,26 +242,26 @@ counter.stateOf; // 0
 
 Жара начинается, когда одни объекты зависят от других. Представим, что наш счётчик должен не только хранить количество, но ещё и выводить его в консоль после каждого обновления.
 
-```
+```ts
 class Counter {
   private state: number = 0;
 
   // Добавляем метод для логирования.
   private log = (): void => {
     console.log(this.state);
-  }
+  };
 
   public increase = (): void => {
     // И теперь при изменении количества...
     this.state++;
     this.log();
-  }
+  };
 
   public decrease = (): void => {
     // ...оно будет выводиться в консоль.
     this.state--;
     this.log();
-  }
+  };
 
   get stateOf(): number {
     return this.state;
@@ -275,10 +279,10 @@ class Counter {
 
 Например, если бы мы хотели при создании счётчика выводить приветствие в консоли, это можно было бы сделать как раз через конструктор.
 
-```
+```ts
 class Counter {
   constructor() {
-    console.log('Hello world!');
+    console.log("Hello world!");
   }
 
   // ...Остальной код.
@@ -298,7 +302,7 @@ const counter = new Counter();
 
 Когда мы хотим зафиксировать поведение, мы используем интерфейсы. Значит, типом аргумента конструктора будет интерфейс, описывающий объекты с методом `log`.
 
-```
+```ts
 interface Logger {
   log(message: string): void;
 }
@@ -306,7 +310,7 @@ interface Logger {
 
 Используем этот интерфейс в коде, зафиксировав таким образом требования к объекту, от которого зависит класс `Counter`:
 
-```
+```ts
 class Counter {
   // Приватное поле будет хранить «ссылку» на объект-зависимость...
   private logger: Logger;
@@ -332,18 +336,18 @@ class Counter {
 
 Инициализировать экземпляры такого класса мы тогда будем так:
 
-```
+```ts
 const counter = new Counter(console);
 ```
 
 И если мы захотим, например для тестов, заменить `console` на что-то другое, нам будет достаточно удостовериться, что новая зависимость реализует интерфейс `Logger`:
 
-```
+```ts
 const customLogger: Logger = {
   log(message: string): void {
     alert(message);
-  }
-}
+  },
+};
 
 const counter = new Counter(customLogger);
 ```
@@ -375,8 +379,8 @@ container.register(SomeInterface, SomeClass)
 
 Для TypeScript есть [прекрасный инструмент](https://github.com/wessberg/di), который делает именно то, что мы описали выше. Он использует дженерики, чтобы связывать интерфейсы и реализации. Выглядит это так:
 
-```
-import {DIContainer} from '@wessberg/di';
+```ts
+import { DIContainer } from "@wessberg/di";
 
 // Создаём контейнер:
 const container = new DIContainer();
@@ -400,7 +404,7 @@ container.registerSingleton<Logger, ConsoleLogger>();
 
 Теперь если мы захотим в счётчике указать зависимость на логгер, мы это сделаем так:
 
-```
+```ts
 // ...Предыдущий код.
 
 class Counter {
@@ -408,7 +412,7 @@ class Counter {
 
   private log = (): void => {
     this.logger.log(this.state);
-  }
+  };
 
   // ...Остальной код счётчика.
 }
@@ -424,7 +428,7 @@ container.registerSingleton<Counter>();
 
 Например, если мы захотим поменять реализацию логгера во всех местах, которые зависят от этого интерфейса, нам будет достаточно поменять реализацию в регистрации:
 
-```
+```ts
 // Новая реализация...
 class CustomLogger implements Logger {
   public log = (message: LogEntry): void => alert(message);
@@ -461,7 +465,7 @@ Singleton и transient здесь — это [виды жизненного ци
 
 Само приложение простое:
 
-```
+```ts
 export class AppInitiator {
   constructor(
     private dateTimeSource: DateTimeSource,
@@ -469,12 +473,12 @@ export class AppInitiator {
     private clickHandler: EventHandler<MouseEvent>,
     private logger: Logger,
     private timer: Timer,
-    private env: Window
+    private env: Window,
   ) {}
 
-  private greet = (): void => this.logger.log('Hello world!');
+  private greet = (): void => this.logger.log("Hello world!");
   private setupTimer = (): void => this.timer.invokeEvery(this.greet, 5000);
-  private registerClicks = (): void => this.clickHandler.on('click', this.handleClick);
+  private registerClicks = (): void => this.clickHandler.on("click", this.handleClick);
 
   private handleClick = (e: MouseEvent): void => {
     const position = [e.pageX, e.pageY];
@@ -508,7 +512,7 @@ container.registerSingleton<AppInitiator>();
 
 Для доступа ко времени я использую адаптер `BrowserDateTimeSource`, который потом регистрирую как реализацию интерфейса `DateTimeSource`. Заметьте, что при запросе зависимости я указываю именно интерфейс — _потому что всё должно зависеть от абстракций_.
 
-```
+```ts
 export class BrowserDateTimeSource implements DateTimeSource {
   get source() {
     return new Date();
@@ -525,7 +529,7 @@ container.registerSingleton<DateTimeSource, BrowserDateTimeSource>();
 
 Генератор уникальных имён — это адаптер для _[nanoid](https://github.com/ai/nanoid)_. Обратите внимание, что явно _nanoid_ я указываю лишь при регистрации интерфейса `ThirdPartyGenerator` и нигде больше.
 
-```
+```ts
 export class IdGenerator implements UuidGenerator {
   constructor(private adaptee: ThirdPartyGenerator) {}
   generate = () => this.adaptee();
@@ -539,7 +543,7 @@ container.registerSingleton<UuidGenerator, IdGenerator>();
 
 Обработчик событий реализует [дженерик-интерфейс](https://www.typescriptlang.org/docs/handbook/generics.html) `EventHandler<MouseEvent>`. Важно, что при запросе зависимости я тоже указываю `EventHandler<MouseEvent>`. Если передать другой type-параметр, то контейнер будет искать реализацию интерфейса с другим параметром. Это удобно, при работе с похожими объектами.
 
-```
+```ts
 export class ClickHandler implements EventHandler<MouseEvent> {
   constructor(private env: Window) {}
 
@@ -557,7 +561,7 @@ container.registerSingleton<EventHandler<MouseEvent>, ClickHandler>();
 
 Логгер мы уже видели, он пишет логи в консоль <nobr>:–)</nobr>
 
-```
+```ts
 export class ConsoleLogger implements Logger {
   public log = (message: LogEntry): void => console.log(message);
 }
@@ -571,7 +575,7 @@ container.registerSingleton<Logger, ConsoleLogger>();
 
 Удобство контейнера в том, что ему неважно, какой у зависимости уровень. Он подставит её сам, без труда. (Главное, чтобы не было циклических зависимостей, но об этом надо писать отдельную статью, пожалуй.)
 
-```
+```ts
 // Например, для IdGenerator мы регистрировали зависимость так:
 container.registerSingleton<ThirdPartyGenerator>(() => nanoid);
 
@@ -585,7 +589,7 @@ container.registerSingleton<Window>(() => window);
 
 Второй минус, что получать сервис входной точки приходится тоже через контейнер:
 
-```
+```ts
 const service = container.get<AppInitiator>();
 service.init();
 ```
