@@ -1,0 +1,6 @@
+.code {
+  padding: 0.2em 0.35em;
+  font-family: var(--font-monospace);
+  border: 1px solid var(--grey-transparent);
+  border-radius: var(--corner-radius);
+}
