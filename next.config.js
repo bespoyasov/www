@@ -13,6 +13,18 @@ const withMDX = require("@next/mdx")({
         },
       ],
     ],
+
+    rehypePlugins: [
+      [
+        require("rehype-highlight/light"),
+        {
+          languages: {
+            javascript: require("highlight.js/lib/languages/javascript"),
+            typescript: require("highlight.js/lib/languages/typescript"),
+          },
+        },
+      ],
+    ],
   },
 });
 
