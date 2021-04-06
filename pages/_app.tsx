@@ -17,6 +17,8 @@ import "@shared/styles/theme.css";
 import "@shared/styles/global.css";
 import "@shared/styles/rhythm.css";
 
+import "@shared/styles/highlight.css";
+
 export default function MyApp({ Component, pageProps }) {
   return (
     <Center>
