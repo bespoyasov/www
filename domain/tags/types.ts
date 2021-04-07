@@ -26,6 +26,7 @@ export enum Tag {
   maths = "Математика",
   management = "Управление",
 
+  oop = "ООП",
   opinion = "Ящитаю",
 
   philosophy = "Философия",
