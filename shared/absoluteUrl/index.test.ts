@@ -1,4 +1,4 @@
-import { absoluteUrlFor } from "./absoluteUrl";
+import { absoluteUrlFor } from ".";
 
 describe("when given a url slug", () => {
   it("should prepend the site url to the given slug", () => {

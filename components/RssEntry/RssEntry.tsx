@@ -1,5 +1,5 @@
 import { Metadata } from "@domain/metadata";
-import { absoluteUrlFor } from "./absoluteUrl";
+import { absoluteUrlFor } from "@shared/absoluteUrl";
 import styles from "./RssEntry.module.css";
 
 type RssEntryProps = {
