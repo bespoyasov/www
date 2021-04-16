@@ -1,5 +1,6 @@
-import Link from "next/link";
+import { classes } from "@shared/classes";
 import { Metadata } from "@domain/metadata";
+import Link from "next/link";
 import styles from "./Neighbor.module.css";
 
 type NeighborKind = "prev" | "next";
@@ -9,7 +10,7 @@ type NeighborProps = {
 };
 
 export const Neighbor = ({ is: kind, describes: entity }: NeighborProps) => {
-  const className = styles[kind];
+  const className = classes("text-color", styles[kind]);
 
   return (
     <Link href={entity.slug}>
