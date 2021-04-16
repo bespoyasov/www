@@ -7,6 +7,7 @@ import { projectsMetadata, projectsNames } from "@api/fetch";
 
 import { PostLayout } from "@layouts/Post";
 import { Metadata } from "@components/Metadata";
+import { Feedback } from "@components/Feedback";
 import { Adjacent } from "@components/Adjacent";
 import { Description } from "@components/Description";
 
@@ -50,7 +51,9 @@ const Project = ({ metadata, prevPost, nextPost }: ProjectProps) => {
       <main>
         <PostContents />
       </main>
+
       <Metadata metadata={metadata} />
+      <Feedback metadata={metadata} />
       <Adjacent prev={prevPost} next={nextPost} />
     </PostLayout>
   );

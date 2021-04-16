@@ -8,6 +8,7 @@ import { blogPostsMetadata, blogPostsNames } from "@api/fetch";
 import { PostLayout } from "@layouts/Post";
 import { Adjacent } from "@components/Adjacent";
 import { Metadata } from "@components/Metadata";
+import { Feedback } from "@components/Feedback";
 import { Description } from "@components/Description";
 
 type BlogPostProps = {
@@ -50,7 +51,9 @@ const BlogPost = ({ metadata, prevPost, nextPost }: BlogPostProps) => {
       <main>
         <PostContents />
       </main>
+
       <Metadata metadata={metadata} />
+      <Feedback metadata={metadata} />
       <Adjacent prev={prevPost} next={nextPost} />
     </PostLayout>
   );
