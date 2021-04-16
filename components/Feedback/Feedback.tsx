@@ -8,13 +8,13 @@ type FeedbackProps = {
 };
 
 export const Feedback = ({ metadata }: FeedbackProps) => {
-  const links = createLinksList(metadata);
+  const actionLinks = createLinksList(metadata);
 
   return (
     <article className={styles.feedback}>
       <VisuallyHidden as="h2">Если понравился пост</VisuallyHidden>
       <ul>
-        {links.map(({ label, url }) => (
+        {actionLinks.map(({ label, url }) => (
           <li key={label}>
             <a className="text-color" href={url}>
               {label}
