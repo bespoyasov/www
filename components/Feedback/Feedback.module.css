@@ -1,0 +1,14 @@
+.feedback {
+  margin-bottom: 0.5rem;
+  font-size: var(--small-font-size);
+  line-height: var(--small-line-height);
+}
+
+.feedback ul {
+  list-style: none;
+}
+
+.feedback li {
+  display: inline-block;
+  margin-right: 1em;
+}
