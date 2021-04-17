@@ -43,6 +43,7 @@ export enum Tag {
   solid = "SOLID",
   story = "Офигительная история",
 
+  talks = "Выступления",
   tdd = "TDD",
   text = "Тексты и редактура",
   tools = "Инструменты",
