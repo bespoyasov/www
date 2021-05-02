@@ -26,7 +26,7 @@ const Blog = ({ posts }: BlogProps) => {
     <main>
       <Head>
         <title>Написал</title>
-        <Description>Самый скучный блог.</Description>
+        <Description>Самый занудный блог.</Description>
       </Head>
 
       <VisuallyHidden as="h1">Все заметки</VisuallyHidden>
