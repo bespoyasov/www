@@ -32,10 +32,12 @@ const Blog = ({ posts }: BlogProps) => {
       <VisuallyHidden as="h1">Все заметки</VisuallyHidden>
 
       <Section title="Свежее">
+        <p>Последние статьи из блога и подборки по тегам.</p>
         <Digest notes={posts} />
       </Section>
 
       <Section title="Всё подряд">
+        <p>Все статьи от новых к старым.</p>
         <AllNotes notes={posts} />
       </Section>
     </main>
