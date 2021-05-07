@@ -1,4 +1,5 @@
 import { contentFor } from "./factory";
+import { settings } from "./settings";
 
 const testId = "post-id";
 const testSource = "test-source";
@@ -21,7 +22,7 @@ describe("when received a request", () => {
     const request = contentFor(query);
     const result = await request(testId, { serialize });
 
-    expect(serialize).toHaveBeenCalledWith(testSource);
+    expect(serialize).toHaveBeenCalledWith(testSource, settings);
     expect(result).toEqual(testResult.compiledSource);
   });
 });
