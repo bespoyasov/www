@@ -1,32 +1,36 @@
 import Head from "next/head";
-import { useRouter } from "next/router";
 import { GetStaticProps, GetStaticPaths } from "next";
 
+import { PostContents } from "@domain/post";
 import { Metadata as MetadataType } from "@domain/metadata";
-import { projectsMetadata, projectsNames } from "@api/fetch";
+import { projectsMetadata, projectsNames, fetchProject } from "@api/fetch";
 
-import { PostLayout } from "@layouts/Post";
+import { Post } from "@components/Post";
 import { Metadata } from "@components/Metadata";
 import { Feedback } from "@components/Feedback";
 import { Adjacent } from "@components/Adjacent";
 import { Description } from "@components/Description";
 
 type ProjectProps = {
+  contents: PostContents;
   metadata: MetadataType;
   prevPost: Nullable<MetadataType>;
   nextPost: Nullable<MetadataType>;
 };
 
 export const getStaticProps: GetStaticProps<ProjectProps> = async (context) => {
-  const { id } = context.params;
+  const postId = String(context.params.id);
+
+  const content = await fetchProject(postId);
   const projects = await projectsMetadata();
-  const index = projects.findIndex((project) => project.slug.endsWith(String(id)));
+  const index = projects.findIndex((project) => project.slug.endsWith(postId));
 
   return {
     props: {
       metadata: projects[index],
       prevPost: projects[index - 1] ?? null,
       nextPost: projects[index + 1] ?? null,
+      contents: content,
     },
   };
 };
@@ -37,25 +41,19 @@ export const getStaticPaths: GetStaticPaths = async () => {
   return { paths, fallback: false };
 };
 
-const Project = ({ metadata, prevPost, nextPost }: ProjectProps) => {
-  const { title, description } = metadata;
-  const { query } = useRouter();
-  const PostContents = require(`./${query.id}.mdx`).default;
-
+const Project = ({ metadata, prevPost, nextPost, contents }: ProjectProps) => {
   return (
-    <PostLayout>
+    <>
       <Head>
-        <title>{title}</title>
-        <Description>{description}</Description>
+        <title>{metadata.title}</title>
+        <Description>{metadata.description}</Description>
       </Head>
-      <main>
-        <PostContents />
-      </main>
 
+      <Post content={contents} />
       <Metadata metadata={metadata} />
       <Feedback metadata={metadata} />
       <Adjacent prev={prevPost} next={nextPost} />
-    </PostLayout>
+    </>
   );
 };
 
