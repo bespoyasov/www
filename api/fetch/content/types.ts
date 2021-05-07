@@ -8,4 +8,4 @@ export type SerializedPost = MDXRemoteSerializeResult;
 export type Serializer = (
   source: PostContents,
   options?: SerializerOptions,
-) => Promise<MDXRemoteSerializeResult>;
+) => Promise<SerializedPost>;
