@@ -19,9 +19,7 @@
       "@components/*": ["components/*"],
       "@domain/*": ["domain/*"],
       "@effects/*": ["effects/*"],
-      "@layouts/*": ["layouts/*"],
       "@persistence/*": ["persistence/*"],
-      "@server/*": ["server/*"],
       "@shared/*": ["shared/*"]
     }
   },
