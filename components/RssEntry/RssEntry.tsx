@@ -1,14 +1,16 @@
+import { Post } from "@components/Post";
 import { Metadata } from "@domain/metadata";
+import { PostContents } from "@domain/post";
 import { absoluteUrlFor } from "@shared/absoluteUrl";
 import styles from "./RssEntry.module.css";
 
 type RssEntryProps = {
-  entry: Metadata;
+  metadata: Metadata;
+  contents: PostContents;
 };
 
-export const RssEntry = ({ entry }: RssEntryProps) => {
-  const { slug, title, datetime } = entry;
-  const Contents = require(`../../pages${slug}.mdx`).default;
+export const RssEntry = ({ metadata, contents }: RssEntryProps) => {
+  const { slug, title, datetime } = metadata;
 
   return (
     <article
@@ -17,7 +19,7 @@ export const RssEntry = ({ entry }: RssEntryProps) => {
       data-datetime={datetime}
       className={styles.entry}
     >
-      <Contents />
+      <Post content={contents} />
     </article>
   );
 };
