@@ -1,13 +1,11 @@
 import { contentFor } from "./factory";
-import { SerializedPost } from "./types";
-import { assureType } from "@shared/assureType";
 
 const testId = "post-id";
 const testSource = "test-source";
-const testResult = "test-result";
+const testResult = { compiledSource: "test-result" };
 
 const query = jest.fn(() => testSource);
-const serialize = jest.fn(async () => assureType<SerializedPost>(testResult));
+const serialize = jest.fn(async () => testResult);
 
 beforeEach(() => jest.clearAllMocks());
 
@@ -19,11 +17,11 @@ describe("when received a request", () => {
     expect(query).toHaveBeenCalled();
   });
 
-  it("should call the source serializer", async () => {
+  it("should serialize the source with a given serializer", async () => {
     const request = contentFor(query);
     const result = await request(testId, { serialize });
 
     expect(serialize).toHaveBeenCalledWith(testSource);
-    expect(result).toEqual(testResult);
+    expect(result).toEqual(testResult.compiledSource);
   });
 });
