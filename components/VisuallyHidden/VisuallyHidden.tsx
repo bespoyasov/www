@@ -3,7 +3,7 @@ import { WithChildren } from "@domain/components";
 import styles from "./VisuallyHidden.module.css";
 
 type VisuallyHiddenProps = HtmlHTMLAttributes<HTMLElement> & {
-  as?: keyof JSX.IntrinsicElements;
+  as?: HtmlElements;
 };
 
 export const VisuallyHidden = ({
