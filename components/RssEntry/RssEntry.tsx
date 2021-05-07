@@ -19,7 +19,7 @@ export const RssEntry = ({ metadata, contents }: RssEntryProps) => {
       data-datetime={datetime}
       className={styles.entry}
     >
-      <Post content={contents} />
+      <Post content={contents} as="div" />
     </article>
   );
 };
