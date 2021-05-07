@@ -20,7 +20,8 @@
       "@domain/*": ["domain/*"],
       "@effects/*": ["effects/*"],
       "@persistence/*": ["persistence/*"],
-      "@shared/*": ["shared/*"]
+      "@shared/*": ["shared/*"],
+      "@configs/*": ["configs/*"]
     }
   },
   "exclude": ["node_modules"],
