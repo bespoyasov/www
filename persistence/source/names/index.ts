@@ -1,7 +1,7 @@
 import { PostId } from "@domain/post";
 import { onlyMdx } from "@persistence/utils";
 import { PROJECTS_DIRECTORY, BLOG_DIRECTORY } from "@persistence/const";
-import { Dependencies, di, QueryKind } from "../composition";
+import { Dependencies, di, QueryKind } from "@persistence/composition";
 
 type Executor = (di?: Dependencies) => List<PostId>;
 

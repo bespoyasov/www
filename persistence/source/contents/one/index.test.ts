@@ -1,5 +1,5 @@
+import { getBlogPost, getProject } from ".";
 import { mockSystem } from "@shared/mocks";
-import { getBlogPost, getProject } from "./one";
 
 const postId = "post";
 const fileName = "post.mdx";
