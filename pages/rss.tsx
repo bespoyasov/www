@@ -2,28 +2,43 @@ import Head from "next/head";
 import { GetStaticProps } from "next";
 
 import { Description } from "@components/Description";
-import { RssFeed } from "@components/RssFeed";
+import { RssEntry } from "@components/RssEntry";
 
-import { isProduction } from "@shared/env";
 import { Metadata } from "@domain/metadata";
-import { blogPostsMetadata } from "@api/fetch";
+import { PostContents } from "@domain/post";
+import { blogPostsMetadata, fetchBlogPost } from "@api/fetch";
+import { isProduction } from "@shared/env";
 import { sizeOf } from "@shared/sizeOf";
 
-type RssProps = {
-  posts: Metadata[];
+type Entry = {
+  metadata: Metadata;
+  contents: PostContents;
 };
 
+type RssProps = {
+  entries: List<Entry>;
+};
+
+async function createEntry(metadata: Metadata): Promise<Entry> {
+  const postId = metadata.slug.replace("/blog/", "");
+  const contents = await fetchBlogPost(postId);
+  return { contents, metadata };
+}
+
 export const getStaticProps: GetStaticProps<RssProps> = async () => {
+  const metadata = await blogPostsMetadata();
+  const entries = await Promise.all(metadata.map(createEntry));
+
   return {
     props: {
-      posts: await blogPostsMetadata(),
+      entries,
     },
   };
 };
 
-const Rss = ({ posts }: RssProps) => {
-  const maxAmount = isProduction() ? sizeOf(posts) : 5;
-  const latestPosts = posts.slice(0, maxAmount);
+const Rss = ({ entries }: RssProps) => {
+  const maxAmount = isProduction() ? sizeOf(entries) : 5;
+  const latest = entries.slice(0, maxAmount);
 
   return (
     <main>
@@ -32,7 +47,9 @@ const Rss = ({ posts }: RssProps) => {
         <Description>Самый скучный блог.</Description>
       </Head>
 
-      <RssFeed entries={latestPosts} />
+      {latest.map(({ metadata, contents }) => (
+        <RssEntry metadata={metadata} contents={contents} key={metadata.slug} />
+      ))}
     </main>
   );
 };
