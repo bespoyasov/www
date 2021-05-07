@@ -5,12 +5,13 @@ import styles from "./Post.module.css";
 
 type PostProps = {
   content: PostContents;
+  as?: keyof JSX.IntrinsicElements;
 };
 
-export const Post = ({ content }: PostProps) => {
+export const Post = ({ content, as: Container = "main" }: PostProps) => {
   return (
-    <main className={styles.post}>
+    <Container className={styles.post}>
       <MDXRemote compiledSource={content} components={substitutes} />
-    </main>
+    </Container>
   );
 };
