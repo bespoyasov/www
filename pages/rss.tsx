@@ -9,11 +9,11 @@ import { Metadata } from "@domain/metadata";
 import { blogPostsMetadata } from "@api/fetch";
 import { sizeOf } from "@shared/sizeOf";
 
-type BlogProps = {
+type RssProps = {
   posts: Metadata[];
 };
 
-export const getStaticProps: GetStaticProps<BlogProps> = async () => {
+export const getStaticProps: GetStaticProps<RssProps> = async () => {
   return {
     props: {
       posts: await blogPostsMetadata(),
@@ -21,7 +21,7 @@ export const getStaticProps: GetStaticProps<BlogProps> = async () => {
   };
 };
 
-const Blog = ({ posts }: BlogProps) => {
+const Rss = ({ posts }: RssProps) => {
   const maxAmount = isProduction() ? sizeOf(posts) : 5;
   const latestPosts = posts.slice(0, maxAmount);
 
@@ -37,4 +37,4 @@ const Blog = ({ posts }: BlogProps) => {
   );
 };
 
-export default Blog;
+export default Rss;
