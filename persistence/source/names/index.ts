@@ -1,19 +1,18 @@
 import { PostId } from "@domain/post";
-import { onlyMdx } from "@persistence/utils";
-import { QueryKind } from "@persistence/types";
+import { onlyMdx, directoryFor } from "@persistence/utils";
 import { Dependencies, di } from "@persistence/composition";
-import { PROJECTS_DIRECTORY, BLOG_DIRECTORY } from "@persistence/const";
+import { QueryKind } from "@persistence/types";
 
 type Executor = (di?: Dependencies) => List<PostId>;
 
-function queryFor(directory: QueryKind): Executor {
+function queryFor(query: QueryKind): Executor {
   return function execute({ system }: Dependencies = di): List<PostId> {
     return system
-      .readdirSync(directory)
+      .readdirSync(directoryFor(query))
       .filter(onlyMdx)
       .map((fileName) => fileName.replace(".mdx", ""));
   };
 }
 
-export const projectsList = queryFor(PROJECTS_DIRECTORY);
-export const blogPostsList = queryFor(BLOG_DIRECTORY);
+export const projectsList = queryFor("projects");
+export const blogPostsList = queryFor("blog");
