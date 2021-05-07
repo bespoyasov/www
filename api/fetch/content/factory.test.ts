@@ -1,4 +1,4 @@
-import { contentFor } from ".";
+import { contentFor } from "./factory";
 import { SerializedPost } from "./types";
 import { assureType } from "@shared/assureType";
 
