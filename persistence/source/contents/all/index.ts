@@ -1,8 +1,9 @@
 import path from "path";
 import { PostContents } from "@domain/post";
 import { onlyMdx } from "@persistence/utils";
+import { QueryKind } from "@persistence/types";
+import { Dependencies, di } from "@persistence/composition";
 import { PROJECTS_DIRECTORY, BLOG_DIRECTORY } from "@persistence/const";
-import { Dependencies, di, QueryKind } from "@persistence/composition";
 
 type Executor = (di?: Dependencies) => List<PostContents>;
 
