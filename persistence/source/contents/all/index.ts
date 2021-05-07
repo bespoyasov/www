@@ -1,14 +1,14 @@
 import path from "path";
 import { PostContents } from "@domain/post";
-import { onlyMdx } from "@persistence/utils";
-import { QueryKind } from "@persistence/types";
+import { onlyMdx, directoryFor } from "@persistence/utils";
 import { Dependencies, di } from "@persistence/composition";
-import { PROJECTS_DIRECTORY, BLOG_DIRECTORY } from "@persistence/const";
+import { QueryKind } from "@persistence/types";
 
 type Executor = (di?: Dependencies) => List<PostContents>;
 
-function queryFor(directory: QueryKind): Executor {
+function queryFor(query: QueryKind): Executor {
   return function execute({ system }: Dependencies = di): List<PostContents> {
+    const directory = directoryFor(query);
     const posts = system
       .readdirSync(directory)
       .filter(onlyMdx)
@@ -18,5 +18,5 @@ function queryFor(directory: QueryKind): Executor {
   };
 }
 
-export const allProjects = queryFor(PROJECTS_DIRECTORY);
-export const allBlogPosts = queryFor(BLOG_DIRECTORY);
+export const allProjects = queryFor("projects");
+export const allBlogPosts = queryFor("blog");

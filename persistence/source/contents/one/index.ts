@@ -1,18 +1,18 @@
 import path from "path";
 import { PostContents, PostId } from "@domain/post";
-import { withMdx } from "@persistence/utils";
-import { QueryKind } from "@persistence/types";
+import { directoryFor, withMdx } from "@persistence/utils";
 import { Dependencies, di } from "@persistence/composition";
-import { PROJECTS_DIRECTORY, BLOG_DIRECTORY } from "@persistence/const";
+import { QueryKind } from "@persistence/types";
 
 type Executor = (id: PostId, di?: Dependencies) => PostContents;
 
-function queryFor(directory: QueryKind): Executor {
+function queryFor(query: QueryKind): Executor {
   return function execute(id: PostId, { system }: Dependencies = di): PostContents {
+    const directory = directoryFor(query);
     const fileName = withMdx(id);
     return system.readFileSync(path.join(directory, fileName), "utf-8");
   };
 }
 
-export const getProject = queryFor(PROJECTS_DIRECTORY);
-export const getBlogPost = queryFor(BLOG_DIRECTORY);
+export const getProject = queryFor("projects");
+export const getBlogPost = queryFor("blog");

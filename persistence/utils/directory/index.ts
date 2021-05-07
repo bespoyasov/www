@@ -1,13 +1,13 @@
 import { BLOG_DIRECTORY, PROJECTS_DIRECTORY } from "@persistence/const";
-import { QueryKind_ } from "@persistence/types";
+import { QueryKind } from "@persistence/types";
 
 type PagesDirectory = typeof BLOG_DIRECTORY | typeof PROJECTS_DIRECTORY;
 
-const pagesDirectories: Record<QueryKind_, PagesDirectory> = {
+const pagesDirectories: Record<QueryKind, PagesDirectory> = {
   projects: PROJECTS_DIRECTORY,
   blog: BLOG_DIRECTORY,
 };
 
-export function selectDirectory(forQuery: QueryKind_): PagesDirectory {
-  return pagesDirectories[forQuery];
+export function directoryFor(query: QueryKind): PagesDirectory {
+  return pagesDirectories[query];
 }
