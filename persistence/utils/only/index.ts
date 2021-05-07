@@ -1,5 +1,4 @@
-type FileExtension = "mdx" | "tsx";
-type FileName = string;
+import { FileExtension, FileName } from "@persistence/types";
 
 function only(extension: FileExtension) {
   return function withExtension(fileName: FileName): boolean {
