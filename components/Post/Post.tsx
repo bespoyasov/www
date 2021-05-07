@@ -5,7 +5,7 @@ import styles from "./Post.module.css";
 
 type PostProps = {
   content: PostContents;
-  as?: keyof JSX.IntrinsicElements;
+  as?: HtmlElements;
 };
 
 export const Post = ({ content, as: Container = "main" }: PostProps) => {
