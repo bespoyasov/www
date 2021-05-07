@@ -2,9 +2,8 @@ import path from "path";
 import { PostContents } from "@domain/post";
 import { onlyMdx } from "@persistence/utils";
 import { PROJECTS_DIRECTORY, BLOG_DIRECTORY } from "@persistence/const";
-import { Dependencies, di } from "../composition";
+import { Dependencies, di, QueryKind } from "../composition";
 
-type QueryKind = typeof PROJECTS_DIRECTORY | typeof BLOG_DIRECTORY;
 type Executor = (di?: Dependencies) => List<PostContents>;
 
 function queryFor(directory: QueryKind): Executor {
