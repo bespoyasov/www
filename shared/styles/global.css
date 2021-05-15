@@ -43,6 +43,9 @@ a {
   text-decoration-thickness: 0.025em;
 }
 
+h1 a,
+h2 a,
+h3 a,
 a.text-color {
   color: var(--text-color);
   text-decoration-color: var(--decoration-text-color);
