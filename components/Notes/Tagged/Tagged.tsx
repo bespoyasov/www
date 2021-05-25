@@ -9,7 +9,7 @@ type TaggedProps = {
 };
 
 export const Tagged = ({ with: tag, from: notes }: TaggedProps) => {
-  const notesCount = 7;
+  const notesCount = 5;
   const forTag = notes.filter(({ tags }) => tags.includes(tag)).slice(0, notesCount);
 
   return (
