@@ -1,23 +1,20 @@
 import { Metadata } from "@domain/metadata";
-import { absoluteUrlFor } from "@shared/absoluteUrl";
+import { DEFAULT_TITLE, DEFAULT_DESCRIPTION } from "./const";
 
 type SummaryCardProps = {
-  metadata: Metadata;
+  metadata?: Metadata;
 };
 
 export const SummaryCard = ({ metadata }: SummaryCardProps) => {
-  const { title, description, slug } = metadata;
-  const url = absoluteUrlFor(slug);
+  const { title = DEFAULT_TITLE, description = DEFAULT_DESCRIPTION } = metadata ?? {};
 
   return (
     <>
       <meta name="twitter:card" content="summary" />
-      <meta name="twitter:creator" content="@bespoyasov" />
-      <meta name="twitter:url" content={url} />
+      <meta name="twitter:site" content="@bespoyasov" />
       <meta name="twitter:title" content={title} />
       <meta name="twitter:description" content={description} />
 
-      <meta property="og:url" content={url} />
       <meta property="og:type" content="website" />
       <meta property="og:title" content={title} />
       <meta property="og:description" content={description} />
