@@ -10,6 +10,7 @@ import { Metadata } from "@components/Metadata";
 import { Feedback } from "@components/Feedback";
 import { Adjacent } from "@components/Adjacent";
 import { Description } from "@components/Description";
+import { SummaryCard } from "@components/SummaryCard";
 
 type ProjectProps = {
   contents: PostContents;
@@ -47,6 +48,7 @@ const Project = ({ metadata, prevPost, nextPost, contents }: ProjectProps) => {
       <Head>
         <title>{metadata.title}</title>
         <Description>{metadata.description}</Description>
+        <SummaryCard metadata={metadata} />
       </Head>
 
       <Post content={contents} />

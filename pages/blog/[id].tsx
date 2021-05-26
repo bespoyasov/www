@@ -10,6 +10,7 @@ import { Adjacent } from "@components/Adjacent";
 import { Metadata } from "@components/Metadata";
 import { Feedback } from "@components/Feedback";
 import { Description } from "@components/Description";
+import { SummaryCard } from "@components/SummaryCard";
 
 type BlogPostProps = {
   contents: PostContents;
@@ -47,6 +48,7 @@ const BlogPost = ({ metadata, prevPost, nextPost, contents }: BlogPostProps) => 
       <Head>
         <title>{metadata.title}</title>
         <Description>{metadata.description}</Description>
+        <SummaryCard metadata={metadata} />
       </Head>
 
       <Post content={contents} />

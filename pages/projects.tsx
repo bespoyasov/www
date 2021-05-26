@@ -1,6 +1,7 @@
 import Head from "next/head";
 import { GetStaticProps } from "next";
 
+import { SummaryCard } from "@components/SummaryCard";
 import { Description } from "@components/Description";
 import { Showcase } from "@components/Showcase";
 
@@ -25,6 +26,7 @@ const Projects = ({ projects }: ProjectsProps) => {
       <Head>
         <title>Сделал</title>
         <Description>Что я наделал.</Description>
+        <SummaryCard />
       </Head>
       <Showcase projects={projects} />
     </>

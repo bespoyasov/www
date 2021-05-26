@@ -3,6 +3,7 @@ import { GetStaticProps } from "next";
 
 import { VisuallyHidden } from "@components/VisuallyHidden";
 import { Description } from "@components/Description";
+import { SummaryCard } from "@components/SummaryCard";
 import { Section } from "@components/Section";
 import { AllNotes, Digest } from "@components/Notes";
 
@@ -27,6 +28,7 @@ const Blog = ({ posts }: BlogProps) => {
       <Head>
         <title>Написал</title>
         <Description>Самый занудный блог.</Description>
+        <SummaryCard />
       </Head>
 
       <VisuallyHidden as="h1">Все заметки</VisuallyHidden>
