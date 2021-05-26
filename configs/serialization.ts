@@ -1,3 +1,5 @@
+import * as headingIds from "rehype-slug";
+import * as headingAnchors from "rehype-autolink-headings";
 import * as unwrapImages from "remark-unwrap-images";
 import * as typography from "@mavrin/remark-typograf";
 
@@ -19,6 +21,18 @@ export const serializationConfig = {
   ],
 
   rehypePlugins: [
+    headingIds,
+    [
+      headingAnchors,
+      {
+        behavior: "append",
+        content: {
+          type: "element",
+          tagName: "span",
+          properties: { className: ["anchor"] },
+        },
+      },
+    ],
     [
       syntaxHighlight,
       {
