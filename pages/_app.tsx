@@ -18,6 +18,7 @@ import "@shared/styles/global.css";
 import "@shared/styles/rhythm.css";
 
 import "@shared/styles/highlight.css";
+import "@shared/styles/anchors.css";
 
 export default function MyApp({ Component, pageProps }) {
   return (

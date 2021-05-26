@@ -1,0 +1,12 @@
+.anchor {
+  padding: 0 0.2em;
+  display: none;
+}
+
+.anchor::after {
+  content: "#";
+}
+
+:is(h1, h2, h3):hover .anchor {
+  display: inline;
+}
