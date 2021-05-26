@@ -68,6 +68,7 @@
     "prettier": "^2.2.1",
     "rehype-autolink-headings": "^5.1.0",
     "rehype-highlight": "^4.1.0",
+    "rehype-slug": "^4.0.1",
     "remark": "^12.0.1",
     "remark-mdx": "^1.6.22",
     "remark-unwrap-images": "^2.0.0",
