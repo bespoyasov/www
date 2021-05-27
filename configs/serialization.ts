@@ -26,10 +26,9 @@ export const serializationConfig = {
       headingAnchors,
       {
         behavior: "append",
-        content: {
-          type: "element",
-          tagName: "span",
-          properties: { className: ["anchor"] },
+        content: [],
+        properties: {
+          className: "anchor",
         },
       },
     ],

@@ -1,12 +1,13 @@
 .anchor {
   padding: 0 0.2em;
-  display: none;
+  text-decoration: none;
+  opacity: 0.2;
 }
 
 .anchor::after {
   content: "#";
 }
 
-:is(h1, h2, h3):hover .anchor {
-  display: inline;
+.anchor:hover {
+  opacity: 1;
 }
