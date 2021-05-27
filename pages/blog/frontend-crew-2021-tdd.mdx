@@ -277,7 +277,7 @@ it("should return the result of division `a` over `b`", () => {
 
 Сейчас тест упал:
 
-```text
+```
 ● when called › should return the result of division `a` over `b`
 
   TypeError: (0 , _.divide) is not a function
@@ -306,7 +306,7 @@ export function divide(a, b) {
 
 Проверим тест теперь.
 
-```text
+```
 ● when called › should return the result of division `a` over `b`
 
   expect(received).toEqual(expected) // deep equality
@@ -340,7 +340,7 @@ export function divide(a, b) {
 
 Тест проходит:
 
-```text
+```
  PASS  ./index.test.js
   when called
     ✓ should return the result of division `a` over `b` (2 ms)
@@ -363,7 +363,7 @@ export function divide(a, b) {
 
 Тест упал!
 
-```text
+```
 ● when called › should return the result of division `a` over `b`
   expect(received).toEqual(expected) // deep equality
 
@@ -387,7 +387,7 @@ export function divide(a, b) {
 }
 ```
 
-```text
+```
 PASS  ./index.test.js
   when called
     ✓ should return the result of division `a` over `b` (1 ms)
@@ -413,7 +413,7 @@ describe("when the result is not an integer", () => {
 
 Тест падает, проверяем причину.
 
-```text
+```
 ● when the result is not an integer › should round it to 2 decimal places
 
   expect(received).toEqual(expected) // deep equality
@@ -444,7 +444,7 @@ export function divide(a, b) {
 
 Тест не починился, да ещё и прошлый упал!
 
-```text
+```
 FAIL  ./index.test.js
   when called
     ✕ should return the result of division `a` over `b` (2 ms)
@@ -464,7 +464,7 @@ export function divide(a, b) {
 }
 ```
 
-```text
+```
 PASS  ./index.test.js
   when called
     ✓ should return the result of division `a` over `b` (1 ms)
@@ -526,7 +526,7 @@ describe("when the result is not an integer", () => {
 
 В консоли:
 
-```text
+```
 PASS  ./index.test.js
   when called
     ✓ should return the result of division `a` over `b` (4 ms)
@@ -575,7 +575,7 @@ export function divide(a, b, settings = {}) {
 
 Какие-то тесты попадали.
 
-```text
+```
   when the result is not an integer
     ✕ should round it to 2 decimal places
     ✕ should round it to 2 decimal places (1 ms)
@@ -597,7 +597,7 @@ export function divide(a, b, settings = {}) {
 
 Все тесты проходят:
 
-```text
+```
 PASS  ./index.test.js
   when called
     ✓ should return the result of division `a` over `b` (2 ms)
@@ -637,7 +637,7 @@ describe("when tried to divide by 0", () => {
 
 Проверим причину падения теста:
 
-```text
+```
 ● when tried to divide by 0 › should throw an error
   expect(received).toThrow(expected)
 
@@ -664,7 +664,7 @@ export function divide(a, b, settings = {}) {
 
 Проверим, прошёл ли тест:
 
-```text
+```
 ● when tried to divide by 0 › should throw an error
   expect(received).toThrow(expected)
 

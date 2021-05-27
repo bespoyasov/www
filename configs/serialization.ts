@@ -22,7 +22,7 @@ export const serializationConfig = {
     [
       syntaxHighlight,
       {
-        plainText: ["text"],
+        subset: false,
         languages: {
           javascript,
           typescript,
