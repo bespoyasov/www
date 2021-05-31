@@ -5,6 +5,7 @@
   ],
   "rules": {
     "declaration-empty-line-before": null,
-    "custom-property-empty-line-before": null
+    "custom-property-empty-line-before": null,
+    "color-hex-length": null
   }
 }
