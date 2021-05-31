@@ -63,7 +63,7 @@ const Tag = ({ projects, notes }: TagProps) => {
       <main>
         <VisuallyHidden as="h1">{summary}</VisuallyHidden>
 
-        <Section title="Заметки">
+        <Section title={`Заметки по тегу «${tag}»`}>
           <AllNotes notes={notes} />
         </Section>
 
