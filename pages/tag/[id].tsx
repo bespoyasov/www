@@ -2,6 +2,7 @@ import Head from "next/head";
 import { useRouter } from "next/router";
 import { GetStaticProps, GetStaticPaths } from "next";
 
+import { VisuallyHidden } from "@components/VisuallyHidden";
 import { Description } from "@components/Description";
 import { ProjectsList } from "@components/ProjectsList";
 import { AllNotes } from "@components/Notes";
@@ -60,6 +61,8 @@ const Tag = ({ projects, notes }: TagProps) => {
       </Head>
 
       <main>
+        <VisuallyHidden as="h1">{summary}</VisuallyHidden>
+
         {sizeOf(projects) > 0 && (
           <Section title="Проекты">
             <ProjectsList projects={projects} />
