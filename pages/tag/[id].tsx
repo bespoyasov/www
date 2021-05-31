@@ -63,15 +63,15 @@ const Tag = ({ projects, notes }: TagProps) => {
       <main>
         <VisuallyHidden as="h1">{summary}</VisuallyHidden>
 
+        <Section title="Заметки">
+          <AllNotes notes={notes} />
+        </Section>
+
         {sizeOf(projects) > 0 && (
           <Section title="Проекты">
             <ProjectsList projects={projects} />
           </Section>
         )}
-
-        <Section title="Заметки">
-          <AllNotes notes={notes} />
-        </Section>
       </main>
     </>
   );
