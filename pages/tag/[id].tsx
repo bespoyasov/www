@@ -69,6 +69,7 @@ const Tag = ({ projects, notes }: TagProps) => {
 
         {sizeOf(projects) > 0 && (
           <Section title="Проекты">
+            <p>Сайты, приложения, опен-сорс проекты, обучающие пособия и книги.</p>
             <ProjectsList projects={projects} />
           </Section>
         )}
