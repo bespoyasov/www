@@ -3,19 +3,16 @@ export enum Tag {
   advice = "Совет",
 
   behavior = "Поведение",
-  biology = "Биология",
   books = "Книги",
   brain = "Мозг",
   butthurt = "Бомбит",
 
-  cap = "Капитан очевидность",
   communication = "Общение",
 
   dev = "Разработка",
   design = "Дизайн",
 
   economics = "Экономика",
-  emotions = "Эмоции",
 
   favorite = "Лучшее",
 
@@ -35,7 +32,6 @@ export enum Tag {
   process = "Как это было",
   product = "Продукт",
   productivity = "Продуктивность",
-  psychology = "Психология",
 
   react = "React",
   reading = "Чтение",
@@ -51,6 +47,4 @@ export enum Tag {
   travel = "Мир",
   ts = "TypeScript",
   tzlvt = "Тяжеловато",
-
-  urban = "Урбанистика",
 }
