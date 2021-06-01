@@ -64,6 +64,7 @@ const Tag = ({ projects, notes }: TagProps) => {
         <VisuallyHidden as="h1">{summary}</VisuallyHidden>
 
         <Section title={`Заметки по тегу «${tag}»`}>
+          <p>Последние статьи из блога от новых к старым.</p>
           <Anthology notes={notes} />
         </Section>
 
