@@ -12,7 +12,7 @@ export const Digest = ({ notes }: DigestProps) => {
     <div className={styles.section}>
       <div>
         <h3>Последние заметки</h3>
-        <List notes={notes.slice(0, 10)} />
+        <List notes={notes.slice(0, 8)} />
       </div>
 
       <div>
@@ -21,13 +21,13 @@ export const Digest = ({ notes }: DigestProps) => {
       </div>
 
       <div>
+        <Tagged with="talks" from={notes} />
         <Tagged with="books" from={notes} />
-        <Tagged with="opinion" from={notes} />
       </div>
 
       <div>
         <Tagged with="process" from={notes} />
-        <Tagged with="brain" from={notes} />
+        <Tagged with="design" from={notes} />
       </div>
     </div>
   );
