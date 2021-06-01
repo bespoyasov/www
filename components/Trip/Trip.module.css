@@ -44,6 +44,7 @@
   border: var(--polaroid-frame-width) solid;
   border-color: var(--polaroid-frame-color);
   box-shadow: var(--polaroid-shadow);
+  border-radius: 0;
 }
 
 @media (prefers-color-scheme: dark) {
