@@ -1,2 +1,2 @@
 export * from "./Digest";
-export * from "./All";
+export * from "./Group";
