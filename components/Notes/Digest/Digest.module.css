@@ -12,9 +12,3 @@
     --columns-count: 2;
   }
 }
-
-@media (min-width: 1000px) {
-  .section {
-    --columns-count: 4;
-  }
-}
