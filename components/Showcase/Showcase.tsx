@@ -9,7 +9,7 @@ type ShowcaseProps = {
 export const Showcase = ({ projects }: ShowcaseProps) => {
   return (
     <main className={styles.showcase}>
-      <h1>Все проекты</h1>
+      <h1>Проекты</h1>
       <p>Последние сайты, приложения и книги, над которыми я работал.</p>
       <ProjectsList projects={projects} />
     </main>
