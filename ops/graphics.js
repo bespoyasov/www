@@ -6,9 +6,10 @@ const { readdir, writeFile } = promises;
 const imagePool = new ImagePool();
 
 const SOURCE_EXTENSIONS = ["jpg", "png"];
-const TARGET_EXTENSIONS = ["webp"];
+const TARGET_EXTENSIONS = ["webp", "avif"];
 const ENCODE_OPTIONS = {
   webp: {},
+  avif: {},
 };
 
 const ROOT_DIRECTORY = process.cwd();
