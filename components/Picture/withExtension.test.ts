@@ -2,7 +2,7 @@ import { withWebp, withAvif } from "./withExtension";
 
 describe("when given a filename with an image extension", () => {
   const extensionsToReplace = ["jpg", "png"];
-  const filename = "somFile";
+  const filename = "someFile";
 
   it("should replace that extension with `webp`", () => {
     extensionsToReplace.forEach((extension) => {
@@ -19,7 +19,7 @@ describe("when given a filename with an image extension", () => {
 
 describe("when given a filename with a non-image extension", () => {
   it("should not do anything", () => {
-    const filename = "somFile.ts";
+    const filename = "someFile.ts";
     expect(withWebp(filename)).toEqual(filename);
     expect(withAvif(filename)).toEqual(filename);
   });
