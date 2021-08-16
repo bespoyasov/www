@@ -45,6 +45,7 @@
   },
   "devDependencies": {
     "@mavrin/remark-typograf": "^2.1.6",
+    "@squoosh/lib": "^0.4.0",
     "@types/jest": "^27.0.1",
     "@types/json5": "^2.2.0",
     "@types/mdx-js__react": "^1.5.4",
