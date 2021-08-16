@@ -1,5 +1,5 @@
 import { ImageFileSource, ImageDescription } from "@domain/image";
-import { withWebp } from "./withWebp";
+import { withWebp, withAvif } from "./withExtension";
 import styles from "./Picture.module.css";
 
 type PictureProps = {
@@ -10,6 +10,7 @@ type PictureProps = {
 export const Picture = ({ src, alt }: PictureProps) => {
   return (
     <picture className={styles.picture}>
+      <source srcSet={withAvif(src)} type="image/avif" />
       <source srcSet={withWebp(src)} type="image/webp" />
       <img src={src} alt={alt} loading="lazy" decoding="async" />
     </picture>
