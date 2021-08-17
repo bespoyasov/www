@@ -1,10 +1,10 @@
-import markdown from "remark-mdx";
-import { exportsOf, metadataOf } from "@domain/ast";
-import { FileContentProcessorMock } from "@shared/mocks";
+import { assureType } from "@shared/assureType";
+import { Dependencies } from "./composition";
 import { metadataFor } from "./factory";
 
-const mockInstance = new FileContentProcessorMock(`{datetime: "2020-08-28T12:00:00"}`);
-jest.mock("remark", () => () => mockInstance);
+const testData = { datetime: "2020-08-28T12:00:00" };
+const parserMock = jest.fn(() => ({ data: testData }));
+const dependencies = assureType<Dependencies>({ parser: parserMock });
 
 describe("when received a request", () => {
   it("should call a given query", () => {
@@ -15,29 +15,25 @@ describe("when received a request", () => {
     expect(query).toHaveBeenCalled();
   });
 
-  it("should apply all the `remark` plugins on each post in the query result", async () => {
-    const posts = ["post1", "post2"];
-    const plugins = [markdown, exportsOf, metadataOf];
+  it("should call the `matter` function on every post and access the `data` field", () => {
+    const posts = ["post1", "post2", "post3"];
+    const expected = posts.map(() => testData);
 
     const query = () => posts;
     const request = metadataFor(query);
-    await request();
+    const result = request(dependencies);
 
-    const mockCalledTimes = posts.length * plugins.length;
-    expect(mockInstance.inspect).toHaveBeenCalledTimes(mockCalledTimes);
-
-    plugins.forEach((plugin, index) => {
-      expect(mockInstance.inspect.mock.calls[index][0]).toEqual(plugin);
-    });
+    expect(parserMock).toHaveBeenCalledTimes(posts.length);
+    expect(result).toEqual(expected);
   });
 
-  it("should sort query results with a given compare function", async () => {
+  it("should sort query results with a given compare function", () => {
     const posts = ["post1", "post2", "post3"];
     const query = () => posts;
     const sorter = jest.fn();
 
     const request = metadataFor(query, { sorter });
-    await request();
+    request();
 
     expect(sorter).toHaveBeenCalledTimes(posts.length - 1);
   });
