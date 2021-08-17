@@ -3,7 +3,6 @@
   "private": true,
   "version": "6.0.0",
   "description": "bespoyasov.ru",
-  "main": "index.js",
   "scripts": {
     "start": "next",
     "build": "next build",
@@ -31,8 +30,6 @@
     "type": "git",
     "url": "git+https://github.com/bespoyasov/site.git"
   },
-  "keywords": [],
-  "author": "",
   "license": "GNU GPL v3.0",
   "bugs": {
     "url": "https://github.com/bespoyasov/site/issues"
