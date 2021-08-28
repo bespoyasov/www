@@ -23,7 +23,7 @@ export const getStaticProps: GetStaticProps<ProjectProps> = async (context) => {
   const postId = String(context.params.id);
 
   const content = await fetchProject(postId);
-  const projects = await projectsMetadata();
+  const projects = projectsMetadata();
   const index = projects.findIndex((project) => project.slug.endsWith(postId));
 
   return {

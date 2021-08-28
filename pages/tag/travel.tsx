@@ -12,8 +12,8 @@ type TravelProps = {
   posts: Metadata[];
 };
 
-export const getStaticProps: GetStaticProps<TravelProps> = async () => {
-  const allPosts = await blogPostsMetadata();
+export const getStaticProps: GetStaticProps<TravelProps> = () => {
+  const allPosts = blogPostsMetadata();
   const travelPosts = allPosts.filter(withTravelTag);
 
   return {

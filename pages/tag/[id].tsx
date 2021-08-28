@@ -33,7 +33,7 @@ export const getStaticProps: GetStaticProps<TagProps> = async ({ params }) => {
   const byTag = withTag(desired);
 
   const projects = (await projectsMetadata()).filter(byTag);
-  const notes = (await blogPostsMetadata()).filter(byTag);
+  const notes = blogPostsMetadata().filter(byTag);
 
   return {
     props: {

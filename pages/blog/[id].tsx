@@ -23,7 +23,7 @@ export const getStaticProps: GetStaticProps<BlogPostProps> = async (context) => 
   const postId = String(context.params.id);
 
   const content = await fetchBlogPost(postId);
-  const blogPosts = await blogPostsMetadata();
+  const blogPosts = blogPostsMetadata();
   const index = blogPosts.findIndex((post) => post.slug.endsWith(postId));
 
   return {
