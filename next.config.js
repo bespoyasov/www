@@ -4,4 +4,5 @@ const withOffline = require("next-offline");
 module.exports = withOffline({
   pageExtensions: ["tsx"],
   trailingSlash: true,
+  experimental: { esmExternals: true },
 });
