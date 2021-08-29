@@ -1,11 +1,9 @@
-import * as headingIds from "rehype-slug";
-import * as headingAnchors from "rehype-autolink-headings";
-import * as unwrapImages from "remark-unwrap-images";
 import * as typography from "@mavrin/remark-typograf";
 
-import * as syntaxHighlight from "rehype-highlight/light";
-import * as javascript from "highlight.js/lib/languages/javascript";
-import * as typescript from "highlight.js/lib/languages/typescript";
+import headingIds from "rehype-slug";
+import headingAnchors from "rehype-autolink-headings";
+import unwrapImages from "remark-unwrap-images";
+import syntaxHighlight from "rehype-highlight";
 
 export const serializationConfig = {
   remarkPlugins: [
@@ -32,15 +30,6 @@ export const serializationConfig = {
         },
       },
     ],
-    [
-      syntaxHighlight,
-      {
-        subset: false,
-        languages: {
-          javascript,
-          typescript,
-        },
-      },
-    ],
+    syntaxHighlight,
   ],
 };
