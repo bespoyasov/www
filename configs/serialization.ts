@@ -30,6 +30,11 @@ export const serializationConfig = {
         },
       },
     ],
-    syntaxHighlight,
+    [
+      syntaxHighlight,
+      {
+        subset: false,
+      },
+    ],
   ],
 };
