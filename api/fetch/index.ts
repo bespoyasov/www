@@ -1,3 +1,3 @@
 export * from "./metadata";
 export * from "./listing";
-export * from "./content";
+export { fetchBlogPost, fetchProject } from "./content";
