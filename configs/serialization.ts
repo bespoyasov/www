@@ -1,8 +1,8 @@
 import * as typography from "@mavrin/remark-typograf";
+import unwrapImages from "remark-unwrap-images";
 
 import headingIds from "rehype-slug";
 import headingAnchors from "rehype-autolink-headings";
-import unwrapImages from "remark-unwrap-images";
 import syntaxHighlight from "rehype-highlight";
 
 export const serializationConfig = {
