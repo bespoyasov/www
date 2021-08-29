@@ -1,7 +1,9 @@
 import { assureType } from "@shared/assureType";
 import { Dependencies } from "./composition";
 import { contentFor } from "./factory";
-import { settings } from "./settings";
+
+jest.mock("./settings", () => ({ settings: { key: "value" } }));
+const testSettings = { key: "value" };
 
 const testId = "post-id";
 const testFileSource = "test-source";
@@ -36,7 +38,7 @@ describe("when received a request", () => {
     const request = contentFor(query);
     const result = await request(testId, dependencies);
 
-    expect(serialize).toHaveBeenCalledWith(testParsedSource, settings);
+    expect(serialize).toHaveBeenCalledWith(testParsedSource, testSettings);
     expect(result).toEqual(testSerializeResult.compiledSource);
   });
 });
