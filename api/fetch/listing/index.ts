@@ -1,10 +1,10 @@
 import { projectsList, blogPostsList } from "@persistence/source";
 
 type Query = typeof projectsList | typeof blogPostsList;
-type FetchRequest = () => Promise<List<UrlSlug>>;
+type FetchRequest = () => List<UrlSlug>;
 
 function listingFor(query: Query): FetchRequest {
-  return async function request(): Promise<List<UrlSlug>> {
+  return function request(): List<UrlSlug> {
     return query();
   };
 }

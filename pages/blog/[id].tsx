@@ -36,8 +36,8 @@ export const getStaticProps: GetStaticProps<BlogPostProps> = async (context) => 
   };
 };
 
-export const getStaticPaths: GetStaticPaths = async () => {
-  const blogPosts = await blogPostsNames();
+export const getStaticPaths: GetStaticPaths = () => {
+  const blogPosts = blogPostsNames();
   const paths = blogPosts.map((id) => ({ params: { id } }));
   return { paths, fallback: false };
 };
