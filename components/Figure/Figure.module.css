@@ -1,6 +1,6 @@
 .figure {
   max-width: var(--max-media-width);
-  margin: 0 0 var(--vertical-gap);
+  margin: var(--vertical-gap) 0;
 }
 
 .limited {
