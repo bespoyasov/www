@@ -2,10 +2,10 @@
 to: ./pages/projects/<%= slug %>.mdx
 ---
 ---
-title: <%= title %>,
-description: ,
-datetime: ,
-slug: /projects/<%= slug %>,
+title: <%= title %>
+description:
+datetime:
+slug: /projects/<%= slug %>
 tags:
   - dev
 ---
