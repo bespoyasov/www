@@ -373,7 +373,7 @@ export type OrderStatus = "new" | "delivery" | "completed";
 
 export type Order = {
   user: UniqueId;
-  products: Product[];
+  cart: Cart;
   created: DateTimeString;
   status: OrderStatus;
   total: PriceCents;
@@ -439,12 +439,12 @@ export function totalPrice(products: Product[]): PriceCents {
 ```ts
 // domain/order.ts
 
-export function createOrder(user: User, { products }: Cart): Order {
+export function createOrder(user: User, cart: Cart): Order {
   return {
+    cart,
     user: user.id,
-    products,
-    created: new Date().toISOString(),
     status: "new",
+    created: new Date().toISOString(),
     total: totalPrice(products),
   };
 }
@@ -867,12 +867,12 @@ type Price = {
 ```ts
 import { Product, totalPrice } from "./product";
 
-export function createOrder(user: User, { products }: Cart): Order {
+export function createOrder(user: User, cart: Cart): Order {
   return {
+    cart,
     user: user.id,
-    products,
-    created: new Date().toISOString(),
     status: "new",
+    created: new Date().toISOString(),
     total: totalPrice(products),
   };
 }
@@ -901,10 +901,10 @@ export function createOrder(user: User, { products }: Cart): Order {
 ```ts
 import { Product, totalPrice } from "./product";
 
-export function createOrder(user: User, { products }: Cart): Order {
+export function createOrder(user: User, cart: Cart): Order {
   return {
+    cart,
     user: user.id,
-    products,
 
     // Вот эта строка:
     created: new Date().toISOString(),
@@ -933,12 +933,12 @@ export function currentDatetime(): DateTimeString {
 import { currentDatetime } from "../lib/datetime";
 import { Product, totalPrice } from "./product";
 
-export function createOrder(user: User, { products }: Cart): Order {
+export function createOrder(user: User, cart: Cart): Order {
   return {
+    cart,
     user: user.id,
-    products,
-    created: currentDatetime(),
     status: "new",
+    created: currentDatetime(),
     total: totalPrice(products),
   };
 }
@@ -949,12 +949,12 @@ export function createOrder(user: User, { products }: Cart): Order {
 ```ts
 // domain/order.ts
 
-export function createOrder(user: User, { products }: Cart, created: DateTimeString): Order {
+export function createOrder(user: User, cart: Cart, created: DateTimeString): Order {
   return {
+    cart,
     user: user.id,
-    products,
-    created,
     status: "new",
+    created,
     total: totalPrice(products),
   };
 }
