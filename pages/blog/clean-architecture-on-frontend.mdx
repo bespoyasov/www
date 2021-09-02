@@ -434,12 +434,12 @@ export function totalPrice(products: Product[]): PriceCents {
 }
 ```
 
-Для того, чтобы пользователи могли оформлять заказы, мы добавим функцию `createOrder`. Она будет возвращать при вызове новый заказ, закреплённый за указанным пользователем со список переданных продуктов.
+Для того, чтобы пользователи могли оформлять заказы, мы добавим функцию `createOrder`. Она будет возвращать при вызове новый заказ, закреплённый за указанным пользователем.
 
 ```ts
 // domain/order.ts
 
-export function createOrder(user: User, products: Product[]): Order {
+export function createOrder(user: User, { products }: Cart): Order {
   return {
     user: user.id,
     products,
@@ -631,7 +631,7 @@ const orderStorage: OrdersStorageService = {};
 //...
 
 async function orderProducts(user: User, cart: Cart) {
-  const order = createOrder(user, cart.products);
+  const order = createOrder(user, cart);
 }
 ```
 
@@ -642,7 +642,7 @@ async function orderProducts(user: User, cart: Cart) {
 //...
 
 async function orderProducts(user: User, cart: Cart) {
-  const order = createOrder(user, cart.products);
+  const order = createOrder(user, cart);
 
   // Пробуем оплатить заказ;
   // уведомляем пользователя, если что-то не так:
@@ -867,7 +867,7 @@ type Price = {
 ```ts
 import { Product, totalPrice } from "./product";
 
-export function createOrder(user: User, products: Product[]): Order {
+export function createOrder(user: User, { products }: Cart): Order {
   return {
     user: user.id,
     products,
@@ -901,7 +901,7 @@ export function createOrder(user: User, products: Product[]): Order {
 ```ts
 import { Product, totalPrice } from "./product";
 
-export function createOrder(user: User, products: Product[]): Order {
+export function createOrder(user: User, { products }: Cart): Order {
   return {
     user: user.id,
     products,
@@ -933,7 +933,7 @@ export function currentDatetime(): DateTimeString {
 import { currentDatetime } from "../lib/datetime";
 import { Product, totalPrice } from "./product";
 
-export function createOrder(user: User, products: Product[]): Order {
+export function createOrder(user: User, { products }: Cart): Order {
   return {
     user: user.id,
     products,
@@ -949,7 +949,7 @@ export function createOrder(user: User, products: Product[]): Order {
 ```ts
 // domain/order.ts
 
-export function createOrder(user: User, products: Product[], created: DateTimeString): Order {
+export function createOrder(user: User, { products }: Cart, created: DateTimeString): Order {
   return {
     user: user.id,
     products,
@@ -969,7 +969,7 @@ function someUserCase() {
   const createdOn = dateTimeSource.currentDatetime();
 
   // Передаём уже созданную дату в доменную функцию:
-  createOrder(user, products, createdOn);
+  createOrder(user, cart, createdOn);
 }
 ```
 
@@ -1001,7 +1001,7 @@ export function useOrderProducts() {
   const cartStorage = useCartStorage();
 
   async function orderProducts(user: User, cart: Cart) {
-    const order = createOrder(user, cart.products);
+    const order = createOrder(user, cart);
 
     const paid = await payment.tryPay(order.total);
     if (!paid) return notifier.notify("Оплата не прошла 🤷");
