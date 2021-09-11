@@ -4,12 +4,12 @@
     "^.+\\.(ts|tsx)$": "ts-jest"
   },
   "moduleNameMapper": {
-    "^@api(.*)$": "<rootDir>/api$1",
-    "^@components(.*)$": "<rootDir>/components$1",
-    "^@domain(.*)$": "<rootDir>/domain$1",
-    "^@effects(.*)$": "<rootDir>/effects$1",
-    "^@persistence(.*)$": "<rootDir>/persistence$1",
-    "^@shared(.*)$": "<rootDir>/shared$1",
-    "^@configs(.*)$": "<rootDir>/configs$1"
+    "^@api(.*)$": "<rootDir>/src/api$1",
+    "^@components(.*)$": "<rootDir>/src/components$1",
+    "^@domain(.*)$": "<rootDir>/src/domain$1",
+    "^@effects(.*)$": "<rootDir>/src/effects$1",
+    "^@persistence(.*)$": "<rootDir>/src/persistence$1",
+    "^@shared(.*)$": "<rootDir>/src/shared$1",
+    "^@configs(.*)$": "<rootDir>/src/configs$1"
   }
 }
