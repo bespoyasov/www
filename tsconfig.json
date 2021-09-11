@@ -15,13 +15,13 @@
     "isolatedModules": true,
     "jsx": "preserve",
     "paths": {
-      "@api/*": ["api/*"],
-      "@components/*": ["components/*"],
-      "@domain/*": ["domain/*"],
-      "@effects/*": ["effects/*"],
-      "@persistence/*": ["persistence/*"],
-      "@shared/*": ["shared/*"],
-      "@configs/*": ["configs/*"]
+      "@api/*": ["src/api/*"],
+      "@components/*": ["src/components/*"],
+      "@domain/*": ["src/domain/*"],
+      "@effects/*": ["src/effects/*"],
+      "@persistence/*": ["src/persistence/*"],
+      "@shared/*": ["src/shared/*"],
+      "@configs/*": ["src/configs/*"]
     }
   },
   "exclude": ["node_modules"],
