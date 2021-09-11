@@ -28,9 +28,9 @@ function testDirectory(directory: RelativePath, executor: Executor): void {
 }
 
 describe("persistence > source > names > projectsList", () => {
-  it("should read projects directory", () => testDirectory("/pages/projects", projectsList));
+  it("should read projects directory", () => testDirectory("/src/pages/projects", projectsList));
 });
 
 describe("persistence > source > names > blogPostsList", () => {
-  it("should read blog directory", () => testDirectory("/pages/blog", blogPostsList));
+  it("should read blog directory", () => testDirectory("/src/pages/blog", blogPostsList));
 });
