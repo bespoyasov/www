@@ -44,10 +44,9 @@ function testFileDirectory(directory: RelativePath, execute: Executor): void {
 
 describe("persistence > source > contents > allProjects", () => {
   it("should read files from a projects directory", () =>
-    testFileDirectory("pages/projects", allProjects));
+    testFileDirectory("data/projects", allProjects));
 });
 
 describe("persistence > source > contents > allProjects", () => {
-  it("should read files from a blog directory", () =>
-    testFileDirectory("pages/blog", allBlogPosts));
+  it("should read files from a blog directory", () => testFileDirectory("data/blog", allBlogPosts));
 });
