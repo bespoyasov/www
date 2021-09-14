@@ -27,10 +27,10 @@ function testFileDirectory(directory: RelativePath, execute: Executor): void {
 
 describe("when called `getProject`", () => {
   it("should read a file from the projects directory", () =>
-    testFileDirectory("pages/projects", getProject));
+    testFileDirectory("data/projects", getProject));
 });
 
 describe("when called `getBlogPost`", () => {
   it("should read a file from the projects directory", () =>
-    testFileDirectory("pages/blog", getBlogPost));
+    testFileDirectory("data/blog", getBlogPost));
 });
