@@ -29,8 +29,8 @@ export const getStaticProps: GetStaticProps<ProjectProps> = async (context) => {
   return {
     props: {
       metadata: projects[index],
-      prevPost: projects[index - 1] ?? null,
-      nextPost: projects[index + 1] ?? null,
+      prevPost: projects[index + 1] ?? null,
+      nextPost: projects[index - 1] ?? null,
       contents: content,
     },
   };
