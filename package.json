@@ -42,6 +42,7 @@
   },
   "devDependencies": {
     "@mavrin/remark-typograf": "^2.1.6",
+    "@next/eslint-plugin-next": "^11.1.2",
     "@squoosh/lib": "^0.4.0",
     "@types/jest": "^27.0.1",
     "@types/mdx-js__react": "^1.5.4",
