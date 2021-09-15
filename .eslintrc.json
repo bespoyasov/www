@@ -25,6 +25,7 @@
     }
   },
   "rules": {
+    "@next/next/no-page-custom-font": "off",
     "@typescript-eslint/explicit-module-boundary-types": "off",
     "@typescript-eslint/no-var-requires": "off",
     "no-irregular-whitespace": "off",
