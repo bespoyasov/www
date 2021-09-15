@@ -43,8 +43,8 @@
   object-fit: cover;
   border: var(--polaroid-frame-width) solid;
   border-color: var(--polaroid-frame-color);
-  box-shadow: var(--polaroid-shadow);
   border-radius: 0;
+  box-shadow: var(--polaroid-shadow);
 }
 
 @media (prefers-color-scheme: dark) {
