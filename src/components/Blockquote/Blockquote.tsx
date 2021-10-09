@@ -1,4 +1,4 @@
-import { WithChildren } from "@domain/components";
+import { WithChildren } from "@extensions/components";
 import styles from "./Blockquote.module.css";
 
 export const Blockquote = ({ children }: WithChildren) => {

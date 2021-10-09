@@ -1,5 +1,5 @@
 import { HtmlHTMLAttributes } from "react";
-import { WithChildren } from "@domain/components";
+import { WithChildren } from "@extensions/components";
 import styles from "./VisuallyHidden.module.css";
 
 type VisuallyHiddenProps = HtmlHTMLAttributes<HTMLElement> & {

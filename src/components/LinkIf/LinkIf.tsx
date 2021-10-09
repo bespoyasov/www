@@ -1,4 +1,4 @@
-import { WithChildren } from "@domain/components";
+import { WithChildren } from "@extensions/components";
 import NextLink from "next/link";
 
 type Condition = boolean;
