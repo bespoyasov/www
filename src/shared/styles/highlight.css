@@ -1,4 +1,5 @@
 /** Based on Stackoverflow Light and Dark themes. */
+/* stylelint-disable selector-class-pattern */
 
 .hljs {
   --comment: #656e77;
