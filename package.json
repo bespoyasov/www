@@ -57,7 +57,7 @@
     "husky": "^7.0.1",
     "hygen": "^6.0.4",
     "jest": "^27.0.6",
-    "jsdom": "^17.0.0",
+    "jsdom": "^18.0.0",
     "lint-staged": "^11.1.2",
     "next-mdx-remote": "^3.0.4",
     "next-offline": "^5.0.3",
