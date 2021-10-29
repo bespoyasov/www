@@ -5,7 +5,7 @@ type ChunkSize = number;
 export function chunk<TList extends AnyList>(array: TList, size: ChunkSize): List<TList> {
   if (isEmpty(array)) return [];
 
-  const head = <TList>array.slice(0, size);
-  const tail = <TList>array.slice(size);
+  const head = array.slice(0, size) as TList;
+  const tail = array.slice(size) as TList;
   return [head, ...chunk(tail, size)];
 }
