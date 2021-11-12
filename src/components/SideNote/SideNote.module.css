@@ -1,0 +1,14 @@
+.sideNote {
+  position: relative;
+  padding-left: 1.5rem;
+}
+
+.sideNote::before {
+  position: absolute;
+  top: 0;
+  left: 0.1rem;
+  color: var(--adornment-element-color);
+  font-size: 3em;
+  line-height: 0.95;
+  content: "*";
+}
