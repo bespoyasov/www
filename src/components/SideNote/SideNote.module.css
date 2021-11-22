@@ -6,7 +6,7 @@
 .sideNote::before {
   position: absolute;
   top: 0;
-  left: 0.1rem;
+  left: 0.05rem;
   color: var(--adornment-element-color);
   font-size: 3em;
   line-height: 0.95;
