@@ -23,6 +23,7 @@ h3 {
 p,
 pre,
 mark,
+aside,
 blockquote {
   margin: var(--vertical-gap) 0;
 }
