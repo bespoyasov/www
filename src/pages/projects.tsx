@@ -25,7 +25,9 @@ const Projects = ({ projects }: ProjectsProps) => {
     <>
       <Head>
         <title>Сделал</title>
-        <Description>Что я наделал.</Description>
+        <Description>
+          Последние сайты, приложения, книги и образовательные проекты, над которыми я работал.
+        </Description>
         <SummaryCard />
       </Head>
       <Showcase projects={projects} />

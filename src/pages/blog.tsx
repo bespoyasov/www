@@ -27,7 +27,9 @@ const Blog = ({ posts }: BlogProps) => {
     <main>
       <Head>
         <title>Написал</title>
-        <Description>Самый занудный блог.</Description>
+        <Description>
+          Свежие статьи из блога, подборки заметок по тегам и архив всех статей с 2012 года.
+        </Description>
         <SummaryCard />
       </Head>
 
