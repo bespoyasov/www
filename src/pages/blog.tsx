@@ -14,10 +14,10 @@ type BlogProps = {
   posts: Metadata[];
 };
 
-export const getStaticProps: GetStaticProps<BlogProps> = async () => {
+export const getStaticProps: GetStaticProps<BlogProps> = () => {
   return {
     props: {
-      posts: await blogPostsMetadata(),
+      posts: blogPostsMetadata(),
     },
   };
 };

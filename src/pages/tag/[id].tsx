@@ -28,11 +28,11 @@ function pathFromTag(tag: TagKind): UrlSlug {
   return `/tag/${tag}`;
 }
 
-export const getStaticProps: GetStaticProps<TagProps> = async ({ params }) => {
+export const getStaticProps: GetStaticProps<TagProps> = ({ params }) => {
   const desired = assureType<TagKind>(params.id);
   const byTag = withTag(desired);
 
-  const projects = (await projectsMetadata()).filter(byTag);
+  const projects = projectsMetadata().filter(byTag);
   const notes = blogPostsMetadata().filter(byTag);
 
   return {

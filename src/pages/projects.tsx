@@ -12,10 +12,10 @@ type ProjectsProps = {
   projects: Metadata[];
 };
 
-export const getStaticProps: GetStaticProps<ProjectsProps> = async () => {
+export const getStaticProps: GetStaticProps<ProjectsProps> = () => {
   return {
     props: {
-      projects: await projectsMetadata(),
+      projects: projectsMetadata(),
     },
   };
 };
