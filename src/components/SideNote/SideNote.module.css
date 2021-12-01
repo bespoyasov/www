@@ -1,9 +1,9 @@
-.sideNote {
+.aside {
   position: relative;
   padding-left: 1.5rem;
 }
 
-.sideNote::before {
+.aside::before {
   position: absolute;
   top: 0;
   left: 0.05rem;
