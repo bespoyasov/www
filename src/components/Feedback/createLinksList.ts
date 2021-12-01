@@ -8,7 +8,7 @@ type ShareLink = {
 
 export function createLinksList(metadata: Metadata): List<ShareLink> {
   return [
-    { label: "Подписаться на блог", url: "/rss.xml" },
+    { label: "RSS", url: "/rss.xml" },
     { label: "Твитнуть", url: twitterLink(metadata) },
     { label: "Фейсбукнуть", url: facebookLink(metadata) },
   ];
