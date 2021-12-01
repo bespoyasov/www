@@ -5,7 +5,7 @@ import { VisuallyHidden } from "@components/VisuallyHidden";
 import { Description } from "@components/Description";
 import { SummaryCard } from "@components/SummaryCard";
 import { Section } from "@components/Section";
-import { Anthology, Digest } from "@components/Notes";
+import { Anthology, Digest, Subscribe } from "@components/Notes";
 
 import { Metadata } from "@domain/metadata";
 import { blogPostsMetadata } from "@api/fetch";
@@ -38,6 +38,7 @@ const Blog = ({ posts }: BlogProps) => {
       <Section title="Свежее">
         <p>Последние статьи из блога и подборки по тегам.</p>
         <Digest notes={posts} />
+        <Subscribe />
       </Section>
 
       <Section title="Всё подряд">
