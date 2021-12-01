@@ -41,7 +41,7 @@ const Blog = ({ posts }: BlogProps) => {
       </Section>
 
       <Section title="Всё подряд">
-        <p>Все статьи от новых к старым.</p>
+        <p>Все опубликованные статьи от новых к старым.</p>
         <Anthology notes={posts} />
       </Section>
     </main>
