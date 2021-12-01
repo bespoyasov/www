@@ -1,16 +1,7 @@
-import styles from "./Contacts.module.css";
-import { contacts } from "./list";
-
 export const Contacts = () => {
   return (
-    <ul className={styles.contacts}>
-      {contacts.map(({ url, type }) => (
-        <li key={type}>
-          <a href={url} className="text-color">
-            {type}
-          </a>
-        </li>
-      ))}
-    </ul>
+    <a href="mailto:bespoyasov@me.com" className="text-color">
+      bespoyasov@me.com
+    </a>
   );
 };
