@@ -36,7 +36,7 @@ const Blog = ({ posts }: BlogProps) => {
       <VisuallyHidden as="h1">Все заметки</VisuallyHidden>
 
       <Section title="Свежее">
-        <p>Недавние статьи из блога и подборки по тегам.</p>
+        <p>Последние статьи из блога и подборки по тегам.</p>
         <Digest notes={posts} />
       </Section>
 
