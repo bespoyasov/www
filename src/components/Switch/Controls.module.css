@@ -1,0 +1,37 @@
+.controls {
+  --overlap-compensation: calc(-1 * var(--vertical-gap) - 1px);
+  --control-corner-radius: 0.3em;
+
+  margin: 0 0 var(--overlap-compensation);
+  padding: 0;
+}
+
+.mounted {
+  display: flex;
+}
+
+.controls button {
+  margin: 0;
+  padding: 0.2rem 0.5rem;
+  color: inherit;
+  font: inherit;
+  background: none;
+  border: 1px solid var(--control-background-color);
+  border-bottom: 0;
+  border-top-left-radius: var(--control-corner-radius);
+  border-top-right-radius: var(--control-corner-radius);
+
+  cursor: pointer;
+  appearance: none;
+  user-select: none;
+}
+
+.controls button:active {
+  opacity: 0.5;
+}
+
+.controls button:disabled {
+  background-color: var(--control-background-color);
+  cursor: default;
+  pointer-events: none;
+}
