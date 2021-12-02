@@ -10,6 +10,7 @@
     "^@effects(.*)$": "<rootDir>/src/effects$1",
     "^@extensions(.*)$": "<rootDir>/src/extensions$1",
     "^@persistence(.*)$": "<rootDir>/src/persistence$1",
+    "^@global(.*)$": "<rootDir>/src/global$1",
     "^@shared(.*)$": "<rootDir>/src/shared$1",
     "^@configs(.*)$": "<rootDir>/src/configs$1"
   }

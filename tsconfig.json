@@ -22,6 +22,7 @@
       "@effects/*": ["src/effects/*"],
       "@extensions/*": ["src/extensions/*"],
       "@persistence/*": ["src/persistence/*"],
+      "@global/*": ["src/global/*"],
       "@shared/*": ["src/shared/*"],
       "@configs/*": ["src/configs/*"]
     }
