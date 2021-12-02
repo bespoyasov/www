@@ -7,6 +7,7 @@ import { Redirect } from "@components/Redirect";
 import { SideNote } from "@components/SideNote";
 import { YouTube } from "@components/YouTube";
 import { Figure } from "@components/Figure";
+import { Switch } from "@components/Switch";
 import { Table } from "@components/Table";
 
 const standardComponents = {
@@ -24,6 +25,7 @@ const customComponents = {
   Redirect,
   YouTube,
   Figure,
+  Switch,
 };
 
 export const substitutes = {
