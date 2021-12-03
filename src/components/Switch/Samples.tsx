@@ -1,8 +1,9 @@
 import type { ReactNode } from "react";
 import type { CodeSamplesLanguage } from "@domain/preferences";
 
-import { usePreferencesContext } from "@global/context";
 import { zip } from "@shared/zip";
+import { usePreferencesContext } from "@global/context";
+import { selectLanguage } from "./selectLanguage";
 
 type SamplesProps = {
   options: List<CodeSamplesLanguage>;
@@ -10,7 +11,8 @@ type SamplesProps = {
 };
 
 export const Samples = ({ options, samples }: SamplesProps) => {
-  const { language: current } = usePreferencesContext();
+  const { language: preferred } = usePreferencesContext();
+  const current = selectLanguage(options, preferred);
   const pairs = zip(options, samples);
 
   return (
