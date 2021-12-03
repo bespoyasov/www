@@ -7,6 +7,7 @@ import { useMounted } from "@effects/useMounted";
 import { usePreferencesContext } from "@global/context";
 
 import { VisuallyHidden } from "@components/VisuallyHidden";
+import { selectLanguage } from "./selectLanguage";
 import styles from "./Controls.module.css";
 
 type ControlsProps = {
@@ -14,7 +15,8 @@ type ControlsProps = {
 };
 
 export const Controls = ({ options }: ControlsProps) => {
-  const { language: current, update } = usePreferencesContext();
+  const { language: preferred, update } = usePreferencesContext();
+  const current = selectLanguage(options, preferred);
   const mounted = useMounted();
 
   return (
