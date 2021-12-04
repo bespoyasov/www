@@ -1,6 +1,5 @@
 .controls {
   --overlap-compensation: calc(-1 * var(--vertical-gap) - 1px);
-  --control-corner-radius: 0.3em;
 
   margin: 0 0 var(--overlap-compensation);
   padding: 0;
@@ -11,6 +10,8 @@
 }
 
 .controls button {
+  --control-corner-radius: 0.3em;
+
   margin: 0 -1px 0 0;
   padding: 0.2rem 0.5rem;
   color: inherit;
