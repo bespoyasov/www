@@ -7,6 +7,7 @@
 
 .mounted {
   display: flex;
+  align-items: flex-end;
 }
 
 .controls button {
@@ -27,12 +28,16 @@
   user-select: none;
 }
 
-.controls button:active {
-  opacity: 0.5;
-}
-
 .controls button:disabled {
   background-color: var(--control-background-color);
   cursor: default;
   pointer-events: none;
+}
+
+.controls button:not(:disabled):hover,
+.controls button:not(:disabled):focus {
+  --bottom-growth: 3px;
+
+  margin-top: calc(-1 * var(--bottom-growth));
+  padding-bottom: calc(0.2rem + var(--bottom-growth));
 }
