@@ -10,7 +10,7 @@
 }
 
 .controls button {
-  --control-corner-radius: 0.3em;
+  --corner-radius: 0.3em;
 
   margin: 0 -1px 0 0;
   padding: 0.2rem 0.5rem;
@@ -19,8 +19,8 @@
   background: none;
   border: 1px solid var(--control-background-color);
   border-bottom: 0;
-  border-top-left-radius: var(--control-corner-radius);
-  border-top-right-radius: var(--control-corner-radius);
+  border-top-left-radius: var(--corner-radius);
+  border-top-right-radius: var(--corner-radius);
 
   cursor: pointer;
   appearance: none;
