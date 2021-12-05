@@ -1,4 +1,4 @@
-import { TagKind } from "@domain/tags";
+import type { TagKind } from "@domain/tags";
 
 type Title = string;
 type Description = string;
