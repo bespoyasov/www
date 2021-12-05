@@ -43,8 +43,8 @@ const Rss = ({ entries }: RssProps) => {
   return (
     <main>
       <Head>
-        <title>АБ</title>
-        <Description>Самый занудный блог.</Description>
+        <title>Блог Саши Беспоясова</title>
+        <Description>Разработка, дизайн, книги.</Description>
       </Head>
 
       {latest.map(({ metadata, contents }) => (
