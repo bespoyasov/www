@@ -1,5 +1,5 @@
 import type { Metadata } from "@domain/metadata";
-import { OverloadsFor } from "./types";
+import type { OverloadsFor } from "./types";
 import { defaultDatetime } from "./datetime";
 
 export function generate(overloads: OverloadsFor<Metadata> = {}): Metadata {
