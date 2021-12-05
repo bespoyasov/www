@@ -1,4 +1,11 @@
-export const DEFAULT_TITLE = "АБ";
-export const DEFAULT_DESCRIPTION = "Блог о разработке.";
+import type { SummaryCard } from "./types";
 
-export const PREVIEW_IMAGE = "https://bespoyasov.ru/img/common/social-media-preview.png";
+const title = "Саша Беспоясов · ✍️ 💻 👋";
+const description = "Блог о разработке и около того.";
+const cover = "/img/common/social-media-preview.png";
+
+export const DEFAULT_CARD: SummaryCard = {
+  title,
+  cover,
+  description,
+};
