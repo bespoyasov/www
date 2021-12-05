@@ -1,6 +1,7 @@
 import type { Metadata } from "@domain/metadata";
 import type { OverloadsFor } from "./types";
 import { defaultDatetime } from "./datetime";
+import { ABSENT } from "./const";
 
 export function generate(overloads: OverloadsFor<Metadata> = {}): Metadata {
   return {
@@ -9,7 +10,7 @@ export function generate(overloads: OverloadsFor<Metadata> = {}): Metadata {
     datetime: overloads.datetime ?? defaultDatetime,
     slug: overloads.slug ?? "/",
     tags: overloads.tags ?? [],
-    cover: overloads.cover,
+    cover: overloads.cover ?? ABSENT,
   };
 }
 
