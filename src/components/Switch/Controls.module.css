@@ -36,8 +36,8 @@
 
 .controls button:not(:disabled):hover,
 .controls button:not(:disabled):focus {
-  --bottom-growth: 3px;
+  --height-growth: 3px;
 
-  margin-top: calc(-1 * var(--bottom-growth));
-  padding-bottom: calc(0.2rem + var(--bottom-growth));
+  margin-top: calc(-1 * var(--height-growth));
+  padding-bottom: calc(0.2rem + var(--height-growth));
 }
