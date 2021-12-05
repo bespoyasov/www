@@ -26,7 +26,7 @@ async function createEntry(metadata: Metadata): Promise<Entry> {
 }
 
 export const getStaticProps: GetStaticProps<RssProps> = async () => {
-  const metadata = await blogPostsMetadata();
+  const metadata = blogPostsMetadata();
   const entries = await Promise.all(metadata.map(createEntry));
 
   return {
