@@ -1,6 +1,7 @@
 import Head from "next/head";
 import { GetStaticProps } from "next";
 
+import { SummaryCard } from "@components/SummaryCard";
 import { Description } from "@components/Description";
 import { Trips } from "@components/Trips";
 
@@ -29,6 +30,7 @@ const Travel = ({ posts }: TravelProps) => {
       <Head>
         <title>Мир</title>
         <Description>Заметки из поездок по миру.</Description>
+        <SummaryCard />
       </Head>
       <Trips posts={posts} />
     </>
