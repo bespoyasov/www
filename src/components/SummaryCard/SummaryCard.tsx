@@ -1,12 +1,14 @@
-import { Metadata } from "@domain/metadata";
-import { DEFAULT_TITLE, DEFAULT_DESCRIPTION, PREVIEW_IMAGE } from "./const";
+import type { Metadata } from "@domain/metadata";
+import { absoluteUrlFor } from "@shared/absoluteUrl";
+import { unwrap } from "./unwrap";
 
 type SummaryCardProps = {
   metadata?: Metadata;
 };
 
 export const SummaryCard = ({ metadata }: SummaryCardProps) => {
-  const { title = DEFAULT_TITLE, description = DEFAULT_DESCRIPTION } = metadata ?? {};
+  const { title, description, cover } = unwrap(metadata);
+  const preview = absoluteUrlFor(cover);
 
   return (
     <>
@@ -14,12 +16,12 @@ export const SummaryCard = ({ metadata }: SummaryCardProps) => {
       <meta name="twitter:site" content="@bespoyasov" />
       <meta name="twitter:title" content={title} />
       <meta name="twitter:description" content={description} />
-      <meta name="twitter:image" content={PREVIEW_IMAGE} />
+      <meta name="twitter:image" content={preview} />
 
       <meta property="og:type" content="website" />
       <meta property="og:title" content={title} />
       <meta property="og:description" content={description} />
-      <meta property="og:image" content={PREVIEW_IMAGE} />
+      <meta property="og:image" content={preview} />
     </>
   );
 };
