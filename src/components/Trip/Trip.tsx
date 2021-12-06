@@ -14,7 +14,7 @@ export const Trip = ({ place }: TripProps) => {
     <article className={styles.trip}>
       <Link href={slug}>
         <a className="text-color">
-          <Cover for={place} withExtension="jpg" />
+          <Cover for={place} />
           <h2>{title}</h2>
         </a>
       </Link>
