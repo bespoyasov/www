@@ -9,5 +9,5 @@ const Provider = Context.Provider;
 export const usePreferencesContext = () => useContext(Context);
 export const PreferencesProvider = ({ children }: WithChildren) => {
   const [language, setLanguage] = useState(initialLanguage);
-  return <Provider value={{ language, update: setLanguage }}>{children}</Provider>;
+  return <Provider value={{ language, updateLanguage: setLanguage }}>{children}</Provider>;
 };
