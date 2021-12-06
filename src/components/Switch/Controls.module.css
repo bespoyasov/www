@@ -8,6 +8,7 @@
 .mounted {
   display: flex;
   align-items: flex-end;
+  position: relative;
 }
 
 .controls button {
