@@ -28,6 +28,7 @@
   cursor: pointer;
   appearance: none;
   user-select: none;
+  -webkit-tap-highlight-color: transparent;
 }
 
 .controls button:disabled {
