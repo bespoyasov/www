@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { Metadata } from "@domain/metadata";
-import { Cover } from "@components/Cover";
+import { Picture } from "@components/Picture";
 import styles from "./Preview.module.css";
 
 type PreviewProps = {
@@ -8,11 +8,11 @@ type PreviewProps = {
 };
 
 export const Preview = ({ metadata }: PreviewProps) => {
-  const { slug, title, description } = metadata;
+  const { slug, title, description, cover } = metadata;
 
   return (
     <div className={styles.preview}>
-      <Cover for={metadata} />
+      <Picture src={cover} alt={title} />
       <h2>
         <Link href={slug}>
           <a className="text-color">{title}</a>
