@@ -11,36 +11,3 @@
   display: flex;
   align-items: flex-end;
 }
-
-.controls button {
-  --corner-radius: 0.3em;
-
-  margin: 0 -1px 0 0;
-  padding: 0.2rem 0.5rem;
-  color: inherit;
-  font: inherit;
-  background: none;
-  border: 1px solid var(--control-background-color);
-  border-bottom: 0;
-  border-top-left-radius: var(--corner-radius);
-  border-top-right-radius: var(--corner-radius);
-
-  cursor: pointer;
-  appearance: none;
-  user-select: none;
-  -webkit-tap-highlight-color: transparent;
-}
-
-.controls button:disabled {
-  background-color: var(--control-background-color);
-  cursor: default;
-  pointer-events: none;
-}
-
-.controls button:not(:disabled):hover,
-.controls button:not(:disabled):focus {
-  --height-growth: 3px;
-
-  margin-top: calc(-1 * var(--height-growth));
-  padding-bottom: calc(0.2rem + var(--height-growth));
-}

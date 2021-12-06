@@ -5,17 +5,20 @@ import type { CodeSamplesLanguage } from "@domain/preferences";
 import { classes } from "@shared/classes";
 import { useMounted } from "@effects/useMounted";
 import { usePreferencesContext } from "@global/context";
-
 import { VisuallyHidden } from "@components/VisuallyHidden";
+
+import type { InstanceId } from "./types";
 import { selectLanguage } from "./selectLanguage";
+import { Control } from "./Control";
 import styles from "./Controls.module.css";
 
 type ControlsProps = {
   options: List<CodeSamplesLanguage>;
+  scope: InstanceId;
 };
 
-export const Controls = ({ options }: ControlsProps) => {
-  const { language: preferred, update } = usePreferencesContext();
+export const Controls = ({ options, scope }: ControlsProps) => {
+  const { language: preferred } = usePreferencesContext();
   const current = selectLanguage(options, preferred);
   const mounted = useMounted();
 
@@ -26,14 +29,7 @@ export const Controls = ({ options }: ControlsProps) => {
       </VisuallyHidden>
 
       {options.map((language) => (
-        <button
-          type="button"
-          key={language}
-          disabled={language === current}
-          onClick={() => update(language)}
-        >
-          {nameOf(language)}
-        </button>
+        <Control key={language} language={language} disabled={language === current} scope={scope} />
       ))}
     </figcaption>
   );
