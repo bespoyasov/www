@@ -18,7 +18,7 @@ export const Switch = ({ id, options, children }: WithChildren<SwitchProps>) => 
 
   return (
     <figure className={styles.switch} id={id}>
-      <Controls options={options} scope={id} />
+      <Controls options={options} switchId={id} />
       <Samples options={options} samples={children} />
     </figure>
   );
