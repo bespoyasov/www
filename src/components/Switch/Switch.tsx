@@ -13,6 +13,8 @@ type SwitchProps = {
 };
 
 export const Switch = ({ id, options, children }: WithChildren<SwitchProps>) => {
+  if (!id) return children;
+
   if (!Array.isArray(children)) return children;
   if (sizeOf(children) !== sizeOf(options)) return children;
 
