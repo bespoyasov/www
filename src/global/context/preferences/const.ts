@@ -5,5 +5,5 @@ import { identity } from "@shared/identity";
 export const initialLanguage = DEFAULT_PREFERRED;
 export const initial: PreferredLanguageContext = {
   language: initialLanguage,
-  update: identity,
+  updateLanguage: identity,
 };
