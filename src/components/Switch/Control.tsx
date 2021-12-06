@@ -11,16 +11,16 @@ type ControlDisabled = boolean;
 type ControlProps = {
   language: CodeSamplesLanguage;
   disabled: ControlDisabled;
-  scope: InstanceId;
+  switchId: InstanceId;
 };
 
-export const Control = ({ language, disabled, scope }: ControlProps) => {
+export const Control = ({ language, disabled, switchId }: ControlProps) => {
   const { updateLanguage } = usePreferencesContext();
   const updateHash = useHashUpdate();
 
   function applyChanges() {
     updateLanguage(language);
-    updateHash(scope);
+    updateHash(switchId);
   }
 
   return (

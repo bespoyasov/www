@@ -14,10 +14,10 @@ import styles from "./Controls.module.css";
 
 type ControlsProps = {
   options: List<CodeSamplesLanguage>;
-  scope: InstanceId;
+  switchId: InstanceId;
 };
 
-export const Controls = ({ options, scope }: ControlsProps) => {
+export const Controls = ({ options, switchId }: ControlsProps) => {
   const { language: preferred } = usePreferencesContext();
   const current = selectLanguage(options, preferred);
   const mounted = useMounted();
@@ -29,7 +29,12 @@ export const Controls = ({ options, scope }: ControlsProps) => {
       </VisuallyHidden>
 
       {options.map((language) => (
-        <Control key={language} language={language} disabled={language === current} scope={scope} />
+        <Control
+          key={language}
+          language={language}
+          disabled={language === current}
+          switchId={switchId}
+        />
       ))}
     </figcaption>
   );
