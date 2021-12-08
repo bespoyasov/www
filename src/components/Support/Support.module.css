@@ -1,0 +1,7 @@
+.support {
+  max-width: var(--max-content-width);
+}
+
+.support h1 {
+  margin-top: 0;
+}
