@@ -8,7 +8,7 @@ const SupportMe = () => {
   return (
     <main>
       <Head>
-        <title>Сказать спасибо</title>
+        <title>Сказать спасибо ❤️</title>
         <Description>Как поддержать меня и мой блог.</Description>
         <SummaryCard />
       </Head>
