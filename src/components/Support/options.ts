@@ -16,7 +16,7 @@ export const options: List<SupportOption> = [
   },
   {
     link: "/rss.xml",
-    text: "Подписаться в RSS",
+    text: "Подписаться на RSS",
     icon: "📢",
   },
   {
