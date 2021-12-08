@@ -3,7 +3,7 @@ import { facebookLink, twitterLink } from "./shareLinkFactory";
 
 type ShareLink = {
   label: string;
-  url: AbsoluteUrl;
+  url: AbsoluteUrl | UrlSlug;
 };
 
 export function createLinksList(metadata: Metadata): List<ShareLink> {
