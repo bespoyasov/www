@@ -30,7 +30,7 @@ blockquote {
 
 ol,
 ul {
-  margin: calc(-1 * var(--vertical-gap)) 0 0;
+  margin: calc(var(--vertical-gap)) 0;
   padding: 0;
   list-style-position: inside;
 }
