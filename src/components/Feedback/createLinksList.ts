@@ -11,5 +11,6 @@ export function createLinksList(metadata: Metadata): List<ShareLink> {
     { label: "RSS", url: "/rss.xml" },
     { label: "Твитнуть", url: twitterLink(metadata) },
     { label: "Фейсбукнуть", url: facebookLink(metadata) },
+    { label: "Поблагодарить", url: "/support" },
   ];
 }
