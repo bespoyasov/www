@@ -1,6 +1,7 @@
 .control {
   --corner-radius: 0.3em;
 
+  min-width: 60px;
   margin: 0 -1px 0 0;
   padding: 0.2rem 0.5rem;
   color: inherit;
