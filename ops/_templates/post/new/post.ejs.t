@@ -1,5 +1,5 @@
 ---
-to: ./src/pages/blog/<%= slug %>.mdx
+to: ./src/data/blog/<%= slug %>.mdx
 ---
 ---
 title: <%= title %>
