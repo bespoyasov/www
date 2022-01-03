@@ -14,6 +14,7 @@ export enum Tag {
   economics = "Экономика",
 
   favorite = "Лучшее",
+  fp = "ФП",
 
   hardware = "Железо",
   history = "История",
