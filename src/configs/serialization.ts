@@ -4,6 +4,7 @@ import unwrapImages from "remark-unwrap-images";
 import headingIds from "rehype-slug";
 import headingAnchors from "rehype-autolink-headings";
 import syntaxHighlight from "rehype-highlight";
+import fsharp from "highlight.js/lib/languages/fsharp";
 
 export const serializationConfig = {
   remarkPlugins: [
@@ -34,6 +35,7 @@ export const serializationConfig = {
       syntaxHighlight,
       {
         subset: false,
+        languages: { fsharp },
       },
     ],
   ],
