@@ -382,9 +382,8 @@ data PlacedOrderAcknowledgment =
 
 ```
 workflow "Place Order" =
-  input: OrderForm”
-
-	output:
+  input: OrderForm
+  output:
     OrderPlaced event
     OR InvalidOrder
 
