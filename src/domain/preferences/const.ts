@@ -5,4 +5,5 @@ export enum ProgrammingLanguageName {
   js = "JavaScript",
   ts = "TypeScript",
   py = "Python",
+  fs = "F#",
 }
