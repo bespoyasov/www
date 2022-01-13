@@ -4,7 +4,7 @@ Source code for my [blog](https://bespoyasov.ru).
 
 ## Overview
 
-[Next](https://nextjs.org) is used as a static site generator. Pages call `api` that triggers `persistence` to read a post or a project from an MDX file.
+[Next](https://nextjs.org) is used as a static site generator. Pages call `api` that triggers `persistence` to read a post or a project from an MDX file in the `data` directory.
 
 RSS is generated via a custom `ops` script. Images optimization performed using [Squoosh](https://squoosh.app) and set up in `ops` as well.
 
