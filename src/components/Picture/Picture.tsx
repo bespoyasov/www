@@ -12,7 +12,7 @@ export const Picture = ({ src, alt }: PictureProps) => {
     <picture className={styles.picture}>
       <source srcSet={withAvif(src)} type="image/avif" />
       <source srcSet={withWebp(src)} type="image/webp" />
-      <img src={src} alt={alt} loading="lazy" decoding="async" />
+      <img src={src} alt={alt} decoding="async" />
     </picture>
   );
 };
