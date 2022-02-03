@@ -1,5 +1,5 @@
 ---
-to: ./src/data/projects/<%= slug %>.mdx
+to: ./data/projects/<%= slug %>.mdx
 ---
 ---
 title: <%= title %>
