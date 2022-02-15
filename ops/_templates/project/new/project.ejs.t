@@ -6,6 +6,7 @@ title: <%= title %>
 description:
 datetime:
 slug: /projects/<%= slug %>
+cover:
 tags:
   - dev
 ---
