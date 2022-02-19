@@ -5,7 +5,7 @@
   color: inherit;
   font: inherit;
   background: none;
-  border: 1px solid var(--control-background-color);
+  border: 1px solid var(--decoration-control-color);
   border-bottom: 0;
   border-top-left-radius: var(--corner-radius);
   border-top-right-radius: var(--corner-radius);
@@ -17,7 +17,7 @@
 }
 
 .control:disabled {
-  background-color: var(--control-background-color);
+  background-color: var(--decoration-control-color);
   cursor: default;
   pointer-events: none;
 }
