@@ -6,13 +6,9 @@
 }
 
 .adjacent > * {
-  margin: 0 calc(var(--gap) / 2);
+  display: inline-block;
 }
 
 .adjacent > *:first-child {
-  margin-left: 0;
-}
-
-.adjacent > *:last-child {
-  margin-right: 0;
+  margin-right: var(--gap);
 }
