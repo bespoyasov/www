@@ -52,8 +52,8 @@ const BlogPost = ({ metadata, prevPost, nextPost, contents }: BlogPostProps) => 
       </Head>
 
       <Post content={contents} />
-      <Metadata metadata={metadata} />
       <Feedback metadata={metadata} />
+      <Metadata metadata={metadata} />
       <Adjacent prev={prevPost} next={nextPost} />
     </>
   );
