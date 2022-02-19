@@ -6,7 +6,7 @@ type ActionLink = {
   url: AbsoluteUrl | UrlSlug;
 };
 
-export function createLinksList(metadata: Metadata): List<ActionLink> {
+export function createActionList(metadata: Metadata): List<ActionLink> {
   return [
     { label: "Подписаться на RSS", url: "/rss.xml" },
     { label: "Твитнуть", url: twitterLink(metadata) },

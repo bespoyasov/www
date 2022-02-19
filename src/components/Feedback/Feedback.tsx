@@ -1,6 +1,6 @@
 import { Metadata } from "@domain/metadata";
 import { VisuallyHidden } from "@components/VisuallyHidden";
-import { createLinksList } from "./createLinksList";
+import { createActionList } from "./createLinksList";
 import styles from "./Feedback.module.css";
 
 type FeedbackProps = {
@@ -8,13 +8,13 @@ type FeedbackProps = {
 };
 
 export const Feedback = ({ metadata }: FeedbackProps) => {
-  const actionLinks = createLinksList(metadata);
+  const actions = createActionList(metadata);
 
   return (
     <article className={styles.feedback}>
       <VisuallyHidden as="h2">Если понравился пост</VisuallyHidden>
       <ul>
-        {actionLinks.map(({ label, url }) => (
+        {actions.map(({ label, url }) => (
           <li key={label}>
             <a className="text-color" href={url}>
               {label}
