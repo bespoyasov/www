@@ -1,4 +1,5 @@
 import { Metadata } from "@domain/metadata";
+import { ActionLink } from "@components/ActionLink";
 import { VisuallyHidden } from "@components/VisuallyHidden";
 import { createActionList } from "./createActionList";
 import styles from "./Feedback.module.css";
@@ -16,9 +17,7 @@ export const Feedback = ({ metadata }: FeedbackProps) => {
       <ul>
         {actions.map(({ label, url }) => (
           <li key={label}>
-            <a className="text-color" href={url}>
-              {label}
-            </a>
+            <ActionLink href={url}>{label}</ActionLink>
           </li>
         ))}
       </ul>
