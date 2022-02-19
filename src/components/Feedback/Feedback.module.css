@@ -1,5 +1,4 @@
 .feedback {
-  margin-bottom: var(--vertical-gap-small);
   font-size: var(--small-font-size);
   line-height: var(--small-line-height);
 }
@@ -11,4 +10,5 @@
 .feedback li {
   display: inline-block;
   margin-right: 1em;
+  margin-bottom: var(--vertical-gap-small);
 }
