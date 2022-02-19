@@ -1,6 +1,6 @@
 .post {
   max-width: var(--max-content-width);
-  margin-bottom: var(--vertical-gap);
+  margin-bottom: var(--vertical-gap-large);
 }
 
 .post h1 {
