@@ -10,7 +10,7 @@
   --decoration-accent-color: var(--red-transparent);
   --decoration-control-color: var(--light);
 
-  --adornment-element-color: var(--grey-transparent);
+  --adornment-element-color: var(--light);
 }
 
 @media (prefers-color-scheme: dark) {
@@ -18,5 +18,6 @@
     --background-color: var(--dark);
     --text-color: var(--light);
     --decoration-control-color: var(--grey);
+    --adornment-element-color: var(--grey);
   }
 }
