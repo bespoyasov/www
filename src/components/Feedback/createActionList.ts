@@ -11,6 +11,6 @@ export function createActionList(metadata: Metadata): List<ActionLink> {
     { label: "Подписаться на RSS", url: "/rss.xml" },
     { label: "Твитнуть", url: twitterLink(metadata) },
     { label: "Фейсбукнуть", url: facebookLink(metadata) },
-    { label: "Поблагодарить", url: "/support" },
+    { label: "Сказать спасибо", url: "/support" },
   ];
 }
