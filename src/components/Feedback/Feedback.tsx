@@ -1,6 +1,6 @@
 import { Metadata } from "@domain/metadata";
 import { VisuallyHidden } from "@components/VisuallyHidden";
-import { createActionList } from "./createLinksList";
+import { createActionList } from "./createActionList";
 import styles from "./Feedback.module.css";
 
 type FeedbackProps = {
