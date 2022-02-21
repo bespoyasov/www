@@ -1,13 +1,8 @@
-import { NavRoute, RouteKind } from "./types";
+import type { NavRoute } from "./types";
 
-export const internal: List<NavRoute<RouteKind.Internal>> = [
+export const routes: List<NavRoute> = [
   { url: "/projects", title: "Проекты" },
   { url: "/blog", title: "Блог" },
   { url: "/talks", title: "Доклады" },
   { url: "/tag/favorite", title: "Лучшее" },
-];
-
-export const external: List<NavRoute<RouteKind.External>> = [
-  { url: "https://twitter.com/bespoyasov", title: "Твиттер" },
-  { url: "https://github.com/bespoyasov", title: "Гитхаб" },
 ];
