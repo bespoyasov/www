@@ -5,6 +5,7 @@ import { Header } from "@components/Header";
 import { Footer } from "@components/Footer";
 import { Center } from "@components/Center";
 
+import "@shared/styles/fonts.css";
 import "@shared/styles/typography.css";
 import "@shared/styles/palette.css";
 import "@shared/styles/sizes.css";
