@@ -3,6 +3,7 @@ import { NavRoute, RouteKind } from "./types";
 export const internal: List<NavRoute<RouteKind.Internal>> = [
   { url: "/projects", title: "Проекты" },
   { url: "/blog", title: "Блог" },
+  { url: "/talks", title: "Доклады" },
   { url: "/tag/favorite", title: "Лучшее" },
 ];
 
