@@ -25,7 +25,7 @@ export const Logo = ({ className }: HTMLAttributes<HTMLSpanElement>) => {
           />
 
           <img
-            alt="Это я."
+            alt="Фотография автора."
             draggable="false"
             srcSet="
               /img/common/my-photo.png    1x,
