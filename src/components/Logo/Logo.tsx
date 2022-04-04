@@ -18,9 +18,9 @@ export const Logo = ({ className }: HTMLAttributes<HTMLSpanElement>) => {
             type="image/webp"
             draggable="false"
             srcSet="
-              /img/common/my-photo.webp    1x,
-              /img/common/my-photo@2x.webp 2x,
-              /img/common/my-photo@3x.webp 3x
+              /img/common/photo-2022-02-22.webp    1x,
+              /img/common/photo-2022-02-22@2x.webp 2x,
+              /img/common/photo-2022-02-22@3x.webp 3x
             "
           />
 
@@ -28,11 +28,11 @@ export const Logo = ({ className }: HTMLAttributes<HTMLSpanElement>) => {
             alt="Фотография автора."
             draggable="false"
             srcSet="
-              /img/common/my-photo.png    1x,
-              /img/common/my-photo@2x.png 2x,
-              /img/common/my-photo@3x.png 3x
+              /img/common/photo-2022-02-22.png    1x,
+              /img/common/photo-2022-02-22@2x.png 2x,
+              /img/common/photo-2022-02-22@3x.png 3x
             "
-            src="/img/common/my-photo.png"
+            src="/img/common/photo-2022-02-22.png"
           />
         </picture>
       </div>
