@@ -1,6 +1,6 @@
 const { watch } = require("fs").promises;
 const { sourceDirectory } = require("./config");
-const { isTranslationsFile } = require("./dictionary");
+const { isTranslationFile } = require("./sources");
 
 async function setupWatcherOn(callback) {
   const [shouldWatch] = process.argv.slice(2);
@@ -9,7 +9,7 @@ async function setupWatcherOn(callback) {
   console.log("Watching for translation changes...");
 
   for await (const { filename } of watch(sourceDirectory, { recursive: true })) {
-    if (!isTranslationsFile(filename)) continue;
+    if (!isTranslationFile(filename)) continue;
     await callback(filename);
   }
 }
