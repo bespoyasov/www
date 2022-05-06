@@ -11,7 +11,7 @@
     "derive": "npm run dict:collect && npm run images:convert",
     "prestart": "npm run derive",
     "prebuild": "npm run derive",
-    "postinstall": "npm run secrete",
+    "postinstall": "npm run secrete && npm run derive",
     "postbuild": "npm run export && npm run rss:generate",
     "format": "npx prettier --write .",
     "lint:es": "npx eslint . --ext .ts,.tsx",
