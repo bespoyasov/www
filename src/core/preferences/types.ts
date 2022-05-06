@@ -1,4 +1,3 @@
-type ProgrammingLanguageKind = "js" | "ts" | "py";
+import type { CodeSamplesLanguage } from "@core/code";
 
-export type CodeSamplesLanguage = ProgrammingLanguageKind;
 export type PreferredLanguage = CodeSamplesLanguage;
