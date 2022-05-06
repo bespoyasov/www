@@ -22,6 +22,7 @@
     "test:changed": "npx jest --changedSince master",
     "test:smoke": "node ./ops/smoke",
     "dict:collect": "node ./ops/translation",
+    "dict:watch": "node ./ops/translation --watch",
     "images:convert": "node ./ops/graphics",
     "rss:generate": "node ./ops/rss",
     "new:component": "npx hygen component new",
