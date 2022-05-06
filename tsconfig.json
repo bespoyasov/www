@@ -26,6 +26,8 @@
       "@global/*": ["src/global/*"],
 
       "@utils/*": ["src/shared/utils/*"],
+      "@styles/*": ["src/shared/styles/*"],
+      "@translation": ["src/shared/translation"],
 
       "@configs/*": ["src/configs/*"],
       "@env/*": ["src/environment/*"]
