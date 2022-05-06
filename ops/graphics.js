@@ -1,8 +1,9 @@
+const { join } = require("path");
 const { promises, existsSync: exists } = require("fs");
-const { resolve, join } = require("path");
 const { ImagePool } = require("@squoosh/lib");
 
-const { readdir, writeFile } = promises;
+const { filesIn } = require("./utils");
+const { writeFile } = promises;
 const imagePool = new ImagePool();
 
 const SOURCE_EXTENSIONS = ["jpg", "png"];
@@ -28,18 +29,6 @@ function hasOptimizedVersions(filename) {
   return TARGET_EXTENSIONS.map((extension) => withExtension(extension, filename))
     .map((filename) => exists(filename))
     .reduce((result, exists) => result && exists, true);
-}
-
-async function filesIn(directory) {
-  const entries = await readdir(directory, { withFileTypes: true });
-  const files = await Promise.all(
-    entries.map(async (entry) => {
-      const path = resolve(directory, entry.name);
-      return entry.isDirectory() ? await filesIn(path) : path;
-    }),
-  );
-
-  return files.flat();
 }
 
 async function imagesToConvert() {
