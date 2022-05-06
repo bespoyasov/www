@@ -1,8 +1,8 @@
 import type { TagKind } from "@core/tags";
 import type { ImageFileSource as Cover } from "@core/image";
 
-type Title = string;
-type Description = string;
+type Title = LocalizedString;
+type Description = LocalizedString;
 
 export type Metadata = {
   title: Title;
