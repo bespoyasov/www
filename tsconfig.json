@@ -24,7 +24,8 @@
       "@extensions/*": ["src/extensions/*"],
       "@persistence/*": ["src/persistence/*"],
       "@global/*": ["src/global/*"],
-      "@shared/*": ["src/shared/*"],
+
+      "@utils/*": ["src/shared/utils/*"],
 
       "@configs/*": ["src/configs/*"],
       "@env/*": ["src/environment/*"]
