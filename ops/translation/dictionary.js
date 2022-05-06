@@ -50,6 +50,7 @@ async function saveDictionary(dictionary) {
 }
 
 module.exports = {
+  isTranslationsFile,
   composeDictionary,
   saveDictionary,
 };

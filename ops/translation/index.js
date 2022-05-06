@@ -1,5 +1,6 @@
 const { composeDictionary, saveDictionary } = require("./dictionary");
 const { createTypings, saveTypings } = require("./typings");
+const { setupWatcherOn } = require("./watch");
 
 async function updateTranslations() {
   const dictionary = await composeDictionary();
@@ -13,4 +14,5 @@ async function updateTranslations() {
 
 (async () => {
   await updateTranslations();
+  await setupWatcherOn(updateTranslations);
 })();
