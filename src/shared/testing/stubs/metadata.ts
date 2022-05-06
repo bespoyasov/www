@@ -1,16 +1,15 @@
-import type { Metadata } from "@domain/metadata";
-import type { OverloadsFor } from "./types";
+import type { Metadata } from "@core/metadata";
 import { defaultDatetime } from "./datetime";
 import { ABSENT } from "./const";
 
-export function generate(overloads: OverloadsFor<Metadata> = {}): Metadata {
+export function generate(overrides: OverridesFor<Metadata> = {}): Metadata {
   return {
-    title: overloads.title ?? "Title",
-    description: overloads.description ?? "Description",
-    datetime: overloads.datetime ?? defaultDatetime,
-    slug: overloads.slug ?? "/",
-    tags: overloads.tags ?? [],
-    cover: overloads.cover ?? ABSENT,
+    title: overrides.title ?? "Title",
+    description: overrides.description ?? "Description",
+    datetime: overrides.datetime ?? defaultDatetime,
+    slug: overrides.slug ?? "/",
+    tags: overrides.tags ?? [],
+    cover: overrides.cover ?? ABSENT,
   };
 }
 
