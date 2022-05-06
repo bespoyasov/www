@@ -1,7 +1,9 @@
-import { SystemType } from "@persistence/types";
+import fs from "fs";
 import { assureType } from "@utils/assureType";
 
-type SystemOverrides = Partial<Record<keyof SystemType, () => unknown>>;
+type SystemType = typeof fs;
+type SystemMock = Dict<keyof SystemType, unknown>;
+type SystemOverrides = OverridesFor<SystemMock>;
 
 export function mockSystem(overrides: SystemOverrides): SystemType {
   return assureType<SystemType>({ ...overrides });
