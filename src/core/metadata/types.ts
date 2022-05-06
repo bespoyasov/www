@@ -1,5 +1,5 @@
-import type { TagKind } from "@domain/tags";
-import type { ImageFileSource as Cover } from "@domain/image";
+import type { TagKind } from "@core/tags";
+import type { ImageFileSource as Cover } from "@core/image";
 
 type Title = string;
 type Description = string;
