@@ -1,3 +1,5 @@
-type ProgrammingLanguageKind = "js" | "ts" | "py" | "fs";
+type ProgrammingLanguageExtension = "js" | "ts" | "py" | "fs";
 
-export type CodeSampleLanguage = ProgrammingLanguageKind;
+export type LanguageKind = ProgrammingLanguageExtension;
+
+export type CodeSampleLanguage = LanguageKind;
