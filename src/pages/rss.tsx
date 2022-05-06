@@ -7,8 +7,8 @@ import { RssEntry } from "@components/RssEntry";
 import { Metadata } from "@domain/metadata";
 import { PostContents } from "@domain/post";
 import { blogPostsMetadata, fetchBlogPost } from "@api/fetch";
-import { isProduction } from "@shared/env";
-import { sizeOf } from "@shared/sizeOf";
+import { isProduction } from "@utils/env";
+import { sizeOf } from "@utils/sizeOf";
 
 type Entry = {
   metadata: Metadata;

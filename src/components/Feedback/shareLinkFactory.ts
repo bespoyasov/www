@@ -1,5 +1,5 @@
 import { Metadata } from "@domain/metadata";
-import { absoluteUrlFor } from "@shared/absoluteUrl";
+import { absoluteUrlFor } from "@utils/absoluteUrl";
 import { FACEBOOK_TEMPLATE, TWITTER_TEMPLATE } from "./const";
 
 type LinkTemplate = AbsoluteUrl;

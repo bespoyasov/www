@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { classes } from "@shared/classes";
+import { classes } from "@utils/classes";
 import { Metadata } from "@domain/metadata";
 import { VisuallyHidden } from "@components/VisuallyHidden";
 import { OrdinalPrefix } from "./const";

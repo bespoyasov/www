@@ -1,5 +1,5 @@
 import { withTag } from "./withTag";
-import { generate } from "@shared/stubs";
+import { generate } from "@utils/stubs";
 
 const containsDevTag = withTag("dev");
 

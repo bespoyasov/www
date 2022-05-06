@@ -1,7 +1,7 @@
 import { HTMLAttributes } from "react";
 import Link from "next/link";
 import { useRouter } from "next/router";
-import { classes } from "@shared/classes";
+import { classes } from "@utils/classes";
 
 import { routes } from "./routes";
 import { activeIf } from "./activeIf";

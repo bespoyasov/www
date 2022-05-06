@@ -1,5 +1,5 @@
 import type { Metadata } from "@domain/metadata";
-import { absoluteUrlFor } from "@shared/absoluteUrl";
+import { absoluteUrlFor } from "@utils/absoluteUrl";
 import { unwrap } from "./unwrap";
 
 type SummaryCardProps = {

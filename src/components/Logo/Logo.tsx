@@ -1,7 +1,7 @@
 import { HTMLAttributes } from "react";
 import { useRouter } from "next/router";
-import { onMainPage } from "@shared/onMainPage";
-import { classes } from "@shared/classes";
+import { onMainPage } from "@utils/onMainPage";
+import { classes } from "@utils/classes";
 import styles from "./Logo.module.css";
 
 export const Logo = ({ className }: HTMLAttributes<HTMLSpanElement>) => {

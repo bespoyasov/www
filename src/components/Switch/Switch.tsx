@@ -2,7 +2,7 @@ import type { CodeSamplesLanguage } from "@domain/preferences";
 import type { WithChildren } from "@extensions/components";
 import type { InstanceId } from "./types";
 
-import { sizeOf } from "@shared/sizeOf";
+import { sizeOf } from "@utils/sizeOf";
 import { Samples } from "./Samples";
 import { Controls } from "./Controls";
 import styles from "./Switch.module.css";

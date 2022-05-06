@@ -1,5 +1,5 @@
 import type { CodeSamplesLanguage, PreferredLanguage } from "@domain/preferences";
-import { first } from "@shared/first";
+import { first } from "@utils/first";
 
 type PreferredOrFallback = CodeSamplesLanguage;
 

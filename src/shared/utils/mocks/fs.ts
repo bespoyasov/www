@@ -1,5 +1,5 @@
 import { SystemType } from "@persistence/types";
-import { assureType } from "@shared/assureType";
+import { assureType } from "@utils/assureType";
 
 type SystemOverrides = Partial<Record<keyof SystemType, () => unknown>>;
 

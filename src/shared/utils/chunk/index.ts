@@ -1,4 +1,4 @@
-import { isEmpty } from "@shared/isEmpty";
+import { isEmpty } from "@utils/isEmpty";
 
 type ChunkSize = number;
 

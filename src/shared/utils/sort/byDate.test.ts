@@ -1,4 +1,4 @@
-import { generate, metadata, oneDayAfter } from "@shared/stubs";
+import { generate, metadata, oneDayAfter } from "@utils/stubs";
 import { byDate, CompareResult, byDateDescending } from ".";
 
 describe("shared > sort > byDate", () => {

@@ -1,4 +1,4 @@
-import { classes } from "@shared/classes";
+import { classes } from "@utils/classes";
 
 type ActiveLinkClassName = ClassName;
 

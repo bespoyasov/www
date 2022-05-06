@@ -1,4 +1,4 @@
-import { isCollection } from "@shared/isCollection";
+import { isCollection } from "@utils/isCollection";
 
 type CollectionSize = number;
 

@@ -1,5 +1,5 @@
-import { sizeOf } from "@shared/sizeOf";
-import { splitInto } from "@shared/splitInto";
+import { sizeOf } from "@utils/sizeOf";
+import { splitInto } from "@utils/splitInto";
 import { Metadata } from "@domain/metadata";
 import { List } from "@components/Notes/List";
 import styles from "./Group.module.css";

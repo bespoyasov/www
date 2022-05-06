@@ -1,4 +1,4 @@
-import { classes } from "@shared/classes";
+import { classes } from "@utils/classes";
 import { ImageFileSource, ImageDescription } from "@domain/image";
 import { Picture } from "@components/Picture";
 import { isLimited } from "./isLimited";

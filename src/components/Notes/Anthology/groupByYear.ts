@@ -1,5 +1,5 @@
 import { Metadata, yearOf } from "@domain/metadata";
-import { last } from "@shared/last";
+import { last } from "@utils/last";
 
 type Group = {
   year: FullYear;

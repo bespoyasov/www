@@ -1,5 +1,5 @@
 import { groupByYear } from "./groupByYear";
-import { metadata, generate, yearBefore } from "@shared/stubs";
+import { metadata, generate, yearBefore } from "@utils/stubs";
 
 describe("when given a list of metadata pieces of different years", () => {
   const oldRecord = generate({ datetime: yearBefore });

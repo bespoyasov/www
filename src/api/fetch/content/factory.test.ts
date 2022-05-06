@@ -1,4 +1,4 @@
-import { assureType } from "@shared/assureType";
+import { assureType } from "@utils/assureType";
 import { Dependencies } from "./composition";
 import { contentFor } from "./factory";
 

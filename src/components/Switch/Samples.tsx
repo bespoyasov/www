@@ -1,7 +1,7 @@
 import type { ReactNode } from "react";
 import type { CodeSamplesLanguage } from "@domain/preferences";
 
-import { zip } from "@shared/zip";
+import { zip } from "@utils/zip";
 import { usePreferencesContext } from "@global/context";
 import { selectLanguage } from "./selectLanguage";
 

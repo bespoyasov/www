@@ -6,7 +6,7 @@ import { Description } from "@components/Description";
 import { Trips } from "@components/Trips";
 
 import { Metadata } from "@domain/metadata";
-import { withTravelTag } from "@shared/filter";
+import { withTravelTag } from "@utils/filter";
 import { blogPostsMetadata } from "@api/fetch";
 
 type TravelProps = {

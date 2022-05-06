@@ -1,4 +1,4 @@
-import { generate, metadata } from "@shared/stubs";
+import { generate, metadata } from "@utils/stubs";
 import { DEFAULT_CARD } from "./const";
 import { unwrap } from "./unwrap";
 

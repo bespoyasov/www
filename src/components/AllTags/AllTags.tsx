@@ -1,6 +1,6 @@
 import { Tag, TagKind } from "@domain/tags";
-import { byTagValue } from "@shared/sort";
-import { splitInto } from "@shared/splitInto";
+import { byTagValue } from "@utils/sort";
+import { splitInto } from "@utils/splitInto";
 import { TagLink } from "@components/TagLink";
 import styles from "./AllTags.module.css";
 

@@ -1,4 +1,4 @@
-import { mockSystem } from "@shared/mocks";
+import { mockSystem } from "@utils/mocks";
 import { projectsList, blogPostsList } from ".";
 
 describe("persistence > source > names > executor", () => {

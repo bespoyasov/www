@@ -8,9 +8,9 @@ import { ProjectsList } from "@components/ProjectsList";
 import { Section } from "@components/Section";
 import { Anthology } from "@components/Notes";
 
-import { assureType } from "@shared/assureType";
-import { sizeOf } from "@shared/sizeOf";
-import { withTag } from "@shared/filter";
+import { assureType } from "@utils/assureType";
+import { sizeOf } from "@utils/sizeOf";
+import { withTag } from "@utils/filter";
 import { Metadata } from "@domain/metadata";
 import { Tag as TagEnum, TagKind } from "@domain/tags";
 import { projectsMetadata, blogPostsMetadata } from "@api/fetch";

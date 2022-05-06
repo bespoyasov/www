@@ -2,7 +2,7 @@ import React from "react";
 import { nameOf } from "@domain/preferences";
 import type { CodeSamplesLanguage } from "@domain/preferences";
 
-import { classes } from "@shared/classes";
+import { classes } from "@utils/classes";
 import { useMounted } from "@effects/useMounted";
 import { usePreferencesContext } from "@global/context";
 import { VisuallyHidden } from "@components/VisuallyHidden";

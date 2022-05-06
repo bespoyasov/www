@@ -1,6 +1,6 @@
 import type { PreferredLanguageContext } from "./types";
 import { DEFAULT_PREFERRED } from "@domain/preferences";
-import { identity } from "@shared/identity";
+import { identity } from "@utils/identity";
 
 export const initialLanguage = DEFAULT_PREFERRED;
 export const initial: PreferredLanguageContext = {

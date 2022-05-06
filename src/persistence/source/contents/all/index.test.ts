@@ -1,5 +1,5 @@
 import { allProjects, allBlogPosts } from ".";
-import { mockSystem } from "@shared/mocks";
+import { mockSystem } from "@utils/mocks";
 
 const fileName = "file.mdx";
 const fileContent = "The file content.";

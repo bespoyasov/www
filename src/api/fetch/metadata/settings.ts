@@ -1,4 +1,4 @@
-import { CompareFunction, byDateDescending } from "@shared/sort";
+import { CompareFunction, byDateDescending } from "@utils/sort";
 import { Metadata } from "@domain/metadata";
 
 export type Settings = {

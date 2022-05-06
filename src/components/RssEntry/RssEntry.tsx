@@ -1,7 +1,7 @@
 import { Post } from "@components/Post";
 import { Metadata } from "@domain/metadata";
 import { PostContents } from "@domain/post";
-import { absoluteUrlFor } from "@shared/absoluteUrl";
+import { absoluteUrlFor } from "@utils/absoluteUrl";
 import styles from "./RssEntry.module.css";
 
 type RssEntryProps = {

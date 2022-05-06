@@ -1,5 +1,5 @@
 import { useRouter } from "next/router";
-import { onMainPage } from "@shared/onMainPage";
+import { onMainPage } from "@utils/onMainPage";
 import { Link } from "@components/LinkIf";
 import { Nav } from "@components/Nav";
 import { Logo } from "@components/Logo";

@@ -1,7 +1,7 @@
 import { Metadata } from "@domain/metadata";
 import { Preview } from "@components/Preview";
 import styles from "./ProjectsList.module.css";
-import { classes } from "@shared/classes";
+import { classes } from "@utils/classes";
 
 type ProjectsListProps = {
   projects: Metadata[];

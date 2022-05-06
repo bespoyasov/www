@@ -1,5 +1,5 @@
-import { sizeOf } from "@shared/sizeOf";
-import { chunk } from "@shared/chunk";
+import { sizeOf } from "@utils/sizeOf";
+import { chunk } from "@utils/chunk";
 
 type PartsCount = number;
 
