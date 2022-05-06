@@ -1,5 +1,4 @@
-export type EnvironmentKind = "development" | "production";
-export type ProcessType = typeof process;
+import type { EnvironmentKind, ProcessType } from "./types";
 
 type Discriminator = (proc?: ProcessType) => boolean;
 

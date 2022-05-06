@@ -1,5 +1,7 @@
-import { isProduction, EnvironmentKind, ProcessType } from ".";
+import type { EnvironmentKind, ProcessType } from "./types";
+
 import { assureType } from "@shared/assureType";
+import { isProduction } from ".";
 
 function createProcessFor(env: EnvironmentKind): ProcessType {
   return assureType<ProcessType>({
