@@ -1,3 +1,4 @@
+export type TagName = string;
 export type TagKind =
   | "advice"
   | "behavior"
