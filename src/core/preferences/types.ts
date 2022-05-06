@@ -1,3 +1,3 @@
-import type { CodeSamplesLanguage } from "@core/code";
+import type { CodeSampleLanguage } from "@core/code";
 
-export type PreferredLanguage = CodeSamplesLanguage;
+export type PreferredLanguage = CodeSampleLanguage;
