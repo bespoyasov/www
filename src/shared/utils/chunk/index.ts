@@ -2,7 +2,7 @@ import { isEmpty } from "@utils/isEmpty";
 
 type ChunkSize = number;
 
-export function chunk<TList extends AnyList>(array: TList, size: ChunkSize): List<TList> {
+export function chunk<TList extends SomeList>(array: TList, size: ChunkSize): List<TList> {
   if (isEmpty(array)) return [];
 
   const head = array.slice(0, size) as TList;

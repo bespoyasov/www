@@ -1,6 +1,6 @@
 import { CompareResult, SortDirection, CompareFunction } from "./types";
 
-type Sortable = AnyObject | AnyComparable;
+type Sortable = SomeDict | AnyComparable;
 type TransformFunction = (arg: Sortable) => AnyComparable;
 
 export function sortWith(

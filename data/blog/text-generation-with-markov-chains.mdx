@@ -1211,7 +1211,7 @@ export enum CompareResult {
 
 export type CompareFunction<TComparable> = (a: TComparable, b: TComparable) => CompareResult;
 
-export function isEmpty<TCollection extends AnyCollection>(
+export function isEmpty<TCollection extends SomeCollection>(
   collection: TCollection,
 ): CollectionSize {
   if (!isCollection(collection)) throw new Error("Failed to sort by missing datetime field.");

@@ -1,2 +1,2 @@
 export type ShouldKeep = boolean;
-export type FilterFunction<TFilterable extends AnyObject> = (entity: TFilterable) => ShouldKeep;
+export type FilterFunction<TFilterable extends SomeDict> = (entity: TFilterable) => ShouldKeep;
