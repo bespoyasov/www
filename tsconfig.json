@@ -27,6 +27,7 @@
 
       "@utils/*": ["src/shared/utils/*"],
       "@styles/*": ["src/shared/styles/*"],
+      "@testing/*": ["src/shared/testing/*"],
       "@translation": ["src/shared/translation"],
 
       "@configs/*": ["src/configs/*"],
