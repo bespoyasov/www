@@ -1,27 +1,11 @@
 const { join } = require("path");
 const { readFile, writeFile } = require("fs/promises");
-const { filesIn } = require("../utils");
 
-const {
-  sourceDirectory,
-  targetDirectory,
-  registeredLocales,
-  translationFileName,
-  dictionaryFileName,
-} = require("./config");
+const { targetDirectory, registeredLocales, dictionaryFileName } = require("./config");
+const { collectTranslations } = require("./sources");
 
 function createEmptyDictionary() {
   return registeredLocales.reduce((result, locale) => ({ ...result, [locale]: {} }), {});
-}
-
-function isTranslationsFile(fileName) {
-  return fileName.endsWith(translationFileName);
-}
-
-async function collectTranslations() {
-  const filenames = await filesIn(sourceDirectory);
-  const translations = filenames.filter(isTranslationsFile);
-  return translations;
 }
 
 async function composeDictionary() {
@@ -50,7 +34,6 @@ async function saveDictionary(dictionary) {
 }
 
 module.exports = {
-  isTranslationsFile,
   composeDictionary,
   saveDictionary,
 };
