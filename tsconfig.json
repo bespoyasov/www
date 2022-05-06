@@ -16,9 +16,10 @@
     "isolatedModules": true,
     "jsx": "preserve",
     "paths": {
+      "@core/*": ["src/core/*"],
+
       "@api/*": ["src/api/*"],
       "@components/*": ["src/components/*"],
-      "@domain/*": ["src/domain/*"],
       "@effects/*": ["src/effects/*"],
       "@extensions/*": ["src/extensions/*"],
       "@persistence/*": ["src/persistence/*"],
