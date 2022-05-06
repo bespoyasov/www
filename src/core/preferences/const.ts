@@ -1,9 +1,3 @@
 import type { PreferredLanguage } from "./types";
 
-export const DEFAULT_PREFERRED: PreferredLanguage = "js";
-export enum ProgrammingLanguageName {
-  js = "JavaScript",
-  ts = "TypeScript",
-  py = "Python",
-  fs = "F#",
-}
+export const DEFAULT_LANGUAGE: PreferredLanguage = "js";
