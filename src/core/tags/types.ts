@@ -1,3 +1,5 @@
+export type TagCollection = Dict<TagKind, TagName>;
+
 export type TagName = string;
 export type TagKind =
   | "advice"
