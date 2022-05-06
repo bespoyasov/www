@@ -1,6 +1,6 @@
-import { Tag } from "./const";
-import { TagKind } from "./types";
+import type { TagKind, TagName } from "./types";
+import { tags } from "./const";
 
-export function valueOf(kind: TagKind): Tag {
-  return Tag[kind];
+export function valueOf(tag: TagKind): TagName {
+  return tags[tag];
 }
