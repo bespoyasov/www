@@ -1,4 +1,4 @@
-import { metadata } from "@utils/stubs";
+import { metadata } from "@testing/stubs";
 import { createLinkFactory } from "./shareLinkFactory";
 
 const testTemplate = "https://example.site/?url={URL}&text={TITLE}";

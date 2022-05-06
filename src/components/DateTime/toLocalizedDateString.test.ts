@@ -1,4 +1,4 @@
-import { defaultDatetime } from "@utils/stubs";
+import { defaultDatetime } from "@testing/stubs";
 import { toLocalizedDateString } from "./toLocalizedDateString";
 
 describe("when given a datetime", () => {
