@@ -16,7 +16,7 @@ describe("when given post metadata to a link factory", () => {
   const result = createLink({ ...metadata, slug: testSlug });
 
   it("should replace the {URL} slot with a given slug's absolute URL", () => {
-    expect(result).toContain(`?url=https://bespoyasov.ru${testSlug}`);
+    expect(result).toContain(`?url=https://bespoyasov.me${testSlug}`);
   });
 
   it("should replace the {TITLE} slot with a post title", () => {
