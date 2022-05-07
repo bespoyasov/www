@@ -1,4 +1,4 @@
-import type { CodeSamplesLanguage } from "@domain/preferences";
+import type { CodeSampleLanguage } from "@core/code";
 import { selectLanguage } from "./selectLanguage";
 
 describe("when the preferred language is not in the available languages list", () => {
@@ -10,7 +10,7 @@ describe("when the preferred language is not in the available languages list", (
 
 describe("when the preferred language is in the available languages list", () => {
   it("should return the current preferred language", () => {
-    const languages: List<CodeSamplesLanguage> = ["js", "ts", "py"];
+    const languages: List<CodeSampleLanguage> = ["js", "ts", "py", "fs"];
 
     languages.forEach((language) => {
       expect(selectLanguage(languages, language)).toEqual(language);
