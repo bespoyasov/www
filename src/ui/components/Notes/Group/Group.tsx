@@ -1,7 +1,9 @@
+import type { Metadata } from "@core/metadata";
+
 import { sizeOf } from "@utils/sizeOf";
 import { splitInto } from "@utils/splitInto";
-import { Metadata } from "@domain/metadata";
-import { List } from "@components/Notes/List";
+
+import { List } from "../List";
 import styles from "./Group.module.css";
 
 type GroupProps = {
