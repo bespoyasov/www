@@ -1,6 +1,6 @@
-import { Metadata } from "@domain/metadata";
-import { TagKind } from "@domain/tags";
-import { FilterFunction } from "./types";
+import type { Metadata } from "@core/metadata";
+import type { TagKind } from "@core/tags";
+import type { FilterFunction } from "./types";
 
 export function withTag(tag: TagKind): FilterFunction<Metadata> {
   return function applyFilter(entity) {
