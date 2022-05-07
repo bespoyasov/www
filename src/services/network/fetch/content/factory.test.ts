@@ -1,44 +1,42 @@
+import type { Dependencies, Settings } from "@network/composition";
 import { assureType } from "@utils/assureType";
-import { Dependencies } from "./composition";
 import { contentFor } from "./factory";
-
-jest.mock("./settings", () => ({ settings: { key: "value" } }));
-const testSettings = { key: "value" };
 
 const testId = "post-id";
 const testFileSource = "test-source";
 const testParsedSource = "test-parsed";
+const expectedResult = "test-result";
 
-const testParseResult = { content: "test-parsed" };
-const testSerializeResult = { compiledSource: "test-result" };
+const testParseResult = { content: testParsedSource };
+const testSerializeResult = { compiledSource: expectedResult };
+const testSerializeSettings = { key: "value" };
 
 const query = jest.fn(() => testFileSource);
-const parser = jest.fn(() => testParseResult);
+const parse = jest.fn(() => testParseResult);
 const serialize = jest.fn(async () => testSerializeResult);
-const dependencies = assureType<Dependencies>({ serialize, parser });
+
+const dependencies = assureType<Dependencies>({ serialize, parse });
+const settings = assureType<Settings>({ serializeSettings: testSerializeSettings });
+const request = contentFor(query, settings);
 
 beforeEach(() => jest.clearAllMocks());
+afterAll(() => jest.restoreAllMocks());
 
 describe("when received a request", () => {
-  it("should call a given query", async () => {
-    const request = contentFor(query);
-
+  it("should run a given query", async () => {
     await request(testId, dependencies);
-    expect(query).toHaveBeenCalled();
+    expect(query).toHaveBeenCalledWith(testId);
   });
 
-  it("should parse content of a given file", async () => {
-    const request = contentFor(query);
-
+  it("should parse the returned content using a given parser", async () => {
     await request(testId, dependencies);
-    expect(parser).toHaveBeenCalledWith(testFileSource);
+    expect(parse).toHaveBeenCalledWith(testFileSource);
   });
 
-  it("should serialize the source with a given serializer", async () => {
-    const request = contentFor(query);
+  it("should serialize the parsed content using a given serializer", async () => {
     const result = await request(testId, dependencies);
 
-    expect(serialize).toHaveBeenCalledWith(testParsedSource, testSettings);
-    expect(result).toEqual(testSerializeResult.compiledSource);
+    expect(serialize).toHaveBeenCalledWith(testParsedSource, testSerializeSettings);
+    expect(result).toEqual(expectedResult);
   });
 });
