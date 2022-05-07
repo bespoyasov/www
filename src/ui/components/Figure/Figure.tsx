@@ -1,5 +1,6 @@
+import type { ImageFileSource, ImageDescription } from "@core/image";
+
 import { classes } from "@utils/classes";
-import { ImageFileSource, ImageDescription } from "@domain/image";
 import { Picture } from "@components/Picture";
 import { isLimited } from "./isLimited";
 import styles from "./Figure.module.css";
