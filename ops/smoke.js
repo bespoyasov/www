@@ -16,7 +16,7 @@ async function testContent(type, path) {
   const jsdom = await fromFile(path);
   const html = jsdom.window.document;
 
-  if (!html.querySelector("h1")) {
+  if (!html.querySelector("main")) {
     throw new Error(`Smoke test failed: no content found in ${type}.`);
   }
 
