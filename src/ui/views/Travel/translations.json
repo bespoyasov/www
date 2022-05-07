@@ -1,0 +1,13 @@
+{
+  "prefix": "travel",
+
+  "en": {
+    "title": "Some places I've been",
+    "description": "Notes form the places I've traveled."
+  },
+
+  "ru": {
+    "title": "Мир",
+    "description": "Заметки из поездок по миру."
+  }
+}
