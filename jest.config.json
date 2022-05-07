@@ -14,7 +14,7 @@
     "^@testing(.*)$": "<rootDir>/src/shared/testing$1",
 
     "^@components(.*)$": "<rootDir>/src/ui/components$1",
-    "^@effects(.*)$": "<rootDir>/src/effects$1",
+    "^@effects(.*)$": "<rootDir>/src/ui/effects$1",
     "^@extensions(.*)$": "<rootDir>/src/extensions$1",
     "^@global(.*)$": "<rootDir>/src/global$1",
     "^@shared(.*)$": "<rootDir>/src/shared$1",

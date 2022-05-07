@@ -22,7 +22,7 @@
       "@persistence/*": ["src/services/persistence/*"],
 
       "@components/*": ["src/ui/components/*"],
-      "@effects/*": ["src/effects/*"],
+      "@effects/*": ["src/ui/effects/*"],
       "@extensions/*": ["src/extensions/*"],
       "@global/*": ["src/global/*"],
 
