@@ -5,7 +5,7 @@ import styles from "./ProjectsList.module.css";
 import { classes } from "@utils/classes";
 
 type ProjectsListProps = {
-  projects: Metadata[];
+  projects: List<Metadata>;
 };
 
 export const ProjectsList = ({ projects }: ProjectsListProps) => {
