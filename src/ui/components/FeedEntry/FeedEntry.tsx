@@ -1,15 +1,12 @@
 import { Post } from "@components/Post";
-import { Metadata } from "@domain/metadata";
-import { PostContents } from "@domain/post";
-import { absoluteUrlFor } from "@utils/absoluteUrl";
-import styles from "./RssEntry.module.css";
+import styles from "./FeedEntry.module.css";
 
-type RssEntryProps = {
+type FeedEntryProps = {
   metadata: Metadata;
   contents: PostContents;
 };
 
-export const RssEntry = ({ metadata, contents }: RssEntryProps) => {
+export const FeedEntry = ({ metadata, contents }: FeedEntryProps) => {
   const { slug, title, datetime } = metadata;
 
   return (
