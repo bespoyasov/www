@@ -1,0 +1,13 @@
+{
+  "prefix": "summaryCard",
+
+  "en": {
+    "title": "Alex Bespoyasov",
+    "description": "Blog about development."
+  },
+
+  "ru": {
+    "title": "Саша Беспоясов",
+    "description": "Блог о разработке и около того."
+  }
+}
