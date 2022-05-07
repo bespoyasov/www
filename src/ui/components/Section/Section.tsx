@@ -2,7 +2,7 @@ import { WithChildren } from "@extensions/components";
 import styles from "./Section.module.css";
 
 type SectionProps = {
-  title: string;
+  title: LocalizedString;
 };
 
 export const Section = ({ title, children }: WithChildren<SectionProps>) => {
