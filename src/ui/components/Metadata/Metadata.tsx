@@ -1,6 +1,6 @@
-import { Metadata as MetadataType } from "@domain/metadata";
+import type { Metadata as MetadataType } from "@core/metadata";
 import { DateTime } from "@components/DateTime";
-import { Tags } from "@components/Tags";
+import { TagList } from "@components/TagList";
 import styles from "./Metadata.module.css";
 
 type MetadataProps = {
@@ -13,7 +13,7 @@ export const Metadata = ({ metadata }: MetadataProps) => {
   return (
     <footer className={styles.metadata}>
       <DateTime datetime={datetime} />
-      <Tags tags={tags} />
+      <TagList tags={tags} />
     </footer>
   );
 };
