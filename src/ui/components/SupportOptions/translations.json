@@ -1,0 +1,17 @@
+{
+  "prefix": "supportOptions",
+
+  "en": {
+    "email": "Send an email",
+    "subscribe": "Subscribe to RSS",
+    "follow": "Follow on Titter",
+    "donate": "Buy me a coffee"
+  },
+
+  "ru": {
+    "email": "Написать письмо",
+    "subscribe": "Подписаться на RSS",
+    "follow": "Подписаться в Твитере",
+    "donate": "Задонатить на кофе"
+  }
+}
