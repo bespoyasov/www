@@ -1,10 +1,12 @@
 import Head from "next/head";
 
-import { VisuallyHidden } from "@components/VisuallyHidden";
 import { Description } from "@components/Description";
 import { SummaryCard } from "@components/SummaryCard";
+import { VisuallyHidden } from "@components/VisuallyHidden";
+
 import { Section } from "@components/Section";
-import { Anthology, Digest, Subscribe } from "@components/Notes";
+import { Subscribe } from "@components/Subscribe";
+import { Digest, Anthology } from "@components/Notes";
 
 import { translated } from "@translation";
 import type { BlogProps } from "./types";
