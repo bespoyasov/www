@@ -1,12 +1,4 @@
-type OptionLink = AbsoluteUrl | UrlSlug;
-type Description = string;
-type EmojiIcon = string;
-
-type SupportOption = {
-  link: OptionLink;
-  text: Description;
-  icon: EmojiIcon;
-};
+import { SupportOption } from "./types";
 
 export const options: List<SupportOption> = [
   {
