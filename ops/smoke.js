@@ -19,10 +19,6 @@ async function testContent(type, path) {
   if (!html.querySelector("main")) {
     throw new Error(`Smoke test failed: no content found in ${type}.`);
   }
-
-  if (html.querySelectorAll("h1").length > 1) {
-    throw new Error(`Smoke test failed: found more headers than expected in ${type}.`);
-  }
 }
 
 (async () => {
