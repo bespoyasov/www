@@ -1,5 +1,5 @@
 .adjacent {
-  margin: 0 0 var(--vertical-gap-large);
+  margin: 0;
   padding: 0;
   font-size: var(--small-font-size);
   line-height: var(--small-line-height);
