@@ -5,11 +5,11 @@
   "description": "bespoyasov.ru",
   "scripts": {
     "start": "npm run dev:en & npm run dev:ru & npm run dict:watch",
-    "build": "next build",
-    "build:cleanup": "node ./ops/cleanup",
     "export": "next export",
     "secrete": "next telemetry disable",
     "derive": "npm run dict:collect && npm run images:convert",
+    "build": "next build",
+    "build:cleanup": "node ./ops/cleanup",
     "prestart": "npm run derive",
     "prebuild": "npm run derive",
     "postinstall": "npm run secrete && npm run derive",
