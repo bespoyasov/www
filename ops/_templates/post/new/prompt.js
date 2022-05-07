@@ -6,6 +6,12 @@ module.exports = [
     choices: ["en", "ru"],
   },
   {
+    type: "select",
+    name: "kind",
+    message: "Select the post type:",
+    choices: ["note", "project"],
+  },
+  {
     type: "input",
     name: "title",
     message: "Enter the post title:",
