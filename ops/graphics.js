@@ -1,10 +1,13 @@
-const { join } = require("path");
 const { promises, existsSync: exists } = require("fs");
-const { ImagePool } = require("@squoosh/lib");
+const { join } = require("path");
+const { cpus } = require("os");
 
-const { filesIn } = require("./utils");
+const { ImagePool } = require("@squoosh/lib");
 const { writeFile } = promises;
-const imagePool = new ImagePool();
+const { filesIn } = require("./utils");
+
+const poolSize = cpus().length / 2;
+const imagePool = new ImagePool(poolSize);
 
 const SOURCE_EXTENSIONS = ["jpg", "png"];
 const TARGET_EXTENSIONS = ["webp", "avif"];
@@ -13,8 +16,8 @@ const ENCODE_OPTIONS = {
   avif: {},
 };
 
-const ROOT_DIRECTORY = process.cwd();
-const IMAGES_DIRECTORY = join(ROOT_DIRECTORY, "public/img");
+const WORKING_DIRECTORY = process.cwd();
+const IMAGE_DIRECTORY = join(WORKING_DIRECTORY, "public/images");
 
 function withExtension(extension, filename) {
   const base = filename.slice(0, filename.lastIndexOf("."));
@@ -22,7 +25,7 @@ function withExtension(extension, filename) {
 }
 
 function isImage(filename) {
-  return SOURCE_EXTENSIONS.some((e) => filename.includes(`.${e}`));
+  return SOURCE_EXTENSIONS.some((e) => filename.endsWith(`.${e}`));
 }
 
 function hasOptimizedVersions(filename) {
@@ -32,7 +35,7 @@ function hasOptimizedVersions(filename) {
 }
 
 async function imagesToConvert() {
-  const files = await filesIn(IMAGES_DIRECTORY);
+  const files = await filesIn(IMAGE_DIRECTORY);
   return files.filter((filename) => {
     return isImage(filename) && !hasOptimizedVersions(filename);
   });
@@ -58,4 +61,5 @@ async function convert(filename) {
   }
 
   await imagePool.close();
+  console.log("Images converted.");
 })();
