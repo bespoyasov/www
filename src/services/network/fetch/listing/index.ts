@@ -1,13 +1,7 @@
-import { projectsList, blogPostsList } from "@persistence/source";
+import type { PostId } from "@core/post";
+import { noteList, projectList } from "@persistence/source";
 
-type Query = typeof projectsList | typeof blogPostsList;
-type FetchRequest = () => List<UrlSlug>;
+type FetchNames = () => List<PostId>;
 
-function listingFor(query: Query): FetchRequest {
-  return function request(): List<UrlSlug> {
-    return query();
-  };
-}
-
-export const projectsNames = listingFor(projectsList);
-export const blogPostsNames = listingFor(blogPostsList);
+export const projectNames: FetchNames = projectList;
+export const noteNames: FetchNames = noteList;
