@@ -1,4 +1,5 @@
-import { Metadata } from "@domain/metadata";
+import type { Metadata } from "@core/metadata";
+
 import { ActionLink } from "@components/ActionLink";
 import { VisuallyHidden } from "@components/VisuallyHidden";
 import { createActionList } from "./createActionList";
