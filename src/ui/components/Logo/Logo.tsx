@@ -1,4 +1,4 @@
-import { HTMLAttributes } from "react";
+import type { HTMLAttributes } from "react";
 import { useRouter } from "next/router";
 import { onMainPage } from "@utils/onMainPage";
 import { classes } from "@utils/classes";
