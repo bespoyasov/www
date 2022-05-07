@@ -1,5 +1,7 @@
 import Link from "next/link";
-import { TagKind, valueOf } from "@domain/tags";
+
+import type { TagKind } from "@core/tags";
+import { valueOf } from "@core/tags";
 
 type TagLinkProps = {
   tag: TagKind;
