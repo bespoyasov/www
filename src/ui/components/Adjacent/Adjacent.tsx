@@ -1,4 +1,4 @@
-import { Metadata } from "@domain/metadata";
+import type { Metadata } from "@core/metadata";
 import { Neighbor } from "./Neighbor";
 import styles from "./Adjacent.module.css";
 

@@ -1,6 +1,7 @@
 import Link from "next/link";
+import type { Metadata } from "@core/metadata";
+
 import { classes } from "@utils/classes";
-import { Metadata } from "@domain/metadata";
 import { VisuallyHidden } from "@components/VisuallyHidden";
 import { translated } from "@translation";
 import styles from "./Neighbor.module.css";
