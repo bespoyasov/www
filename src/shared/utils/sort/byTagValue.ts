@@ -1,8 +1,4 @@
-import { TagKind, Tag, valueOf } from "@domain/tags";
-import { sortWith } from "./sortWith";
+import { valueOf as comparableTagValue } from "@core/tags";
+import { sorterFor } from "./factory";
 
-function comparableTagValue(tag: TagKind): Comparable<Tag> {
-  return valueOf(tag);
-}
-
-export const byTagValue = sortWith(comparableTagValue);
+export const byTagValue = sorterFor(comparableTagValue);
