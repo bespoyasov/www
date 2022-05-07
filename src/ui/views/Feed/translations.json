@@ -1,0 +1,13 @@
+{
+  "prefix": "feed",
+
+  "en": {
+    "title": "Alex Bespoyasov's Blog",
+    "description": "Development, design, books."
+  },
+
+  "ru": {
+    "title": "Блог Саши Беспоясова",
+    "description": "Разработка, дизайн, книги."
+  }
+}
