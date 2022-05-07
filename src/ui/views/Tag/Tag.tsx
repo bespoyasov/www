@@ -13,11 +13,13 @@ import { Anthology } from "@components/Notes";
 import { assureType } from "@utils/assureType";
 import { sizeOf } from "@utils/sizeOf";
 
+import { injectIn, translated } from "@translation";
 import type { TagProps } from "./types";
 
 export const Tag = ({ projects, notes }: TagProps) => {
   const { query } = useRouter();
   const tag = valueOf(assureType<TagKind>(query.id));
+  const summary = injectIn(translated.tagPage.summary, tag);
 
   return (
     <>
@@ -29,14 +31,14 @@ export const Tag = ({ projects, notes }: TagProps) => {
       <main>
         <VisuallyHidden as="h1">{summary}</VisuallyHidden>
 
-        <Section title={`Заметки по тегу «${tag}»`}>
-          <p>Последние статьи из блога от новых к старым.</p>
+        <Section title={injectIn(translated.tagPage.notesTitle, tag)}>
+          <p>{translated.tagPage.notesDescription}</p>
           <Anthology notes={notes} />
         </Section>
 
         {sizeOf(projects) > 0 && (
-          <Section title="Проекты">
-            <p>Сайты, приложения, опен-сорс проекты, обучающие пособия и книги.</p>
+          <Section title={translated.tagPage.projectsTitle}>
+            <p>{translated.tagPage.projectsDescription}</p>
             <ProjectsList projects={projects} />
           </Section>
         )}

@@ -1,0 +1,19 @@
+{
+  "prefix": "tagPage",
+
+  "en": {
+    "summary": "All posts and projects by the “%s” tag",
+    "notesTitle": "Notes Tagged by “%s”",
+    "notesDescription": "Recent blog posts from newest to oldest.",
+    "projectsTitle": "Projects",
+    "projectsDescription": "Websites, applications, open-source projects, and educational online books."
+  },
+
+  "ru": {
+    "summary": "Все проекты и заметки с тегом «%s»",
+    "notesTitle": "Заметки по тегу «%s»",
+    "notesDescription": "Последние статьи из блога от новых к старым.",
+    "projectsTitle": "Проекты",
+    "projectsDescription": "Сайты, приложения, опен-сорс проекты, обучающие пособия и книги."
+  }
+}
