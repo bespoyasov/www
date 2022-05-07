@@ -4,7 +4,7 @@ import { ProjectsList } from "@components/ProjectsList";
 import styles from "./Showcase.module.css";
 
 type ShowcaseProps = {
-  projects: Metadata[];
+  projects: List<Metadata>;
 };
 
 export const Showcase = ({ projects }: ShowcaseProps) => {
