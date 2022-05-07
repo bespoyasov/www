@@ -5,7 +5,7 @@ to: ./storage/<%= locale %>/<%= kind %>s/<%= slug %>.mdx
 title: <%= title %>
 description:
 datetime:
-slug: /blog/<%= slug %>
+slug: /<%= kind === 'note' ? 'blog' : kind + 's' %>/<%= slug %>
 cover:
 tags:
   -
