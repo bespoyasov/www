@@ -2,8 +2,8 @@
   display: flex;
   align-items: flex-end;
   justify-content: space-between;
-  height: var(--footer-height);
-  padding: 20px 0;
+  padding-top: var(--vertical-gap-large);
+  padding-bottom: var(--vertical-gap);
   font-size: var(--small-font-size);
   line-height: var(--small-line-height);
 }
