@@ -21,9 +21,9 @@ export const Logo = ({ className }: HTMLAttributes<HTMLSpanElement>) => {
             type="image/avif"
             draggable="false"
             srcSet="
-              /img/common/photo-2022-02-22.avif    1x,
-              /img/common/photo-2022-02-22@2x.avif 2x,
-              /img/common/photo-2022-02-22@3x.avif 3x
+              /images/static/photo-2022-02-22.avif    1x,
+              /images/static/photo-2022-02-22@2x.avif 2x,
+              /images/static/photo-2022-02-22@3x.avif 3x
             "
           />
 
@@ -31,9 +31,9 @@ export const Logo = ({ className }: HTMLAttributes<HTMLSpanElement>) => {
             type="image/webp"
             draggable="false"
             srcSet="
-              /img/common/photo-2022-02-22.webp    1x,
-              /img/common/photo-2022-02-22@2x.webp 2x,
-              /img/common/photo-2022-02-22@3x.webp 3x
+              /images/static/photo-2022-02-22.webp    1x,
+              /images/static/photo-2022-02-22@2x.webp 2x,
+              /images/static/photo-2022-02-22@3x.webp 3x
             "
           />
 
@@ -41,11 +41,11 @@ export const Logo = ({ className }: HTMLAttributes<HTMLSpanElement>) => {
             alt={translated.logo.altText}
             draggable="false"
             srcSet="
-              /img/common/photo-2022-02-22.png    1x,
-              /img/common/photo-2022-02-22@2x.png 2x,
-              /img/common/photo-2022-02-22@3x.png 3x
+              /images/static/photo-2022-02-22.png    1x,
+              /images/static/photo-2022-02-22@2x.png 2x,
+              /images/static/photo-2022-02-22@3x.png 3x
             "
-            src="/img/common/photo-2022-02-22.png"
+            src="/images/static/photo-2022-02-22.png"
           />
         </picture>
       </div>
