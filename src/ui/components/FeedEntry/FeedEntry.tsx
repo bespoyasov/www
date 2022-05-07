@@ -1,3 +1,7 @@
+import type { Metadata } from "@core/metadata";
+import type { PostContents } from "@core/post";
+
+import { absoluteUrlFor } from "@core/site";
 import { Post } from "@components/Post";
 import styles from "./FeedEntry.module.css";
 
