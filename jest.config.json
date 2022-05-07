@@ -4,15 +4,22 @@
     "^.+\\.(ts|tsx)$": "ts-jest"
   },
   "moduleNameMapper": {
+    "^@core(.*)$": "<rootDir>/src/core$1",
+
     "^@persistence(.*)$": "<rootDir>/src/services/persistence$1",
+
+    "^@utils(.*)$": "<rootDir>/src/shared/utils$1",
+    "^@translation(.*)$": "<rootDir>/src/shared/translation$1",
+    "^@testing(.*)$": "<rootDir>/src/shared/testing$1",
 
     "^@api(.*)$": "<rootDir>/src/api$1",
     "^@components(.*)$": "<rootDir>/src/components$1",
-    "^@domain(.*)$": "<rootDir>/src/domain$1",
     "^@effects(.*)$": "<rootDir>/src/effects$1",
     "^@extensions(.*)$": "<rootDir>/src/extensions$1",
     "^@global(.*)$": "<rootDir>/src/global$1",
     "^@shared(.*)$": "<rootDir>/src/shared$1",
-    "^@configs(.*)$": "<rootDir>/src/configs$1"
+
+    "^@configs(.*)$": "<rootDir>/src/configs$1",
+    "^@env(.*)$": "<rootDir>/src/environment$1"
   }
 }
