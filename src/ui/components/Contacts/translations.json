@@ -1,0 +1,21 @@
+{
+  "prefix": "contacts",
+
+  "en": {
+    "email": "Email",
+    "telegram": "Telegram",
+    "twitter": "Twitter",
+    "github": "GitHub",
+    "linked": "LinkedIn",
+    "employer": "0+X"
+  },
+
+  "ru": {
+    "email": "Почта",
+    "telegram": "Телеграм",
+    "twitter": "Твитер",
+    "github": "Гитхаб",
+    "linked": "Линкед",
+    "employer": "0+X"
+  }
+}
