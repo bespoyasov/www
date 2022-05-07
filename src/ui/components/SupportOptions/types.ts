@@ -3,7 +3,7 @@ type Description = LocalizedString;
 type EmojiIcon = string;
 
 export type SupportOption = {
-  link: OptionUrl;
+  url: OptionUrl;
   text: Description;
   icon: EmojiIcon;
 };
