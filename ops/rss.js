@@ -33,17 +33,15 @@ async function generateRss() {
   const posts = feedRoot.querySelectorAll("article");
   const updated = new Date(posts[0].dataset.datetime);
 
-  const name = "Саша Беспоясов";
-  const link = "https://bespoyasov.ru";
-
+  const author = authorMetadata[language];
   const feed = new Feed({
-    id: link,
-    link,
+    id: author.link,
+    link: author.link,
     title,
     description,
     updated,
-    author: { name, link },
-    language: "ru",
+    author,
+    language,
   });
 
   for (const post of posts) {
