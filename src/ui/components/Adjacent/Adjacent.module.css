@@ -12,3 +12,9 @@
 .adjacent > *:first-child {
   margin-right: var(--gap);
 }
+
+@media (min-width: 640px) {
+  .adjacent {
+    margin-bottom: var(--vertical-gap-large);
+  }
+}
