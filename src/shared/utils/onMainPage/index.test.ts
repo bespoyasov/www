@@ -1,13 +1,18 @@
 import { onMainPage } from ".";
 
-describe("shared > onMainPage", () => {
-  const mainPageUrl: UrlSlug = "/";
-  const otherPages: UrlSlug[] = ["", "//", "/42", "/some-other-page"];
+const mainPageUrl: UrlSlug = "/";
+const otherPages: List<UrlSlug> = ["", "//", "/42", "/some-other-page"];
 
-  it("should return true if a given path equals to `/`", () =>
-    expect(onMainPage(mainPageUrl)).toEqual(true));
+describe("when given a root URL slug", () => {
+  it("should return `true`", () => {
+    expect(onMainPage(mainPageUrl)).toEqual(true);
+  });
+});
 
-  it("should return false if a given path is not equal to `/`", () => {
-    otherPages.forEach((pageUrl) => expect(onMainPage(pageUrl)).toEqual(false));
+describe("when given any other slug", () => {
+  const each = it.each<UrlSlug>(otherPages);
+
+  each("should return `false` for %p", (pageUrl) => {
+    expect(onMainPage(pageUrl)).toEqual(false);
   });
 });
