@@ -1,6 +1,7 @@
 import { MDXRemote } from "next-mdx-remote";
-import { PostContents } from "@domain/post";
-import { PreferencesProvider } from "@global/context";
+
+import type { PostContents } from "@core/post";
+import { PreferencesProvider } from "@context/preferences";
 import { substitutes } from "./substitutes";
 import styles from "./Post.module.css";
 
