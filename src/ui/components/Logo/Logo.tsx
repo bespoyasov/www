@@ -15,6 +15,16 @@ export const Logo = ({ className }: HTMLAttributes<HTMLSpanElement>) => {
       <div className={styles.photo}>
         <picture>
           <source
+            type="image/avif"
+            draggable="false"
+            srcSet="
+              /img/common/photo-2022-02-22.avif    1x,
+              /img/common/photo-2022-02-22@2x.avif 2x,
+              /img/common/photo-2022-02-22@3x.avif 3x
+            "
+          />
+
+          <source
             type="image/webp"
             draggable="false"
             srcSet="
