@@ -1,3 +1,5 @@
+import { currentLocale as locale } from "@env/locale";
+
 export const HeadContents = () => {
   return (
     <>
@@ -7,10 +9,10 @@ export const HeadContents = () => {
       <link rel="author" href="/humans.txt" />
       <link rel="alternate" type="application/rss+xml" title="RSS" href="/rss.xml" />
 
-      <link rel="icon" href="/favicon.ico" />
-      <link rel="icon" href="/meta/favicon.svg" type="image/svg+xml" sizes="any" />
-      <link rel="apple-touch-icon" href="/meta/favicon-180x180.png" />
-      <link rel="manifest" href="/meta/site.webmanifest" />
+      <link rel="icon" href="/icons/favicon.ico" />
+      <link rel="icon" href="/icons/favicon.svg" type="image/svg+xml" sizes="any" />
+      <link rel="apple-touch-icon" href="/icons/favicon-180x180.png" />
+      <link rel="manifest" href={`/meta/${locale}/site.webmanifest`} />
 
       <meta name="msapplication-TileColor" content="#ffffff" />
       <meta name="theme-color" content="#ffffff" />
