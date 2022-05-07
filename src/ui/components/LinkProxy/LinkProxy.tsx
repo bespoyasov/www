@@ -1,4 +1,4 @@
-import { AnchorHTMLAttributes } from "react";
+import type { AnchorHTMLAttributes } from "react";
 import Link from "next/link";
 
 function isInternalRoute(uri: AbsoluteUrl | UrlSlug): boolean {
