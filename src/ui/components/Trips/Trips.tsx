@@ -1,24 +1,20 @@
-import { Metadata } from "@domain/metadata";
+import type { Metadata } from "@core/metadata";
+import { classes } from "@utils/classes";
 import { Trip } from "@components/Trip";
 import styles from "./Trips.module.css";
 
 type TripsProps = {
-  posts: Metadata[];
+  posts: List<Metadata>;
 };
 
 export const Trips = ({ posts }: TripsProps) => {
   return (
-    <main className={styles.trips}>
-      <h1>Мир</h1>
-      <p>Заметки из поездок по миру.</p>
-
-      <ul className="reset">
-        {posts.map((post) => (
-          <li key={post.slug}>
-            <Trip place={post} />
-          </li>
-        ))}
-      </ul>
-    </main>
+    <ul className={classes("reset", styles.trips)}>
+      {posts.map((post) => (
+        <li key={post.slug}>
+          <Trip place={post} />
+        </li>
+      ))}
+    </ul>
   );
 };

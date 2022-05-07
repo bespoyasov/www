@@ -1,4 +1,4 @@
-import { Metadata } from "@domain/metadata";
+import type { Metadata } from "@core/metadata";
 import { Picture } from "@components/Picture";
 import styles from "./Cover.module.css";
 

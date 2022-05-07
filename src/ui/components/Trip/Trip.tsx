@@ -1,5 +1,6 @@
 import Link from "next/link";
-import { Metadata } from "@domain/metadata";
+
+import type { Metadata } from "@core/metadata";
 import { Cover } from "@components/Cover";
 import styles from "./Trip.module.css";
 
