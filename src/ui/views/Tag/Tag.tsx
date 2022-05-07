@@ -1,6 +1,9 @@
 import Head from "next/head";
 import { useRouter } from "next/router";
 
+import type { TagKind } from "@core/tags";
+import { valueOf } from "@core/tags";
+
 import { VisuallyHidden } from "@components/VisuallyHidden";
 import { Description } from "@components/Description";
 import { ProjectsList } from "@components/ProjectsList";
@@ -9,14 +12,12 @@ import { Anthology } from "@components/Notes";
 
 import { assureType } from "@utils/assureType";
 import { sizeOf } from "@utils/sizeOf";
-import { Tag as TagEnum, TagKind } from "@domain/tags";
 
 import type { TagProps } from "./types";
 
 export const Tag = ({ projects, notes }: TagProps) => {
   const { query } = useRouter();
-  const tag = TagEnum[assureType<TagKind>(query.id)];
-  const summary = `Все проекты и заметки с тегом «${tag}»`;
+  const tag = valueOf(assureType<TagKind>(query.id));
 
   return (
     <>
