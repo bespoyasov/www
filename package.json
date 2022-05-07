@@ -32,7 +32,6 @@
     "rss:generate": "node ./ops/rss",
     "new:component": "npx hygen component new",
     "new:page": "npx hygen page new",
-    "new:project": "npx hygen project new",
     "new:post": "npx hygen post new"
   },
   "repository": {
