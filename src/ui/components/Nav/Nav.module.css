@@ -7,11 +7,5 @@
 
 .nav ul {
   display: flex;
-  gap: 0.4em;
-}
-
-@media (min-width: 640px) {
-  .nav ul {
-    gap: 0 0.6em;
-  }
+  gap: 0.5em;
 }
