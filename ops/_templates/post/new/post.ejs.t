@@ -1,5 +1,5 @@
 ---
-to: ./data/blog/<%= slug %>.mdx
+to: ./storage/<%= locale %>/<%= kind %>s/<%= slug %>.mdx
 ---
 ---
 title: <%= title %>
