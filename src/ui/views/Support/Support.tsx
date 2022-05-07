@@ -4,9 +4,11 @@ import { SupportOptions } from "@components/SupportOptions";
 import { Description } from "@components/Description";
 import { SummaryCard } from "@components/SummaryCard";
 
+import styles from "./Support.module.css";
+
 export const SupportMe = () => {
   return (
-    <main>
+    <main className={styles.support}>
       <Head>
         <title>Сказать спасибо ❤️</title>
         <Description>Как поддержать меня и мой блог.</Description>
