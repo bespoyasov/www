@@ -1,29 +1,18 @@
+import type { GetStaticProps } from "next";
 import type { FeedEntry, FeedProps } from "@views/Feed";
+import type { Metadata } from "@core/metadata";
 
+import { notesMetadata, fetchNote } from "@network/fetch";
 import { Feed as RssPage } from "@views/Feed";
 
-import { Metadata } from "@domain/metadata";
-import { PostContents } from "@domain/post";
-import { blogPostsMetadata, fetchBlogPost } from "@network/fetch";
-import { isProduction } from "@utils/env";
-import { sizeOf } from "@utils/sizeOf";
-
-type Entry = {
-  metadata: Metadata;
-  contents: PostContents;
-};
-
-type RssProps = {
-  entries: List<Entry>;
-};
-
-async function createEntry(metadata: Metadata): Promise<Entry> {
+async function createEntry(metadata: Metadata): Promise<FeedEntry> {
   const postId = metadata.slug.replace("/blog/", "");
-  const contents = await fetchBlogPost(postId);
+  const contents = await fetchNote(postId);
   return { contents, metadata };
 }
 
 export const getStaticProps: GetStaticProps<FeedProps> = async () => {
+  const metadata = notesMetadata();
   const entries = await Promise.all(metadata.map(createEntry));
 
   return {
