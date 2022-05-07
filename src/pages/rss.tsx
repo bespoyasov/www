@@ -1,8 +1,6 @@
-import Head from "next/head";
-import { GetStaticProps } from "next";
+import type { FeedEntry, FeedProps } from "@views/Feed";
 
-import { Description } from "@components/Description";
-import { RssEntry } from "@components/RssEntry";
+import { Feed as RssPage } from "@views/Feed";
 
 import { Metadata } from "@domain/metadata";
 import { PostContents } from "@domain/post";
@@ -25,8 +23,7 @@ async function createEntry(metadata: Metadata): Promise<Entry> {
   return { contents, metadata };
 }
 
-export const getStaticProps: GetStaticProps<RssProps> = async () => {
-  const metadata = blogPostsMetadata();
+export const getStaticProps: GetStaticProps<FeedProps> = async () => {
   const entries = await Promise.all(metadata.map(createEntry));
 
   return {
@@ -36,22 +33,4 @@ export const getStaticProps: GetStaticProps<RssProps> = async () => {
   };
 };
 
-const Rss = ({ entries }: RssProps) => {
-  const maxAmount = isProduction() ? sizeOf(entries) : 5;
-  const latest = entries.slice(0, maxAmount);
-
-  return (
-    <main>
-      <Head>
-        <title>Блог Саши Беспоясова</title>
-        <Description>Разработка, дизайн, книги.</Description>
-      </Head>
-
-      {latest.map(({ metadata, contents }) => (
-        <RssEntry metadata={metadata} contents={contents} key={metadata.slug} />
-      ))}
-    </main>
-  );
-};
-
-export default Rss;
+export default RssPage;
