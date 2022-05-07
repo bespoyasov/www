@@ -1,12 +1,12 @@
+import type { TagKind } from "@core/tags";
 import { TagLink } from "@components/TagLink";
-import { TagKind } from "@domain/tags/types";
-import styles from "./Tags.module.css";
+import styles from "./TagList.module.css";
 
-type TagsProps = {
+type TagListProps = {
   tags: List<TagKind>;
 };
 
-export const Tags = ({ tags }: TagsProps) => {
+export const TagList = ({ tags }: TagListProps) => {
   return (
     <menu className={styles.tags}>
       <ul>
