@@ -1,4 +1,4 @@
-import { OptionList } from "./OptionList";
+import { OptionList } from "@components/SupportOptions";
 import styles from "./Support.module.css";
 
 export const Support = () => {
