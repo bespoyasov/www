@@ -1,5 +1,5 @@
 ---
-to: ./src/components/<%= name %>/<%= name %>.tsx
+to: ./src/ui/components/<%= name %>/<%= name %>.tsx
 ---
 import styles from "./<%= name %>.module.css";
 
