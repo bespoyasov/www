@@ -1,4 +1,3 @@
-/* eslint-disable no-undef, @typescript-eslint/no-var-requires */
 const { readFile } = require("fs").promises;
 const path = require("path");
 const jsdom = require("jsdom");
