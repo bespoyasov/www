@@ -1,7 +1,7 @@
 import Head from "next/head";
 
 import { Description } from "@components/Description";
-import { AllTags } from "@components/AllTags";
+import { AllTags } from "@components/TagCatalogue";
 import { translated } from "@translation";
 
 export const Tags = () => {
