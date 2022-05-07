@@ -1,4 +1,4 @@
-import type { CodeSamplesLanguage } from "@domain/preferences";
+import type { CodeSampleLanguage } from "@core/code";
 import type { WithChildren } from "@extensions/components";
 import type { InstanceId } from "./types";
 
@@ -9,7 +9,7 @@ import styles from "./Switch.module.css";
 
 type SwitchProps = {
   id: InstanceId;
-  options: List<CodeSamplesLanguage>;
+  options: List<CodeSampleLanguage>;
 };
 
 export const Switch = ({ id, options, children }: WithChildren<SwitchProps>) => {
