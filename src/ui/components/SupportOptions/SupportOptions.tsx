@@ -1,7 +1,7 @@
 import { LinkProxy } from "@components/LinkProxy";
 import { options } from "./options";
 
-export const OptionList = () => {
+export const SupportOptions = () => {
   return (
     <ul>
       {options.map(({ link: url, text, icon }) => (
