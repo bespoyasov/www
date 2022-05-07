@@ -7,17 +7,12 @@
 h1,
 h2,
 h3 {
-  margin: 0;
+  margin: var(--vertical-gap) 0 0;
 }
 
 h1,
 h2 {
-  margin-top: var(--vertical-gap-large);
   margin-bottom: var(--vertical-gap-small);
-}
-
-h3 {
-  margin-top: var(--vertical-gap);
 }
 
 p,
@@ -45,7 +40,6 @@ h3 + ul,
 h3 + blockquote,
 blockquote > ul,
 blockquote > ol,
-p:first-child,
-.frontline {
+p:first-child {
   margin-top: 0;
 }
