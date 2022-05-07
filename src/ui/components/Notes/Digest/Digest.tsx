@@ -5,7 +5,7 @@ import { List } from "../List";
 import styles from "./Digest.module.css";
 
 type DigestProps = {
-  notes: Metadata[];
+  notes: List<Metadata>;
 };
 
 export const Digest = ({ notes }: DigestProps) => {
