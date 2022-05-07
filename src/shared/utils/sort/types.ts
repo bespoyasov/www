@@ -1,12 +1,2 @@
-export enum SortDirection {
-  Ascending = "asc",
-  Descending = "desc",
-}
-
-export enum CompareResult {
-  AThenB = -1,
-  BThenA = 1,
-  Equal = 0,
-}
-
-export type CompareFunction<TComparable> = (a: TComparable, b: TComparable) => CompareResult;
+type CompareResult = -1 | 0 | 1;
+export type CompareFunction<T> = (a: T, b: T) => CompareResult;
