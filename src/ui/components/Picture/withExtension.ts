@@ -1,4 +1,5 @@
-import { imageExtensions, ImageExtension, ImageFileSource } from "@domain/image";
+import type { ImageExtension, ImageFileSource } from "@core/image";
+import { imageExtensions } from "@core/image";
 
 type ConvertedImagePath = ImageFileSource;
 
