@@ -4,6 +4,9 @@
   "name": "Саша Беспоясов",
   "short_name": "АБ",
 
+  "description": "Разработчик, ментор, спикер.",
+  "categories": ["education", "personalization"],
+
   "theme_color": "#ffffff",
   "background_color": "#ffffff",
 
