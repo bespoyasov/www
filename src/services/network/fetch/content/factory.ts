@@ -1,18 +1,19 @@
-import { PostContents, PostId } from "@domain/post";
-import { getBlogPost, getProject } from "@persistence/source";
-import { Dependencies, di } from "./composition";
-import { settings } from "./settings";
+import type { PostContents, PostId } from "@core/post";
+import type { Dependencies, Settings } from "@network/composition";
+import type { ContentSource } from "@network/types";
 
-type Query = typeof getProject | typeof getBlogPost;
-type FetchRequest = (id: PostId, di?: Dependencies) => Promise<PostContents>;
+import { dependencies, settings } from "@network/composition";
 
-export function contentFor(query: Query): FetchRequest {
-  return async function request(
-    id: PostId,
-    { serialize, parser }: Dependencies = di,
-  ): Promise<PostContents> {
-    const { content } = parser(query(id));
-    const { compiledSource } = await serialize(content, settings);
+type SourceQuery = (id: PostId) => ContentSource;
+type FetchContent = (id: PostId, di?: Dependencies) => Promise<PostContents>;
+
+export function contentFor(
+  query: SourceQuery,
+  { serializeSettings }: Settings = settings,
+): FetchContent {
+  return async function request(id, { parse, serialize } = dependencies) {
+    const { content } = parse(query(id));
+    const { compiledSource } = await serialize(content, serializeSettings);
     return compiledSource;
   };
 }
