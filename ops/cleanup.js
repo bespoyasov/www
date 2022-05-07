@@ -1,6 +1,6 @@
 const { join } = require("path");
-const { rm: remove } = require("fs/promises");
-const { directoriesIn } = require("./utils");
+const { rm: remove, lstat } = require("fs/promises");
+const { filesIn, directoriesIn } = require("./utils");
 
 const BUILD_DIR = join(process.cwd(), "out");
 
@@ -16,6 +16,15 @@ async function localizedDirectoriesIn(source) {
   return directories.filter(isLocalized);
 }
 
+async function cleanupEmpty(workingDirectory) {
+  const stat = await lstat(workingDirectory);
+  if (!stat.isDirectory()) return;
+
+  const entries = await filesIn(workingDirectory);
+  if (entries.length <= 0) await remove(workingDirectory, { recursive: true });
+  else await Promise.all(entries.map((entry) => cleanupEmpty(entry)));
+}
+
 async function removeUnusedLocales(workingDirectory) {
   for (const directory of await localizedDirectoriesIn(workingDirectory)) {
     if (!directory.endsWith(currentLocale)) {
@@ -26,5 +35,6 @@ async function removeUnusedLocales(workingDirectory) {
 
 (async () => {
   await removeUnusedLocales(BUILD_DIR);
+  await cleanupEmpty(BUILD_DIR);
   console.log("Unused locale directories removed.");
 })();
