@@ -1,4 +1,5 @@
-import { Metadata } from "@domain/metadata";
+import type { Metadata } from "@core/metadata";
+import { translated } from "@translation";
 import { facebookLink, twitterLink } from "./shareLinkFactory";
 
 type ActionLink = {
@@ -8,9 +9,9 @@ type ActionLink = {
 
 export function createActionList(metadata: Metadata): List<ActionLink> {
   return [
-    { label: "Подписаться на RSS", url: "/rss.xml" },
-    { label: "Твитнуть", url: twitterLink(metadata) },
-    { label: "Фейсбукнуть", url: facebookLink(metadata) },
-    { label: "Сказать спасибо", url: "/support" },
+    { label: translated.feedback.subscribe, url: "/rss.xml" },
+    { label: translated.feedback.tweet, url: twitterLink(metadata) },
+    { label: translated.feedback.share, url: facebookLink(metadata) },
+    { label: translated.feedback.support, url: "/support" },
   ];
 }
