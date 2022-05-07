@@ -1,6 +1,7 @@
-import { Metadata } from "@domain/metadata";
-import { Tagged } from "@components/Notes/Tagged";
-import { List } from "@components/Notes/List";
+import type { Metadata } from "@core/metadata";
+
+import { Tagged } from "../Tagged";
+import { List } from "../List";
 import styles from "./Digest.module.css";
 
 type DigestProps = {
