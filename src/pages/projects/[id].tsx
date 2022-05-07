@@ -3,7 +3,7 @@ import { GetStaticProps, GetStaticPaths } from "next";
 
 import { PostContents } from "@domain/post";
 import { Metadata as MetadataType } from "@domain/metadata";
-import { projectsMetadata, projectsNames, fetchProject } from "@api/fetch";
+import { projectsMetadata, projectsNames, fetchProject } from "@network/fetch";
 
 import { Post } from "@components/Post";
 import { Metadata } from "@components/Metadata";

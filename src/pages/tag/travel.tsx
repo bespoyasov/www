@@ -7,7 +7,7 @@ import { Trips } from "@components/Trips";
 
 import { Metadata } from "@domain/metadata";
 import { withTravelTag } from "@utils/filter";
-import { blogPostsMetadata } from "@api/fetch";
+import { blogPostsMetadata } from "@network/fetch";
 
 type TravelProps = {
   posts: Metadata[];

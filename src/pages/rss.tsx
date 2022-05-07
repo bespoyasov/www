@@ -6,7 +6,7 @@ import { RssEntry } from "@components/RssEntry";
 
 import { Metadata } from "@domain/metadata";
 import { PostContents } from "@domain/post";
-import { blogPostsMetadata, fetchBlogPost } from "@api/fetch";
+import { blogPostsMetadata, fetchBlogPost } from "@network/fetch";
 import { isProduction } from "@utils/env";
 import { sizeOf } from "@utils/sizeOf";
 

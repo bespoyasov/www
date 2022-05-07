@@ -3,7 +3,7 @@ import { GetStaticProps, GetStaticPaths } from "next";
 
 import { PostContents } from "@domain/post";
 import { Metadata as MetadataType } from "@domain/metadata";
-import { blogPostsMetadata, blogPostsNames, fetchBlogPost } from "@api/fetch";
+import { blogPostsMetadata, blogPostsNames, fetchBlogPost } from "@network/fetch";
 
 import { Post } from "@components/Post";
 import { Adjacent } from "@components/Adjacent";

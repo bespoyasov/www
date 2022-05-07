@@ -6,7 +6,7 @@ import { Description } from "@components/Description";
 import { Showcase } from "@components/Showcase";
 
 import { Metadata } from "@domain/metadata";
-import { projectsMetadata } from "@api/fetch";
+import { projectsMetadata } from "@network/fetch";
 
 type ProjectsProps = {
   projects: Metadata[];
