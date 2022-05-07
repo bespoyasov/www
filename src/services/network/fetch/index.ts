@@ -1,3 +1,3 @@
-export * from "./metadata";
+export * from "./content";
 export * from "./listing";
-export { fetchBlogPost, fetchProject } from "./content";
+export * from "./metadata";
