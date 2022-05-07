@@ -1,3 +1,4 @@
+import { Contacts } from "@components/Contacts";
 import { VisuallyHidden } from "@components/VisuallyHidden";
 import { translated } from "@translation";
 
@@ -12,6 +13,8 @@ export const About = () => {
       <p>{translated.about.projects}</p>
       <p>{translated.about.blogging}</p>
       <p>{translated.about.teaching}</p>
+
+      <Contacts />
     </main>
   );
 };
