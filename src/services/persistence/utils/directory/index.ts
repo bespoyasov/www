@@ -1,13 +1,13 @@
-import { BLOG_DIRECTORY, PROJECTS_DIRECTORY } from "@persistence/const";
-import { QueryKind } from "@persistence/types";
+import type { ContentDirectory, QueryKind } from "@persistence/types";
+import type { Dependencies } from "@persistence/composition";
 
-type PagesDirectory = typeof BLOG_DIRECTORY | typeof PROJECTS_DIRECTORY;
+import path from "path";
+import { BASE_DIRECTORY } from "@persistence/const";
+import { dependencies } from "@persistence/composition";
 
-const pagesDirectories: Record<QueryKind, PagesDirectory> = {
-  projects: PROJECTS_DIRECTORY,
-  blog: BLOG_DIRECTORY,
-};
-
-export function directoryFor(query: QueryKind): PagesDirectory {
-  return pagesDirectories[query];
+export function directoryFor(
+  query: QueryKind,
+  { locale }: Dependencies = dependencies,
+): ContentDirectory {
+  return path.join(BASE_DIRECTORY, locale, query);
 }
