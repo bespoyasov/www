@@ -6,22 +6,22 @@ import { translated } from "@translation";
 
 export const options: List<SupportOption> = [
   {
-    link: mailto(author.email),
+    url: mailto(author.email),
     text: translated.supportOptions.email,
     icon: "💌",
   },
   {
-    link: "/rss.xml",
+    url: "/rss.xml",
     text: translated.supportOptions.subscribe,
     icon: "📢",
   },
   {
-    link: author.twitter,
+    url: author.twitter,
     text: translated.supportOptions.follow,
     icon: "🐦",
   },
   {
-    link: author.donate,
+    url: author.donate,
     text: translated.supportOptions.donate,
     icon: "☕️",
   },
