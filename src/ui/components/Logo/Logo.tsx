@@ -15,7 +15,7 @@ export const Logo = ({ className }: HTMLAttributes<HTMLSpanElement>) => {
     <span className={classes(styles.logo, className)}>
       <Header className={styles.label}>{author.name}</Header>
 
-      <div className={styles.photo}>
+      <span className={styles.photo}>
         <picture>
           <source
             type="image/avif"
@@ -48,7 +48,7 @@ export const Logo = ({ className }: HTMLAttributes<HTMLSpanElement>) => {
             src="/images/static/photo-2022-02-22.png"
           />
         </picture>
-      </div>
+      </span>
     </span>
   );
 };
