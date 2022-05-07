@@ -1,4 +1,5 @@
-import { ImageFileSource, ImageDescription } from "@domain/image";
+import type { ImageFileSource, ImageDescription } from "@core/image";
+
 import { withWebp, withAvif } from "./withExtension";
 import styles from "./Picture.module.css";
 
