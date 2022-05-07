@@ -1,5 +1,6 @@
 import Document, { Html, Head, Main, NextScript, DocumentContext } from "next/document";
 import { HeadContents } from "@components/HeadContents";
+import { currentLocale } from "@env/locale";
 
 class MyDocument extends Document {
   static async getInitialProps(ctx: DocumentContext) {
@@ -9,7 +10,7 @@ class MyDocument extends Document {
 
   render() {
     return (
-      <Html lang="ru">
+      <Html lang={currentLocale}>
         <Head>
           <HeadContents />
         </Head>
