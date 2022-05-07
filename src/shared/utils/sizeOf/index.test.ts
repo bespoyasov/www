@@ -1,3 +1,4 @@
+import { assureType } from "@utils/assureType";
 import { sizeOf } from ".";
 
 describe("when given a non-empty list", () => {
@@ -24,8 +25,8 @@ describe("when given an empty collection", () => {
 
 describe("when given not a collection", () => {
   it("should throw an error", () => {
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    const call = () => sizeOf(42 as any);
+    const notCollection = assureType<SomeCollection>(42);
+    const call = () => sizeOf(notCollection);
     expect(call).toThrowErrorMatchingInlineSnapshot(`"Collection must be a list or an object."`);
   });
 });
