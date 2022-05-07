@@ -1,4 +1,4 @@
-import { OptionList } from "@components/SupportOptions";
+import { SupportOptions } from "@components/SupportOptions";
 import styles from "./Support.module.css";
 
 export const Support = () => {
@@ -20,7 +20,7 @@ export const Support = () => {
         знать — я буду благодарен.
       </p>
 
-      <OptionList />
+      <SupportOptions />
     </div>
   );
 };
