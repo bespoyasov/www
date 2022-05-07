@@ -1,40 +1,40 @@
+import type { Dependencies } from "@network/composition";
 import { assureType } from "@utils/assureType";
-import { Dependencies } from "./composition";
 import { metadataFor } from "./factory";
 
-const testData = { datetime: "2020-08-28T12:00:00" };
-const parserMock = jest.fn(() => ({ data: testData }));
-const dependencies = assureType<Dependencies>({ parser: parserMock });
+const testEntries = ["file1", "file2", "file3"];
+const testMetadata = {
+  file1: { datetime: "2020-08-28T12:00:00" },
+  file2: { datetime: "2020-08-28T12:00:01" },
+  file3: { datetime: "2020-08-28T11:59:59" },
+};
+
+const parserMock = jest.fn((file) => ({ data: testMetadata[file] }));
+const dependencies = assureType<Dependencies>({ parse: parserMock });
+
+const query = jest.fn(() => testEntries);
+const request = metadataFor(query);
+
+beforeEach(() => jest.clearAllMocks());
+afterAll(() => jest.restoreAllMocks());
 
 describe("when received a request", () => {
-  it("should call a given query", () => {
-    const query = jest.fn(() => []);
-    const request = metadataFor(query);
-
-    request();
+  it("should run a given query", () => {
+    request(dependencies);
     expect(query).toHaveBeenCalled();
   });
 
-  it("should call the `matter` function on every post and access the `data` field", () => {
-    const posts = ["post1", "post2", "post3"];
-    const expected = posts.map(() => testData);
-
-    const query = () => posts;
-    const request = metadataFor(query);
-    const result = request(dependencies);
-
-    expect(parserMock).toHaveBeenCalledTimes(posts.length);
-    expect(result).toEqual(expected);
+  it("should parse each entry returned by the query", () => {
+    request(dependencies);
+    expect(parserMock).toHaveBeenCalledTimes(testEntries.length);
+    expect(parserMock).toHaveBeenLastCalledWith(testEntries.at(-1));
   });
 
-  it("should sort query results with a given compare function", () => {
-    const posts = ["post1", "post2", "post3"];
-    const query = () => posts;
-    const sorter = jest.fn();
+  it("should return a sorted list of metadata entries", () => {
+    const { file1: middle, file2: earliest, file3: oldest } = testMetadata;
+    const expected = [earliest, middle, oldest];
 
-    const request = metadataFor(query, { sorter });
-    request();
-
-    expect(sorter).toHaveBeenCalledTimes(posts.length - 1);
+    const result = request(dependencies);
+    expect(result).toEqual(expected);
   });
 });
