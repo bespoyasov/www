@@ -13,7 +13,7 @@ import { sizeOf } from "@utils/sizeOf";
 import { withTag } from "@utils/filter";
 import { Metadata } from "@domain/metadata";
 import { Tag as TagEnum, TagKind } from "@domain/tags";
-import { projectsMetadata, blogPostsMetadata } from "@api/fetch";
+import { projectsMetadata, blogPostsMetadata } from "@network/fetch";
 
 type TagProps = {
   projects: Metadata[];

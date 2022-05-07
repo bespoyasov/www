@@ -8,7 +8,7 @@ import { Section } from "@components/Section";
 import { Anthology, Digest, Subscribe } from "@components/Notes";
 
 import { Metadata } from "@domain/metadata";
-import { blogPostsMetadata } from "@api/fetch";
+import { blogPostsMetadata } from "@network/fetch";
 
 type BlogProps = {
   posts: Metadata[];
