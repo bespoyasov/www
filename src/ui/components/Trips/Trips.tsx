@@ -1,9 +1,9 @@
-import { Metadata } from "@domain/metadata";
+import type { Metadata } from "@core/metadata";
 import { Trip } from "@components/Trip";
 import styles from "./Trips.module.css";
 
 type TripsProps = {
-  posts: Metadata[];
+  posts: List<Metadata>;
 };
 
 export const Trips = ({ posts }: TripsProps) => {
