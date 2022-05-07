@@ -11,14 +11,14 @@ type TaggedProps = {
 
 export const Tagged = ({ with: tag, from: notes }: TaggedProps) => {
   const notesCount = 3;
-  const forTag = notes.filter(({ tags }) => tags.includes(tag)).slice(0, notesCount);
+  const perTag = notes.filter(({ tags }) => tags.includes(tag)).slice(0, notesCount);
 
   return (
     <>
       <h3>
         <TagLink tag={tag} />
       </h3>
-      <List notes={forTag} />
+      <List notes={perTag} />
     </>
   );
 };
