@@ -77,6 +77,8 @@ typings/
 
 # Next.js build output
 .next
+.next-en
+.next-ru
 out
 
 # Nuxt.js build / generate output
