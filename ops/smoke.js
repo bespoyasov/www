@@ -4,8 +4,8 @@ const jsdom = require("jsdom");
 const { JSDOM } = jsdom;
 
 const WORKING_DIR = process.cwd();
-const BLOG_POST = path.join(WORKING_DIR, "out/blog/about-new-request-site/index.html");
-const PROJECT = path.join(WORKING_DIR, "out/projects/mrkt/index.html");
+const BLOG_POST = path.join(WORKING_DIR, "out/blog/clean-architecture-on-frontend/index.html");
+const PROJECT = path.join(WORKING_DIR, "out/projects/tzlvt/index.html");
 
 async function fromFile(path) {
   const contents = await readFile(path);
