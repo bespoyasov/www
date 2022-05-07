@@ -1,5 +1,6 @@
 import Link from "next/link";
-import { Metadata } from "@domain/metadata";
+
+import type { Metadata } from "@core/metadata";
 import { Picture } from "@components/Picture";
 import styles from "./Preview.module.css";
 
