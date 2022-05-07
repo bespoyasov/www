@@ -1,22 +1,17 @@
-import { Metadata } from "@domain/metadata";
-import { allProjects, allBlogPosts } from "@persistence/source";
-import { Settings, settings } from "./settings";
-import { Dependencies, di } from "./composition";
+import type { Metadata } from "@core/metadata";
+import type { ContentSource } from "@network/types";
+import type { Dependencies } from "@network/composition";
 
-type Query = typeof allProjects | typeof allBlogPosts;
-type FetchRequest = (di?: Dependencies) => List<Metadata>;
+import { dependencies } from "@network/composition";
+import { byDateDescending } from "@utils/sort";
 
-export function metadataFor(query: Query, { sorter }: Settings = settings): FetchRequest {
-  return function request({ parser }: Dependencies = di): List<Metadata> {
+type SourceQuery = () => List<ContentSource>;
+type FetchMetadata = (di?: Dependencies) => List<Metadata>;
+
+export function metadataFor(query: SourceQuery): FetchMetadata {
+  return function request({ parse } = dependencies) {
     const posts = query();
-    const results: List<Metadata> = [];
-
-    for (const post of posts) {
-      const object = parser(post).data as Metadata;
-      results.push(object);
-    }
-
-    results.sort(sorter);
-    return results;
+    const results = posts.map((post) => parse(post).data as Metadata);
+    return results.sort(byDateDescending);
   };
 }
