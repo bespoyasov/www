@@ -1,4 +1,4 @@
-import { WithChildren } from "@extensions/components";
+import type { WithChildren } from "@extensions/components";
 import styles from "./CodeBlock.module.css";
 
 export const CodeBlock = ({ children }: WithChildren) => {

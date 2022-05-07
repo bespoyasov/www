@@ -1,4 +1,4 @@
-import { WithChildren } from "@extensions/components";
+import type { WithChildren } from "@extensions/components";
 import styles from "./Table.module.css";
 
 export const Table = ({ children }: WithChildren) => {

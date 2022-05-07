@@ -1,4 +1,4 @@
-import { ImageFileSource } from "@domain/image";
+import type { ImageFileSource } from "@core/image";
 
 type ShouldLimitContainerWidth = boolean;
 
