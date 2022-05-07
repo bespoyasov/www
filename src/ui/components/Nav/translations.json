@@ -1,0 +1,17 @@
+{
+  "prefix": "nav",
+
+  "en": {
+    "projects": "Projects",
+    "blog": "Blog",
+    "talks": "Talks",
+    "favorite": "Favorite"
+  },
+
+  "ru": {
+    "projects": "Проекты",
+    "blog": "Блог",
+    "talks": "Доклады",
+    "favorite": "Лучшее"
+  }
+}
