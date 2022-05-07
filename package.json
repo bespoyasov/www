@@ -10,6 +10,8 @@
     "derive": "npm run dict:collect && npm run images:convert",
     "build": "next build",
     "build:cleanup": "node ./ops/cleanup",
+    "build:en": "locale=en npm run build",
+    "build:ru": "locale=ru npm run build",
     "prestart": "npm run derive",
     "prebuild": "npm run derive",
     "postinstall": "npm run secrete && npm run derive",
