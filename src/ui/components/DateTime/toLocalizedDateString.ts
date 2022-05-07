@@ -1,7 +1,12 @@
-export function toLocalizedDateString(datetime: DateTimeIsoString): LocalizedDateString {
-  return new Date(datetime).toLocaleString("ru-RU", {
+import { currentLocale } from "@env/locale";
+
+export function toLocalizedDateString(
+  datetime: DateTimeIsoString,
+  locale: Locale = currentLocale,
+): LocalizedDateString {
+  return new Date(datetime).toLocaleString(locale, {
     year: "numeric",
-    month: "numeric",
-    day: "numeric",
+    month: "2-digit",
+    day: "2-digit",
   });
 }
