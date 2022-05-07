@@ -1,2 +1,2 @@
 export * from "./contents";
-export * from "./names";
+export * from "./listing";
