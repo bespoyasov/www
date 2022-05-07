@@ -5,7 +5,7 @@ import { classes } from "@utils/classes";
 import styles from "./List.module.css";
 
 type ListProps = {
-  notes: Metadata[];
+  notes: List<Metadata>;
 };
 
 export const List = ({ notes }: ListProps) => {
