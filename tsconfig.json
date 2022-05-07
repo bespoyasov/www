@@ -18,11 +18,12 @@
     "paths": {
       "@core/*": ["src/core/*"],
 
+      "@persistence/*": ["src/services/persistence/*"],
+
       "@api/*": ["src/api/*"],
       "@components/*": ["src/components/*"],
       "@effects/*": ["src/effects/*"],
       "@extensions/*": ["src/extensions/*"],
-      "@persistence/*": ["src/persistence/*"],
       "@global/*": ["src/global/*"],
 
       "@utils/*": ["src/shared/utils/*"],
