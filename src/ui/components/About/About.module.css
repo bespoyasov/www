@@ -1,34 +1,6 @@
-.about {
-  --top-offset-compensation: calc(-1 * var(--vertical-gap));
-  --columns-count: 1;
-
-  display: grid;
-  grid-template-columns: repeat(var(--columns-count), 1fr);
-  margin-top: var(--top-offset-compensation);
-  column-gap: var(--gap);
-}
-
 @media (min-width: 640px) {
   .about {
-    --columns-count: 2;
-  }
-}
-
-@media (min-width: 860px) {
-  .about {
-    --top-offset-absolute: calc(var(--vertical-gap) + var(--header-height));
-    --top-offset-compensation: calc(-1 * var(--top-offset-absolute));
-    --left-offset: 65%;
-    --columns-count: 1;
-
-    padding-top: var(--vertical-gap);
-    padding-left: var(--left-offset);
-  }
-}
-
-@media (min-width: 1200px) {
-  .about {
-    --left-offset: 50%;
-    --columns-count: 2;
+    width: 75%;
+    max-width: 800px;
   }
 }
