@@ -1,0 +1,26 @@
+<svg width="744" height="464" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><defs><path id="a" d="M0 0h744v464H0z"/></defs><g fill="none" fill-rule="evenodd"><use fill="#FFF" xlink:href="#a"/><path stroke="#FFF" d="M.5.5h743v463H.5z"/><path d="M244.47 87.647h115.687M360.157 87.647l-10.8-3v6l10.8-3ZM260.157 291.569l-101.96-131.373M158.196 160.196l4.252 10.371 4.74-3.678-8.992-6.693ZM585.647 413.137c-119.79 32.613-239.13 38.739-358.016 18.379-118.886-20.36-162.292-110.8-130.22-271.32" stroke="#979797" stroke-linecap="square"/><path d="M97.412 160.196 92.354 170.2l5.884 1.176-.826-11.179ZM338.588 270l58.824-131.373M397.412 138.627l-7.152 8.631 5.476 2.452 1.676-11.083ZM464.078 160.196l-13.725 127.451M450.353 287.647l4.14-10.417-5.966-.642 1.826 11.06ZM579.765 122.941l23.53 143.137M603.294 266.078l1.209-11.143-5.921.973 4.712 10.17Z" stroke="#979797" stroke-linecap="square"/><g transform="translate(18 20)"><ellipse stroke="#979797" fill="#D8D8D8" cx="108.824" cy="67.647" rx="108.824" ry="67.647"/><text font-family="PTSans-Regular, PT Sans" font-size="18" fill="#000">
+                    <tspan x="75.804" y="71.176">Главная</tspan>
+                </text></g><text font-family="PTSans-Regular, PT Sans" font-size="18" fill="#000">
+                <tspan x="469.178" y="231">Успешная </tspan>
+                <tspan x="474.272" y="252">загрузка</tspan>
+            </text><g transform="translate(243.49 272.941)"><ellipse stroke="#979797" fill="#D8D8D8" cx="108.824" cy="67.647" rx="108.824" ry="67.647"/><text font-family="PTSans-Regular, PT Sans" font-size="18" fill="#000">
+                    <tspan x="24.378" y="57.49">Показываем данные, </tspan>
+                    <tspan x="19.041" y="78.49">которые запрашивали</tspan>
+                </text></g><g transform="translate(368.98 20)"><ellipse stroke="#979797" fill="#D8D8D8" cx="108.824" cy="67.647" rx="108.824" ry="67.647"/><text font-family="PTSans-Regular, PT Sans" font-size="18" fill="#000">
+                    <tspan x="74.372" y="70.98">Загрузка</tspan>
+                </text></g><g transform="translate(478.784 272.941)"><ellipse stroke="#979797" fill="#D8D8D8" cx="108.824" cy="67.647" rx="108.824" ry="67.647"/><text font-family="PTSans-Regular, PT Sans" font-size="18" fill="#000">
+                    <tspan x="60.062" y="57.451">Показываем </tspan>
+                    <tspan x="20.084" y="78.451">сообщение об ошибке</tspan>
+                </text></g><text font-family="PTSans-Regular, PT Sans" font-size="18" fill="#000">
+                <tspan x="115.644" y="222">Возврат </tspan>
+                <tspan x="103.035" y="243">на главную</tspan>
+            </text><text font-family="PTSans-Regular, PT Sans" font-size="18" fill="#000">
+                <tspan x="268.907" y="44.961">Начало </tspan>
+                <tspan x="266.18" y="65.961">запроса</tspan>
+            </text><text font-family="PTSans-Regular, PT Sans" font-size="18" fill="#000">
+                <tspan x="608.668" y="217">Неудачная </tspan>
+                <tspan x="617.272" y="238">загрузка</tspan>
+            </text><text font-family="PTSans-Regular, PT Sans" font-size="18" fill="#000">
+                <tspan x="286.542" y="173">«Загрузить </tspan>
+                <tspan x="308.97" y="194">ещё»</tspan>
+            </text></g></svg>
