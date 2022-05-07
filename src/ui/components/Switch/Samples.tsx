@@ -1,12 +1,12 @@
 import type { ReactNode } from "react";
-import type { CodeSamplesLanguage } from "@domain/preferences";
+import type { CodeSampleLanguage } from "@core/code";
 
 import { zip } from "@utils/zip";
-import { usePreferencesContext } from "@global/context";
+import { usePreferencesContext } from "@context/preferences";
 import { selectLanguage } from "./selectLanguage";
 
 type SamplesProps = {
-  options: List<CodeSamplesLanguage>;
+  options: List<CodeSampleLanguage>;
   samples: List<ReactNode>;
 };
 

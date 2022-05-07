@@ -1,15 +1,15 @@
-import type { CodeSamplesLanguage } from "@domain/preferences";
-import { nameOf } from "@domain/preferences";
+import type { CodeSampleLanguage } from "@core/code";
+import { nameOf } from "@core/code";
 
 import { useHashUpdate } from "@effects/useHashUpdate";
-import { usePreferencesContext } from "@global/context";
+import { usePreferencesContext } from "@context/preferences";
 
 import type { InstanceId } from "./types";
 import styles from "./Control.module.css";
 
 type ControlDisabled = boolean;
 type ControlProps = {
-  language: CodeSamplesLanguage;
+  language: CodeSampleLanguage;
   disabled: ControlDisabled;
   switchId: InstanceId;
 };

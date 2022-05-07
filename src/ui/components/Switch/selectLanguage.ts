@@ -1,10 +1,11 @@
-import type { CodeSamplesLanguage, PreferredLanguage } from "@domain/preferences";
+import type { CodeSampleLanguage } from "@core/code";
+import type { PreferredLanguage } from "@core/preferences";
 import { first } from "@utils/first";
 
-type PreferredOrFallback = CodeSamplesLanguage;
+type PreferredOrFallback = CodeSampleLanguage;
 
 export function selectLanguage(
-  available: List<CodeSamplesLanguage>,
+  available: List<CodeSampleLanguage>,
   preferred: PreferredLanguage,
 ): PreferredOrFallback {
   return available.includes(preferred) ? preferred : first(available);
