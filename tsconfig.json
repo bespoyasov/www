@@ -25,6 +25,7 @@
       "@components/*": ["src/ui/components/*"],
       "@context/*": ["src/ui/context/*"],
       "@effects/*": ["src/ui/effects/*"],
+      "@views/*": ["src/ui/views/*"],
 
       "@utils/*": ["src/shared/utils/*"],
       "@styles/*": ["src/shared/styles/*"],
