@@ -1,7 +1,7 @@
 import Head from "next/head";
 
 import { Description } from "@components/Description";
-import { AllTags } from "@components/TagCatalogue";
+import { TagCatalogue } from "@components/TagCatalogue";
 import { translated } from "@translation";
 
 export const Tags = () => {
@@ -13,7 +13,7 @@ export const Tags = () => {
       </Head>
 
       <h1>{translated.tagsPage.title}</h1>
-      <AllTags />
+      <TagCatalogue />
     </main>
   );
 };
