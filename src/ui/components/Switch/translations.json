@@ -1,0 +1,13 @@
+{
+  "prefix": "codeSample",
+
+  "en": {
+    "currentLanguage": "Code sample in %s.",
+    "changeLanguage": "Show in other languages:"
+  },
+
+  "ru": {
+    "currentLanguage": "Фрагмент кода на %s.",
+    "changeLanguage": "Показать на других языках:"
+  }
+}

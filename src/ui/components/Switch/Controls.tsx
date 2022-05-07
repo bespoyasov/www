@@ -6,6 +6,7 @@ import { classes } from "@utils/classes";
 import { useMounted } from "@effects/useMounted";
 import { usePreferencesContext } from "@global/context";
 import { VisuallyHidden } from "@components/VisuallyHidden";
+import { translated, injectIn } from "@translation";
 
 import type { InstanceId } from "./types";
 import { selectLanguage } from "./selectLanguage";
@@ -25,7 +26,8 @@ export const Controls = ({ options, switchId }: ControlsProps) => {
   return (
     <figcaption className={classes(styles.controls, mounted && styles.mounted)} hidden={!mounted}>
       <VisuallyHidden>
-        Фрагмент кода на {nameOf(current)}. Показать на других языках:
+        {injectIn(translated.codeSample.currentLanguage, nameOf(current))}
+        {translated.codeSample.changeLanguage}
       </VisuallyHidden>
 
       {options.map((language) => (
