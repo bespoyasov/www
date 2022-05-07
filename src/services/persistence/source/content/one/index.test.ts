@@ -1,36 +1,24 @@
-import { getBlogPost, getProject } from ".";
-import { mockSystem } from "@utils/mocks";
+import type { QueryPost } from "./types";
+
+import { mockSystem } from "@testing/mocks";
+import { getProject, getNote } from ".";
 
 const postId = "post";
 const fileName = "post.mdx";
 
-describe("when called an executor", () => {
-  it("should read an .mdx file with a given name", () => {
-    const readFileSync = jest.fn();
-    const system = mockSystem({ readFileSync });
-
-    getProject(postId, { system });
-    expect(readFileSync.mock.calls[0][0].endsWith(fileName)).toBe(true);
-  });
-});
-
-type Executor = typeof getProject | typeof getBlogPost;
-
-function testFileDirectory(directory: RelativePath, execute: Executor): void {
-  const fullPath = `${directory}/${fileName}`;
+describe("when called a query executor with a post id", () => {
   const readFileSync = jest.fn();
   const system = mockSystem({ readFileSync });
 
-  execute(postId, { system });
-  expect(readFileSync.mock.calls[0][0].endsWith(fullPath)).toBe(true);
-}
+  const each = it.each<QueryPost>([getProject, getNote]);
 
-describe("when called `getProject`", () => {
-  it("should read a file from the projects directory", () =>
-    testFileDirectory("data/projects", getProject));
-});
+  each("executor should read the file with the post contents [#%#]", (execute) => {
+    execute(postId, { system });
+    expect(readFileSync.mock.calls[0][0].endsWith(fileName)).toBe(true);
+  });
 
-describe("when called `getBlogPost`", () => {
-  it("should read a file from the projects directory", () =>
-    testFileDirectory("data/blog", getBlogPost));
+  each("executor should read the file with the UTF-8 encoding [#%#]", (execute) => {
+    execute(postId, { system });
+    expect(readFileSync.mock.calls[0][1]).toEqual("utf-8");
+  });
 });
