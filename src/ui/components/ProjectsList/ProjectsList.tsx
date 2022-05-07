@@ -1,4 +1,5 @@
-import { Metadata } from "@domain/metadata";
+import type { Metadata } from "@core/metadata";
+
 import { Preview } from "@components/Preview";
 import styles from "./ProjectsList.module.css";
 import { classes } from "@utils/classes";
