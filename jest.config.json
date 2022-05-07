@@ -13,7 +13,6 @@
     "^@translation(.*)$": "<rootDir>/src/shared/translation$1",
     "^@testing(.*)$": "<rootDir>/src/shared/testing$1",
 
-    "^@api(.*)$": "<rootDir>/src/api$1",
     "^@components(.*)$": "<rootDir>/src/components$1",
     "^@effects(.*)$": "<rootDir>/src/effects$1",
     "^@extensions(.*)$": "<rootDir>/src/extensions$1",
