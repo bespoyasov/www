@@ -1,16 +1,18 @@
 import Head from "next/head";
+
 import { Description } from "@components/Description";
 import { AllTags } from "@components/AllTags";
+import { translated } from "@translation";
 
 export const Tags = () => {
   return (
     <main>
       <Head>
-        <title>Все теги</title>
-        <Description>Список всех тегов из заметок и проектов</Description>
+        <title>{translated.tagsPage.title}</title>
+        <Description>{translated.tagsPage.description}</Description>
       </Head>
 
-      <h1 className="frontline">Все теги</h1>
+      <h1>{translated.tagsPage.title}</h1>
       <AllTags />
     </main>
   );
