@@ -1,0 +1,13 @@
+{
+  "prefix": "tagsPage",
+
+  "en": {
+    "title": "All Tags",
+    "description": "List of all tags for notes, talks, and projects."
+  },
+
+  "ru": {
+    "title": "Все теги",
+    "description": "Список всех тегов из заметок и проектов"
+  }
+}
