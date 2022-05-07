@@ -1,52 +1,27 @@
-import { allProjects, allBlogPosts } from ".";
-import { mockSystem } from "@utils/mocks";
+import type { QueryPosts } from "./types";
+
+import { mockSystem } from "@testing/mocks";
+import { allProjects, allNotes } from ".";
 
 const fileName = "file.mdx";
 const fileContent = "The file content.";
+const fileList = Array(3).fill(fileName);
 
-describe("persistence > source > contents > execute", () => {
-  it("should read each .mdx file in a given directory", () => {
-    const system = mockSystem({
-      readdirSync: () => [fileName, fileName],
-      readFileSync: () => fileContent,
-    });
+describe("when called a query executor", () => {
+  const each = it.each<QueryPosts>([allProjects, allNotes]);
 
-    const result = allProjects({ system });
-    expect(result).toEqual([fileContent, fileContent]);
+  const readdirSync = jest.fn(() => fileList);
+  const readFileSync = jest.fn(() => fileContent);
+  const system = mockSystem({ readdirSync, readFileSync });
+
+  each("executor should read all the .mdx files in the according directory [#%#]", (execute) => {
+    const expected = fileList.map(() => fileContent);
+    const result = execute({ system });
+    expect(result).toEqual(expected);
   });
 
-  it("should read files in the utf-8 encoding", () => {
-    const readFileSync = jest.fn();
-    const system = mockSystem({
-      readdirSync: () => [fileName],
-      readFileSync,
-    });
-
-    allProjects({ system });
-    expect(readFileSync.mock.calls[0][1]).toEqual("utf-8");
+  each("should read files with the UTF-8 encoding [#%#]", (execute) => {
+    execute({ system });
+    expect(readFileSync.mock.calls[0]).toContain("utf-8");
   });
-});
-
-type Executor = typeof allProjects | typeof allBlogPosts;
-
-function testFileDirectory(directory: RelativePath, execute: Executor): void {
-  const fullPath = `${directory}/${fileName}`;
-
-  const readFileSync = jest.fn();
-  const system = mockSystem({
-    readdirSync: () => [fileName],
-    readFileSync,
-  });
-
-  execute({ system });
-  expect(readFileSync.mock.calls[0][0].endsWith(fullPath)).toBe(true);
-}
-
-describe("persistence > source > contents > allProjects", () => {
-  it("should read files from a projects directory", () =>
-    testFileDirectory("data/projects", allProjects));
-});
-
-describe("persistence > source > contents > allProjects", () => {
-  it("should read files from a blog directory", () => testFileDirectory("data/blog", allBlogPosts));
 });
