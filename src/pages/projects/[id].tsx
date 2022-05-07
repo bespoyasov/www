@@ -1,62 +1,30 @@
-import Head from "next/head";
-import { GetStaticProps, GetStaticPaths } from "next";
+import type { GetStaticProps, GetStaticPaths } from "next";
+import type { PostProps } from "@views/Post";
 
-import { PostContents } from "@domain/post";
-import { Metadata as MetadataType } from "@domain/metadata";
-import { projectsMetadata, projectsNames, fetchProject } from "@network/fetch";
+import { projectsMetadata, projectNames, fetchProject } from "@network/fetch";
+import { PostView as ProjectPage } from "@views/Post";
 
-import { Post } from "@components/Post";
-import { Metadata } from "@components/Metadata";
-import { Feedback } from "@components/Feedback";
-import { Adjacent } from "@components/Adjacent";
-import { Description } from "@components/Description";
-import { SummaryCard } from "@components/SummaryCard";
-
-type ProjectProps = {
-  contents: PostContents;
-  metadata: MetadataType;
-  prevPost: Nullable<MetadataType>;
-  nextPost: Nullable<MetadataType>;
-};
-
-export const getStaticProps: GetStaticProps<ProjectProps> = async (context) => {
+export const getStaticProps: GetStaticProps<PostProps> = async (context) => {
   const postId = String(context.params.id);
 
   const content = await fetchProject(postId);
-  const projects = projectsMetadata();
-  const index = projects.findIndex((project) => project.slug.endsWith(postId));
+  const posts = projectsMetadata();
+  const index = posts.findIndex((project) => project.slug.endsWith(postId));
 
   return {
     props: {
-      metadata: projects[index],
-      prevPost: projects[index + 1] ?? null,
-      nextPost: projects[index - 1] ?? null,
+      metadata: posts[index],
+      prevPost: posts[index + 1] ?? null,
+      nextPost: posts[index - 1] ?? null,
       contents: content,
     },
   };
 };
 
 export const getStaticPaths: GetStaticPaths = () => {
-  const projects = projectsNames();
-  const paths = projects.map((id) => ({ params: { id } }));
+  const posts = projectNames();
+  const paths = posts.map((id) => ({ params: { id } }));
   return { paths, fallback: false };
 };
 
-const Project = ({ metadata, prevPost, nextPost, contents }: ProjectProps) => {
-  return (
-    <>
-      <Head>
-        <title>{metadata.title}</title>
-        <Description>{metadata.description}</Description>
-        <SummaryCard metadata={metadata} />
-      </Head>
-
-      <Post content={contents} />
-      <Feedback metadata={metadata} />
-      <Metadata metadata={metadata} />
-      <Adjacent prev={prevPost} next={nextPost} />
-    </>
-  );
-};
-
-export default Project;
+export default ProjectPage;
