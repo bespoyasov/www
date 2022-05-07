@@ -1,0 +1,27 @@
+{
+  "prefix": "blogPage",
+
+  "en": {
+    "title": "Blog about Software Development, Management, and Wed Design",
+    "description": "Latest posts about software development, management, and web design.",
+    "heading": "All Notes",
+
+    "recentTitle": "Recent Posts",
+    "recentDescription": "Latest posts from the blog and post collections by tags.",
+
+    "anthologyTitle": "Anthology",
+    "anthologyDescription": "All published posts from newest to oldest."
+  },
+
+  "ru": {
+    "title": "Написал",
+    "description": "Свежие статьи из блога, подборки заметок по тегам и архив всех статей с 2012 года.",
+    "heading": "Все заметки",
+
+    "recentTitle": "Свежее",
+    "recentDescription": "Последние статьи из блога и подборки по тегам.",
+
+    "anthologyTitle": "Всё подряд",
+    "anthologyDescription": "Все опубликованные статьи от новых к старым."
+  }
+}
