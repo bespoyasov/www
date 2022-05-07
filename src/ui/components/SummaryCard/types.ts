@@ -1,11 +1,11 @@
-import type { ImageFileSource } from "@domain/image";
+import type { ImageFileSource } from "@core/image";
 
-type Title = string;
-type Description = string;
 type Cover = ImageFileSource;
+type Title = LocalizedString;
+type Description = LocalizedString;
 
 export type SummaryCard = {
-  title: Title;
   cover: Cover;
+  title: Title;
   description: Description;
 };
