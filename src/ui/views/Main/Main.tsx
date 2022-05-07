@@ -3,16 +3,13 @@ import Head from "next/head";
 import { About } from "@components/About";
 import { Description } from "@components/Description";
 import { SummaryCard } from "@components/SummaryCard";
+import { translated } from "@translation";
 
 export const Main = () => (
   <>
     <Head>
-      <title>Саша Беспоясов · ✍️ 💻 👋</title>
-      <Description>
-        Разработчик, ментор, спикер. Превращаю идеи и макеты в сайты и приложения. Рассказываю
-        в блоге о процессе и результатах работы. Пишу о дизайне, разработке и книгах. Занимаюсь
-        менторством и помогаю начинающим технологам освоить разработку.
-      </Description>
+      <title>{translated.mainPage.title}</title>
+      <Description>{translated.mainPage.description}</Description>
       <SummaryCard />
     </Head>
     <About />
