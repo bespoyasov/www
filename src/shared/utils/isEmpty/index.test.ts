@@ -13,11 +13,11 @@ describe("when given an empty object", () => {
 });
 
 describe("when given a non-empty collection", () => {
-  it("should return `false`", () => {
-    const collections = [[1, 2, 3], { a: 42 }];
-    collections.forEach((collection) => {
-      expect(isEmpty(collection)).toEqual(false);
-    });
+  const collections = [[1, 2, 3], { a: 42 }];
+  const each = it.each<SomeCollection>(collections);
+
+  each("should return `false` for %p", (collection) => {
+    expect(isEmpty(collection)).toEqual(false);
   });
 });
 
