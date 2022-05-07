@@ -1,1 +1,1 @@
-export * from "./AllTags";
+export * from "./TagCatalogue";
