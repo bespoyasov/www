@@ -9,6 +9,11 @@ const SOURCE_PATH = path.join(WORKING_DIR, "out/rss/index.html");
 const DESTINATION_PATH = path.join(WORKING_DIR, "out/rss.xml");
 
 const language = process.env.locale;
+const authorMetadata = {
+  en: { name: "Alex Bespoyasov", link: "https://bespoyasov.me" },
+  ru: { name: "Саша Беспоясов", link: "https://bespoyasov.ru" },
+};
+
 async function fromFile() {
   const contents = await readFile(SOURCE_PATH);
   return new JSDOM(contents);
