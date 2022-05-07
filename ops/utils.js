@@ -1,5 +1,15 @@
-const { resolve } = require("path");
+const { join, resolve } = require("path");
 const { readdir } = require("fs/promises");
+
+async function directoriesIn(source) {
+  const entries = await readdir(source, { withFileTypes: true });
+  const directories = entries
+    .filter((entry) => entry.isDirectory())
+    .map((directory) => join(source, directory.name));
+
+  const subdirectories = await Promise.all(directories.map(directoriesIn));
+  return [...directories, ...subdirectories].flat();
+}
 
 async function filesIn(directory) {
   const entries = await readdir(directory, { withFileTypes: true });
@@ -14,5 +24,6 @@ async function filesIn(directory) {
 }
 
 module.exports = {
+  directoriesIn,
   filesIn,
 };
