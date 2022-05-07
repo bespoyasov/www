@@ -2,6 +2,8 @@ import type { Metadata } from "@core/metadata";
 
 import { Tagged } from "../Tagged";
 import { List } from "../List";
+
+import { translated } from "@translation";
 import styles from "./Digest.module.css";
 
 type DigestProps = {
@@ -12,7 +14,7 @@ export const Digest = ({ notes }: DigestProps) => {
   return (
     <div className={styles.section}>
       <div>
-        <h3>Последние заметки</h3>
+        <h3>{translated.digest.title}</h3>
         <List notes={notes.slice(0, 8)} />
       </div>
 
