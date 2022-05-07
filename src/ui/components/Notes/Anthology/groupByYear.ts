@@ -1,4 +1,5 @@
-import { Metadata, yearOf } from "@domain/metadata";
+import type { Metadata } from "@core/metadata";
+import { yearOf } from "@core/metadata";
 import { last } from "@utils/last";
 
 type Group = {
