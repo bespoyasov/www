@@ -1,0 +1,19 @@
+{
+  "prefix": "feedback",
+
+  "en": {
+    "heading": "If you liked the post",
+    "subscribe": "Subscribe to RSS",
+    "tweet": "Share on Twitter",
+    "share": "Share on Facebook",
+    "support": "Support my blog"
+  },
+
+  "ru": {
+    "heading": "Если понравился пост",
+    "subscribe": "Подписаться на RSS",
+    "tweet": "Твитнуть",
+    "share": "Фейсбукнуть",
+    "support": "Сказать спасибо"
+  }
+}

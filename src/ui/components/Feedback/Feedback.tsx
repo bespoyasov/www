@@ -2,6 +2,8 @@ import type { Metadata } from "@core/metadata";
 
 import { ActionLink } from "@components/ActionLink";
 import { VisuallyHidden } from "@components/VisuallyHidden";
+
+import { translated } from "@translation";
 import { createActionList } from "./createActionList";
 import styles from "./Feedback.module.css";
 
@@ -14,7 +16,7 @@ export const Feedback = ({ metadata }: FeedbackProps) => {
 
   return (
     <article className={styles.feedback}>
-      <VisuallyHidden as="h2">Если понравился пост</VisuallyHidden>
+      <VisuallyHidden as="h2">{translated.feedback.heading}</VisuallyHidden>
       <ul>
         {actions.map(({ label, url }) => (
           <li key={label}>
