@@ -1,0 +1,13 @@
+{
+  "prefix": "notFound",
+
+  "en": {
+    "title": "404",
+    "description": "Oops! Page not found :–("
+  },
+
+  "ru": {
+    "title": "404",
+    "description": "Упс! Такой страницы нет :–("
+  }
+}
