@@ -1,36 +1,26 @@
-import { mockSystem } from "@utils/mocks";
-import { projectsList, blogPostsList } from ".";
+import type { QueryListing } from "./types";
 
-describe("persistence > source > names > executor", () => {
-  it("should return a list of filenames without extensions in projects directory", () => {
-    const files = ["file1.mdx", "file2.mdx", "3.mdx"];
-    const expected = ["file1", "file2", "3"];
+import { mockSystem } from "@testing/mocks";
+import { projectList, noteList } from ".";
+
+describe("when called a query executor", () => {
+  const each = it.each<QueryListing>([projectList, noteList]);
+
+  each("executor should return a list of files without extension [#%#]", (execute) => {
+    const files = ["file1.mdx", "file-2.mdx", "3.mdx"];
+    const expected = ["file1", "file-2", "3"];
+
     const system = mockSystem({ readdirSync: () => files });
-    expect(projectsList({ system })).toEqual(expected);
+    const result = execute({ system });
+    expect(result).toEqual(expected);
   });
 
-  it("should keep only .mdx files and filter out every other extension", () => {
-    const files = ["file1.mdx", "file2.mdx", "file3.md", "file4.tsx", "file5.ts"];
-    const expected = ["file1", "file2"];
+  each("executor should keep only .mdx files and ignore other extensions [#%#]", (execute) => {
+    const files = ["file1.mdx", "file2.md", "file3.tsx"];
+    const expected = ["file1"];
+
     const system = mockSystem({ readdirSync: () => files });
-    expect(projectsList({ system })).toEqual(expected);
+    const result = execute({ system });
+    expect(result).toEqual(expected);
   });
-});
-
-type Executor = typeof projectsList | typeof blogPostsList;
-
-function testDirectory(directory: RelativePath, executor: Executor): void {
-  const readdirSync = jest.fn(() => []);
-  const system = mockSystem({ readdirSync });
-
-  executor({ system });
-  expect(readdirSync).toHaveBeenCalledWith(process.cwd() + directory);
-}
-
-describe("persistence > source > names > projectsList", () => {
-  it("should read projects directory", () => testDirectory("/data/projects", projectsList));
-});
-
-describe("persistence > source > names > blogPostsList", () => {
-  it("should read blog directory", () => testDirectory("/data/blog", blogPostsList));
 });
