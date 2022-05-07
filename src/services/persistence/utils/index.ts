@@ -1,3 +1,2 @@
 export * from "./directory";
-export * from "./only";
-export * from "./with";
+export * from "./extension";
