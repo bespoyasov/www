@@ -21,7 +21,7 @@
       "@network/*": ["src/services/network/*"],
       "@persistence/*": ["src/services/persistence/*"],
 
-      "@components/*": ["src/components/*"],
+      "@components/*": ["src/ui/components/*"],
       "@effects/*": ["src/effects/*"],
       "@extensions/*": ["src/extensions/*"],
       "@global/*": ["src/global/*"],
