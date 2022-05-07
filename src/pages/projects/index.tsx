@@ -1,13 +1,8 @@
-import { GetStaticProps } from "next";
+import type { GetStaticProps } from "next";
+import type { ProjectsProps } from "@views/Projects";
 
-import { Metadata } from "@domain/metadata";
 import { projectsMetadata } from "@network/fetch";
-
 import { Projects as ProjectsPage } from "@views/Projects";
-
-type ProjectsProps = {
-  projects: Metadata[];
-};
 
 export const getStaticProps: GetStaticProps<ProjectsProps> = () => {
   return {
