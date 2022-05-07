@@ -1,7 +1,3 @@
-import { NotFound } from "@components/NotFound";
-
-const ErrorPage = () => {
-  return <NotFound />;
-};
+import { NotFound as ErrorPage } from "@views/NotFound";
 
 export default ErrorPage;
