@@ -1,15 +1,13 @@
-import { CompareResult, SortDirection, CompareFunction } from "./types";
+import type { CompareFunction, TransformFunction } from "./types";
+import { SortResult, SortOrder } from "./const";
 
-type Sortable = SomeDict | AnyComparable;
-type TransformFunction = (arg: Sortable) => AnyComparable;
-
-export function sortWith(
-  transform: TransformFunction,
-  direction: SortDirection = SortDirection.Ascending,
-): CompareFunction<Sortable> {
-  return function (a: Sortable, b: Sortable): CompareResult {
-    const ascending = direction === SortDirection.Ascending;
-    const result = ascending ? CompareResult.AThenB : CompareResult.BThenA;
+export function sorterFor<TSortable>(
+  transform: TransformFunction<TSortable>,
+  direction: SortOrder = SortOrder.Ascending,
+): CompareFunction<TSortable> {
+  return function sort(a: TSortable, b: TSortable): SortResult {
+    const ascending = direction === SortOrder.Ascending;
+    const result = ascending ? SortResult.AThenB : SortResult.BThenA;
     return transform(a) < transform(b) ? result : -result;
   };
 }
