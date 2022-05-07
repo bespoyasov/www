@@ -1,10 +1,11 @@
 import React from "react";
-import { nameOf } from "@domain/preferences";
-import type { CodeSamplesLanguage } from "@domain/preferences";
+
+import type { CodeSampleLanguage } from "@core/code";
+import { nameOf } from "@core/code";
 
 import { classes } from "@utils/classes";
 import { useMounted } from "@effects/useMounted";
-import { usePreferencesContext } from "@global/context";
+import { usePreferencesContext } from "@context/preferences";
 import { VisuallyHidden } from "@components/VisuallyHidden";
 import { translated, injectIn } from "@translation";
 
@@ -14,7 +15,7 @@ import { Control } from "./Control";
 import styles from "./Controls.module.css";
 
 type ControlsProps = {
-  options: List<CodeSamplesLanguage>;
+  options: List<CodeSampleLanguage>;
   switchId: InstanceId;
 };
 
