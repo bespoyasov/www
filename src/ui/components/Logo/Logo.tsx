@@ -1,8 +1,11 @@
 import type { HTMLAttributes } from "react";
 import { useRouter } from "next/router";
+
+import { author } from "@core/author";
 import { onMainPage } from "@utils/onMainPage";
 import { classes } from "@utils/classes";
 import styles from "./Logo.module.css";
+import { translated } from "@translation";
 
 export const Logo = ({ className }: HTMLAttributes<HTMLSpanElement>) => {
   const { pathname } = useRouter();
@@ -10,7 +13,7 @@ export const Logo = ({ className }: HTMLAttributes<HTMLSpanElement>) => {
 
   return (
     <span className={classes(styles.logo, className)}>
-      <Header className={styles.label}>Саша Беспоясов</Header>
+      <Header className={styles.label}>{author.name}</Header>
 
       <div className={styles.photo}>
         <picture>
@@ -35,7 +38,7 @@ export const Logo = ({ className }: HTMLAttributes<HTMLSpanElement>) => {
           />
 
           <img
-            alt="Фотография автора."
+            alt={translated.logo.altText}
             draggable="false"
             srcSet="
               /img/common/photo-2022-02-22.png    1x,
