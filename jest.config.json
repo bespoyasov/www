@@ -9,15 +9,15 @@
     "^@network(.*)$": "<rootDir>/src/services/network$1",
     "^@persistence(.*)$": "<rootDir>/src/services/persistence$1",
 
-    "^@utils(.*)$": "<rootDir>/src/shared/utils$1",
-    "^@translation(.*)$": "<rootDir>/src/shared/translation$1",
-    "^@testing(.*)$": "<rootDir>/src/shared/testing$1",
-
     "^@extensions(.*)$": "<rootDir>/src/extensions$1",
     "^@components(.*)$": "<rootDir>/src/ui/components$1",
     "^@context(.*)$": "<rootDir>/src/ui/context$1",
     "^@effects(.*)$": "<rootDir>/src/ui/effects$1",
     "^@views(.*)$": "<rootDir>/src/ui/views$1",
+
+    "^@utils(.*)$": "<rootDir>/src/shared/utils$1",
+    "^@translation(.*)$": "<rootDir>/src/shared/translation$1",
+    "^@testing(.*)$": "<rootDir>/src/shared/testing$1",
 
     "^@configs/serialization$": "<rootDir>/src/shared/testing/stubs/configs",
     "^@configs(.*)$": "<rootDir>/src/configs$1",
