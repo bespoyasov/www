@@ -63,4 +63,5 @@ async function generateRss() {
 
 (async () => {
   await generateRss();
+  console.log("RSS generated.");
 })();
