@@ -6,7 +6,7 @@ import { List } from "../List";
 
 type TaggedProps = {
   with: TagKind;
-  from: Metadata[];
+  from: List<Metadata>;
 };
 
 export const Tagged = ({ with: tag, from: notes }: TaggedProps) => {
