@@ -1,4 +1,4 @@
-import { HTMLAttributes } from "react";
+import type { HTMLAttributes } from "react";
 import Link from "next/link";
 import { useRouter } from "next/router";
 import { classes } from "@utils/classes";
