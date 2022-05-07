@@ -1,5 +1,8 @@
 import { Fragment } from "react";
+
 import type { Metadata } from "@core/metadata";
+
+import { Group } from "../Group";
 import { groupByYear } from "./groupByYear";
 
 type AnthologyProps = {
