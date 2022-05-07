@@ -6,4 +6,5 @@ module.exports = withOffline({
   trailingSlash: true,
   experimental: { esmExternals: true },
   env: { LOCALE: process.env.locale },
+  distDir: `.next-${process.env.locale}`,
 });
