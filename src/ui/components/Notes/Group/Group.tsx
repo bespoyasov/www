@@ -7,7 +7,7 @@ import { List } from "../List";
 import styles from "./Group.module.css";
 
 type GroupProps = {
-  notes: Metadata[];
+  notes: List<Metadata>;
 };
 
 export const Group = ({ notes }: GroupProps) => {
