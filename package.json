@@ -9,7 +9,7 @@
     "secrete": "next telemetry disable",
     "derive": "npm run dict:collect && npm run images:convert",
     "build": "next build",
-    "build:cleanup": "node ./ops/cleanup",
+    "cleanup": "node ./ops/cleanup",
     "build:en": "locale=en npm run build",
     "build:ru": "locale=ru npm run build",
     "prestart": "npm run derive",
