@@ -18,6 +18,7 @@
     "paths": {
       "@core/*": ["src/core/*"],
 
+      "@network/*": ["src/services/network/*"],
       "@persistence/*": ["src/services/persistence/*"],
 
       "@api/*": ["src/api/*"],
