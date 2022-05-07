@@ -2,10 +2,11 @@ import type { HTMLAttributes } from "react";
 import { useRouter } from "next/router";
 
 import { author } from "@core/author";
-import { onMainPage } from "@utils/onMainPage";
 import { classes } from "@utils/classes";
-import styles from "./Logo.module.css";
+import { onMainPage } from "@utils/onMainPage";
 import { translated } from "@translation";
+
+import styles from "./Logo.module.css";
 
 export const Logo = ({ className }: HTMLAttributes<HTMLSpanElement>) => {
   const { pathname } = useRouter();
