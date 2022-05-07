@@ -1,0 +1,10 @@
+<svg width="759" height="345" xmlns="http://www.w3.org/2000/svg"><g transform="translate(1 1)" fill="none" fill-rule="evenodd"><path stroke="#FFF" fill="#FFF" d="M0 0h757v343H0z"/><ellipse stroke="#979797" fill="#D8D8D8" cx="149.279" cy="174.452" rx="120.279" ry="74.768"/><text font-family="PTSans-Regular, PT Sans" font-size="18" fill="#000">
+                <tspan x="103.477" y="177.031">Выключена</tspan>
+            </text><ellipse stroke="#979797" fill="#D8D8D8" cx="608.721" cy="174.452" rx="120.279" ry="74.768"/><text font-family="PTSans-Regular, PT Sans" font-size="18" fill="#000">
+                <tspan x="569.859" y="177.031">Включена</tspan>
+            </text><path d="M206.709 249.22c55.986 18.899 111.971 28.348 167.957 28.348 55.985 0 111.97-9.45 167.956-28.348" stroke="#979797" stroke-linecap="square"/><path d="m542.622 249.22-11.192.612 1.92 5.684 9.272-6.296Z" stroke="#979797" stroke-linecap="square"/><text font-family="PTSans-Regular, PT Sans" font-size="18" fill="#000">
+
+                <tspan x="328.145" y="59">Выключение</tspan>
+            </text><text font-family="PTSans-Regular, PT Sans" font-size="18" fill="#000">
+                <tspan x="334.085" y="300.895">Включение</tspan>
+            </text><path d="M541.539 105.102C489.922 84.981 437.187 74.92 383.334 74.92c-53.852 0-106.587 10.06-158.204 30.182" stroke="#979797" stroke-linecap="square"/><path d="m225.13 105.102 11.152-1.127-2.18-5.59-8.972 6.717Z" stroke="#979797" stroke-linecap="square"/></g></svg>
