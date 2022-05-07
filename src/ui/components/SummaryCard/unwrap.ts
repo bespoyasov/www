@@ -1,4 +1,4 @@
-import type { Metadata } from "@domain/metadata";
+import type { Metadata } from "@core/metadata";
 import type { SummaryCard } from "./types";
 import { DEFAULT_CARD } from "./const";
 
