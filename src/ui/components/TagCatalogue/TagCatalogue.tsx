@@ -4,8 +4,7 @@ import { splitInto } from "@utils/splitInto";
 import { TagLink } from "@components/TagLink";
 import styles from "./AllTags.module.css";
 
-export const AllTags = () => {
-  const allTags = Object.keys(Tag).sort(byTagValue);
+export const TagCatalogue = () => {
 
   const columnsCount = 2;
   const columnsContent = splitInto(allTags, columnsCount);
