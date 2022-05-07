@@ -8,6 +8,7 @@ const WORKING_DIR = process.cwd();
 const SOURCE_PATH = path.join(WORKING_DIR, "out/rss/index.html");
 const DESTINATION_PATH = path.join(WORKING_DIR, "out/rss.xml");
 
+const language = process.env.locale;
 async function fromFile() {
   const contents = await readFile(SOURCE_PATH);
   return new JSDOM(contents);
