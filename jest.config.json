@@ -19,6 +19,7 @@
     "^@global(.*)$": "<rootDir>/src/global$1",
     "^@shared(.*)$": "<rootDir>/src/shared$1",
 
+    "^@configs/serialization$": "<rootDir>/src/shared/testing/stubs/configs",
     "^@configs(.*)$": "<rootDir>/src/configs$1",
     "^@env(.*)$": "<rootDir>/src/environment$1"
   }
