@@ -1,0 +1,21 @@
+{
+  "prefix": "supportPage",
+
+  "en": {
+    "title": "Support Me",
+    "description": "How to support me and my blog.",
+    "introduction": "This blog is my hobby.",
+    "experience": "I find things in my daily work that can be useful to other developers. I convert my experience into articles and sometimes into online books.",
+    "motivation": "I like to think that my work is useful to others. It motivates me to look for interesting stuff in my everyday work, to find and outline good books about development, to talk about development obstacles and how they can be avoided.",
+    "feedback": "If you like my blog and want to support me, let me know! I'd be glad to hear from you."
+  },
+
+  "ru": {
+    "title": "Сказать спасибо",
+    "description": "Как поддержать меня и мой блог",
+    "introduction": "Блог — это моё хобби.",
+    "experience": "Я нахожу в ежедневной работе то, что может пригодиться другим разработчикам. Опыт, грабли и шишки я превращаю в статьи и иногда в онлайн-книги.",
+    "motivation": "Мне нравится думать, что мой труд полезен читателям. Это мотивирует искать интересное в рабочей рутине, находить и конспектировать хорошие книги о разработке, рассказывать о неудачах и как их можно избегать.",
+    "feedback": "Если вам нравится мой блог, и вы хотите поддержать выход новых статей и проектов, дайте знать — я буду благодарен."
+  }
+}
