@@ -1,4 +1,4 @@
-.trips ul {
+.trips {
   --columns-count: 1;
 
   display: grid;
@@ -7,13 +7,13 @@
 }
 
 @media (min-width: 640px) {
-  .trips ul {
+  .trips {
     --columns-count: 2;
   }
 }
 
 @media (min-width: 1000px) {
-  .trips ul {
+  .trips {
     --columns-count: 3;
   }
 }
