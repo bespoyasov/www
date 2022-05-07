@@ -13,6 +13,7 @@ export const Header = () => {
       <Link to="/" if={!onMainPage(pathname)}>
         <Logo className={styles.logo} />
       </Link>
+
       <Nav className={styles.nav} />
     </header>
   );
