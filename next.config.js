@@ -5,4 +5,5 @@ module.exports = withOffline({
   pageExtensions: ["tsx"],
   trailingSlash: true,
   experimental: { esmExternals: true },
+  env: { LOCALE: process.env.locale },
 });
