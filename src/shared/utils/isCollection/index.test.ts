@@ -1,3 +1,4 @@
+import { assureType } from "@utils/assureType";
 import { isCollection } from ".";
 
 describe("when given a list", () => {
@@ -14,10 +15,11 @@ describe("when given an object", () => {
 
 describe("when given any other data structure", () => {
   it("should return `false`", () => {
-    const testCases = [42, "test", Symbol(), null, undefined, Infinity, NaN];
+    const nonCollections = [42, "test", Symbol(), null, undefined, Infinity, NaN];
+    const testCases = assureType<List<SomeCollection>>(nonCollections);
+
     testCases.forEach((testCase) => {
-      // eslint-disable-next-line @typescript-eslint/no-explicit-any
-      expect(isCollection<any>(testCase)).toEqual(false);
+      expect(isCollection(testCase)).toEqual(false);
     });
   });
 });
