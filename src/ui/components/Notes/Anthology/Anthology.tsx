@@ -6,7 +6,7 @@ import { Group } from "../Group";
 import { groupByYear } from "./groupByYear";
 
 type AnthologyProps = {
-  notes: Metadata[];
+  notes: List<Metadata>;
 };
 
 export const Anthology = ({ notes }: AnthologyProps) => {
