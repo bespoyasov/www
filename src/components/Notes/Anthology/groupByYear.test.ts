@@ -1,8 +1,8 @@
 import { groupByYear } from "./groupByYear";
-import { metadata, generate, yearBefore } from "@testing/stubs";
+import { metadata, metadataWith, yearBefore } from "@testing/stubs";
 
 describe("when given a list of metadata pieces of different years", () => {
-  const oldRecord = generate({ datetime: yearBefore });
+  const oldRecord = metadataWith({ datetime: yearBefore });
   const withDifferentYears = [metadata, oldRecord];
 
   it("should split them into groups of a common year", () => {

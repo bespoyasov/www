@@ -1,4 +1,4 @@
-import { generate, metadata } from "@testing/stubs";
+import { metadata, metadataWith } from "@testing/stubs";
 import { DEFAULT_CARD } from "./const";
 import { unwrap } from "./unwrap";
 
@@ -26,7 +26,7 @@ describe("when given `metadata` without the `cover`", () => {
 describe("when given `metadata` with a `cover`", () => {
   it("should return the `cover` from the given `metadata`", () => {
     const testCover = "image.png";
-    const { cover } = unwrap(generate({ cover: testCover }));
+    const { cover } = unwrap(metadataWith({ cover: testCover }));
     expect(cover).toEqual(testCover);
   });
 });

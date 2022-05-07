@@ -1,10 +1,10 @@
-import { generate, metadata, oneDayAfter } from "@testing/stubs";
+import { metadata, metadataWith, oneDayAfter } from "@testing/stubs";
 import { byDate, CompareResult, byDateDescending } from ".";
 
 describe("shared > sort > byDate", () => {
   it("should return a compare result by `datetime` field, ascending", () => {
     const earlier = metadata;
-    const later = generate({ datetime: oneDayAfter });
+    const later = metadataWith({ datetime: oneDayAfter });
 
     expect(byDate(earlier, later)).toEqual(CompareResult.AThenB);
     expect(byDate(later, earlier)).toEqual(CompareResult.BThenA);
@@ -20,7 +20,7 @@ describe("shared > sort > byDate", () => {
 describe("shared > sort > byDateDescending", () => {
   it("should return a compare result by `datetime` field, descending", () => {
     const earlier = metadata;
-    const later = generate({ datetime: oneDayAfter });
+    const later = metadataWith({ datetime: oneDayAfter });
 
     expect(byDateDescending(earlier, later)).toEqual(CompareResult.BThenA);
     expect(byDateDescending(later, earlier)).toEqual(CompareResult.AThenB);

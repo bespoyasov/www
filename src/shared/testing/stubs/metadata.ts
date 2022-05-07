@@ -2,7 +2,7 @@ import type { Metadata } from "@core/metadata";
 import { defaultDatetime } from "./datetime";
 import { ABSENT } from "./const";
 
-export function generate(overrides: OverridesFor<Metadata> = {}): Metadata {
+function generate(overrides: OverridesFor<Metadata> = {}): Metadata {
   return {
     title: overrides.title ?? "Title",
     description: overrides.description ?? "Description",
@@ -13,4 +13,5 @@ export function generate(overrides: OverridesFor<Metadata> = {}): Metadata {
   };
 }
 
+export const metadataWith = generate;
 export const metadata = generate();

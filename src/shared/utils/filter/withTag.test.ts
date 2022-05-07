@@ -1,11 +1,11 @@
 import { withTag } from "./withTag";
-import { generate } from "@testing/stubs";
+import { metadata, metadataWith } from "@testing/stubs";
 
 const containsDevTag = withTag("dev");
 
-const entityWithDevTag = generate({ tags: ["dev"] });
-const entityWithoutDevTag = generate({ tags: ["design"] });
-const entityWithoutAnyTags = generate();
+const entityWithDevTag = metadataWith({ tags: ["dev"] });
+const entityWithoutDevTag = metadataWith({ tags: ["design"] });
+const entityWithoutAnyTags = metadata;
 
 describe("when called a factory", () => {
   it("should return a function", () => {
