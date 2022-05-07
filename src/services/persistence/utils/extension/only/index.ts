@@ -1,9 +1,9 @@
 import { FileExtension, FileName } from "@persistence/types";
 
-function only(extension: FileExtension) {
-  return function withExtension(fileName: FileName): boolean {
+function is(extension: FileExtension) {
+  return function hasExtension(fileName: FileName): boolean {
     return fileName.endsWith(`.${extension}`);
   };
 }
 
-export const onlyMdx = only("mdx");
+export const hasMdx = is("mdx");
