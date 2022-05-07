@@ -17,7 +17,6 @@
     "^@components(.*)$": "<rootDir>/src/ui/components$1",
     "^@effects(.*)$": "<rootDir>/src/ui/effects$1",
     "^@global(.*)$": "<rootDir>/src/global$1",
-    "^@shared(.*)$": "<rootDir>/src/shared$1",
 
     "^@configs/serialization$": "<rootDir>/src/shared/testing/stubs/configs",
     "^@configs(.*)$": "<rootDir>/src/configs$1",
