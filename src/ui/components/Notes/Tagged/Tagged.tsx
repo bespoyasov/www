@@ -1,7 +1,8 @@
-import { TagKind } from "@domain/tags";
-import { Metadata } from "@domain/metadata";
+import type { TagKind } from "@core/tags";
+import type { Metadata } from "@core/metadata";
+
 import { TagLink } from "@components/TagLink";
-import { List } from "@components/Notes/List";
+import { List } from "../List";
 
 type TaggedProps = {
   with: TagKind;
