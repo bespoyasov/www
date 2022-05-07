@@ -1,8 +1,9 @@
-import fs from "fs";
-import { SystemType } from "@persistence/types";
+import system from "fs";
 
 export type Dependencies = {
-  system?: SystemType;
+  system?: typeof system;
 };
 
-export const di: Dependencies = { system: fs };
+export const dependencies: Dependencies = {
+  system,
+};
