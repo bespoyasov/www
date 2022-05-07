@@ -4,7 +4,7 @@
   "version": "6.0.0",
   "description": "bespoyasov.ru",
   "scripts": {
-    "start": "next",
+    "start": "npm run dev:en & npm run dev:ru",
     "build": "next build",
     "export": "next export",
     "secrete": "next telemetry disable",
