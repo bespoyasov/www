@@ -3,7 +3,7 @@ type JobTitle = LocalizedString;
 
 type PersonalUrl = AbsoluteUrl;
 type ExternalUrl = AbsoluteUrl;
-type ContactUrl = ExternalUrl;
+export type ContactUrl = ExternalUrl;
 
 export type Author = {
   name: FullName;
