@@ -1,8 +1,7 @@
 import type { SummaryCard } from "./types";
+import { translated } from "@translation";
 
-const title = "Саша Беспоясов";
-const description = "Блог о разработке и около того.";
-const cover = "/img/common/social-media-preview.png";
+const { title, description } = translated.summaryCard;
 
 export const DEFAULT_CARD: SummaryCard = {
   title,
