@@ -23,30 +23,32 @@ tags:
 
 Запрос — функция, которая _возвращает результат и не имеет сайд-эффектов_. Например:
 
-```
-const isEqual = (a, b) => a === b
+```js
+const isEqual = (a, b) => a === b;
 
 class DeepThought {
   answerTheUltimateQuestionOfLifeTheUniverseAndEverything() {
-   return 42
+    return 42;
   }
 }
 ```
 
 Команда — функция, которая _меняет состояние системы и ничего не возвращает_. Пример команды, которая увеличивает значение счётчика:
 
-```
-const state = { counter: 0 }
-const increaseCounter = () => { state.counter++ }
+```js
+const state = { counter: 0 };
+const increaseCounter = () => {
+  state.counter++;
+};
 
 // или классом:
 class Counter {
   constructor() {
-    this.state = 0
+    this.state = 0;
   }
 
   increase() {
-    this.state++
+    this.state++;
   }
 }
 ```
@@ -57,26 +59,26 @@ class Counter {
 
 Разделение на запросы и команды позволяет избегать ситуаций, когда без выполнения кода непонятно, что этот код делает и какой результат получится. Например, в этой строке непонятно, что окажется в _updated_:
 
-```
+```js
 // новый рейтинг, айдишник пользователя, что-то ещё?
-const updated = userAccount.updateRating(10)
+const updated = userAccount.updateRating(10);
 ```
 
 Да и в принципе из названия функции _updateRating_ не очевидно, что она вообще может что-то вернуть. Если мы хотим, чтобы название было говорящим, то придётся написать нечто вроде:
 
-```
+```js
 // ну... видимо, тут рейтинг возвращается? хотя хз, всё равно проверить надо
-const updatedRating = userAccount.updateRatingAndGetUpdatedValue(10)
+const updatedRating = userAccount.updateRatingAndGetUpdatedValue(10);
 ```
 
 Здесь мы видим два действия, поэтому правильнее сделать две функции. В нашем случае — одну команду и один запрос:
 
-```
+```js
 // команда для обновления рейтинга в сервисе
-userAccount.updateRating(10)
+userAccount.updateRating(10);
 
 // запрос для получения нового значения рейтинга
-const updatedRating = userAccount.getRating()
+const updatedRating = userAccount.getRating();
 ```
 
 ## SRP автоматом
@@ -85,111 +87,105 @@ const updatedRating = userAccount.getRating()
 
 Допустим, вот сложная функция-солянка _updateSubscriptions_. Она принимает на вход массив тегов, на которые подписывается пользователь, создаёт объект подписки, проверяет доступна ли она для текущего пользователя, активен ли пользователь, добавляет подписку в массив, обновляет рейтинг:
 
-```
+```js
 class UserAccount {
   constructor(userAccountInfo) {
-    const {
-      rating=0,
-      active=false,
-      subscriptions=[],
-    } = userAccountInfo
+    const { rating = 0, active = false, subscriptions = [] } = userAccountInfo;
 
-    this.subscriptions = subscriptions
-    this.active = active
-    this.rating = rating
+    this.subscriptions = subscriptions;
+    this.active = active;
+    this.rating = rating;
   }
 
   _createLabel(tag) {
-    return `Label for ${tag}`
+    return `Label for ${tag}`;
   }
 
   _defineType(tag) {
-    return tag.includes('secret_code')
-      ? TYPES.PREMIUM
-      : TYPES.REGULAR
+    return tag.includes("secret_code") ? TYPES.PREMIUM : TYPES.REGULAR;
   }
 
   isSubscriptionValid(subscription) {
     // сложная логика валидации
-    return true
+    return true;
   }
 
   updateSubscriptions(tags) {
-    tags.forEach(tag => {
-      const label = this._createLabel(tag)
-      const type = this._defineType(tag)
-      const subscription = {label, type}
+    tags.forEach((tag) => {
+      const label = this._createLabel(tag);
+      const type = this._defineType(tag);
+      const subscription = { label, type };
 
       if (this.isSubscriptionValid(subscription) && this.active) {
-        this.subscriptions.push(subscription)
+        this.subscriptions.push(subscription);
 
-        if (type === TYPES.PREMIUM) this.rating += 5
-        else this.rating++
+        if (type === TYPES.PREMIUM) this.rating += 5;
+        else this.rating++;
       }
-    })
+    });
   }
 }
 ```
 
 Упростим, разбив функции на команды и запросы.
 
-```
+```js
 class UserAccount {
   // ...конструктор и старые функции
 
   // запрос: нет сайд-эффектов, возвращаем объект подписки
   _createSubscription(tag) {
-    const label = this._createLabel(tag)
-    const type = this._defineType(tag)
-    return {label, type}
+    const label = this._createLabel(tag);
+    const type = this._defineType(tag);
+    return { label, type };
   }
 
   // тоже запрос
   isUserActive() {
-    return this.active
+    return this.active;
   }
 
   // команда: возвращаемого результата нет,
   // изменяется состояние поля subscriptions
   appendSubscription(subscription) {
-    this.subscriptions.push(subscription)
+    this.subscriptions.push(subscription);
   }
 
   // тоже команда
   increaseRatingBy(delta) {
-    this.rating += delta
+    this.rating += delta;
   }
 
   // снова запрос: возвращаем количество баллов, не меняя состояния системы
   _calcRatingDeltaForSubscription(subscription) {
-    if (subscription.type === TYPES.PREMIUM) return 5
-    return 1
+    if (subscription.type === TYPES.PREMIUM) return 5;
+    return 1;
   }
 
   updateSubscriptions(tags) {
     // увидели, что можно сделать ранний выход
-    if (!this.isUserActive()) return
+    if (!this.isUserActive()) return;
 
-    tags.forEach(tag => {
+    tags.forEach((tag) => {
       // созданием подписки теперь занимается запрос;
       // мы не привязываемся к структуре данных подписок;
       // стало видно, что работу с подписками неплохо бы вынести в отдельный класс
-      const subscription = this._createSubscription(tag)
-      if (!this.isSubscriptionValid(subscription)) continue
+      const subscription = this._createSubscription(tag);
+      if (!this.isSubscriptionValid(subscription)) return;
 
       // добавление подписки не привязано к структуре данных;
       // мы можем заменить массив на стек, и достаточно будет подправить
       // только appendSubscription, чтобы функциональность осталась рабочей
-      this.appendSubscription(subscription)
+      this.appendSubscription(subscription);
 
       // здесь теперь нет магических чисел;
       // подсчёт изменения рейтинга находится в одном месте
-      const ratingDelta = this._calcRatingDeltaForSubscription(subscription)
+      const ratingDelta = this._calcRatingDeltaForSubscription(subscription);
 
       // обновление рейтинга называется адекватно;
       // стало ясно, что эта функция делает
-      this.increaseRatingBy(ratingDelta)
-    })
+      this.increaseRatingBy(ratingDelta);
+    });
   }
 }
 ```
@@ -216,8 +212,8 @@ class UserAccount {
 
 Есть ситуации, когда такое разделение излишне, или когда просто смешивать логику удобнее. Допустим вот сервис, который регистрирует нового пользователя:
 
-```
-const userId = remoteUserApi.signup({login, password})
+```js
+const userId = remoteUserApi.signup({ login, password });
 ```
 
 Нас вполне может устраивать, что он возвращает айдишник после успешной регистрации, и разбиение не потребуется.

@@ -30,26 +30,26 @@ tags:
 
 Исхода у сценария два: успешный и неуспешный вход. Пишем тест на первый случай.
 
-```
-describe('Login window', () => {
-  it('Valid code passes login', () => {
+```js
+describe("Login window", () => {
+  it("Valid code passes login", () => {
     // здесь будет логика теста
-  })
-})
+  });
+});
 ```
 
 Нам надо зайти в приложение и попасть на страницу логина. На страницу мы зайдём с помощью команды _visit_, передав аргументом адрес:
 
-```
+```js
 // к примеру проверяем приложение локально
-cy.visit('localhost:8081')
+cy.visit("localhost:8081");
 ```
 
 Проверим, существует ли форма логина, и пустое ли поле ввода. Проверяем наличие нужных блоков и то, что поле пустое:
 
-```
-cy.get('.login').should('have.length', 1)
-cy.get('.login-code').should('be.empty')
+```js
+cy.get(".login").should("have.length", 1);
+cy.get(".login-code").should("be.empty");
 ```
 
 Выборка элементов в Сайпресе работает похоже на Джейквери. Например, здесь мы выбираем элементы по классам. Метод _should_ проверит, что на странице только 1 элемент с классом _login_, а элемент с классом _login-code_ пустой.
@@ -58,49 +58,43 @@ cy.get('.login-code').should('be.empty')
 
 Метод _contains_ ищет элемент, который содержит переданный в аргументе текст, в нашем случае — символ. Метод _closest_ находит ближайшего родителя с указанным селектором, в нашем случае — классом _button_.
 
-```
-const chars = code.toString().split('')
+```js
+const chars = code.toString().split("");
 
-chars.forEach(char => {
-  cy.get('.keyboard')
-    .contains(char)
-    .closest('.button')
-    .click()
-})
+chars.forEach((char) => {
+  cy.get(".keyboard").contains(char).closest(".button").click();
+});
 ```
 
 Когда код набран, можно нажать на красную кнопку, чтобы «отправить» код.
 
-```
-cy.get('.button.is-enter').click()
+```js
+cy.get(".button.is-enter").click();
 ```
 
 Код теста целиком будет выглядеть так:
 
-```
-describe('Login window', () => {
-  it('Valid code passes login', () => {
+```js
+describe("Login window", () => {
+  it("Valid code passes login", () => {
     // зайти в приложение
-    cy.visit('localhost:8081')
+    cy.visit("localhost:8081");
 
     // проверить форму
-    cy.get('.login').should('have.length', 1)
-    cy.get('.login-code').should('be.empty')
+    cy.get(".login").should("have.length", 1);
+    cy.get(".login-code").should("be.empty");
 
     // ввести код
-    const chars = validCode.toString().split('')
+    const chars = validCode.toString().split("");
 
-    chars.forEach(char => {
-      cy.get('.keyboard')
-        .contains(char)
-        .closest('.button')
-        .click()
-    })
+    chars.forEach((char) => {
+      cy.get(".keyboard").contains(char).closest(".button").click();
+    });
 
     // нажать энтер
-    cy.get('.button.is-enter').click()
-  })
-})
+    cy.get(".button.is-enter").click();
+  });
+});
 ```
 
 После запуска Сайпрес запустит браузер, прогонит сценарий и покажет, прошёл тест или нет. Выглядит это так:
@@ -115,20 +109,19 @@ describe('Login window', () => {
 
 Адрес страницы-приложения меняться не будет, поэтому вход в приложение вынесем в команду _enterApp_, а сам адрес запишем в _fixtures/common.json_:
 
-```
-import {baseUrl} from '../fixtures/common.json'
+```js
+import { baseUrl } from "../fixtures/common.json";
 
-Cypress.Commands.add('enterApp', () =>
-  cy.visit(baseUrl))
+Cypress.Commands.add("enterApp", () => cy.visit(baseUrl));
 ```
 
 Проверка формы тоже будет повторяться, поэтому вынесем её в команду _appContainsEmptyLoginForm_.
 
-```
-Cypress.Commands.add('appContainsEmptyLoginForm', () => {
-  cy.get('.login').should('have.length', 1)
-  cy.get('.login-code').should('be.empty')
-})
+```js
+Cypress.Commands.add("appContainsEmptyLoginForm", () => {
+  cy.get(".login").should("have.length", 1);
+  cy.get(".login-code").should("be.empty");
+});
 ```
 
 Я предпочитаю называть команды либо:
@@ -140,70 +133,67 @@ Cypress.Commands.add('appContainsEmptyLoginForm', () => {
 
 Ввод чисел на клавиатуре нам тоже понадобится в других тестах приложения. Поэтому его мы превратим в команду _keyboardType_.
 
-```
-Cypress.Commands.add('keyboardType', (str) => {
-  const chars = str.toString().split('')
+```js
+Cypress.Commands.add("keyboardType", (str) => {
+  const chars = str.toString().split("");
 
-  chars.forEach(char => {
-    cy.get('.keyboard')
-      .contains(char)
-      .closest('.button')
-      .click()
-  })
-})
+  chars.forEach((char) => {
+    cy.get(".keyboard").contains(char).closest(".button").click();
+  });
+});
 ```
 
 Нажатие на «энтер» нам тоже пригодится в других местах:
 
-```
-Cypress.Commands.add('pressEnter', () => {
-  cy.get('.button.is-enter').click()
-})
+```js
+Cypress.Commands.add("pressEnter", () => {
+  cy.get(".button.is-enter").click();
+});
 ```
 
 В итоге код теста станет таким:
 
-```
-describe('Login', () => {
-  it('Valid code passes login', () => {
-    cy.enterApp()
-    cy.appContainsEmptyLoginForm()
-    cy.enterLoginCode(validCode)
-    cy.get('.login').should('have.length', 0)
-  })
-})
+```js
+describe("Login", () => {
+  it("Valid code passes login", () => {
+    cy.enterApp();
+    cy.appContainsEmptyLoginForm();
+    cy.enterLoginCode(validCode);
+    cy.get(".login").should("have.length", 0);
+  });
+});
 ```
 
 Теперь напишем тест на неправильный код:
 
-```
-it('Invalid codes dont pass login', () => {
-  cy.enterApp()
-  cy.appContainsEmptyLoginForm()
-  cy.enterLoginCode(invalidCode)
-  cy.get('.login').should('have.length', 1)
-})
+```js
+it("Invalid codes dont pass login", () => {
+  cy.enterApp();
+  cy.appContainsEmptyLoginForm();
+  cy.enterLoginCode(invalidCode);
+  cy.get(".login").should("have.length", 1);
+});
 ```
 
 Как мы видим, первые две строки повторяются, поэтому их можно вынести к сетап теста:
 
-```
-describe('Login', () => {
+```js
+describe("Login", () => {
   beforeEach(() => {
-    cy.enterApp()
-    cy.appContainsEmptyLoginForm()
-  })
+    cy.enterApp();
+    cy.appContainsEmptyLoginForm();
+  });
 
-  it('Valid code passes login', () => {
-    cy.enterLoginCode(validCode)
-    cy.get('.login').should('have.length', 0)
-  })
+  it("Valid code passes login", () => {
+    cy.enterLoginCode(validCode);
+    cy.get(".login").should("have.length", 0);
+  });
 
-  it('Invalid codes dont pass login', () => {
-    cy.enterLoginCode(invalidCode)
-    cy.get('.login').should('have.length', 1)
-  })
-})
+  it("Invalid codes dont pass login", () => {
+    cy.enterLoginCode(invalidCode);
+    cy.get(".login").should("have.length", 1);
+  });
+});
 ```
 
 После запуска увидим такую картину:
@@ -220,75 +210,67 @@ describe('Login', () => {
 
 Заведём бюджет из 10000 попугаев на 10 дней. Приложение запишет в бюджет только 95% от той суммы, которую вводим, чтобы план не оказался впритык. Значит, после сохранения бюджет будет содержать 9500 попугаев.
 
-```
-describe('Budget creation', () => {
+```js
+describe("Budget creation", () => {
   before(() => {
     // команда для быстрого логина в приложение, минуя форму
-    cy.login()
-    cy.enterApp()
+    cy.login();
+    cy.enterApp();
     // открывает настройки бюджета
-    cy.openBudgetSettings()
-  })
+    cy.openBudgetSettings();
+  });
 
-  it('Inputs the budget sum and saves it', () => {
-    cy.keyboardType('10000')
-    cy.pressEnter()
+  it("Inputs the budget sum and saves it", () => {
+    cy.keyboardType("10000");
+    cy.pressEnter();
 
-    cy.get('.budget')
-      .contains('9500')
-  })
-})
+    cy.get(".budget").contains("9500");
+  });
+});
 ```
 
 Дальше выбираем срок. Мы выберем 10 дней, поэтому нам надо выделить 10-й пункт в крутилке с датами. Проверяем, что даты до выбранной включительно стали красными и что в бюджете появилась строка с суммой на день.
 
-```
-it('Inputs the budget time and saves it', () => {
-  cy.get('.datepicker-item')
+```js
+it("Inputs the budget time and saves it", () => {
+  cy.get(".datepicker-item")
     // индексы начинаются с нуля, 10-й элемент — eq(9)
     .eq(9)
-    .click()
+    .click();
 
-  cy.get('.datepicker-item.has-red-color')
-    .should('have.length', 10)
+  cy.get(".datepicker-item.has-red-color").should("have.length", 10);
 
-  cy.get('.dialogue-secondary')
-    .contains('на 10 дней. 950 в день')
+  cy.get(".dialogue-secondary").contains("на 10 дней. 950 в день");
 
-  cy.get('.button.is-fixed-rb')
-    .click()
-})
+  cy.get(".button.is-fixed-rb").click();
+});
 ```
 
 После сохранения проверяем, правильно ли посчиталась сумма на день. Проверять содержимое счётчиков нам понадобится и в других тестах, поэтому создадим команду:
 
-```
-Cypress.Commands.add('counterContains', (content) => {
-  cy.get('.mainContent .dialogue .counter')
-    .contains(content)
-})
+```js
+Cypress.Commands.add("counterContains", (content) => {
+  cy.get(".mainContent .dialogue .counter").contains(content);
+});
 
-it('Tests todays limit', () => {
-  cy.counterContains(950)
-})
+it("Tests todays limit", () => {
+  cy.counterContains(950);
+});
 ```
 
 И что сохранилась запись в истории о создании бюджета:
 
-```
-Cypress.Commands.add('budgetRecordContains', (sum, days) => {
-  const $lastRecord = (selector) =>
-    cy.get('.timeline')
-      .find(selector)
-      .last()
+```js
+Cypress.Commands.add("budgetRecordContains", (sum, days) => {
+  const $lastRecord = (selector) => cy.get(".timeline").find(selector).last();
 
-  $lastRecord('.record--budget').contains(sum)
-  $lastRecord('.record--budget').contains(days)
-})
+  $lastRecord(".record--budget").contains(sum);
+  $lastRecord(".record--budget").contains(days);
+});
 
-it('Tests history record', () => {
-  cy.budgetRecordContains(9500, 10)
-})
+it("Tests history record", () => {
+  cy.budgetRecordContains(9500, 10);
+});
 ```
 
 После запуска увидим такую картину:
@@ -299,166 +281,165 @@ it('Tests history record', () => {
 
 Теперь проверим сценарий пользовательских трат. Есть два варианта трат: когда бюджета ещё нет, и когда он задан. Чтобы отделить набор тестов для первого случая от набора для второго, будем использовать _context_.
 
-```
-describe('Tests spendings', () => {
-  context('When budget is not set', () => {
+```js
+describe("Tests spendings", () => {
+  context("When budget is not set", () => {
     beforeEach(() => {
-      cy.login()
-      cy.enterApp()
-    })
+      cy.login();
+      cy.enterApp();
+    });
 
-    it('Spends 400 parrots for helpful stuff', () => {
+    it("Spends 400 parrots for helpful stuff", () => {
       // ...
-    })
-  })
-})
+    });
+  });
+});
 ```
 
 Каждую трату мы можем сделать полезной или вредной. Чтобы проверить все случаи и не повторять код, напишем функцию _spendMoneyOnce_, которая будет заниматься тратами.
 
-```
+```js
 // команда для включения и выключения категорий
-Cypress.Commands.add('toggleCategory', (type='helpful') => {
-  cy.get(`.category.is-${type}`).click()
-})
+Cypress.Commands.add("toggleCategory", (type = "helpful") => {
+  cy.get(`.category.is-${type}`).click();
+});
 
-const spendMoneyOnce = (amount, category='unknown') => {
-  amount = `${amount}`
-  cy.keyboardType(amount)
-  cy.get('.numberDisplay-value')
-      .contains(amount)
+const spendMoneyOnce = (amount, category = "unknown") => {
+  amount = `${amount}`;
+  cy.keyboardType(amount);
+  cy.get(".numberDisplay-value").contains(amount);
 
-  if (category !== 'unknown') {
-    cy.toggleCategory(category)
+  if (category !== "unknown") {
+    cy.toggleCategory(category);
   }
 
-  cy.pressEnter()
-}
+  cy.pressEnter();
+};
 ```
 
 И функцию, которая будет проверять, сохранилась ли трата:
 
-```
+```js
 const spendSaved = (amount, category) => {
   // команда для проверки последней записи в истории
-  cy.lastRecordContains(amount, category)
-}
+  cy.lastRecordContains(amount, category);
+};
 ```
 
 Тогда тестирование трат в категориях будет выглядеть следующим образом:
 
-```
-it('Spends 400 parrots for helpful stuff', () => {
-  const [amount, category] = [400, 'helpful']
-  spendMoneyOnce(amount, category)
-  spendSaved(amount, category)
-})
+```js
+it("Spends 400 parrots for helpful stuff", () => {
+  const [amount, category] = [400, "helpful"];
+  spendMoneyOnce(amount, category);
+  spendSaved(amount, category);
+});
 
-it('Spends 400 parrots for harmful stuff', () => {
-  const [amount, category] = [400, 'harmful']
-  spendMoneyOnce(amount, category)
-  spendSaved(amount, category)
-})
+it("Spends 400 parrots for harmful stuff", () => {
+  const [amount, category] = [400, "harmful"];
+  spendMoneyOnce(amount, category);
+  spendSaved(amount, category);
+});
 ```
 
 ## Траты из заполненного бюджета
 
 Теперь протестируем трату, когда бюджет задан. У меня описано много сценариев, но здесь я покажу два. В первом трата меньше дневного лимита, и сумма на день остаётся такой же, во втором — трата больше, и сумма на день уменьшается.
 
-```
-context('When budget is set, 950 for today', () => {
+```js
+context("When budget is set, 950 for today", () => {
   beforeEach(() => {
-    cy.login()
-    cy.enterApp()
+    cy.login();
+    cy.enterApp();
     // команда для быстрого создания бюджета с указанными параметрами
-    cy.createBudgetWith(10000, 10)
-  })
+    cy.createBudgetWith(10000, 10);
+  });
 
-  it('Spends amount smaller than the limit for today', () => {
+  it("Spends amount smaller than the limit for today", () => {
     testSpendWithActiveBudget({
       amount: 100,
-      forToday: 850
-    })
-  })
+      forToday: 850,
+    });
+  });
 
-  it('Spends amount bigger than the limit for today', () => {
+  it("Spends amount bigger than the limit for today", () => {
     testSpendWithActiveBudget({
       amount: 1000,
       forToday: -50,
-      newDayLimit: '944,44'
-    })
-  })
-})
+      newDayLimit: "944,44",
+    });
+  });
+});
 ```
 
 Функция _testSpendWithActiveBudget_ берёт на себя алгоритм проверки. Она совершает трату, проверяет, что трата записалась, затем проверяет, должна ли была сумма на день пересчитаться. Если да, то проверяет новую сумму на день. Если нет, то проверяет остаток на сегодня — разницу между дневным лимитом и суммой трат за сегодня.
 
-```
+```js
 const testSpendWithActiveBudget = ({
-  amount,      // число
-  forToday,    // число
+  amount, // число
+  forToday, // число
   newDayLimit, // форматированная строка
 }) => {
-  spendMoneyOnce(amount, 'unknown')
-  cy.lastRecordContains(amount, 'unknown')
+  spendMoneyOnce(amount, "unknown");
+  cy.lastRecordContains(amount, "unknown");
 
   // трата меньше, чем лимит на сегодня
   if (forToday > 0) {
-    cy.counterContains(forToday)
+    cy.counterContains(forToday);
   }
   // трата больше, приложение пересчитает сумму на день
   else {
-    cy.counterRowContains('Новая сумма на день', 0)
-    cy.counterRowContains(newDayLimit, 0)
+    cy.counterRowContains("Новая сумма на день", 0);
+    cy.counterRowContains(newDayLimit, 0);
 
-    cy.counterRowContains('На сегодня дно пробито', 1)
-    cy.counterRowContains(forToday, 1)
+    cy.counterRowContains("На сегодня дно пробито", 1);
+    cy.counterRowContains(forToday, 1);
   }
-}
+};
 ```
 
 ## Меняем даты в браузере
 
 Осталось протестировать, как себя ведёт бюджет и история, если приложение запускают через день или несколько дней.
 
-```
-context('Tests next day settings', () => {
+```js
+context("Tests next day settings", () => {
   beforeEach(() => {
-    cy.login()
-    cy.enterApp()
-    cy.createBudgetWith(10000, 10)
-  })
-})
+    cy.login();
+    cy.enterApp();
+    cy.createBudgetWith(10000, 10);
+  });
+});
 ```
 
 Сперва проверим, что непотраченные деньги попадают в копилку:
 
-```
-it('Tests next day safe record', () => {
-  spendMoneyOnce(400)
-  cy.skipDay()
-  cy.safeRecordContains(550)
-})
+```js
+it("Tests next day safe record", () => {
+  spendMoneyOnce(400);
+  cy.skipDay();
+  cy.safeRecordContains(550);
+});
 ```
 
 Затем, что сумма на день осталась той же, если пользователь не вышел за вчерашний лимит
 
-```
-it('Tests next day limit after spend less than prev limit', () => {
-  spendMoneyOnce(400)
-  cy.skipDay()
-  cy.counterContains(950)
-})
+```js
+it("Tests next day limit after spend less than prev limit", () => {
+  spendMoneyOnce(400);
+  cy.skipDay();
+  cy.counterContains(950);
+});
 ```
 
 И что сумма уменьшится, если пользователь вышел за лимит:
 
-```
-it('Tests next day limit after spending more than prev limit', () => {
-  spendMoneyOnce(1000)
-  cy.skipDay()
-  cy.counterContains('944,44')
-})
+```js
+it("Tests next day limit after spending more than prev limit", () => {
+  spendMoneyOnce(1000);
+  cy.skipDay();
+  cy.counterContains("944,44");
+});
 ```
 
 Для этих тестов понадобится команда _skipDay_, которая будет говорить браузеру, чтобы тот подменял время при запросе даты и времени.
@@ -471,17 +452,17 @@ it('Tests next day limit after spending more than prev limit', () => {
 
 Метод _reload_ перезагружает страницу — будто пользователь заходит в приложение спустя указанное время.
 
-```
-Cypress.Commands.add('skipDays', (count=1, from=Date.now()) => {
-  cy.clock().then(clock => clock.restore())
-  cy.clock(from + (count * MSECONDS_IN_DAY), ['Date'])
-  cy.reload()
-})
+```js
+Cypress.Commands.add("skipDays", (count = 1, from = Date.now()) => {
+  cy.clock().then((clock) => clock.restore());
+  cy.clock(from + count * MSECONDS_IN_DAY, ["Date"]);
+  cy.reload();
+});
 
 // синоним для cy.skipDays(1)
-Cypress.Commands.add('skipDay', () => {
-  cy.skipDays(1)
-})
+Cypress.Commands.add("skipDay", () => {
+  cy.skipDays(1);
+});
 ```
 
 ## Результат

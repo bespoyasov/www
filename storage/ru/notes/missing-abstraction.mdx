@@ -20,20 +20,17 @@ tags:
 
 Вопрос: что не так с этим условием в конце?
 
-```
+```js
 class Reader {
   constructor(user, shelf) {
-    this.user = user
-    this.shelf = shelf
+    this.user = user;
+    this.shelf = shelf;
   }
 
-  getBooksFromShelf = () =>
-    this.shelf.getBooks()
+  getBooksFromShelf = () => this.shelf.getBooks();
 }
 
-const reader = new Reader(
-  someUserData,
-  someBookShelfData)
+const reader = new Reader(someUserData, someBookShelfData);
 
 // вот тут проблема ↓
 if (reader.getBooksFromShelf().contains(book.id)) {
@@ -49,7 +46,7 @@ if (reader.getBooksFromShelf().contains(book.id)) {
 
 Но как только мы...
 
-```
+```js
 // заменим условие на метод-предикат canRead,
 // в который вынесем всю техническую реализацию...
 if (reader.canRead(book)) {
@@ -58,8 +55,7 @@ if (reader.canRead(book)) {
 
 class Reader {
   // ...
-  canRead = book =>
-    this.getBooksFromShelf().contains(book.id)
+  canRead = (book) => this.getBooksFromShelf().contains(book.id);
 }
 ```
 

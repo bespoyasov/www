@@ -23,14 +23,16 @@ tags:
 
 После самого флага пишу, какую функциональность он дублирует. Это даёт флагу осмысленное и уникальное имя, по которому потом проще искать места для рефакторинга. Выглядит так:
 
-```
+```js
 // @DUPLICATE: solves difficult problem
-const someFunc = (a, b) =>
+const someFunc = (a, b) => {
   /* some sophisticated logic */
+};
 
 // @DUPLICATE: solves difficult problem
-const duplicatesFunctionality = (a, b) =>
+const duplicatesFunctionality = (a, b) => {
   /* the same sophisticated logic */
+};
 ```
 
 Нет, я не против [DRY](https://ru.wikipedia.org/wiki/Don’t_repeat_yourself). Я за то, чтобы использовать его с умом.<br />Да, утверждение холиварное. Сорри, если вдруг заполыхало.

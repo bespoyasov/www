@@ -25,41 +25,39 @@ tags:
 
 Возьмём абстрактное приложение. У него есть состояние _state_, где в поле _user_ хранится информация о пользователе.
 
-```
+```js
 class State {
   constructor(initialState) {
-    this.state = {...initialState}
+    this.state = { ...initialState };
   }
 
   update(key, value) {
     this.state = {
       ...this.state,
-      [key]: value
-    }
+      [key]: value,
+    };
   }
 
   get(key) {
-    return this.state[key]
+    return this.state[key];
   }
 }
 
-const state = new State({user: {}})
+const state = new State({ user: {} });
 ```
 
 Чтобы получить свежую информацию и показать её, клиент обращается к серверу за данными. Если получает, то обновляет состояние:
 
-```
-fetch('/fetch/user.json')
-  .then((response) =>
-    response.json())
-  .then((user) =>
-    state.update('user', user))
-  .catch(handleError)
+```js
+fetch("/fetch/user.json")
+  .then((response) => response.json())
+  .then((user) => state.update("user", user))
+  .catch(handleError);
 ```
 
 Допустим пользователь в приложении описывается таким объектом:
 
-```
+```js
 {
   name: 'John',
   lastName: 'Doe',
@@ -70,7 +68,7 @@ fetch('/fetch/user.json')
 
 Пока с сервера приходит подобная структура, наше приложение работает без сбоев. Но вдруг сервер начинает отдавать данные с такой структурой:
 
-```
+```js
 {
   fullName: {
     name: 'John',
@@ -92,42 +90,40 @@ fetch('/fetch/user.json')
 
 Поэтому лучше работать со структурой ответа где-то в другом месте. Напишем адаптер:
 
-```
+```js
 class UserToStateAdapter {
   constructor(state) {
-    this.state = state
+    this.state = state;
   }
 
   update(serviceUser) {
-    const {fullName, birthDate, address} = serviceUser
-    const {name, lastName} = fullName
-    const {year} = birthDate
-    const {city} = address
+    const { fullName, birthDate, address } = serviceUser;
+    const { name, lastName } = fullName;
+    const { year } = birthDate;
+    const { city } = address;
 
     const clientUser = {
       name,
       lastName,
-      birthYear:year,
+      birthYear: year,
       city,
       address,
-    }
+    };
 
-    this.state.update('user', clientUser)
+    this.state.update("user", clientUser);
   }
 }
 
-const userToStateAdapter = new UserToStateAdapter(state)
+const userToStateAdapter = new UserToStateAdapter(state);
 ```
 
 Используем:
 
-```
-fetch('/fetch/user.json')
-  .then((response) =>
-    response.json())
-  .then((user) =>
-    userToStateAdapter.update(user)
-  .catch(handleError)
+```js
+fetch("/fetch/user.json")
+  .then((response) => response.json())
+  .then((user) => userToStateAdapter.update(user))
+  .catch(handleError);
 ```
 
 Теперь всю логику обработки структуры мы вынесли в отдельную часть приложения. Если структура поменяется ещё раз, то нам нужно будет поправить только адаптер, чтобы всё работало.

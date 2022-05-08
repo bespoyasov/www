@@ -29,44 +29,42 @@ tags:
 
 У веб-воркеров простое API. Чтобы проверить, поддерживается ли технология браузером:
 
-```
+```js
 if (window.Worker) {...}
 ```
 
 Чтобы создать воркер:
 
-```
-const worker = new Worker('./path/to/file.js')
+```js
+const worker = new Worker("./path/to/file.js");
 // путь должен быть прописан относительно .html,
 // в котором подключается основной скрипт
 ```
 
 Чтобы отправить сообщение из основного скрипта в воркер:
 
-```
-worker.postMessage({key: 'value'})
+```js
+worker.postMessage({ key: "value" });
 ```
 
 Чтобы подписаться на сообщение внутри воркера:
 
-```
-self.onmessage = e =>
-  console.log(e)
+```js
+self.onmessage = (e) => console.log(e);
 // self — глобальный объект внутри воркера,
 // как window в основном скрипте
 ```
 
 Чтобы отправить сообщение из воркера в основной скрипт:
 
-```
-self.postMessage({key: 'value'})
+```js
+self.postMessage({ key: "value" });
 ```
 
 И чтобы подписаться на сообщение от воркера в основном скрипте:
 
-```
-worker.onmessage = e =>
-  console.log(e)
+```js
+worker.onmessage = (e) => console.log(e);
 ```
 
 ## Пример

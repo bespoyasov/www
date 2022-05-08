@@ -14,12 +14,11 @@ tags:
 
 Представьте ситуацию: приходит задача дополнить валидацию данных пользователя, которую писали до вас. Вы открываете код и видите:
 
-```
+```js
 const validateUserData = (userData) => {
-  const {socialNumber, email} = userData
-  return validateSocialNumber(socialNumber)
-    || validateEmail(email)
-}
+  const { socialNumber, email } = userData;
+  return validateSocialNumber(socialNumber) || validateEmail(email);
+};
 ```
 
 Вы знаете, что все поля обязательные, и вам непонятно, почему возвращается истина если валидно хотя бы одно значение, а не всё вместе.
