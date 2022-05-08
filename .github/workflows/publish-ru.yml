@@ -33,20 +33,20 @@ jobs:
       - run: npm run build:ru
       - run: npm run test:smoke
 
-      - name: Cleanup stale deployments
-        uses: appleboy/ssh-action@master
-        with:
-          username: ${{ secrets.REMOTE_USER_RU }}
-          host: ${{ secrets.REMOTE_HOST_RU }}
-          key: ${{ secrets.SSH_PRIVATE_KEY_RU }}
-          script: cd ./public_html && rm -r _next
+      # - name: Cleanup stale deployments
+      #   uses: appleboy/ssh-action@master
+      #   with:
+      #     username: ${{ secrets.REMOTE_USER_RU }}
+      #     host: ${{ secrets.REMOTE_HOST_RU }}
+      #     key: ${{ secrets.SSH_PRIVATE_KEY_RU }}
+      #     script: cd ./public_html && rm -r _next
 
-      - name: Deploy
-        uses: easingthemes/ssh-deploy@main
-        env:
-          SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY_RU }}
-          REMOTE_HOST: ${{ secrets.REMOTE_HOST_RU }}
-          REMOTE_USER: ${{ secrets.REMOTE_USER_RU }}
-          SOURCE: ${{ secrets.SOURCE_RU }}
-          TARGET: ${{ secrets.TARGET_RU }}
-          ARGS: "-rlgozvc -i"
+      # - name: Deploy
+      #   uses: easingthemes/ssh-deploy@main
+      #   env:
+      #     SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY_RU }}
+      #     REMOTE_HOST: ${{ secrets.REMOTE_HOST_RU }}
+      #     REMOTE_USER: ${{ secrets.REMOTE_USER_RU }}
+      #     SOURCE: ${{ secrets.SOURCE_RU }}
+      #     TARGET: ${{ secrets.TARGET_RU }}
+      #     ARGS: "-rlgozvc -i"
