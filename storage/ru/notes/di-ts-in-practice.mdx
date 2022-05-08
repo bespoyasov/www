@@ -515,7 +515,7 @@ container.registerSingleton<AppInitiator>();
 - `Logger`
 - `Timer`
 
-### DateTimeSource
+### `DateTimeSource`
 
 Для доступа ко времени я использую адаптер `BrowserDateTimeSource`, который потом регистрирую как реализацию интерфейса `DateTimeSource`. Заметьте, что при запросе зависимости я указываю именно интерфейс — _потому что всё должно зависеть от абстракций_.
 
@@ -532,7 +532,7 @@ export class BrowserDateTimeSource implements DateTimeSource {
 container.registerSingleton<DateTimeSource, BrowserDateTimeSource>();
 ```
 
-### UuidGenerator
+### `UuidGenerator`
 
 Генератор уникальных имён — это адаптер для _[nanoid](https://github.com/ai/nanoid)_. Обратите внимание, что явно _nanoid_ я указываю лишь при регистрации интерфейса `ThirdPartyGenerator` и нигде больше.
 
@@ -546,7 +546,7 @@ container.registerSingleton<ThirdPartyGenerator>(() => nanoid);
 container.registerSingleton<UuidGenerator, IdGenerator>();
 ```
 
-### EventHandler<MouseEvent\>
+### `EventHandler<MouseEvent>`
 
 Обработчик событий реализует [дженерик-интерфейс](https://www.typescriptlang.org/docs/handbook/generics.html) `EventHandler<MouseEvent>`. Важно, что при запросе зависимости я тоже указываю `EventHandler<MouseEvent>`. Если передать другой type-параметр, то контейнер будет искать реализацию интерфейса с другим параметром. Это удобно, при работе с похожими объектами.
 
@@ -564,7 +564,7 @@ export class ClickHandler implements EventHandler<MouseEvent> {
 container.registerSingleton<EventHandler<MouseEvent>, ClickHandler>();
 ```
 
-### Logger
+### `Logger`
 
 Логгер мы уже видели, он пишет логи в консоль <nobr>:–)</nobr>
 
