@@ -4,6 +4,11 @@ on:
   push:
     branches:
       - master
+    paths:
+      - "src/**"
+      - "ops/**"
+      - "public/**"
+      - "storage/ru/**"
 
 jobs:
   publish:
