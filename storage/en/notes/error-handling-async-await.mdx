@@ -1,0 +1,149 @@
+---
+title: Error Handling in Asynchronous Functions
+description: ES2017 introduced asynchronous functions to make asynchronous calls flatter and more similar to synchronous ones. At first glance, they have problems with error handling, but these issues can be bypassed.
+datetime: 2018-05-17T21:00
+slug: /blog/error-handling-async-await
+tags:
+  - dev
+  - error
+  - favorite
+  - fp
+  - js
+---
+
+# Error Handling in Asynchronous Functions
+
+ES2017 introduced [asynchronous functions](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/async_function) to make asynchronous calls flatter and more similar to synchronous ones.
+
+Asynchronous functions work on [promises](https://javascript.info/promise-basics). Very roughly speaking `await` within an asynchronous function pauses its execution, waits for the promise to fulfill, and returns the result.
+
+And at first glance, asynchronous functions have problems with error handling.
+
+## Promises
+
+Suppose we have a function `loadPost` which receives an article from the server and works on promises. The method `fetch` sends a request to the specified address and returns a promise, which we can further process.
+
+If all goes well, we get the data using the `.json` method, which also returns a promise. If something went wrong, we catch the error in the `.catch` method.
+
+```js
+const loadPost = (postId) =>
+  fetch(`https://jsonplaceholder.typicode.com/posts/${postId}`)
+    .then((response) => response.json())
+    .then((data) => console.log(data.title))
+    .catch((e) => console.log(`Error! ${e}`));
+
+loadPost(1);
+```
+
+## Async Functions
+
+Let's try to rewrite this function using `async/await`. We make the function asynchronous with the `async` keyword, without that we wouldn't be able to use `await` inside it.
+
+The second line makes a request, `await` “unfolds” the promise and returns a value which is written to the `response` variable. The third line gets the data and puts the value to the variable `data`.
+
+```js
+const loadPost = async (postId) => {
+  const response = await fetch(`https://jsonplaceholder.typicode.com/posts/${postId}`);
+  const data = await response.json();
+  console.log(data.title);
+};
+
+loadPost(1);
+```
+
+As long as the request passes without errors, we're fine. But if something goes wrong, an exception will pop up:
+
+```
+Uncaught (in promise) TypeError: Failed to fetch
+```
+
+## Error Handling
+
+Okay, let's use `try-catch` to catch the error:
+
+```js
+const loadPost = async (postId) => {
+  try {
+    const response = await fetch(`https://jsonplaceholder.typicode.com/posts/${postId}`);
+    const data = await response.json();
+    console.log(data.title);
+  } catch (e) {
+    console.log(`Error! ${e}`);
+  }
+};
+
+loadPost(1);
+```
+
+Seems fine, but the function became larger, and requests may be different, and it is cumbersome to write `try-catch` every time.
+
+We can recall that asynchronous function returns promise, so we can use `.catch` to catch the error:
+
+```js
+const loadPost = async (postId) => {
+  const response = await fetch(`https://jsonplaceholder.typicode.com/posts/${postId}`);
+  const data = await response.json();
+  console.log(data.title);
+};
+
+loadPost(1).catch((e) => console.log(`Error! ${e}`));
+```
+
+This solves the `try-catch` repetition problem, but does not solve the duplicate code problem. This is where a [higher-order function](https://en.wikipedia.org/wiki/Higher-order_function) can help.
+
+```js
+const loadPost = async (postId) => {
+  const response = await fetch(`https://jsonplaceholder.typicode.com/posts/${postId}`);
+  const data = await response.json();
+  console.log(data.title);
+};
+
+// The higher-order function “memorizes” an error handler,
+// a query itself, and arguments for the query:
+const tryCatchWrapper =
+  (handleError) =>
+  (reqFn) =>
+  (...args) =>
+    reqFn(...args).catch(handleError);
+
+// Error handler:
+const handleError = (e) => console.log(`Error! ${e}`);
+
+// Memorized a function for error handling:
+const errorHandlerWrapper = tryCatchWrapper(handleError);
+
+// Memorized which query we want to execute:
+const safelyLoadPost = errorHandlerWrapper(loadPost);
+
+// Executing:
+safelyLoadPost(1);
+```
+
+The query remains unchanged, but the `tryCatchWrapper` function has been added. It takes as argument the `handleError` function which will handle exceptions and returns a new function.
+
+This new function takes the function of the request we are going to send and returns another function. This final function takes parameters that will be passed to the request function when we call it.
+
+Cleverly, this is also called [currying](https://ru.wikipedia.org/wiki/Каррирование): when we make several functions from one function with several arguments that take one argument each. That way we can “remember” the arguments without calling the function right away, but call it later.
+
+All this together allows us to write several error handlers, which will apply different functions depending on our purposes. For example, if we want to use a different handler for some request, we can pass in a different function as an argument:
+
+```js
+// One handler:
+const handleError = (e) => console.log(`Error! ${e}`);
+const errorHandlerWrapper = tryCatchWrapper(handleError);
+
+// Another:
+const handleErrorDifferently = (e) => console.log(`Wow! It is all different now`);
+const otherErrorHandlerWrapper = tryCatchWrapper(handleErrorDifferently);
+```
+
+And there will be no code duplication, because all the processing is inside `tryCatchWrapper`.
+
+## Resources
+
+- [`fetch`](https://javascript.info/fetch)
+- [Promises](https://javascript.info/promise-basics)
+- [Async Functions](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/async_function)
+- [Higher Order Functions](https://en.wikipedia.org/wiki/Higher-order_function)
+- [Currying](https://en.wikipedia.org/wiki/Currying)
+- [async / await in JavaScript - What, Why and How - Fun Fun Function](https://www.youtube.com/watch?v=568g8hxJJp4)
