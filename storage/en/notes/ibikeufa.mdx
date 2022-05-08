@@ -1,0 +1,59 @@
+---
+title: How We Launched iBike Ufa
+description: In this post I'll show what difficulties our team encountered and what decisions we made while working on the app for the iBike Ufa festival.
+datetime: 2017-06-07T10:05
+slug: /blog/ibikeufa
+tags:
+  - dev
+  - process
+  - js
+  - react
+  - story
+  - failures
+---
+
+# How We Launched iBike Ufa
+
+In this post I'll show what difficulties our team encountered and what decisions we made while working on the app for the [iBike Ufa](https://vk.com/ibikeufa) festival.
+
+## Deadlines, Modules, and API
+
+We had only a month for design, development and publication in the mobile stores. That's why we've been developing the frontend and the backend in parallel.
+
+I created the frontend as if I already had an API for communicating with the server. I designed the communication spec, what data I was going to send to the server and what I would expect in response. I designed the routing system, described what links would be more convenient to use for communication and what format of messages we would use.
+
+The advantage of this approach was that the complexity of the frontend and backend was separated. The backend and the frontend knew nothing about each other. All they cared about was the message format that was used to communicate between them. (Being smart, we can say that this is also called low coupling.)
+
+We have designed the app screens and UI blocks in such a way that they can be moved to other parts of the application without any changes. On all of this we saved a few days before the launch.
+
+## Redesign in the Middle of Development
+
+In the middle of development, we realized that the structure of the application screens was weak, and we needed to redesign it.
+
+This is where a good architecture helped. I separated the view, business logic, and server communication into different parts of the application, so the redesign only affected the user interface.
+
+We haven't spent too much time on the redesign, so it hasn't affected the launch.
+
+## Adjusting to Realities
+
+In addition to the global redesign, we also redid pieces of the interface that users complained about. We intentionally made the first versions available for a small number of people to see if the app UI is clear and usable.
+
+We redid on of the pages, because the it was slightly unclear for the users.
+
+## Requirements as of Native App
+
+We tried to make our app feel like a native app. This is hard to do with the web, because it doesn't know how to do a lot of things.
+
+For example, the animation of the transition between screens was supposed to be as if the cards on the screen were changing. But because of the problems with scrolling on the page and the peculiarities of React had to make a “pseudo-float” of one card to another.
+
+Because of these constraints, we've caught some negative feedback. The conclusion is that people don't see the difference between a native, web, or hybrid app; they don't care how long it took to develop. The requirements for the application will always be rigid.
+
+## Festival Was Canceled
+
+The biggest problem came when we launched the app and published it to the stores—the festival was cancelled. Some activities and a Guinness record were left from the program but it wasn't as big as we hoped it to be.
+
+How it happened, and why is [in the organizers' note](https://vk.com/ibikeufa?w=wall-122711751_2490).
+
+## Conclusion
+
+Too bad the whole festival didn't turn out as planned. But for our development team it was a valuable experience. We proved to ourselves that working on weekends, making an app in a month, launching it, and publishing it in stores is difficult, but doable.

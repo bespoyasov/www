@@ -1,0 +1,113 @@
+---
+title: Process of Creating MRKT. Part 2
+description: In this post, I want to share the process of developing the frontend of the trading platform and the skills that helped to finish the project and release it.
+datetime: 2019-06-09T14:20
+slug: /blog/mrkt-2
+tags:
+  - process
+  - opinion
+  - communication
+  - behavior
+  - productivity
+  - management
+---
+
+# Process of Creating MRKT. Part 2
+
+[In the previous post](/blog/mrkt/), I discussed what problems I encountered during the development of the new version of MRKT. In this post I'll talk about the roles I've tried on during my work apart from being a “frontend developer” and what skills helped me to finish the job.
+
+## Frontender is Also a Designer
+
+No plan can stand up to reality, and it's the same with design.
+
+Inevitably there comes a point in development when initial designs stop working: business requirements have changed, new technical limitations have appeared, we didn't take something into account in the design, the user device doesn't work the way we wanted, deadlines are burning, we need to simplify the functionality... In short, static pictures stop working, you have to make decisions on the fly.
+
+The site was designed by [Kostya Konstantinopolsky](http://yumadilov.com). We've been working with him for a long time and we have a common context, which helps me understand his solutions faster and develop them by working out the details. This was particularly helpful on this project.
+
+The main part of my involvement in the design was reconciling the design details with reality. I evaluated how resource-intensive each solution could be. Some things I intentionally simplified so that they would not be too expensive, some things I planned for time after launch, some things I even found simpler solutions. Until I got the hang of it, I approved every change to the team, because I'm not a designer and might have missed something important.
+
+The other part of my design was developing the mobile version. We had mobile layouts, but they were more like a separate version for phones than an adaptive of the same app. It would have been too expensive and time-consuming to do exactly the same on the design mockups. This is why we discussed each screen, trying to figure out how to combine what we drew with the technical limitations.
+
+The most difficult part was dealing with the user context, transitions between screens, and user scenarios. You can't click through the pictures and see how the design will work in real life.
+
+What happens when I place an invalid auction bid; how will I get the message about winning a bid; how steamy is it to create a table of items for bidding? All of this could be experienced either by having a clickable prototype or during development. Every weak solution we had was replaced by another.
+
+Combining development with design is difficult because you have to keep the principles and purpose of the product in mind. Humane UI design principles and the project purpose helped with this.
+
+## Also a Backend Developer and a Devops
+
+Two people wrote the code: myself and a backend engineer. We didn't have the resources for having a separate person for the infrastructure, so we've set up the environment, integration, and delivery ourselves.
+
+The environment and processes are important things. They don't seem to have much effect on the result, but they affect the performance, which directly affects the result. The worse the environment, the more routine operations must be done manually, the longer builds and tests take—the more time is spent on unwanted stuff instead of solving problems.
+
+I've set up a structure with almost 100% canonical blue-green production and a dedicated server for testing. I've also automated a bunch of processes: from starting the project to running all the acceptance criteria in CI. I've optimized test execution for different tasks: units per kernel, silly components, containers, snapshots, this part of the project, that part of the project—everything could be run separately if needed. I optimized the build a couple of times to make it run faster.
+
+It's important to allocate time to the environment, because it's frustrating to find yourself in a situation where a quarter of your time is spent on endless builds-rebuilds-deploys-and-builds. You need to get rid of that. Run everything you can in the background, parallelize processes, burn the CPU—make the environment comfortable.
+
+Automation also saves you from human error. If several routine operations have to be done, a person will always lose to the computer in accuracy and reproducibility. People are lazy to follow the list, do something wrong, accidentally (or not accidentally) skip items. The computer always follows the instruction fully and correctly. Re-assure yourself against the human factor.
+
+## Also an Editor and UX Writer
+
+Along with the design tasks came the tasks for texts and interface signatures. Basically, I had to think about the captions of the elements to make it clear what task they solve and why they are needed.
+
+There were also a couple of tasks on “selling” features. In the auctions, we made a screen where the participant could see the position of the opponents' cursors. This encourages you to make a decision faster, and therefore to buy at a higher price.
+
+We thought about how to explain the usefulness of this screen, to show how it works, how to sign the “switch” of this feature. Then we did the same thing for the participants. If for every button I ran to the designer for a mockup, we probably would have been released in 3019.
+
+## Also a Manager
+
+In my previous post, I wrote that it was hard to maintain motivation and rhythm. Planning and managerial skill can help with that.
+
+At first it was hard for me to get used to devoting time to planning and prioritizing rather than programming. But I was saved by the analogy with processes in development—planning is also automation. It helps to forget for a while about “how much should be done.”
+
+Calendar and checklists relieve my head. And free space in my head is [the basis of good rest](/blog/efficient-workday-division/), without which I can't be productive.
+
+In addition, without timely adjustments to requirements and constraints, it would be unrealistic to launch. For a project to still be needed by release, it needs to be updated, and doing it spontaneously is useless. Planning also helps with this.
+
+## Also an HR
+
+After the release, I started looking for people to replace me. I wasn't just selecting frontenders, I was looking for people who were close in spirit and values. It was important to me that after I left the product was in order and developed further. People whose values did not coincide with mine or the company's values were scary to trust.
+
+Conducting interviews was new to me. I concluded that it didn't make sense to do technical interviews specifically. Instead, I focused on questions about the person's vision for their job, how the candidates were a good fit for us and our company for them.
+
+I would talk about the product and who we make it for, how we work and what's important to us, how processes are set up and how we see the ideal work environment, etc. After that, I listened to the candidates talk about their experiences, asked about the tasks they had solved, the problems they had faced. Toward the end of the call, I outlined our expectations once again: we weren't just looking for fronts, but people, two or three of whom could completely replace me.
+
+One day it all became too much. I had a week with 25 calls of about two hours each. That's not counting the test assignment reviews for those who agreed to test.
+
+I got really bogged down. Then [Kostya](http://yumadilov.com) came to the rescue. We realized that the interviews had turned into an assembly line, and I had forgotten what it was all about.
+
+Kostya and I talked through the goals, tasks, and problems and decided exactly how we should look for a new person. We reduced the stress, reduced the resources to search and filter candidates. I ended up finding two great guys: [Timofey Aksenov](https://github.com/taksenov) and [Roman Makarov](https://github.com/SmartRW). Now the whole front is on them.
+
+## Also a Team Lead
+
+When I found people for the team, I started thinking about how to introduce them in the project. I came up with a plan for telling them about the project.
+
+The first step was to talk about the high-level stuff: what's the architecture, what roles clients have, what the difference between an organizer and a participant is, what entities exist in principle in the domain. No code. Just the application interface and a story with examples of how it works.
+
+The second step is to tell where in the code which part of the interface is, how it works, which entities on the screen correspond to which entities in the code. All of this is by poking around the screen and showing it “on-line”.
+
+I quickly realized that this solution didn't scale. If I had to hire people more often, I would quickly deflate. I started thinking about onboarding automation and collecting a knowledge base. I had no time to bring the idea to fruition, and I was unable to set up the onboarding process.
+
+However, I was able to manage the team before I left. I learned how to prioritize tasks for the business according to developers' skills. It was cool to see how the level of the guys grew, and it was possible to delegate more serious tasks.
+
+Delegating turned out to be difficult. It was important for me to overcome the desire to do it myself. It didn't matter if I did it faster, my role changed. The task was no longer to write the code, but to write the code without me. When I realized this, it became easier, delegating tasks became easier.
+
+At the same time I learned to describe the tasks in a clearer way. A scanty description is demotivating, because [it is unclear where to get the necessary data](/blog/cannot-reproduce/). Too voluminous—too lazy to read. Learned to find the balance.
+
+## ...And Whoever Else
+
+There are no unnecessary knowledge and skills. I would never have guessed what would come in handy in my job. Pumping up different skills has proven to be useful.
+
+Of course, I also have moments when I think “ugh, this isn't my job, why should I even be doing this?”, but more often than not, it's from fatigue. Work can be fun if you find something to get excited about. I had a huge, ambitious task. I think I did it.
+
+## Some Useful Links
+
+- [Process of Creating MRKT. Part 1](/blog/mrkt/)
+- [How I Divide My Work Time](/blog/efficient-workday-division/)
+- [How to Describe Bugs](/blog/cannot-reproduce/)
+
+### Cool People
+
+- [Konstantin Konstantinopolsky](http://yumadilov.com)
+- [Timofey Aksenov](https://github.com/taksenov)
+- [Roman Makarov](https://github.com/SmartRW)
