@@ -5,6 +5,7 @@ on:
     branches:
       - master
     paths:
+      - ".github/**"
       - "src/**"
       - "ops/**"
       - "public/**"
