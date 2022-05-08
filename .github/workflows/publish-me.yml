@@ -1,0 +1,47 @@
+name: Publish .me
+
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    env:
+      NEXT_TELEMETRY_DISABLED: 1
+
+    steps:
+      - uses: actions/checkout@v1
+      - uses: actions/setup-node@v1
+        with:
+          node-version: "16"
+
+      - name: Setup build cache
+        uses: actions/cache@v2
+        with:
+          path: ${{ github.workspace }}/.next/cache
+          key: ${{ runner.os }}-${{ hashFiles('**/package-lock.json') }}
+
+      - run: npm ci
+      - run: npm run test
+      - run: npm run build:en
+      - run: npm run test:smoke
+
+      - name: Cleanup stale deployments
+        uses: appleboy/ssh-action@master
+        with:
+          username: ${{ secrets.REMOTE_USER_ME }}
+          host: ${{ secrets.REMOTE_HOST_ME }}
+          key: ${{ secrets.SSH_PRIVATE_KEY_ME }}
+          script: cd ./public_html && rm -r _next
+
+      - name: Deploy
+        uses: easingthemes/ssh-deploy@main
+        env:
+          SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY_ME }}
+          REMOTE_HOST: ${{ secrets.REMOTE_HOST_ME }}
+          REMOTE_USER: ${{ secrets.REMOTE_USER_ME }}
+          SOURCE: ${{ secrets.SOURCE_ME }}
+          TARGET: ${{ secrets.TARGET_ME }}
+          ARGS: "-rlgozvc -i"
