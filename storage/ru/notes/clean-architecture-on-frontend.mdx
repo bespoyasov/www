@@ -52,7 +52,7 @@ tags:
 Чистую архитектуру часто называют трёхслойной, потому что приложение в ней делится на слои. В оригинальном посте о [The Clean Architecture](https://blog.cleancoder.com/uncle-bob/2012/08/13/the-clean-architecture.html) приводится диаграмма с выделенными слоями:
 
 <Figure
-  src="/img/blog/clean-architecture-on-frontend/fecrew-2-clean-architecture-diagram.jpg"
+  src="/images/content/clean-architecture-on-frontend/clean-architecture-diagram.jpg"
   alt="Диаграмма слоёв по чистой архитектуре: в центре домен, вокруг него прикладной слой, и снаружи — слой адаптеров"
   cite="https://blog.cleancoder.com/uncle-bob/2012/08/13/the-clean-architecture.html"
 />
@@ -109,7 +109,7 @@ tags:
 - внешние слои могут зависеть от чего угодно.
 
 <Figure
-  src="/img/blog/clean-architecture-on-frontend/fecrew-2-hex-pie.png"
+  src="/images/content/clean-architecture-on-frontend/hex-pie.png"
   alt="Внешние слои могут зависеть от внутренних, но не наоборот"
   cite="https://herbertograca.com/2017/11/16/explicit-architecture-01-ddd-hexagonal-onion-clean-cqrs-how-i-put-it-all-together/"
 />
@@ -202,11 +202,11 @@ tags:
 
 На главной будет витрина с печеньками, которые мы можем купить. Купить печеньки мы сможем, только если будем аутентифицированы. Кнопка входа будет нас перебрасывать на страницу логина, где мы сможем залогиниться.
 
-![Главная страница магазина](/img/blog/clean-architecture-on-frontend/fecrew-2-app.png)
+![Главная страница магазина](/images/content/clean-architecture-on-frontend/ru/app.png)
 
 После удачного логина мы сможем положить какие-то печеньки к себе в корзину.
 
-![Корзина с выбранными печеньками](/img/blog/clean-architecture-on-frontend/fecrew-2-app-cart.png)
+![Корзина с выбранными печеньками](/images/content/clean-architecture-on-frontend/ru/app-cart.png)
 
 Когда мы накидали печенек в корзину, можем оформить заказ. После оплаты получаем новый заказ в списке и очищенную корзину.
 
@@ -230,7 +230,7 @@ tags:
 - определение вкусовых предпочтений пользователя
 - определение, находится ли товар в корзине и т. д.
 
-![Диаграмма доменных сущностей во внутреннем слое](/img/blog/clean-architecture-on-frontend/fecrew-2-layers-domain.png)
+![Диаграмма доменных сущностей во внутреннем слое](/images/content/clean-architecture-on-frontend/layers-domain.png)
 
 ### Проектируем прикладной слой
 
@@ -254,7 +254,7 @@ tags:
 
 Также в прикладном слое находятся интерфейсы портов для общения с внешним миром.
 
-![Диаграмма юзкейсов и портов в среднем слое](/img/blog/clean-architecture-on-frontend/fecrew-2-layers-application.png)
+![Диаграмма юзкейсов и портов в среднем слое](/images/content/clean-architecture-on-frontend/layers-application.png)
 
 ### Проектируем слой адаптеров
 
@@ -267,7 +267,7 @@ tags:
 - адаптер для локального хранилища;
 - адаптеры и конвертеры ответов API к прикладному слою.
 
-![Диаграмма адаптеров с разделением на управляющие и управляемые](/img/blog/clean-architecture-on-frontend/fecrew-2-layers-adapters.png)
+![Диаграмма адаптеров с разделением на управляющие и управляемые](/images/content/clean-architecture-on-frontend/layers-adapters.png)
 
 Заметьте, что чем более функциональность «сервисная», тем дальше она от центра диаграммы. Главная часть приложения находится в центре, именно домен содержит бизнес-логику и несёт бизнесовую ценность, а всё остальное — обслуживающий код.
 
@@ -386,7 +386,7 @@ export type Order = {
 
 Польза проектирования типов сущностей в том, что уже сейчас мы можем проверить, насколько схема их отношений соответствует реальности:
 
-![Диаграмма отношений сущностей](/img/blog/clean-architecture-on-frontend/fecrew-2-interaction.png)
+![Диаграмма отношений сущностей](/images/content/clean-architecture-on-frontend/interaction.png)
 
 Мы можем убедиться, действительно ли главый актор — это пользователь, достаточно ли информации находится в заказе, нужно ли расширить какую-то сущность, будут ли проблемы с расширяемостью в будущем.
 
@@ -505,7 +505,7 @@ type PriceCents = number;
 
 Получается такой «сендвич»: сайд-эффект, чистая функция, сайд-эффект. Главная логика отражена в преобразовании данных, а всё общение с миром обособлено в императивной оболочке.
 
-![Функциональная архитектура: сайд-эффект, чистая функция, сайд-эффект](/img/blog/clean-architecture-on-frontend/fecrew-2-impureim.png)
+![Функциональная архитектура: сайд-эффект, чистая функция, сайд-эффект](/images/content/clean-architecture-on-frontend/impureim.png)
 
 Нечистый контекст иногда называют функциональным ядром в императивной оболочке. Об этом в своём блоге [писал](https://blog.ploeh.dk/2020/03/02/impureim-sandwich/) Марк Зиманн. Мы будем использовать именно этот подход при написании функций юзкейсов.
 
@@ -543,7 +543,7 @@ type OrderProducts = (user: User, cart: Cart) => Promise<void>;
 - для уведомления пользователя о событиях и ошибках;
 - для сохранения данных в локальное хранилище.
 
-![Необходимые сервисы для работы сценария](/img/blog/clean-architecture-on-frontend/fecrew-2-ports.png)
+![Необходимые сервисы для работы сценария](/images/content/clean-architecture-on-frontend/ports.png)
 
 Обратите внимание, что сейчас мы говорим именно об _интерфейсах_ этих сервисов, а не их реализации. На этом этапе нам важно описать требуемое поведение, потому что на это поведение мы будем рассчитывать в прикладном слое при описании сценария.
 
@@ -612,7 +612,7 @@ export interface OrdersStorageService {
 - уведомляем о проблемах;
 - сохраняем результат.
 
-![Все шаги пользовательского сценария на схеме](/img/blog/clean-architecture-on-frontend/fecrew-2-flow.png)
+![Все шаги пользовательского сценария на схеме](/images/content/clean-architecture-on-frontend/flow.png)
 
 Приступим к коду. Сперва объявим заглушки сервисов, которые собираемся использовать. TypeScript будет ругаться, что мы не реализовали интерфейсы в соответствующих переменных, но пока что это не важно.
 
@@ -806,7 +806,7 @@ export function useOrdersStorage(): OrdersStorageService {
 
 Давайте теперь проверим, как будет происходить общение пользователя с приложением во время созданного сценария. На диаграмме покажем какие данные будут поступать, откуда и куда идти.
 
-![Диаграмма потоков данных сценария](/img/blog/clean-architecture-on-frontend/fecrew-2-final.png)
+![Диаграмма потоков данных сценария](/images/content/clean-architecture-on-frontend/final.png)
 
 Пользователь взаимодействует с UI-слоем, который может обращаться к приложению только посредством портов. То есть мы можем поменять UI, если захотим.
 
@@ -855,7 +855,7 @@ type Price = {
 Код можно компоновать и располагать в папках не «по слоям», а «по фичам». Одна «фича» будет куском пирога со схемы ниже. Такое разделение даже предпочтительнее, потому что позволяет деплоить отдельно именно _фичи_, а это часто бывает полезно.
 
 <Figure
-  src="/img/blog/clean-architecture-on-frontend/fecrew-2-hex-pie.png"
+  src="/images/content/clean-architecture-on-frontend/hex-pie.png"
   alt="Компонент — это кусок гексагонального пирога"
   cite="https://herbertograca.com/2017/11/16/explicit-architecture-01-ddd-hexagonal-onion-clean-cqrs-how-i-put-it-all-together/#components"
 />
