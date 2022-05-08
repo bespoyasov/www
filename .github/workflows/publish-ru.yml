@@ -1,4 +1,4 @@
-name: Publish www
+name: Publish .ru
 
 on:
   push:
