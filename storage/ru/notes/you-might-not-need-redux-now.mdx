@@ -66,9 +66,9 @@ const App = () => {
 Это работает, но если дерево большое, то и пробрасывать пропсы приходится через каждый уровень вложенности. Возникает так называемый _prop drilling_. Схематично это выглядит, как на картинке слева:
 
 <Figure
-  src="/img/blog/no-redux-prop-drilling.jpg"
-  alt="Иллюстрация проблемы Prop driling"
-  caption="Prop driling, carlrippon.com"
+  src="/images/content/you-might-not-need-redux-now/prop-drilling.jpg"
+  alt="Иллюстрация проблемы Prop drilling"
+  caption="Prop drilling, carlrippon.com"
   cite="https://www.carlrippon.com/playing-with-the-context-api-in-react-16-3/"
 />
 
@@ -105,11 +105,11 @@ const OtherComponent = () => {
 
 Я написал простенькое приложение с использованием Редакса и с использованием контекста и хуков. Это счётчик, значение которого можно менять кнопками, либо меняя значение в инпуте, а также обнулять его нажатием на кнопку из другого компонента.
 
-![Приложение для примера](/img/blog/no-redux-1.jpg)
+![Приложение для примера](/images/content/you-might-not-need-redux-now/app.jpg)
 
 По структуре оно будет состоять из корневого компонента _App_, компонента формы _Form_ и ещё одного компонента с кнопкой внизу _Display_. Схематично можно изобразить так:
 
-![Структура вложенности компонентов](/img/blog/no-redux-2.jpg)
+![Структура вложенности компонентов](/images/content/you-might-not-need-redux-now/app-structure.jpg)
 
 Компоненты _Form_ и _Display_ зависят от хранилища, в котором содержится состояние приложения. Все события кнопок и инпута вызывают экшены, которые будут обновлять хранилище.
 
