@@ -520,10 +520,8 @@ describe("when the result is not an integer", () => {
     { a: 10, b: 7, result: 1.43 },
   ];
 
-  testCases.forEach(({ a, b, result }) => {
-    it("should round it to 2 decimal places", () => {
-      expect(divide(a, b)).toEqual(result);
-    });
+  it.each(testCases)("should round it to 2 decimal places", ({ a, b, result }) => {
+    expect(divide(a, b)).toEqual(result);
   });
 });
 ```
