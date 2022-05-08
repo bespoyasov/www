@@ -69,26 +69,26 @@ const func = () => {
 
 Начните с малого и двигайтесь с оглядкой на главную цель класса или метода. По мере продвижения вам будет становиться яснее, как поступить правильнее. Когда два метода или класса выглядят почти одинаково, вынесите разницу в другие методы или классы, а прежние объедините:
 
-```
+```js
 class AddEmployeeCmd extends Command {
   constructor() {
-    this.name = ''
-    this.address = ''
+    this.name = "";
+    this.address = "";
 
-    this.header = ['some', 'sophisticated', 'data', 'structure']
-    this.commandCharIndex = 42
-    this.footer = ['some', 'sophisticated', 'data', 'structure']
+    this.header = ["some", "sophisticated", "data", "structure"];
+    this.commandCharIndex = 42;
+    this.footer = ["some", "sophisticated", "data", "structure"];
   }
 }
 
 class LoginCommand extends Command {
   constructor() {
-    this.userName = ''
-    this.password = ''
+    this.userName = "";
+    this.password = "";
 
-    this.header = ['some', 'sophisticated', 'data', 'structure']
-    this.commandCharIndex = 44
-    this.footer = ['some', 'sophisticated', 'data', 'structure']
+    this.header = ["some", "sophisticated", "data", "structure"];
+    this.commandCharIndex = 44;
+    this.footer = ["some", "sophisticated", "data", "structure"];
   }
 }
 
@@ -97,24 +97,24 @@ class LoginCommand extends Command {
 
 class Command {
   constructor() {
-    this.header = ['some', 'sophisticated', 'data', 'structure']
-    this.footer = ['some', 'sophisticated', 'data', 'structure']
+    this.header = ["some", "sophisticated", "data", "structure"];
+    this.footer = ["some", "sophisticated", "data", "structure"];
     // ...
   }
 }
 
 class AddEmployeeCmd extends Command {
   constructor() {
-    this.name = ''
-    this.address = ''
+    this.name = "";
+    this.address = "";
   }
   // ...
 }
 
 class LoginCommand extends Command {
   constructor() {
-    this.userName = ''
-    this.password = ''
+    this.userName = "";
+    this.password = "";
   }
   // ...
 }

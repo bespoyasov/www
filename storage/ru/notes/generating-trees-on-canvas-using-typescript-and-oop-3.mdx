@@ -337,7 +337,7 @@ export class SystemToGeometryMapper implements SystemInterpreter {
 
 Дальше правим перевод символов, если мы встречаем лист, красим его в случайно выбранный зелёный цвет:
 
-```
+```ts
 private translateToken = (token: Character): void => {
   switch (token) {
     case "0": {
@@ -360,7 +360,7 @@ private translateToken = (token: Character): void => {
 
 Ветки, которые появляются из ствола, с некоторой вероятностью пропускаем, это придаст хаотичности их расположению:
 
-```
+```ts
 private translateToken = (token: Character): void => {
   switch (token) {
     // …
@@ -384,7 +384,7 @@ private translateToken = (token: Character): void => {
 
 При повороте также уменьшаем ширину веток и добавляем случайное отклонение в угол поворота:
 
-```
+```ts
 private translateToken = (token: Character): void => {
   switch (token) {
     // …

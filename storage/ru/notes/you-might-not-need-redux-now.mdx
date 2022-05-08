@@ -24,14 +24,15 @@ tags:
 
 Например, здесь мы используем хук _useState_, чтобы создать и использовать переменную _counter_:
 
-```
-import React, {useState} from 'react'
+```js
+import React, { useState } from "react";
+
 const SimpleComponent = () => {
-  const [counter, setCounter] = useState(0)
+  const [counter, setCounter] = useState(0);
   // в первый раз значение counter будет равно тому, что мы передаём в useState
   // затем — тому, что мы установим через setCounter
-  return <div>{counter}</div>
-}
+  return <div>{counter}</div>;
+};
 ```
 
 _useState_ возвращает кортеж из значения и функции, которая будет это значение обновлять.
@@ -42,9 +43,9 @@ _useState_ возвращает кортеж из значения и функц
 
 _useReducer_ — это хук, который по принципу работы схож с редьюсерами из [Редакса](http://redux.js.org/).
 
-```
+```js
 const App = () => {
-  const [state, dispatch] = useReducer(reducer, initialState)
+  const [state, dispatch] = useReducer(reducer, initialState);
   // initialState — начальное состояние
   // reducer — функция, которая принимает state и action
   //           и обрабатывает изменение состояния
@@ -53,8 +54,8 @@ const App = () => {
   // dispatch — функция, которая будет дёргать экшены,
   //            чтобы обновить состояние
 
-  return <div>Hello world</div>
-}
+  return <div>Hello world</div>;
+};
 ```
 
 По принципу работы это и есть Редакс. Проблема только в том, что переменные _state_ и _dispatch_ находятся внутри области видимости функции _App_, а значит использовать этот редьюсер в других компонентах у нас не получится.
@@ -78,27 +79,27 @@ const App = () => {
 
 Ту же проблему решает и контекст в Реакте. Мы создаём контекст, через провайдер указываем, что именно нужно хранить и передавать, а через консьюмер — в каком компоненте эти значения забирать и использовать:
 
-```
-import {createContext} from 'react'
+```js
+import { createContext } from "react";
 // создаём контекст
-const StoreContext = createContext()
+const StoreContext = createContext();
 
 const App = () => (
   // через провайдер в свойстве value указываем значение,
   // которое нам надо хранить и как-то использовать в других компонентах
-  <StoreContext.Provider value={{meaningOfLife: 42}}>
+  <StoreContext.Provider value={{ meaningOfLife: 42 }}>
     <OtherComponent />
   </StoreContext.Provider>
-)
+);
 
 const OtherComponent = () => {
-  <StoreContext.Consumer>
-    // через консьюмер получаем доступ к значению
-    {({meaningOfLife}) => (
-      <div>{meaningOfLife}</div>
-    )}
-  </StoreContext.Consumer>
-}
+  // через консьюмер получаем доступ к значению
+  return (
+    <StoreContext.Consumer>
+      {({ meaningOfLife }) => <div>{meaningOfLife}</div>}
+    </StoreContext.Consumer>
+  );
+};
 ```
 
 Вызывать консьюмер можно где угодно, и это позволяет делить состояние между компонентами. И тут возникает мысль, нельзя ли заменить Редакс на смесь хуков и контекста. Ну и эт, вроде, можно.
@@ -123,89 +124,91 @@ const OtherComponent = () => {
 
 Вначале создадим хранилище и редьюсер, который будет заниматься его обновлением:
 
-```
+```js
 // reducers.js
-import {combineReducers} from 'redux'
+import { combineReducers } from "redux";
 
 const app = (state, action) => {
-  switch(action.type) {
-    case 'PLUS':
-      return {...state, counter: state.counter + 1}
+  switch (action.type) {
+    case "PLUS":
+      return { ...state, counter: state.counter + 1 };
 
-    case 'MINUS':
-      return {...state, counter: state.counter - 1}
+    case "MINUS":
+      return { ...state, counter: state.counter - 1 };
 
-    case 'MAGIC':
-      return {...state, counter: Math.floor(Math.random() * 100)}
+    case "MAGIC":
+      return { ...state, counter: Math.floor(Math.random() * 100) };
 
-    case 'CHANGE':
-      return {...state, counter: +action.value}
+    case "CHANGE":
+      return { ...state, counter: +action.value };
 
-    case 'RESET':
-      return {...initialState}
+    case "RESET":
+      return { ...initialState };
 
     default:
-      return state
+      return state;
   }
-}
+};
 
-export default combineReducers({ app })
+export default combineReducers({ app });
 
 // index.js
-import {createStore} from 'redux'
-import rootReducer from './reducers'
-import App from './App'
+import { createStore } from "redux";
+import rootReducer from "./reducers";
+import App from "./App";
 
 // создаём хранилище
-const store = createStore(rootReducer)
+const store = createStore(rootReducer);
 
 // используем через провайдер
 render(
-  <Provider store={store}><App /></Provider>,
-  document.getElementById('app'))
+  <Provider store={store}>
+    <App />
+  </Provider>,
+  document.getElementById("app"),
+);
 ```
 
 Дальше создадим экшены, которые будут вызываться событиями кнопок и инпута:
 
-```
+```js
 // actions.js
-export const plus = () => ({ type: 'PLUS' })
-export const minus = () => ({ type: 'MINUS' })
-export const magic = () => ({ type: 'MAGIC' })
-export const reset = () => ({ type: 'RESET' })
-export const change = e => ({
+export const plus = () => ({ type: "PLUS" });
+export const minus = () => ({ type: "MINUS" });
+export const magic = () => ({ type: "MAGIC" });
+export const reset = () => ({ type: "RESET" });
+export const change = (e) => ({
   value: e.target.value,
-  type: 'CHANGE',
-})
+  type: "CHANGE",
+});
 ```
 
 Чтобы привязать какой-то компонент к хранилищу, используем _connect_:
 
-```
-import {connect} from 'react-redux'
-import {reset} from './actions'
+```js
+import { connect } from "react-redux";
+import { reset } from "./actions";
 
 // app — часть хранилища;
 // reset — экшен;
 // всё это мы привязали через connect перед экспортом ниже
-const Display = ({app, reset}) => {
-  const {counter} = app
+const Display = ({ app, reset }) => {
+  const { counter } = app;
 
-  return <footer>
-    <p>Another component knows that counter equals to {counter} as well!</p>
-    <p>
-      It even can
-      <button onClick={reset}>reset the coutner</button>
-    </p>
-  </footer>
-}
+  return (
+    <footer>
+      <p>Another component knows that counter equals to {counter} as well!</p>
+      <p>
+        It even can
+        <button onClick={reset}>reset the coutner</button>
+      </p>
+    </footer>
+  );
+};
 
 // мапим свойства из хранилища и экшены
 // на пропсы компонента
-export default connect(
-  state => ({ app: state.app }),
-  {reset}
-)(Display)
+export default connect((state) => ({ app: state.app }), { reset })(Display);
 ```
 
 В результате [приложение будет работать так](https://bespoyasov.ru/use/redux/).
@@ -214,70 +217,68 @@ export default connect(
 
 Теперь напишем то же самое без использования Редакса. Используем _useReducer_:
 
-```
+```js
 // store.js
-export const initialState = {counter: 0}
+export const initialState = { counter: 0 };
 
 // редьюсер точно такой же, как в прошлый раз
 export const reducer = (state, action) => {
-  switch(action.type) {
-    // ...
-  }
-}
+  // ...
+};
 
 // index.js
-import {reducer, initialState} from './store'
+import { reducer, initialState } from "./store";
 
 const App = () => {
   // создаём в корневом компоненте хранилище
   // и функцию для его обновления
-  const [state, dispatch] = useReducer(reducer, initialState)
-  return <div></div>
-}
+  const [state, dispatch] = useReducer(reducer, initialState);
+  return <div></div>;
+};
 ```
 
 Чтобы пробросить значения из хранилища компонентам, воспользуемся контекстом:
 
-```
+```js
 // context.js
-import {createContext} from 'react'
-export const StoreContext = createContext()
+import { createContext } from "react";
+export const StoreContext = createContext();
 
 // index.js
-import {reducer, initialState} from './store'
+import { reducer, initialState } from "./store";
 // импортируем созданный контекст
-import {StoreContext} from './context'
+import { StoreContext } from "./context";
 
 const App = () => {
-  const [state, dispatch] = useReducer(reducer, initialState)
+  const [state, dispatch] = useReducer(reducer, initialState);
 
   // используем провайдер, чтобы передать в контекст
   // хранилище и функцию для обновления
   return (
-    <StoreContext.Provider value={{dispatch, state}}>
+    <StoreContext.Provider value={{ dispatch, state }}>
       <Form />
       <Display />
     </StoreContext.Provider>
-  )
-}
+  );
+};
 
-export default App
+export default App;
 ```
 
 Чтобы привязать какой-то компонент, используем консьюмер:
 
-```
-import React from 'react'
+```js
+import React from "react";
 // импортируем контекст
-import {StoreContext} from './context'
+import { StoreContext } from "./context";
 // экшены точно такие же, как в прошлый раз
-import {reset} from './actions'
+import { reset } from "./actions";
 
 const Display = () => (
   // получаем доступ к тому, что хранится в контексте
   <StoreContext.Consumer>
     // в нашем случае — state и dispatch
-    {({state, dispatch}) => (
+    {({ state, dispatch }) => (
       <footer>
         // используем state, чтобы вывести значение счётчика
         <p>{state.counter}</p>
@@ -286,21 +287,21 @@ const Display = () => (
       </footer>
     )}
   </StoreContext.Consumer>
-)
+);
 
-export default Display
+export default Display;
 ```
 
 А ещё можно сделать код чище, заменив консьюмер на _useContext_:
 
-```
-import React, {useContext} from 'react'
-import {StoreContext} from './context'
-import {reset} from './actions'
+```js
+import React, { useContext } from "react";
+import { StoreContext } from "./context";
+import { reset } from "./actions";
 
 const Display = () => {
   // вызываем useContext, передавая аргументом нужный контекст
-  const {state, dispatch} = useContext(StoreContext)
+  const { state, dispatch } = useContext(StoreContext);
 
   return (
     // убираем консьюмер
@@ -308,10 +309,10 @@ const Display = () => {
       <p>{state.counter}</p>
       <button onClick={() => dispatch(reset())}>reset</button>
     </footer>
-  )
-}
+  );
+};
 
-export default Display
+export default Display;
 ```
 
 И [работает оно](https://bespoyasov.ru/use/hooks-and-context/) точно так же.

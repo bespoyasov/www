@@ -31,22 +31,22 @@ tags:
 
 В программе самое важное — её поведение. Пользователи любят, когда мы добавляем новое, и не любят, когда мы меняем старое. При добавлении нового поведения мы неизбежно меняем старое.
 
-```
+```js
 // до изменения
 class Player {
   addPlaylist(name, tracks) {
-    ...
+    // ...
   }
 }
 
 // после
 class Player {
   addPlaylist(name, tracks) {
-    ...
+    // ...
   }
 
   deletePlaylist(name) {
-    ...
+    // ...
   }
 }
 ```
@@ -94,14 +94,14 @@ class Player {
 
 Класс _NetworkBridge_ получает список узлов, каждый из которых открывает сетевое соединение и общается с другими узлами:
 
-```
+```js
 class NetworkBridge {
   constructor(endpoints) {
-    ...
+    // ...
   }
 
   formRouting(sourceId, destId) {
-    ...
+    // ...
   }
 }
 ```
@@ -110,59 +110,59 @@ class NetworkBridge {
 
 Фиктивные объекты олицетворяют какой-либо класс во время тестирования. Например, у нас есть класс _Sale_, который сканирует штрих-коды, и выводит сообщения на экран устройства через класс _Display_:
 
-```
+```js
 class Sale {
   constructor(display) {
-    this._display = display
+    this._display = display;
   }
 
   scan(barcode) {
     // сканирует
-    ...
+    // ...
     // выводит сообщение
-    this._display.showMessage('hello world')
+    this._display.showMessage("hello world");
   }
 }
 
 class Display {
   showMessage(msg) {
-    ...
+    // ...
   }
 }
 
-const display = new Display()
-const sale = new Sale(display)
+const display = new Display();
+const sale = new Sale(display);
 ```
 
 Чтобы не зависеть от конкретного оборудования, мы можем написать поддельный класс _FakeDisplay_:
 
-```
+```js
 class FakeDisplay {
   // вместо вывода на экран, будем запоминать сообщение
   // это метод, который имитирует настоящий метод класса Display
   showMessage(msg) {
-    this.lastLine = msg
+    this.lastLine = msg;
   }
 
   // и потом выводить его по требованию
   // это доп. метод, который нужен именно в тестах
   getLastLine() {
-    return this.lastLine
+    return this.lastLine;
   }
 }
 ```
 
 В тесте мы можем подменить класс, работающий с конкретным оборудованием на поддельный:
 
-```
-it('Выводит название товара на экран', () => {
-  const fakeDisplay = new FakeDisplay()
-  const saleTest = new Sale(fakeDisplay)
+```js
+it("Выводит название товара на экран", () => {
+  const fakeDisplay = new FakeDisplay();
+  const saleTest = new Sale(fakeDisplay);
 
-  saleTest.scan('1')
+  saleTest.scan("1");
 
-  expect(fakeDisplay.getLastLine).toEqual('Молоко')
-})
+  expect(fakeDisplay.getLastLine).toEqual("Молоко");
+});
 ```
 
 Этот тест не упадёт, если не работает какая-то часть в настоящем классе _Display_. Но мы тестируем класс _Sale_, а не _Display_, поэтому конкретно в этом тесте это не важно.
@@ -181,38 +181,38 @@ it('Выводит название товара на экран', () => {
 
 Часто программисты полагаются на них и не пишут тесты к коду, который собираются рефакторить этими инструментами. Но таким образом можно пропустить изменение поведения. Например:
 
-```
+```js
 // класс до рефакторинга
 class Example {
-  alpha = 0
+  alpha = 0;
 
   getValue() {
-    this.alpha++
-    return 42
+    this.alpha++;
+    return 42;
   }
 
   doSomething() {
-    let total = 0
-    const val = this.getValue()
+    let total = 0;
+    const val = this.getValue();
     for (let i = 0; i < 5; i++) {
-      total += val
+      total += val;
     }
   }
 }
 
 // после
 class Example {
-  alpha = 0
+  alpha = 0;
 
   getValue() {
-    this.alpha++
-    return 42
+    this.alpha++;
+    return 42;
   }
 
   doSomething() {
-    let total = 0
+    let total = 0;
     for (let i = 0; i < 5; i++) {
-      total += this.getValue()
+      total += this.getValue();
     }
   }
 }

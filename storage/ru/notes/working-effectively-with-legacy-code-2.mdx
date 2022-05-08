@@ -22,15 +22,15 @@ tags:
 
 Почкование метода (погуглил, в переводе книги это называется именно так, прим. автора статьи). Если надо добавить фичу, которую можно выразить в новом коде, то лучше написать этот код в новом методе, и вызывать новый метод. Новый метод можно будет покрыть тестами.
 
-```
-class UsersList {
+```js
+class UserList {
   // метод отправляет уведомления об акции
   // указанным пользователям
   notifyOfAction(users) {
-    const message = 'some message to send'
-    users.forEach(user => {
-      this.sendEmail(user, message)
-    })
+    const message = "some message to send";
+    users.forEach((user) => {
+      this.sendEmail(user, message);
+    });
   }
 
   // ...
@@ -39,14 +39,14 @@ class UsersList {
 
 Если мы хотим, чтобы уведомление отправлялось только совершеннолетним, то можно профильтровать список пользователей прямо в методе:
 
-```
-class UsersList {
+```js
+class UserList {
   notifyOfAction(users) {
-    const message = 'some message to send'
-    users = users.filter(user => user.age >= 18)
-    users.forEach(user => {
-      this.sendEmail(user, message)
-    })
+    const message = "some message to send";
+    users = users.filter((user) => user.age >= 18);
+    users.forEach((user) => {
+      this.sendEmail(user, message);
+    });
   }
 
   // ...
@@ -55,18 +55,18 @@ class UsersList {
 
 Но таким образом мы не поймём, где заканчивается старый код, где начинается новый, и как это тестировать. Лучше вынести фильтрацию в новый метод:
 
-```
-class UsersList {
+```js
+class UserList {
   notifyOfAction(users) {
-    const message = 'some message to send'
-    users = this.filterInAdults(users)
-    users.forEach(user => {
-      this.sendEmail(user, message)
-    })
+    const message = "some message to send";
+    users = this.filterInAdults(users);
+    users.forEach((user) => {
+      this.sendEmail(user, message);
+    });
   }
 
   filterInAdults(users) {
-    return users.filter(user => user.age >= 18)
+    return users.filter((user) => user.age >= 18);
   }
 
   // ...
@@ -166,21 +166,21 @@ class Employee {
 
 На примерах, первый шаг:
 
-```
+```js
 // пишем тест, который заведомо упадёт
-it('Возвращает сумму двух однозначных чисел', () => {
-  expect(sum(1, 1)).toEqual(1 + 1)
-})
+it("Возвращает сумму двух однозначных чисел", () => {
+  expect(sum(1, 1)).toEqual(1 + 1);
+});
 
 // функция пока пустая
-const sum = (a, b) => {}
+const sum = (a, b) => {};
 ```
 
 Убеждаемся, что тест падает с той причиной, которую мы ожидаем. На втором шаге:
 
-```
+```js
 // меняем реализацию функции или метода так, чтобы тест проходил
-const sum = (a, b) => a + b
+const sum = (a, b) => a + b;
 ```
 
 На третьем проверяем, чтобы не было дублирования и рефакторим код метода и тестов. Постепенно описываем примеры прохождения теста и примеры непрохождения. В легаси-коде тестируемые методы и классы вначале готовят к тестированию, а потом переходят к алгоритму TDD.
@@ -207,22 +207,22 @@ const sum = (a, b) => a + b
 
 При наличии сайд-эффектов стоит попробовать извлечь метод. Класс ниже создаёт элементы интерфейса и решает, какую информацию в них отображать:
 
-```
+```js
 class AccountDetails {
   // ...
 
   handlePerformedAction(event) {
-    const {type} = event
-    if (type === 'project activity') {
-      const modal = this.createModal()
-      const display = this.createElement('input')
-      modal.setDescription('modal text')
-      modal.show()
+    const { type } = event;
+    if (type === "project activity") {
+      const modal = this.createModal();
+      const display = this.createElement("input");
+      modal.setDescription("modal text");
+      modal.show();
 
-      let accountDescription = this.modal.getSymbol()
-      accountDescription += ': '
+      let accountDescription = this.modal.getSymbol();
+      accountDescription += ": ";
       // ...
-      display.value = accountDescription
+      display.value = accountDescription;
     }
   }
 }
@@ -230,34 +230,34 @@ class AccountDetails {
 
 Можно отделить код, который не зависит от интерфейса, от кода, который зависит. Выделим методы обработки команды, чтобы методы стали тестируемыми и независимыми друг от друга:
 
-```
+```js
 class AccountDetails {
   // ...
 
   handlePerformedAction(event) {
-    const {type} = event
-    this.performCommand(type)
+    const { type } = event;
+    this.performCommand(type);
   }
 
   performCommand(type) {
-    if (type === 'project activity') {
-      this.setDescription('modal text')
-      this.updateModalValue()
+    if (type === "project activity") {
+      this.setDescription("modal text");
+      this.updateModalValue();
     }
   }
 
   setDescription(text) {
-    const modal = this.createModal()
-    modal.setDescription(text)
-    modal.show()
+    const modal = this.createModal();
+    modal.setDescription(text);
+    modal.show();
   }
 
   updateModalValue() {
-    const display = this.createElement('input')
-    let accountDescription = this.modal.getSymbol()
-    accountDescription += ': '
+    const display = this.createElement("input");
+    let accountDescription = this.modal.getSymbol();
+    accountDescription += ": ";
     // ...
-    display.value = accountDescription
+    display.value = accountDescription;
   }
 }
 ```

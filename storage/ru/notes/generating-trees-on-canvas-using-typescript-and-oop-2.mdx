@@ -157,10 +157,12 @@ export class StartPointSelector implements StartSelector {
 
 Внутри метода мы ссылаемся на `this.settings.canvasSize`. Сейчас поля `this.settings` у нас нет, его надо создать. Мы можем это сделать напрямую или в конструкторе:
 
-```
+```ts
 // 1. Напрямую:
 export class StartPointSelector {
-  settings = {/*…*/}
+  settings = {
+    /*…*/
+  };
 }
 
 // 2. Через конструктор:
