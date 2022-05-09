@@ -40,14 +40,16 @@ This command will start 3 daemons in parallel:
 - Next dev server for Ru version on [2002 port](http://localhost:2002);
 - Translation dictionary watcher for live-updates of localization data.
 
-Create a component, post, or a project:
+### Code Generation
+
+Create a component, post, or a page:
 
 ```sh
 npm run new:component
 npm run new:post
-npm run new:project
+npm run new:page
 
-# Interactive CLI will guide after.
+# Interactive CLI will guide you after this.
 ```
 
 Run the tests:
