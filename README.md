@@ -81,6 +81,44 @@ After the build, Next exports the generated site sources into `out`. Then the st
 
 The sources in `out` now can be deployed to a server.
 
+## Ops
+
+For operations that aren't included in Next by default, custom `ops` scripts are used.
+
+### Image Optimization
+
+To optimize images in `public/images` using Squoosh, run:
+
+```sh
+npm run images:convert
+```
+
+Next's Image component doesn't support optimizations when using SSG, hence this script.
+
+Also, generated images are kept in the repository to avoid too long deployments. Since all images require optimizations, every update would last for tens of minutes.
+
+### Translation
+
+Instead of [using a third-party library and a localization service](https://github.com/bespoyasov/www/projects/6#card-80516724), the custom translation “library” is used.
+
+It collects data from `translations.json` files in the `src` directory and creates a translation dictionary. Except the resulting dictionary, the type definitions for it are created. It improves the IDE support and autocompletion.
+
+To collect translations, run:
+
+```sh
+npm run dict:collect
+```
+
+This command is run automatically after installing the dependencies and before project start and build.
+
+To set up a watcher over the translation data that updates the dictionary on every `translations.json` file change, run:
+
+```sh
+npm run dict:watch
+```
+
+This command is run automatically on start of the project.
+
 ## Plans and TODOs
 
 Everything I consider implementing is in the [projects section](https://github.com/bespoyasov/www/projects) on GitHub.
