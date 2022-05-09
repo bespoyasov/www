@@ -7,13 +7,13 @@ Source code for my blog.
 
 ## Overview
 
-[Next](https://nextjs.org) is used as a static site generator. Pages call `api` that triggers `persistence` to read a post or a project from an MDX file in the `data` directory.
+[Next](https://nextjs.org) is used as a static site generator. Pages call the `network` service that triggers `persistence` to read a post or a project from an MDX file in the `storage` directory.
 
-RSS is generated via a custom `ops` script. Images optimization performed using [Squoosh](https://squoosh.app) and set up in `ops` as well.
+Translation dictionary collection, RSS generation and image optimization are performed by custom scripts located in `ops`. For optimizing images, [Squoosh](https://squoosh.app) is used.
 
-[Jest](https://jestjs.io) is used for running tests and [Hygen](https://www.hygen.io)—for code generation.
+[Jest](https://jestjs.io) is used as a test runner and [Hygen](https://www.hygen.io) as a code generator.
 
-Deployed on a static server using [GitHub Actions](https://github.com/features/actions).
+Deployed on static servers using [GitHub Actions](https://github.com/features/actions).
 
 ## Installation
 
