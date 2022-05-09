@@ -15,7 +15,7 @@ RSS is generated via a custom `ops` script. Images optimization performed using 
 
 Deployed on a static server using [GitHub Actions](https://github.com/features/actions).
 
-## Installation and Development
+## Installation
 
 Clone the repo and install dependencies:
 
@@ -25,6 +25,8 @@ cd www
 npm i
 npm start
 ```
+
+## Development
 
 Create a component, post, or a project:
 
