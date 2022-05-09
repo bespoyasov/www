@@ -1,6 +1,9 @@
 # ✍️ 💻 👋
 
-Source code for my [blog](https://bespoyasov.ru).
+Source code for my blog.
+
+- [In English](https://bespoyasov.me)
+- [In Russian](https://bespoyasov.ru)
 
 ## Overview
 
