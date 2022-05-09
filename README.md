@@ -52,16 +52,21 @@ npm run new:page
 # Interactive CLI will guide you after this.
 ```
 
-Run the tests:
+### Testing
+
+To run the tests in development:
 
 ```sh
-# For development:
 npm run test:dev
+```
 
-# Run once, used in CI:
+For running all the tests once:
+
+```sh
 npm test
 ```
 
+The latter command is also used in CI.
 Build, generate RSS, export site, and test the build:
 
 ```sh
