@@ -67,17 +67,19 @@ npm test
 ```
 
 The latter command is also used in CI.
-Build, generate RSS, export site, and test the build:
+
+## Project Build
+
+The project can be built in 2 different languages:
 
 ```sh
-npm run build
+npm run build:en
+npm run build:ru
 ```
 
-Optimize images in the `public` directory:
+After the build, Next exports the generated site sources into `out`. Then the static resources are cleaned up to contain only the media related to the current build locale. In the end, RSS is generated.
 
-```sh
-npm run images:convert
-```
+The sources in `out` now can be deployed to a server.
 
 ## Plans and TODOs
 
