@@ -28,6 +28,18 @@ npm i
 
 ## Development
 
+For starting the development mode, run:
+
+```sh
+npm start
+```
+
+This command will start 3 daemons in parallel:
+
+- Next dev server for En version on [2001 port](http://localhost:2001);
+- Next dev server for Ru version on [2002 port](http://localhost:2002);
+- Translation dictionary watcher for live-updates of localization data.
+
 Create a component, post, or a project:
 
 ```sh
