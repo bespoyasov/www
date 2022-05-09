@@ -22,8 +22,8 @@ Clone the repo and install dependencies:
 ```sh
 git clone https://github.com/bespoyasov/www.git
 cd www
+
 npm i
-npm start
 ```
 
 ## Development
