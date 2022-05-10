@@ -28,8 +28,8 @@
 @media (min-width: 640px) {
   .photo {
     display: block;
-    width: var(--logo-image-size);
-    height: var(--logo-image-size);
+    width: var(--author-photo-size);
+    height: var(--author-photo-size);
     overflow: hidden;
     border-radius: 50%;
   }

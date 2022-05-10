@@ -14,8 +14,8 @@
 
 @media (min-width: 640px) {
   .nav {
-    --offset-top: calc(var(--logo-image-size) / -1.5);
-    --offset-left: calc(var(--logo-image-size) + 15px);
+    --offset-top: calc(var(--author-photo-size) / -1.5);
+    --offset-left: calc(var(--author-photo-size) + 15px);
 
     position: relative;
     z-index: 1;
