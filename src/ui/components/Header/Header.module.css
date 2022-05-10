@@ -1,5 +1,22 @@
 .header {
+  --row-height: calc(var(--author-photo-size) / 2);
+
+  display: grid;
+  grid-template-rows: repeat(2, var(--row-height));
+  grid-template-columns: var(--author-photo-size) 1fr;
+
   padding: var(--vertical-gap) 0;
+  column-gap: 15px;
+}
+
+.logo {
+  grid-row: 1;
+  grid-column: 1 / span 2;
+}
+
+.nav {
+  grid-row: 2;
+  grid-column: 1 / span 2;
 }
 
 .header > a,
@@ -14,12 +31,6 @@
 
 @media (min-width: 640px) {
   .nav {
-    --offset-top: calc(var(--author-photo-size) / -1.5);
-    --offset-left: calc(var(--author-photo-size) + 15px);
-
-    position: relative;
-    z-index: 1;
-    display: block;
-    margin: var(--offset-top) 0 0 var(--offset-left);
+    grid-column: 2;
   }
 }
