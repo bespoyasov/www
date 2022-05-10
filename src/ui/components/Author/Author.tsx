@@ -39,7 +39,7 @@ export const Author = ({ className }: HTMLAttributes<HTMLSpanElement>) => {
           />
 
           <img
-            alt={translated.author.altText}
+            alt={translated.authorPhoto.altText}
             draggable="false"
             srcSet="
               /images/static/photo-2022-02-22.png    1x,
