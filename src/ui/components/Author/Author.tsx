@@ -6,7 +6,7 @@ import { classes } from "@utils/classes";
 import { onMainPage } from "@utils/onMainPage";
 import { translated } from "@translation";
 
-import styles from "./Logo.module.css";
+import styles from "./Author.module.css";
 
 export const Author = ({ className }: HTMLAttributes<HTMLSpanElement>) => {
   const { pathname } = useRouter();
@@ -39,7 +39,7 @@ export const Author = ({ className }: HTMLAttributes<HTMLSpanElement>) => {
           />
 
           <img
-            alt={translated.logo.altText}
+            alt={translated.author.altText}
             draggable="false"
             srcSet="
               /images/static/photo-2022-02-22.png    1x,

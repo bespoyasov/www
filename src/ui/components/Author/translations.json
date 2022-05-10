@@ -1,5 +1,5 @@
 {
-  "prefix": "logo",
+  "prefix": "author",
   "en": { "altText": "Author's photo" },
   "ru": { "altText": "Фотография автора" }
 }

@@ -1,8 +1,8 @@
 import { useRouter } from "next/router";
 import { onMainPage } from "@utils/onMainPage";
+import { Author } from "@components/Author";
 import { Link } from "@components/LinkIf";
 import { Nav } from "@components/Nav";
-import { Author } from "@components/Logo";
 import styles from "./Header.module.css";
 
 export const Header = () => {
