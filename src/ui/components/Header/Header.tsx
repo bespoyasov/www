@@ -2,7 +2,7 @@ import { useRouter } from "next/router";
 import { onMainPage } from "@utils/onMainPage";
 import { Link } from "@components/LinkIf";
 import { Nav } from "@components/Nav";
-import { Logo } from "@components/Logo";
+import { Author } from "@components/Logo";
 import styles from "./Header.module.css";
 
 export const Header = () => {
@@ -11,7 +11,7 @@ export const Header = () => {
   return (
     <header className={styles.header}>
       <Link to="/" if={!onMainPage(pathname)}>
-        <Logo />
+        <Author />
       </Link>
 
       <Nav className={styles.nav} />

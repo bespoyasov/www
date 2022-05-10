@@ -8,12 +8,12 @@ import { translated } from "@translation";
 
 import styles from "./Logo.module.css";
 
-export const Logo = ({ className }: HTMLAttributes<HTMLSpanElement>) => {
+export const Author = ({ className }: HTMLAttributes<HTMLSpanElement>) => {
   const { pathname } = useRouter();
   const Header = onMainPage(pathname) ? "h1" : "span";
 
   return (
-    <span className={classes(styles.logo, className)}>
+    <span className={classes(styles.author, className)}>
       <Header className={styles.label}>{author.name}</Header>
 
       <span className={styles.photo}>
