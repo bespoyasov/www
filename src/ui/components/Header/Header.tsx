@@ -1,5 +1,6 @@
 import { useRouter } from "next/router";
 import { onMainPage } from "@utils/onMainPage";
+import { Language } from "@components/Language";
 import { Author } from "@components/Author";
 import { Link } from "@components/LinkIf";
 import { Nav } from "@components/Nav";
@@ -15,6 +16,7 @@ export const Header = () => {
       </Link>
 
       <Nav className={styles.nav} />
+      <Language className={styles.language} />
     </header>
   );
 };

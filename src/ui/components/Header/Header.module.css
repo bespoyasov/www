@@ -3,7 +3,7 @@
 
   display: grid;
   grid-template-rows: repeat(2, var(--row-height));
-  grid-template-columns: var(--author-photo-size) 1fr;
+  grid-template-columns: var(--author-photo-size) 1fr 30px;
 
   padding: var(--vertical-gap) 0;
   column-gap: 15px;
@@ -17,6 +17,11 @@
 .nav {
   grid-row: 2;
   grid-column: 1 / span 2;
+}
+
+.language {
+  grid-row: 1;
+  grid-column: 3;
 }
 
 .header > a,
