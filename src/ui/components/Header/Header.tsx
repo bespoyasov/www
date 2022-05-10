@@ -11,7 +11,7 @@ export const Header = () => {
   return (
     <header className={styles.header}>
       <Link to="/" if={!onMainPage(pathname)}>
-        <Logo className={styles.logo} />
+        <Logo />
       </Link>
 
       <Nav className={styles.nav} />
