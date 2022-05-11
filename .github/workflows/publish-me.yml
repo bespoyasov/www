@@ -43,11 +43,11 @@ jobs:
           script: cd ./public_html && rm -r _next
 
       - name: Deploy
-        uses: easingthemes/ssh-deploy@main
-        env:
-          SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY_ME }}
-          REMOTE_HOST: ${{ secrets.REMOTE_HOST_ME }}
-          REMOTE_USER: ${{ secrets.REMOTE_USER_ME }}
-          SOURCE: ${{ secrets.SOURCE_ME }}
-          TARGET: ${{ secrets.TARGET_ME }}
-          ARGS: "-rlgozvc -i"
+        uses: milanmk/actions-file-deployer@latest
+        with:
+          remote-host: ${{ secrets.REMOTE_HOST_ME }}
+          remote-user: ${{ secrets.REMOTE_USER_ME }}
+          remote-password: ${{ secrets.DEPLOY_PASSWORD_ME }}
+          remote-protocol: ${{ secrets.DEPLOY_PROTOCOL_ME }}
+          local-path: ${{ secrets.SOURCE_ME }}
+          remote-path: ${{ secrets.TARGET_ME }}
