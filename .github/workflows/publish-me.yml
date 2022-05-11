@@ -43,10 +43,10 @@ jobs:
           script: cd ./public_html && rm -r _next
 
       - name: Deploy
-        uses: sand4rt/ftp-deployer@v1.4
+        uses: SamKirkland/FTP-Deploy-Action@4.3.0
         with:
-          host: ${{ secrets.DEPLOY_HOST_ME }}
+          server: ${{ secrets.DEPLOY_HOST_ME }}
           username: ${{ secrets.DEPLOY_USER_ME }}
           password: ${{ secrets.DEPLOY_PASSWORD_ME }}
-          remote_folder: ${{ secrets.TARGET_ME }}
-          local_folder: ${{ secrets.SOURCE_ME }}
+          local-dir: ${{ secrets.SOURCE_ME }}
+          server-dir: ${{ secrets.TARGET_ME }}
