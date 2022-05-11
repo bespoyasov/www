@@ -43,11 +43,10 @@ jobs:
           script: cd ./public_html && rm -r _next
 
       - name: Deploy
-        uses: milanmk/actions-file-deployer@1.10
+        uses: sand4rt/ftp-deployer@v1.4
         with:
-          remote-host: ${{ secrets.DEPLOY_HOST_ME }}
-          remote-user: ${{ secrets.DEPLOY_USER_ME }}
-          remote-password: ${{ secrets.DEPLOY_PASSWORD_ME }}
-          remote-protocol: ${{ secrets.DEPLOY_PROTOCOL_ME }}
-          local-path: ${{ secrets.SOURCE_ME }}
-          remote-path: ${{ secrets.TARGET_ME }}
+          host: ${{ secrets.DEPLOY_HOST_ME }}
+          username: ${{ secrets.DEPLOY_USER_ME }}
+          password: ${{ secrets.DEPLOY_PASSWORD_ME }}
+          remote_folder: ${{ secrets.TARGET_ME }}
+          local_folder: ${{ secrets.SOURCE_ME }}
