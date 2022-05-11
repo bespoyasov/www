@@ -49,5 +49,4 @@ jobs:
           username: ${{ secrets.DEPLOY_USER_ME }}
           password: ${{ secrets.DEPLOY_PASSWORD_ME }}
           local-dir: ${{ secrets.SOURCE_ME }}
-          server-dir: ${{ secrets.TARGET_ME }}
           log-level: minimal
