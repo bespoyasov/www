@@ -43,7 +43,7 @@ jobs:
           script: cd ./public_html && rm -r _next
 
       - name: Deploy
-        uses: milanmk/actions-file-deployer@latest
+        uses: milanmk/actions-file-deployer@1.10
         with:
           remote-host: ${{ secrets.REMOTE_HOST_ME }}
           remote-user: ${{ secrets.REMOTE_USER_ME }}
