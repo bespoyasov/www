@@ -45,8 +45,8 @@ jobs:
       - name: Deploy
         uses: milanmk/actions-file-deployer@1.10
         with:
-          remote-host: ${{ secrets.REMOTE_HOST_ME }}
-          remote-user: ${{ secrets.REMOTE_USER_ME }}
+          remote-host: ${{ secrets.DEPLOY_HOST_ME }}
+          remote-user: ${{ secrets.DEPLOY_USER_ME }}
           remote-password: ${{ secrets.DEPLOY_PASSWORD_ME }}
           remote-protocol: ${{ secrets.DEPLOY_PROTOCOL_ME }}
           local-path: ${{ secrets.SOURCE_ME }}
