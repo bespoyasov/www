@@ -9,7 +9,7 @@
   column-gap: 15px;
 }
 
-.logo {
+.photo {
   grid-row: 1;
   grid-column: 1 / span 2;
 }
@@ -24,13 +24,13 @@
   grid-column: 3;
 }
 
-.header > a,
-.header > a:visited {
+.photo > a,
+.photo > a:visited {
   color: var(--text-color);
   text-decoration: none;
 }
 
-.header > a:hover {
+.photo > a:hover {
   color: var(--link-accent-color);
 }
 

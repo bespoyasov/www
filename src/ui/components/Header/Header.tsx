@@ -11,9 +11,11 @@ export const Header = () => {
 
   return (
     <header className={styles.header}>
-      <Link to="/" if={!onMainPage(pathname)}>
-        <Author className={styles.logo} />
-      </Link>
+      <span className={styles.photo}>
+        <Link to="/" if={!onMainPage(pathname)}>
+          <Author />
+        </Link>
+      </span>
 
       <Nav className={styles.nav} />
       <Language className={styles.language} />
