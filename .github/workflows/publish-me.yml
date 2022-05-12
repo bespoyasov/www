@@ -33,14 +33,6 @@ jobs:
       - run: npm run build:en
       - run: npm run test:smoke
 
-      - name: Cleanup stale deployments
-        uses: appleboy/ssh-action@master
-        with:
-          username: ${{ secrets.REMOTE_USER_ME }}
-          host: ${{ secrets.REMOTE_HOST_ME }}
-          key: ${{ secrets.SSH_PRIVATE_KEY_ME }}
-          script: cd ./public_html && rm -r _next
-
       - name: Deploy
         uses: SamKirkland/FTP-Deploy-Action@4.3.0
         with:
