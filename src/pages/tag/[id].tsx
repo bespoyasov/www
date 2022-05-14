@@ -2,7 +2,7 @@ import type { GetStaticProps, GetStaticPaths } from "next";
 import type { TagKind } from "@core/tags";
 import { tags } from "@core/tags";
 
-import { projectsMetadata, notesMetadata } from "@network/fetch";
+import { projectsMetadata, notesMetadata, talksMetadata } from "@network/fetch";
 import { assureType } from "@utils/assureType";
 import { withTag } from "@utils/filter";
 
@@ -23,11 +23,13 @@ export const getStaticProps: GetStaticProps<TagProps> = ({ params }) => {
 
   const projects = projectsMetadata().filter(byTag);
   const notes = notesMetadata().filter(byTag);
+  const talks = talksMetadata().filter(byTag);
 
   return {
     props: {
       projects,
       notes,
+      talks,
     },
   };
 };
