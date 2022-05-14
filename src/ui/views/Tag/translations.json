@@ -6,7 +6,9 @@
     "notesTitle": "Notes Tagged by “%s”",
     "notesDescription": "Recent blog posts from newest to oldest.",
     "projectsTitle": "Projects",
-    "projectsDescription": "Websites, applications, open-source projects, and educational online books."
+    "projectsDescription": "Websites, applications, open-source projects, and educational online books.",
+    "talksTitle": "Public Talks",
+    "talksDescription": "My talks and workshops about software development and frontend."
   },
 
   "ru": {
@@ -14,6 +16,8 @@
     "notesTitle": "Заметки по тегу «%s»",
     "notesDescription": "Последние статьи из блога от новых к старым.",
     "projectsTitle": "Проекты",
-    "projectsDescription": "Сайты, приложения, опен-сорс проекты, обучающие пособия и книги."
+    "projectsDescription": "Сайты, приложения, опен-сорс проекты, обучающие пособия и книги.",
+    "talksTitle": "Публичные выступления",
+    "talksDescription": "Доклады, воркшопы, мастер-классы и подкасты."
   }
 }
