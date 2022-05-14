@@ -15,3 +15,4 @@ function queryFor(query: QueryKind): QueryPost {
 
 export const getProject = queryFor("projects");
 export const getNote = queryFor("notes");
+export const getTalk = queryFor("talks");

@@ -1,7 +1,7 @@
 import type { QueryPost } from "./types";
 
 import { mockSystem } from "@testing/mocks";
-import { getProject, getNote } from ".";
+import { getProject, getNote, getTalk } from ".";
 
 const postId = "post";
 const fileName = "post.mdx";
@@ -10,7 +10,7 @@ describe("when called a query executor with a post id", () => {
   const readFileSync = jest.fn();
   const system = mockSystem({ readFileSync });
 
-  const each = it.each<QueryPost>([getProject, getNote]);
+  const each = it.each<QueryPost>([getProject, getNote, getTalk]);
 
   each("executor should read the file with the post contents [#%#]", (execute) => {
     execute(postId, { system });
