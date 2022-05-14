@@ -1,0 +1,10 @@
+@media (min-width: 640px) {
+  .container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--gap);
+
+    --collapse-compensation: calc(-1 * var(--vertical-gap));
+    margin-top: var(--collapse-compensation);
+  }
+}
