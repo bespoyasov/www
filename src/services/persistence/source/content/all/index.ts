@@ -19,3 +19,4 @@ function queryFor(query: QueryKind): QueryPosts {
 
 export const allProjects = queryFor("projects");
 export const allNotes = queryFor("notes");
+export const allTalks = queryFor("talks");

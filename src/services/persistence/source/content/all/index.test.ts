@@ -1,14 +1,14 @@
 import type { QueryPosts } from "./types";
 
 import { mockSystem } from "@testing/mocks";
-import { allProjects, allNotes } from ".";
+import { allProjects, allNotes, allTalks } from ".";
 
 const fileName = "file.mdx";
 const fileContent = "The file content.";
 const fileList = Array(3).fill(fileName);
 
 describe("when called a query executor", () => {
-  const each = it.each<QueryPosts>([allProjects, allNotes]);
+  const each = it.each<QueryPosts>([allProjects, allNotes, allTalks]);
 
   const readdirSync = jest.fn(() => fileList);
   const readFileSync = jest.fn(() => fileContent);
