@@ -4,4 +4,4 @@ export type FileContent = LocalizedString;
 
 export type ContentDirectory = AbsolutePath;
 
-export type QueryKind = "notes" | "projects";
+export type QueryKind = "notes" | "projects" | "talks";
