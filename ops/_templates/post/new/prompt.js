@@ -9,7 +9,7 @@ module.exports = [
     type: "select",
     name: "kind",
     message: "Select the post type:",
-    choices: ["note", "project"],
+    choices: ["note", "project", "talk"],
   },
   {
     type: "input",
