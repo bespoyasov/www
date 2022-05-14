@@ -16,7 +16,7 @@ export const Nav = ({ className }: HTMLAttributes<HTMLElement>) => {
         {routes.map(({ url, title }) => (
           <li key={title}>
             <Link href={url}>
-              <a className={activeIf(path.includes(url))}>{title}</a>
+              <a className={activeIf(path.startsWith(url))}>{title}</a>
             </Link>
           </li>
         ))}
