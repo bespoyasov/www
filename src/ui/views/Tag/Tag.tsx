@@ -7,6 +7,7 @@ import { valueOf } from "@core/tags";
 import { VisuallyHidden } from "@components/VisuallyHidden";
 import { Description } from "@components/Description";
 import { ProjectsList } from "@components/ProjectsList";
+import { TalkList } from "@components/TalkList";
 import { Section } from "@components/Section";
 import { Anthology } from "@components/Notes";
 
@@ -16,7 +17,7 @@ import { sizeOf } from "@utils/sizeOf";
 import { injectIn, translated } from "@translation";
 import type { TagProps } from "./types";
 
-export const Tag = ({ projects, notes }: TagProps) => {
+export const Tag = ({ projects, notes, talks }: TagProps) => {
   const { query } = useRouter();
   const tag = valueOf(assureType<TagKind>(query.id));
   const summary = injectIn(translated.tagPage.summary, tag);
@@ -35,6 +36,13 @@ export const Tag = ({ projects, notes }: TagProps) => {
           <p>{translated.tagPage.notesDescription}</p>
           <Anthology notes={notes} />
         </Section>
+
+        {sizeOf(talks) > 0 && (
+          <Section title={translated.tagPage.talksTitle}>
+            <p>{translated.tagPage.talksDescription}</p>
+            <TalkList talks={talks} />
+          </Section>
+        )}
 
         {sizeOf(projects) > 0 && (
           <Section title={translated.tagPage.projectsTitle}>
