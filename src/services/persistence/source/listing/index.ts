@@ -15,3 +15,4 @@ function queryFor(query: QueryKind): QueryListing {
 
 export const projectList = queryFor("projects");
 export const noteList = queryFor("notes");
+export const talkList = queryFor("talks");

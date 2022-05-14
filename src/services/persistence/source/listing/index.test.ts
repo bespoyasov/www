@@ -1,10 +1,10 @@
 import type { QueryListing } from "./types";
 
 import { mockSystem } from "@testing/mocks";
-import { projectList, noteList } from ".";
+import { projectList, noteList, talkList } from ".";
 
 describe("when called a query executor", () => {
-  const each = it.each<QueryListing>([projectList, noteList]);
+  const each = it.each<QueryListing>([projectList, noteList, talkList]);
 
   each("executor should return a list of files without extension [#%#]", (execute) => {
     const files = ["file1.mdx", "file-2.mdx", "3.mdx"];
