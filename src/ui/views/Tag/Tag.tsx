@@ -11,7 +11,7 @@ import { TalkList } from "@components/TalkList";
 import { Section } from "@components/Section";
 import { Anthology } from "@components/Notes";
 
-import { castTo } from "@utils/assureType";
+import { castTo } from "@utils/castTo";
 import { sizeOf } from "@utils/sizeOf";
 
 import { injectIn, translated } from "@translation";

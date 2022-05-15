@@ -1,4 +1,4 @@
-import { castTo } from "@utils/assureType";
+import { castTo } from "@utils/castTo";
 import { isCollection } from ".";
 
 describe("when given a list", () => {

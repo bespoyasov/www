@@ -1,5 +1,5 @@
 import fs from "fs";
-import { castTo } from "@utils/assureType";
+import { castTo } from "@utils/castTo";
 
 type SystemType = typeof fs;
 type SystemMock = Dict<keyof SystemType, unknown>;

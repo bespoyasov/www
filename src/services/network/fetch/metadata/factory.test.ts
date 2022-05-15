@@ -1,5 +1,5 @@
 import type { Dependencies } from "@network/composition";
-import { castTo } from "@utils/assureType";
+import { castTo } from "@utils/castTo";
 import { metadataFor } from "./factory";
 
 const testEntries = ["file1", "file2", "file3"];

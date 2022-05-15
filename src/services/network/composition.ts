@@ -6,7 +6,7 @@ import parse from "gray-matter";
 import { serialize } from "next-mdx-remote/serialize";
 
 import { serializationConfig } from "@configs/serialization";
-import { castTo } from "@utils/assureType";
+import { castTo } from "@utils/castTo";
 
 type SerializeSource = string;
 type SerializeResult = MDXRemoteSerializeResult;

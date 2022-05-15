@@ -1,4 +1,4 @@
-import { castTo } from "@utils/assureType";
+import { castTo } from "@utils/castTo";
 import { sizeOf } from ".";
 
 describe("when given a non-empty list", () => {

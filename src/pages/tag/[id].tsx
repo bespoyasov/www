@@ -3,7 +3,7 @@ import type { TagKind } from "@core/tags";
 import { tags } from "@core/tags";
 
 import { projectsMetadata, notesMetadata, talksMetadata } from "@network/fetch";
-import { castTo } from "@utils/assureType";
+import { castTo } from "@utils/castTo";
 import { withTag } from "@utils/filter";
 
 import type { TagProps } from "@views/Tag";

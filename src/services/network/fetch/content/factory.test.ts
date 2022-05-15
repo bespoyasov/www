@@ -1,5 +1,5 @@
 import type { Dependencies, Settings } from "@network/composition";
-import { castTo } from "@utils/assureType";
+import { castTo } from "@utils/castTo";
 import { contentFor } from "./factory";
 
 const testId = "post-id";
