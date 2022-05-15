@@ -6,7 +6,7 @@ import parse from "gray-matter";
 import { serialize } from "next-mdx-remote/serialize";
 
 import { serializationConfig } from "@configs/serialization";
-import { assureType } from "@utils/assureType";
+import { castTo } from "@utils/assureType";
 
 type SerializeSource = string;
 type SerializeResult = MDXRemoteSerializeResult;
@@ -35,6 +35,6 @@ export type Settings = {
 
 export const settings: Settings = {
   serializeSettings: {
-    mdxOptions: assureType(serializationConfig),
+    mdxOptions: castTo(serializationConfig),
   },
 };

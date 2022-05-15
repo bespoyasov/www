@@ -1,4 +1,4 @@
-import { assureType } from "@utils/assureType";
+import { castTo } from "@utils/assureType";
 import { isCollection } from ".";
 
 describe("when given a list", () => {
@@ -16,7 +16,7 @@ describe("when given an object", () => {
 describe("when given any other data structure", () => {
   it("should return `false`", () => {
     const nonCollections = [42, "test", Symbol(), null, undefined, Infinity, NaN];
-    const testCases = assureType<List<SomeCollection>>(nonCollections);
+    const testCases = castTo<List<SomeCollection>>(nonCollections);
 
     testCases.forEach((testCase) => {
       expect(isCollection(testCase)).toEqual(false);

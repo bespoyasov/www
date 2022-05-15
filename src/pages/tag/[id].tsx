@@ -3,7 +3,7 @@ import type { TagKind } from "@core/tags";
 import { tags } from "@core/tags";
 
 import { projectsMetadata, notesMetadata, talksMetadata } from "@network/fetch";
-import { assureType } from "@utils/assureType";
+import { castTo } from "@utils/assureType";
 import { withTag } from "@utils/filter";
 
 import type { TagProps } from "@views/Tag";
@@ -18,7 +18,7 @@ function pathFromTag(tag: TagKind): UrlSlug {
 }
 
 export const getStaticProps: GetStaticProps<TagProps> = ({ params }) => {
-  const desired = assureType<TagKind>(params.id);
+  const desired = castTo<TagKind>(params.id);
   const byTag = withTag(desired);
 
   const projects = projectsMetadata().filter(byTag);

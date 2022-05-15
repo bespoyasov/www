@@ -1,5 +1,5 @@
 import type { Dependencies } from "@network/composition";
-import { assureType } from "@utils/assureType";
+import { castTo } from "@utils/assureType";
 import { metadataFor } from "./factory";
 
 const testEntries = ["file1", "file2", "file3"];
@@ -10,7 +10,7 @@ const testMetadata = {
 };
 
 const parserMock = jest.fn((file) => ({ data: testMetadata[file] }));
-const dependencies = assureType<Dependencies>({ parse: parserMock });
+const dependencies = castTo<Dependencies>({ parse: parserMock });
 
 const query = jest.fn(() => testEntries);
 const request = metadataFor(query);

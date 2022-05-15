@@ -11,7 +11,7 @@ import { TalkList } from "@components/TalkList";
 import { Section } from "@components/Section";
 import { Anthology } from "@components/Notes";
 
-import { assureType } from "@utils/assureType";
+import { castTo } from "@utils/assureType";
 import { sizeOf } from "@utils/sizeOf";
 
 import { injectIn, translated } from "@translation";
@@ -19,7 +19,7 @@ import type { TagProps } from "./types";
 
 export const Tag = ({ projects, notes, talks }: TagProps) => {
   const { query } = useRouter();
-  const tag = valueOf(assureType<TagKind>(query.id));
+  const tag = valueOf(castTo<TagKind>(query.id));
   const summary = injectIn(translated.tagPage.summary, tag);
 
   return (

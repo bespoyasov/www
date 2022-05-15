@@ -1,5 +1,5 @@
 import type { Dependencies, Settings } from "@network/composition";
-import { assureType } from "@utils/assureType";
+import { castTo } from "@utils/assureType";
 import { contentFor } from "./factory";
 
 const testId = "post-id";
@@ -15,8 +15,8 @@ const query = jest.fn(() => testFileSource);
 const parse = jest.fn(() => testParseResult);
 const serialize = jest.fn(async () => testSerializeResult);
 
-const dependencies = assureType<Dependencies>({ serialize, parse });
-const settings = assureType<Settings>({ serializeSettings: testSerializeSettings });
+const dependencies = castTo<Dependencies>({ serialize, parse });
+const settings = castTo<Settings>({ serializeSettings: testSerializeSettings });
 const request = contentFor(query, settings);
 
 beforeEach(() => jest.clearAllMocks());

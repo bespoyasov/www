@@ -1,4 +1,4 @@
-import { assureType } from "@utils/assureType";
+import { castTo } from "@utils/assureType";
 import { sizeOf } from ".";
 
 describe("when given a non-empty list", () => {
@@ -25,7 +25,7 @@ describe("when given an empty collection", () => {
 
 describe("when given not a collection", () => {
   it("should throw an error", () => {
-    const notCollection = assureType<SomeCollection>(42);
+    const notCollection = castTo<SomeCollection>(42);
     const call = () => sizeOf(notCollection);
     expect(call).toThrowErrorMatchingInlineSnapshot(`"Collection must be a list or an object."`);
   });

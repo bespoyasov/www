@@ -1,10 +1,10 @@
 import type { EnvironmentKind, ProcessType } from "./types";
 
-import { assureType } from "@utils/assureType";
+import { castTo } from "@utils/assureType";
 import { isProduction } from ".";
 
 function createProcessFor(env: EnvironmentKind): ProcessType {
-  return assureType<ProcessType>({
+  return castTo<ProcessType>({
     env: { NODE_ENV: env },
   });
 }
