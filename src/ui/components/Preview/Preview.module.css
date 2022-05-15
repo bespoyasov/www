@@ -12,6 +12,7 @@
 }
 
 .preview picture img {
+  max-height: initial;
   margin-top: calc(-1 * var(--image-height));
 }
 
