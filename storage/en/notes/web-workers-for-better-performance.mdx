@@ -71,7 +71,7 @@ worker.onmessage = (e) => console.log(e);
 
 ## Sample App
 
-I made a [small example](https://codepen.io/bespoyasov/project/editor/DdyxqP/#0), where I ran complex calculations first in the main script and then in the webworker. After that I compared how the animation behaves, using the debugger in Chrome.
+I made a [small example](https://github.com/bespoyasov/web-worker-example), where I ran complex calculations first in the main script and then in the webworker. After that I compared how the animation behaves, using the debugger in Chrome.
 
 At first I tried to do the animation without CSS transformations in order to get a better idea of the result. Without web worker animation stops and FPS drops to 0. This happens because the processor is busy with a complicated task. On the screenshot you can see how much space _response_ takes up—it's a calculation:
 
@@ -81,7 +81,7 @@ The web worker runs in parallel, so the animation is kept at an average of 60 FP
 
 ![How the web worker affects FPS](/images/content/web-workers-for-better-performance/after.jpg)
 
-The result for animation without CSS transformations is visible to the naked eye. [Try clicking](https://codepen.io/bespoyasov/project/editor/DdyxqP/#0) on the different buttons yourself and compare the responsiveness.
+The result for animation without CSS transformations is visible to the naked eye. [Try clicking](https://bespoyasov.me/showcase/web-workers-for-better-performance/) on the different buttons yourself and compare the responsiveness.
 
 CSS transformations save the situation, the page becomes more responsive and the animation smoother. But even with them at slightly higher loads FPS drops to 45-50. With the web worker FPS is stable at 60.
 
@@ -102,6 +102,11 @@ Web workers are supported by all browsers except Opera Mini. They work even in I
 So use it, it's a cool technology <nobr>:-)</nobr>
 
 ## Resources
+
+- [Sample App](https://bespoyasov.me/showcase/web-workers-for-better-performance/)
+- [Source Code on GitHub](https://github.com/bespoyasov/web-worker-example)
+
+### More About Web Workers
 
 - [Specification for workers](https://www.w3.org/TR/workers/)
 - [Using Web Workers](https://developer.mozilla.org/en-US/docs/web/api/web_workers_api/using_web_workers)
