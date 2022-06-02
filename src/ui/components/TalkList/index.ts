@@ -1,1 +1,1 @@
-export * from './TalkList';
+export * from "./TalkList";

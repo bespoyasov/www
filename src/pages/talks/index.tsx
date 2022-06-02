@@ -7,7 +7,7 @@ import { Talks as TalksPage } from "@views/Talks";
 export const getStaticProps: GetStaticProps<TalksProps> = () => {
   return {
     props: {
-      talks: talksMetadata()
+      talks: talksMetadata(),
     },
   };
 };

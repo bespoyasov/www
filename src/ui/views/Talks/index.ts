@@ -1,2 +1,2 @@
-export * from './types';
-export * from './Talks';
+export * from "./types";
+export * from "./Talks";
