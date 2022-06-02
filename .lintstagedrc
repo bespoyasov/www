@@ -1,7 +1,11 @@
 {
   "*.{css,ts,tsx}": [
-    "npm run lint:fix",
-    "npm run lint:style",
     "npm run format"
+  ],
+  "*.{ts,tsx}": [
+    "npm run lint:fix"
+  ],
+  "*.css": [
+    "npm run lint:style"
   ]
 }
