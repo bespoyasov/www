@@ -19,7 +19,7 @@
     "^@translation(.*)$": "<rootDir>/src/shared/translation$1",
     "^@testing(.*)$": "<rootDir>/src/shared/testing$1",
 
-    "^@configs/serialization$": "<rootDir>/src/shared/testing/stubs/configs",
+    "^@configs/serialization$": "<rootDir>/src/shared/testing/stubs/serialization",
     "^@configs(.*)$": "<rootDir>/src/configs$1",
     "^@env(.*)$": "<rootDir>/src/environment$1"
   }
