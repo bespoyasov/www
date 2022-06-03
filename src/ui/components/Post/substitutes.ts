@@ -1,5 +1,5 @@
 import { Blockquote } from "@components/Blockquote";
-import { InlineCode } from "@components/InlineCode";
+import { Code } from "@components/InlineCode";
 import { Highlight } from "@components/Highlight";
 import { LinkProxy } from "@components/LinkProxy";
 import { CodeBlock } from "@components/CodeBlock";
@@ -12,7 +12,7 @@ import { Table } from "@components/Table";
 
 const standardComponents = {
   blockquote: Blockquote,
-  code: InlineCode,
+  code: Code,
   table: Table,
   aside: SideNote,
   mark: Highlight,
