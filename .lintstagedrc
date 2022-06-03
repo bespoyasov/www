@@ -1,5 +1,5 @@
 {
-  "*.{css,ts,tsx}": "npx prettier",
+  "*.{mdx,css,ts,tsx}": "npx prettier",
   "*.{ts,tsx}": "npx eslint",
   "*.css": "stylelint"
 }
