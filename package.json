@@ -38,8 +38,8 @@
   "license": "GNU GPL v3.0",
   "dependencies": {
     "next": "^12.0.1",
-    "react": "^17.0.1",
-    "react-dom": "^17.0.1"
+    "react": "^18.1.0",
+    "react-dom": "^18.1.0"
   },
   "devDependencies": {
     "@mavrin/remark-typograf": "^2.1.6",
