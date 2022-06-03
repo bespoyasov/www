@@ -1,1 +1,2 @@
-export const serializationConfig = "Temporal mock until Jest starts supporting ESM.";
+export const serializationConfig = "Temporal stub...";
+export const serialize = "...Until Jest starts supporting ESM.";
