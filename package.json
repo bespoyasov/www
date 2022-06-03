@@ -2,7 +2,7 @@
   "name": "site",
   "private": true,
   "version": "7.0.0",
-  "description": "bespoyasov.ru",
+  "description": "Source code for my blog.",
   "scripts": {
     "start": "npm run dev:en & npm run dev:ru & npm run dict:watch",
     "secrete": "next telemetry disable",
