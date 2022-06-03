@@ -38,10 +38,6 @@
     "url": "git+https://github.com/bespoyasov/site.git"
   },
   "license": "GNU GPL v3.0",
-  "bugs": {
-    "url": "https://github.com/bespoyasov/site/issues"
-  },
-  "homepage": "https://github.com/bespoyasov/site#readme",
   "dependencies": {
     "next": "^12.0.1",
     "react": "^17.0.1",
