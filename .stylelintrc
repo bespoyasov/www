@@ -7,6 +7,7 @@
     "declaration-empty-line-before": null,
     "custom-property-empty-line-before": null,
     "color-hex-length": null,
+    "selector-class-pattern": null,
     "value-list-comma-newline-after": null
   }
 }
