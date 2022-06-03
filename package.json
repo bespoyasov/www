@@ -56,7 +56,7 @@
     "feed": "^4.2.2",
     "gray-matter": "^4.0.3",
     "hygen": "^6.0.4",
-    "jest": "^27.0.6",
+    "jest": "^28.1.0",
     "jsdom": "^19.0.0",
     "lint-staged": "^13.0.0",
     "next-mdx-remote": "^4.0.3",
@@ -71,7 +71,7 @@
     "stylelint-config-rational-order": "^0.1.2",
     "stylelint-config-standard": "^25.0.0",
     "stylelint-order": "^5.0.0",
-    "ts-jest": "^27.0.4",
+    "ts-jest": "^28.0.4",
     "typescript": "^4.3.5"
   }
 }
