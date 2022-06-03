@@ -6,6 +6,6 @@
     "npx eslint"
   ],
   "*.css": [
-    "npx stylelint"
+    "stylelint"
   ]
 }
