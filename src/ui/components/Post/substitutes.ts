@@ -1,5 +1,5 @@
 import { Blockquote } from "@components/Blockquote";
-import { Code } from "@components/InlineCode";
+import { Code } from "@components/Code";
 import { Highlight } from "@components/Highlight";
 import { LinkProxy } from "@components/LinkProxy";
 import { CodeBlock } from "@components/CodeBlock";
