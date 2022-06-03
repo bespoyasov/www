@@ -4,6 +4,6 @@ import styles from "./InlineCode.module.css";
 
 type CodeProps = WithChildren<HTMLAttributes<HTMLElement>>;
 
-export const Code = ({ children, className }: CodeProps) => {
-  return <code className={className ?? styles.code}>{children}</code>;
+export const Code = ({ children, className: blockCode }: CodeProps) => {
+  return <code className={blockCode ?? styles.inlineCode}>{children}</code>;
 };
