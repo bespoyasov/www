@@ -1,3 +1,5 @@
 {
-  "*.{ts,tsx}": ["npm run lint:fix", "npm run lint:style", "npm run format"]
+  "*.{mdx,css,ts,tsx}": "npx prettier",
+  "*.{ts,tsx}": "npx eslint",
+  "*.css": "stylelint"
 }
