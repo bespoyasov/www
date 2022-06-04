@@ -12,7 +12,7 @@ import { Table } from "@components/Table";
 
 const standardComponents = {
   blockquote: Blockquote,
-  inlineCode: InlineCode,
+  code: InlineCode,
   table: Table,
   aside: SideNote,
   mark: Highlight,
