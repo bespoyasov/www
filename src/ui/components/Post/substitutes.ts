@@ -14,11 +14,14 @@ const standardComponents = {
   blockquote: Blockquote,
   code: Code,
   table: Table,
-  aside: SideNote,
-  mark: Highlight,
   pre: CodeBlock,
   img: Figure,
   a: LinkProxy,
+};
+
+const htmlSubstitutions = {
+  SideNote,
+  Highlight,
 };
 
 const customComponents = {
@@ -30,5 +33,6 @@ const customComponents = {
 
 export const substitutes = {
   ...standardComponents,
+  ...htmlSubstitutions,
   ...customComponents,
 };
