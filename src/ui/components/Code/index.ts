@@ -1,1 +1,1 @@
-export * from './InlineCode';
+export * from "./Code";
