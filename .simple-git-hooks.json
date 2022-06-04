@@ -1,0 +1,4 @@
+{
+  "pre-push": "npm run test:changed",
+  "pre-commit": "npx lint-staged"
+}
