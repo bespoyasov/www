@@ -1,10 +1,9 @@
 import type { CodeSampleLanguage } from "@core/code";
-import { nameOf } from "@core/code";
-
-import { useHashUpdate } from "@effects/useHashUpdate";
-import { usePreferencesContext } from "@context/preferences";
-
 import type { InstanceId } from "./types";
+
+import { nameOf } from "@core/code";
+import { usePreferencesContext } from "@context/preferences";
+import { useScrollRestore } from "./useScrollRestore";
 import styles from "./Control.module.css";
 
 type ControlDisabled = boolean;
@@ -14,17 +13,23 @@ type ControlProps = {
   switchId: InstanceId;
 };
 
-export const Control = ({ language, disabled, switchId }: ControlProps) => {
+export const Control = ({ language, disabled }: ControlProps) => {
   const { updateLanguage } = usePreferencesContext();
-  const updateHash = useHashUpdate();
+  const { control, restoreScroll } = useScrollRestore<HTMLButtonElement>();
 
   function applyChanges() {
     updateLanguage(language);
-    updateHash(switchId);
+    restoreScroll();
   }
 
   return (
-    <button type="button" disabled={disabled} className={styles.control} onClick={applyChanges}>
+    <button
+      type="button"
+      disabled={disabled}
+      className={styles.control}
+      onClick={applyChanges}
+      ref={control}
+    >
       {nameOf(language)}
     </button>
   );
