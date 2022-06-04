@@ -1,5 +1,4 @@
 import type { CodeSampleLanguage } from "@core/code";
-import type { InstanceId } from "./types";
 
 import { nameOf } from "@core/code";
 import { usePreferencesContext } from "@context/preferences";
@@ -10,7 +9,6 @@ type ControlDisabled = boolean;
 type ControlProps = {
   language: CodeSampleLanguage;
   disabled: ControlDisabled;
-  switchId: InstanceId;
 };
 
 export const Control = ({ language, disabled }: ControlProps) => {

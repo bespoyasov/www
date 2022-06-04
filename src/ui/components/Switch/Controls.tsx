@@ -9,17 +9,15 @@ import { usePreferencesContext } from "@context/preferences";
 import { VisuallyHidden } from "@components/VisuallyHidden";
 import { translated, injectIn } from "@translation";
 
-import type { InstanceId } from "./types";
 import { selectLanguage } from "./selectLanguage";
 import { Control } from "./Control";
 import styles from "./Controls.module.css";
 
 type ControlsProps = {
   options: List<CodeSampleLanguage>;
-  switchId: InstanceId;
 };
 
-export const Controls = ({ options, switchId }: ControlsProps) => {
+export const Controls = ({ options }: ControlsProps) => {
   const { language: preferred } = usePreferencesContext();
   const current = selectLanguage(options, preferred);
   const mounted = useMounted();
@@ -32,12 +30,7 @@ export const Controls = ({ options, switchId }: ControlsProps) => {
       </VisuallyHidden>
 
       {options.map((language) => (
-        <Control
-          key={language}
-          language={language}
-          disabled={language === current}
-          switchId={switchId}
-        />
+        <Control key={language} language={language} disabled={language === current} />
       ))}
     </figcaption>
   );
