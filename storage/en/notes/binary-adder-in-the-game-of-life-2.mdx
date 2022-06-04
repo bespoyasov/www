@@ -349,24 +349,10 @@ It is easier to start with the NOT gate. The [NOT gate](<https://en.wikipedia.or
 
 Every logic function has a [truth table](https://en.wikipedia.org/wiki/Truth_table) associated with it. These tables enumerate every possible input and corresponding outputs. For the NOT gate, its truth table will look like this:
 
-<table>
-  <thead>
-    <tr>
-      <th>A</th>
-      <th>NOT A</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>0</td>
-      <td>1</td>
-    </tr>
-    <tr>
-      <td>1</td>
-      <td>0</td>
-    </tr>
-  </tbody>
-</table>
+| A   | NOT A |
+| --- | ----- |
+| 0   | 1     |
+| 1   | 0     |
 
 We'll use truth tables to check if our logic gates work properly.
 
@@ -455,37 +441,12 @@ The [AND gate](https://en.wikipedia.org/wiki/AND_gate) is a gate that implements
 
 The truth table for the AND gate looks like this:
 
-<table>
-  <thead>
-    <tr>
-      <th>A</th>
-      <th>B</th>
-      <th>A AND B</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-    </tr>
-    <tr>
-      <td>0</td>
-      <td>1</td>
-      <td>0</td>
-    </tr>
-    <tr>
-      <td>1</td>
-      <td>0</td>
-      <td>0</td>
-    </tr>
-    <tr>
-      <td>1</td>
-      <td>1</td>
-      <td>1</td>
-    </tr>
-  </tbody>
-</table>
+| A   | B   | A AND B |
+| --- | --- | ------- |
+| 0   | 0   | 0       |
+| 0   | 1   | 0       |
+| 1   | 0   | 0       |
+| 1   | 1   | 1       |
 
 Two inputs mean to arguments:
 
@@ -550,37 +511,12 @@ The [OR gate](https://en.wikipedia.org/wiki/OR_gate) is a logic gate that implem
 
 The truth table for this gate looks like this:
 
-<table>
-  <thead>
-    <tr>
-      <th>A</th>
-      <th>B</th>
-      <th>A OR B</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-    </tr>
-    <tr>
-      <td>0</td>
-      <td>1</td>
-      <td>1</td>
-    </tr>
-    <tr>
-      <td>1</td>
-      <td>0</td>
-      <td>1</td>
-    </tr>
-    <tr>
-      <td>1</td>
-      <td>1</td>
-      <td>1</td>
-    </tr>
-  </tbody>
-</table>
+| A   | B   | A OR B |
+| --- | --- | ------ |
+| 0   | 0   | 0      |
+| 0   | 1   | 1      |
+| 1   | 0   | 1      |
+| 1   | 1   | 1      |
 
 The element configuration will be similar to the AND gate but with some extra elements. The output this time will be created by another generator. This makes it possible to produce output if there is at least one input signal:
 
@@ -616,37 +552,12 @@ It takes two arguments and returns 1 only if either of the inputs is true. If bo
 
 The truth table for this gate looks like this:
 
-<table>
-  <thead>
-    <tr>
-      <th>A</th>
-      <th>B</th>
-      <th>A XOR B</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-    </tr>
-    <tr>
-      <td>0</td>
-      <td>1</td>
-      <td>1</td>
-    </tr>
-    <tr>
-      <td>1</td>
-      <td>0</td>
-      <td>1</td>
-    </tr>
-    <tr>
-      <td>1</td>
-      <td>1</td>
-      <td>0</td>
-    </tr>
-  </tbody>
-</table>
+| A   | B   | A XOR B |
+| --- | --- | ------- |
+| 0   | 0   | 0       |
+| 0   | 1   | 1       |
+| 1   | 0   | 1       |
+| 1   | 1   | 0       |
 
 The elements configuration will be a bit more complex. Let's examine it step by step.
 

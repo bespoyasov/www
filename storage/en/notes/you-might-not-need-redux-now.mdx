@@ -318,23 +318,10 @@ I wasn't surprised when the bundle shrunk by 12 KB: with Redux it was 166, witho
 
 But the increase in the speed of action processing and rendering surprised me a bit. I measured with `console.time` and `performance.measure`. The average values for 100 iterations came out as follows:
 
-<table>
-  <tr>
-    <th>&nbsp;</th>
-    <th>console.time</th>
-    <th>performance.measure</th>
-  </tr>
-  <tr>
-    <th>Redux</th>
-    <td>12 ms</td>
-    <td>13 ms</td>
-  </tr>
-  <tr>
-    <th>Context + hooks</th>
-    <td>9 ms</td>
-    <td>8 ms</td>
-  </tr>
-</table>
+| Technology used | console.time | performance.measure |
+| --------------- | ------------ | ------------------- |
+| Redux           | 12 ms        | 13 ms               |
+| Context + hooks | 9 ms         | 8 ms                |
 
 However, it is worth mentioning that the application is “small and silly”. In applications with a large state, there can probably be performance problems. In particular, you may need a system of state data selectors, so that rerendering only happens in those components where you really need it.
 

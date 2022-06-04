@@ -21,42 +21,12 @@ This time, we're going to use created logic gates to build half adder and full a
 
 The [binary half adder](<https://en.wikipedia.org/wiki/Adder_(electronics)#Half_adder>) is a logic circuit that can add two bits together. It takes 2 arguments and returns 2 bits: sum bit and carry.
 
-<table>
-  <thead>
-    <tr>
-      <th>A</th>
-      <th>B</th>
-      <th>Carry</th>
-      <th>Sum</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-    </tr>
-    <tr>
-      <td>1</td>
-      <td>0</td>
-      <td>0</td>
-      <td>1</td>
-    </tr>
-    <tr>
-      <td>0</td>
-      <td>1</td>
-      <td>0</td>
-      <td>1</td>
-    </tr>
-    <tr>
-      <td>1</td>
-      <td>1</td>
-      <td>1</td>
-      <td>0</td>
-    </tr>
-  </tbody>
-</table>
+| A   | B   | Carry | Sum |
+| --- | --- | ----- | --- |
+| 0   | 0   | 0     | 0   |
+| 1   | 0   | 0     | 1   |
+| 0   | 1   | 0     | 1   |
+| 1   | 1   | 1     | 0   |
 
 The carry bit is the value that goes to the next digit. When adding 1 and 1 the current digit is overflown (since the sum is 10) and we need to transfer the 1 to the next digit.
 
@@ -239,75 +209,16 @@ The circuit consists of 2 half adders and an OR gate:
 
 The truth table for this circuit looks like this:
 
-<table>
-  <thead>
-    <tr>
-      <th>A</th>
-      <th>B</th>
-      <th>Carry In</th>
-      <th>Carry Out</th>
-      <th>Sum</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-    </tr>
-    <tr>
-      <td>0</td>
-      <td>0</td>
-      <td>1</td>
-      <td>0</td>
-      <td>1</td>
-    </tr>
-    <tr>
-      <td>0</td>
-      <td>1</td>
-      <td>0</td>
-      <td>0</td>
-      <td>1</td>
-    </tr>
-    <tr>
-      <td>0</td>
-      <td>1</td>
-      <td>1</td>
-      <td>1</td>
-      <td>0</td>
-    </tr>
-    <tr>
-      <td>1</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>1</td>
-    </tr>
-    <tr>
-      <td>1</td>
-      <td>0</td>
-      <td>1</td>
-      <td>1</td>
-      <td>0</td>
-    </tr>
-    <tr>
-      <td>1</td>
-      <td>1</td>
-      <td>0</td>
-      <td>1</td>
-      <td>0</td>
-    </tr>
-    <tr>
-      <td>1</td>
-      <td>1</td>
-      <td>1</td>
-      <td>1</td>
-      <td>1</td>
-    </tr>
-  </tbody>
-</table>
+| A   | B   | Carry In | Carry Out | Sum |
+| --- | --- | -------- | --------- | --- |
+| 0   | 0   | 0        | 0         | 0   |
+| 0   | 0   | 1        | 0         | 1   |
+| 0   | 1   | 0        | 0         | 1   |
+| 0   | 1   | 1        | 1         | 0   |
+| 1   | 0   | 0        | 0         | 1   |
+| 1   | 0   | 1        | 1         | 0   |
+| 1   | 1   | 0        | 1         | 0   |
+| 1   | 1   | 1        | 1         | 1   |
 
 Everything seems to be in order but there's a problem. On the circuit scheme, some signals cross but don't interact.
 

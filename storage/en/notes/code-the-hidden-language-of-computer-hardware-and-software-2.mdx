@@ -82,77 +82,20 @@ To achieve this, we will accompany each number in memory with a code of the desi
 
 Also we add _zero flag_. Its output is 1 only if all its inputs are 0. With it, we can add other 4 operations:
 
-<table>
-  <thead>
-    <tr>
-      <th>Operation</th>
-      <th>Code</th>
-      <th>Mnemonic</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>Load</td>
-      <td>10h</td>
-      <td>LOD</td>
-    </tr>
-    <tr>
-      <td>Store</td>
-      <td>11h</td>
-      <td>STO</td>
-    </tr>
-    <tr>
-      <td>Add</td>
-      <td>20h</td>
-      <td>ADD</td>
-    </tr>
-    <tr>
-      <td>Subtract</td>
-      <td>21h</td>
-      <td>SUB</td>
-    </tr>
-    <tr>
-      <td>Add with Carry</td>
-      <td>22h</td>
-      <td>ADC</td>
-    </tr>
-    <tr>
-      <td>Subtract with Borrow</td>
-      <td>23h</td>
-      <td>SBB</td>
-    </tr>
-    <tr>
-      <td>Jump</td>
-      <td>30h</td>
-      <td>JMP</td>
-    </tr>
-    <tr>
-      <td>Jump if Zero</td>
-      <td>31h</td>
-      <td>JZ</td>
-    </tr>
-    <tr>
-      <td>Jump if Carry</td>
-      <td>32h</td>
-      <td>JC</td>
-    </tr>
-    <tr>
-      <td>Jump if Not Zero</td>
-      <td>33h</td>
-      <td>JNZ</td>
-    </tr>
-    <tr>
-      <td>Jump if Not Carry</td>
-      <td>34h</td>
-      <td>JNC</td>
-    </tr>
-    <tr>
-      <td>Halt</td>
-      <td>FFh</td>
-      <td>HLT</td>
-    </tr>
-  </tbody>
-</table>
+| Operation            | Code | Mnemonic |
+| -------------------- | ---- | -------- |
+| Load                 | 10h  | LOD      |
+| Store                | 11h  | STO      |
+| Add                  | 20h  | ADD      |
+| Subtract             | 21h  | SUB      |
+| Add with Carry       | 22h  | ADC      |
+| Subtract with Borrow | 23h  | SBB      |
+| Jump                 | 30h  | JMP      |
+| Jump if Zero         | 31h  | JZ       |
+| Jump if Carry        | 32h  | JC       |
+| Jump if Not Zero     | 33h  | JNZ      |
+| Jump if Not Carry    | 34h  | JNC      |
+| Halt                 | FFh  | HLT      |
 
 These commands are enough to multiply two numbers by each other:
 
@@ -429,48 +372,16 @@ To get a color on the CRT screen, you have to use not one, but three electron gu
 
 The color coding table for the display adapter can be as follows:
 
-<table>
-  <thead>
-    <tr>
-      <th>Bits</th>
-      <th>Color</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>000</td>
-      <td>Black</td>
-    </tr>
-    <tr>
-      <td>001</td>
-      <td>Blue</td>
-    </tr>
-    <tr>
-      <td>010</td>
-      <td>Green</td>
-    </tr>
-    <tr>
-      <td>011</td>
-      <td>Cyan</td>
-    </tr>
-    <tr>
-      <td>100</td>
-      <td>Red</td>
-    </tr>
-    <tr>
-      <td>101</td>
-      <td>Magenta</td>
-    </tr>
-    <tr>
-      <td>110</td>
-      <td>Yellow</td>
-    </tr>
-    <tr>
-      <td>111</td>
-      <td>White</td>
-    </tr>
-  </tbody>
-</table>
+| Bits | Color   |
+| ---- | ------- |
+| 000  | Black   |
+| 001  | Blue    |
+| 010  | Green   |
+| 011  | Cyan    |
+| 100  | Red     |
+| 101  | Magenta |
+| 110  | Yellow  |
+| 111  | White   |
 
 The number of available colors is expressed like this:
 
