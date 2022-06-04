@@ -379,7 +379,7 @@ In a matrix with longer keys, the samples will be larger. For example, in a matr
 
 The sample size is always equal to the sum of the number of tokens in the key and the number of tokens in the transition. Since the transition has always 1 token:
 
-<mark>(Sample size) = (Number of tokens in the key) + 1</mark>
+<Highlight>(Sample size) = (Number of tokens in the key) + 1</Highlight>
 
 For a naive implementation, the sample size will be 2. Let's write the `sliceCorpus` function, which divides an array of tokens into such samples:
 

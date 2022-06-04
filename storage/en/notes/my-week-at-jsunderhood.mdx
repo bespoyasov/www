@@ -41,10 +41,10 @@ I would like to begin by saying that architecture is first and foremost a tool. 
 
 I probably wouldn't buy a screwdriver just to screw in one screw. But if there are 1000 screws, I would think: spend a couple hundred on an electric screwdriver or treat arthritis of the hand for more money in the future 😃
 
-<mark>
+<Highlight>
   Architecture, like a screwdriver, costs resources. Supporting a complex spaghetti-code project,
   like arthritis—also costs resources, and also tends to be more
-</mark>
+</Highlight>
 
 My first conclusion I made to myself when I compared a small and simple project with a clever architecture and a large and complex project without any architecture at all.
 
@@ -66,7 +66,7 @@ Suffering from “PTSD” from my past experience, I've set up the architecture 
 
 And here is my first conclusion at the time:
 
-<mark>The costs of the tool should be less than the benefits</mark>
+<Highlight>The costs of the tool should be less than the benefits</Highlight>
 
 After that project, I decided to reflect on it. What would happen if I had to rewrite the prototype after all.
 
@@ -77,7 +77,7 @@ After that project, I decided to reflect on it. What would happen if I had to re
 
 The domain is the most important thing about an application. It's the functionality that distinguishes the idea of one application from another. What I would definitely have had to transfer from the prototype to the product is the domain. Yes, probably with modifications, but it's the code that _would have to be ported_. Hence the second conclusion:
 
-<mark>Start with the domain</mark>
+<Highlight>Start with the domain</Highlight>
 
 At the beginning of the project, you don't have to build the remaining layers or write adapters to libraries, but it is worth describing the domain.
 
@@ -252,7 +252,9 @@ In the SOLID principles, there's also the division of the complex into parts, an
 
 Class inheritance is a direct path to the [God-Object](https://en.wikipedia.org/wiki/God_object) anti-pattern. The problem with inheritance is that the future cannot be predicted, and we cannot design in advance such a _hierarchy_ that would meet all requirements.
 
-<mark>We should, on the contrary, assemble the complex from the simple—use the composition</mark>
+<Highlight>
+  We should, on the contrary, assemble the complex from the simple—use the composition
+</Highlight>
 
 Let's use inheritance and composition as an example and see what the difference is. Suppose we are writing an application in which we describe living organisms.
 
@@ -331,7 +333,9 @@ Their usefulness is not only that solving problems becomes easier, but also that
 
 Writing code and refactoring are like “writing” and “editing an article,” difficult to do simultaneously. If you come across a large piece of code, you should let it “rest”. When you start working on it with a clear head, it will be much easier to start thinking about the code from the reader's point of view.
 
-<mark>And also (the hardest thing for me) we have to stop perfectionism when refactoring</mark>
+<Highlight>
+  And also (the hardest thing for me) we have to stop perfectionism when refactoring
+</Highlight>
 
 Refactoring to perfection is difficult, and most often unnecessary. We use the rule [20/80](https://en.wikipedia.org/wiki/Pareto_principle)—20% of efforts should bring 80% of the result.
 
@@ -373,7 +377,7 @@ Inside each chapter there are action lists for the situation. In short, I recomm
 
 ### How to Make Code Testable
 
-<mark>Use TDD</mark>
+<Highlight>Use TDD</Highlight>
 
 TDD save a lot of time. You, of course, need to get used to it because it requires shifting a paradigm of writing the code. But it pays of quickly. With TDD:
 
