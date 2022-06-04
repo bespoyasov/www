@@ -16,6 +16,7 @@
     "prebuild": "npm run derive",
     "postinstall": "npm run secrete && npm run derive",
     "postbuild": "npm run export && npm run cleanup && npm run rss:generate",
+    "git:hooks": "npx simple-git-hooks",
     "dev:en": "locale=en next -p 2001",
     "dev:ru": "locale=ru next -p 2002",
     "format": "npx prettier --write .",
