@@ -30,11 +30,11 @@ Everything that can be passed as input or parameter and given as result is a _th
 
 “Input Function” can be used in another function to reduce duplication and extract common actions. “Parameter Function” can “adjust” the operation of another function. “Output Function” can itself be “tuned” by different parameters.
 
-<aside>
+<SideNote>
 
 A function that takes functions as arguments or returns a function is called a [higher-order function](https://en.wikipedia.org/wiki/Higher-order_function).
 
-</aside>
+</SideNote>
 
 If we add [currying](https://en.wikipedia.org/wiki/Currying) and [partial application](https://en.wikipedia.org/wiki/Partial_application), we have a flexible mechanism for “tuning” the behavior of programs.
 
@@ -89,13 +89,13 @@ const placeOrder = (unvalidatedOrder) =>
 
 </Switch>
 
-<aside>
+<SideNote>
 
 In the TypeScript example so far, I am using sequentially nested functions instead of pipelining, as in F#. But there is a proposal for [Pipe Operator in JavaScript](https://github.com/tc39/proposal-pipeline-operator) which will probably bring the syntax a bit closer to FP in the future. It's slightly different from pipe in F#, and there's even a [justification](https://github.com/tc39/proposal-pipeline-operator#why-the-hack-pipe-operator) in the proposal for why they decided to choose that particular syntax.
 
 I don't use this operator in the summary because the proposal is in stage 2 at the time of writing. Something may change in syntax or operating principles in the future.
 
-</aside>
+</SideNote>
 
 First we will implement each function separately, and then we will try to combine them into one big function. Along the way, we will learn how to manipulate data types so that the output of one function fits the input of the next.
 
@@ -450,10 +450,10 @@ type PlaceOrderError = ValidationError | ProductOutOfStock | RemoteServiceError;
 
 This will not only be a piece of documentation, but will also make the error model extensible. We can't immediately identify _all_ bugs that may occur, so we need to think about adding more in the future. Union is great for that.
 
-<aside>
+<SideNote>
   In addition, when new errors are added, pattern-matching for that union will remind you to update
   them at the compile time.
-</aside>
+</SideNote>
 
 ### Chaining Result-Generating Functions
 
@@ -706,12 +706,12 @@ Pattern match on output choice type:
   If "NoActionNeeded" -> do nothing
 ```
 
-<aside>
+<SideNote>
 
 This is essentially the [impureim sandwich](https://blog.ploeh.dk/2020/03/02/impureim-sandwich/) that
 Mark Ziemann wrote in his blog.
 
-</aside>
+</SideNote>
 
 ### Command-Query Separation
 

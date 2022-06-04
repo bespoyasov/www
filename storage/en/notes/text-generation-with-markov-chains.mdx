@@ -23,11 +23,11 @@ I wasn't working with Markov chains at the time. So I was curious to implement t
 
 In this post, we will implement a text generator using Markov chains and feed it with different sets of texts to see what texts it will generate and whether it will consider “author's style”.
 
-<aside>
+<SideNote>
   In addition to the text, we will try to generate code with this tool. This “code generator” will
   be completely useless but I still haven't got access to GitHub Copilot, so at least I'll have some
   generator 😃
-</aside>
+</SideNote>
 
 As a result, we will have an app that generates texts like this:
 
@@ -39,12 +39,12 @@ As a result, we will have an app that generates texts like this:
 
 Apart from examples in JavaScript, in this post you will find examples in Python as well. Select the language you like more!
 
-<aside>
+<SideNote>
 
 For the Python code examples, many thanks to [Anton Zhiyanov](https://antonz.ru)! He ported the whole project and translated my
 examples from JavaScript to Python 😊
 
-</aside>
+</SideNote>
 
 I'll leave the links to the app and the source code right here:
 
@@ -181,12 +181,12 @@ Let's take the first few paragraphs of Bulgakov's “The Master and Margarita”
 - we need to keep _punctuation marks and spaces_ to structure sentences more accurately;
 - and we won't normalize the text, to avoid bothering with capital letters at the beginning of sentences and proper nouns; we'll use the words spelling _as they occur in the text_.
 
-<aside>
+<SideNote>
   Whether to count spaces as tokens or not is an implementation issue. I've tried to exclude spaces
   when tokenizing and haven't seen much quality difference, but the code got more complicated. In
   this post, I decided not to overcomplicate the example and treat spaces as tokens just like words
   and punctuation marks.
-</aside>
+</SideNote>
 
 With all this in mind, let's start writing the tokenizer. First, let's replace line breaks with something else, so we can distinguish them from other whitespace characters.
 
@@ -255,11 +255,11 @@ First of all, we create “internals” of the expression. Those are responsible
 
 The Capturing Group string is used then as a source for the `RegExp` constructor.
 
-<aside>
+<SideNote>
 
 If you want to know how exactly this regular expression works, I suggest you try it in [regex101](https://regex101.com). It visualizes groups and highlights the found characters in the text. I use it wherever I have to use regular expressions 😃
 
-</aside>
+</SideNote>
 
 To divide the text into tokens, let's use the `split()` method:
 
@@ -787,10 +787,10 @@ To make the generated text look more like the real one, we will increase the sam
 
 In our naive implementation, we used the sample size of 2 tokens. The first token was a key and the second was a transition event. This time we will make the sample size customizable so that users can decide for themselves what size would be best for them.
 
-<aside>
+<SideNote>
   We can't predict the optimal sample size because it depends on the size of the corpus. The bigger
   the corpus the more word combinations there are, the longer sample we can use for the generation.
-</aside>
+</SideNote>
 
 First, we'll update the `sliceCorpus` function. It will now start to take sample size as an argument:
 
@@ -876,11 +876,11 @@ const fromTokens = (tokens) => escapeString(tokens.join(""));
 
 The `escapeString` function is a naive escaping. It is needed so that we don't have problems with object properties that already exist. For example, so that we don't try to get the `transitions['constructor']` property 😃
 
-<aside>
+<SideNote>
 
 We won't use [`Map`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Map) and an array-keys in JavaScript code, because `Map` compares keys using the [SameValueZero](https://tc39.es/ecma262/#sec-samevaluezero) algorithm. In the case of arrays, to get the value, we have to pass _the same_ array. Different arrays are considered different keys, even if they have exactly the same content. This wouldn't be as convenient as referring to an escaped key.
 
-</aside>
+</SideNote>
 
 Next, let's update the `predictNext` function to be able to handle the new structure of the transition matrix. It will also take the sample size as an argument. It will use it to extract the right number of tokens to make the key:
 
@@ -1051,10 +1051,10 @@ def clean(tweets):
 
 </Switch>
 
-<aside>
+<SideNote>
   I'm not sure if by the time you read this article, the format of the archive will still be the
   same. This code might not work, sorry 🤷
-</aside>
+</SideNote>
 
 I found out that a sample of 3-4 tokens is the best for generating “my tweets”. With that settings, the chain generates these, ahem, thoughts:
 
@@ -1200,10 +1200,10 @@ I wouldn't write this myself for production of course. There are some implementa
 
 But I wanted to “feel” it and build it with my hands to really understand how it worked. I wanted to know the problem that those libraries were solving and wanted to know how they did it in principle, what obstacles they met.
 
-<aside>
+<SideNote>
   I had the same motivation with the finite state machines. That time I also [implemented everything
   from scratch](/blog/fsm-to-the-rescue/).
-</aside>
+</SideNote>
 
 ## Usage of Markov Chains
 
