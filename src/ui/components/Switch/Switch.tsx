@@ -11,8 +11,8 @@ type SwitchProps = {
 };
 
 export const Switch = ({ options, children }: WithChildren<SwitchProps>) => {
-  if (!Array.isArray(children)) return children;
-  if (sizeOf(children) !== sizeOf(options)) return children;
+  if (!Array.isArray(children)) return <>children</>;
+  if (sizeOf(children) !== sizeOf(options)) return <>children</>;
 
   return (
     <figure className={styles.switch}>
