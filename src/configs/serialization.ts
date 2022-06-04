@@ -1,5 +1,6 @@
 import * as typography from "@mavrin/remark-typograf";
 import unwrapImages from "remark-unwrap-images";
+import githubFlavor from "remark-gfm";
 
 import headingIds from "rehype-slug";
 import headingAnchors from "rehype-autolink-headings";
@@ -8,6 +9,7 @@ import fsharp from "highlight.js/lib/languages/fsharp";
 
 export const serializationConfig = {
   remarkPlugins: [
+    githubFlavor,
     unwrapImages,
     [
       typography,
