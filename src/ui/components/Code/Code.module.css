@@ -1,4 +1,4 @@
-.code {
+:not(pre) > .code {
   padding: 0.1em 0.3em;
   font-family: var(--font-monospace);
   border: 1px solid var(--grey-transparent);
