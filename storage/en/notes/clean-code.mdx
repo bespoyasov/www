@@ -57,10 +57,10 @@ class Customer = { /* ... */ };
 
 A variable with a good name is fast to read and easy to find. Use `i`, `j`, `k` only for counters. Function and method names should be verbs or begin with them. Getters, setters and predicates are best named with prefixes: `get`, `set`, `is`, `has`, etc.
 
-<aside>
+<SideNote>
   Blog author's note: I think you can omit the verb in converting functions: `convertIntToStr` →
   `intToStr`.
-</aside>
+</SideNote>
 
 Use the same word for the same concept. If similar methods have different names in different classes: `fetch`, `get`, `load` - it is hard to remember when to call which one.
 
@@ -74,7 +74,7 @@ TL;DR:
 
 Functions should not be large. The best size for a function is 2-3 lines.
 
-<aside>Blog author's note: size is debatable.</aside>
+<SideNote>Blog author's note: size is debatable.</SideNote>
 
 Each function should perform only one action. But be careful about defining what “one action” is. Some parts can be taken out into separate functions, be able to stop at the right moment.
 

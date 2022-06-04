@@ -33,11 +33,11 @@ let add1 x = x + 1   // Signature: int -> int
 let add x y = x + y  // Signature: int -> int -> int
 ```
 
-<aside>
+<SideNote>
 
 In F# you don't need `return`, the result is the last expression of the function.
 
-</aside>
+</SideNote>
 
 If a function can handle different types, it is called a [generic function](https://docs.microsoft.com/en-us/dotnet/fsharp/language-reference/generics/). Generic types in the signature start with quotes:
 
@@ -47,11 +47,11 @@ let areEqual x y =
   (x = y)
 ```
 
-<aside>
+<SideNote>
 
 In F# everything is immutable by default, so `=` is not an assignment but a comparison. For assignment, `<-` is used.
 
-</aside>
+</SideNote>
 
 In typeScript we would express it like this:
 
@@ -167,11 +167,11 @@ type CardNumber = string;
 
 </Switch>
 
-<aside>
+<SideNote>
 
 In F#, `of` allows you to create a wrapper over a type, so that two wrappers over `int` will be different types. You can reproduce this in TypeScript (e.g., with [branding](https://github.com/kourge/ts-brand)), but I decided not to overload the summary with it and will use [aliases](https://www.typescriptlang.org/docs/handbook/advanced-types.html#type-aliases) everywhere. This doesn't work as strictly, but it won't hurt to get the gist of the book.
 
-</aside>
+</SideNote>
 
 Then we'll write out the types of accepted cards as a union, and all the information about the card as a record:
 
@@ -275,11 +275,11 @@ type ConvertCurrency = (payment: Payment) => (currency: Currency) => Payment;
 
 </Switch>
 
-<aside>
+<SideNote>
 
 This is the way I designed the cookie store in my [post about clean architecture on the frontend](/blog/clean-architecture-on-frontend/) even before I read this book. It's generally about creating the kind of “meta-program” that describes the subject area in types. This has been useful to me since [rewriting Tzlvt in TypeScript](/blog/tzlvt-architecture-upgrade/).
 
-</aside>
+</SideNote>
 
 ### Modeling Optional Values, Errors, and Collections
 
@@ -327,11 +327,11 @@ processCustomerId orderId
 
 In the summary, in TypeScript code samples, we will ignore this nuance. As I said above, you can use branding to achieve the same result. We will just use aliases to make the code easier to understand.
 
-<aside>
+<SideNote>
 
 In F#, by the way, also [you can use aliases](https://docs.microsoft.com/en-us/dotnet/fsharp/language-reference/type-abbreviations), but there it is related to performance. More ways to increase performance are in the book.
 
-</aside>
+</SideNote>
 
 ### Modeling Complex Data
 
@@ -589,11 +589,11 @@ type Invoice = Unpaid | Paid
 
 </Switch>
 
-<aside>
+<SideNote>
 
 You can use third-party libraries for pattern-matching in TS, such as [ts-pattern](https://github.com/gvergnaud/ts-pattern).
 
-</aside>
+</SideNote>
 
 Value objects _must be immutable_ because when some field is changed, the object becomes _another_ object, i.e. it cannot “just change”. Entities can change, but we won't just “change” them; instead, we will create _copies with changes_, keeping the identifier. This makes all changes to the entity explicit:
 
@@ -1060,11 +1060,11 @@ The union from the example is similar to a state machine, a model of transitions
 - _Thinking about all the possible states_ the application might be in;
 - _Thinking about errors_.
 
-<aside>
+<SideNote>
 
 I've got a [post about finite state machines](/blog/fsm-to-the-rescue/) and their application on the frontend too 🙃
 
-</aside>
+</SideNote>
 
 ### Modeling Each Step in the Workflow with Types
 
@@ -1117,19 +1117,19 @@ type ValidateOrder = (
 
 </Switch>
 
-<aside>
+<SideNote>
 
 The result will be inside `Result`, because one of the dependencies had this return type. The `Result` “infects” everything around it, just like `Async`.
 
-</aside>
+</SideNote>
 
 Note that we put dependencies _at the beginning_, before arguments. We need this for partial application of arguments in the future. This will be the functional equivalent of dependency injection.
 
-<aside>
+<SideNote>
 
 In fact, there can be no dependency injection in FP, as Mark Seemann [wrote about in a blog post](https://blog.ploeh.dk/2017/02/02/dependency-rejection/). But Wlaschin often uses this term in quotes just to draw parallels and build associations.
 
-</aside>
+</SideNote>
 
 I suggest you read the description of the other steps in the book yourselves. We will go straight to the return events :–)
 

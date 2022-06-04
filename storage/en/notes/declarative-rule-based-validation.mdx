@@ -30,13 +30,13 @@ You can find the application and its source code by the links below:
 - [Sample Application](https://bespoyasov.me/showcase/declarative-validation/)
 - [Source Code on GitHub](https://github.com/bespoyasov/rule-based-data-validation)
 
-<aside>
+<SideNote>
 
 In this app, I purposely didn't use HTML attributes for form validation to “increase the amount of code”. This is better to see the benefits and problems of the principle. In the real projects, of course, it's better to get most of the work done by the browser.
 
 You can think of this example in terms of validating not a particular form but rather “just data” like DTO or a server response.
 
-</aside>
+</SideNote>
 
 ## Problem with Client Validation
 
@@ -107,11 +107,11 @@ In a general sense, the [composition](<https://en.wikipedia.org/wiki/Composition
 
 The simpler and more intuitive the mechanism for making complex rules, the fewer mistakes we will make when describing them. We can reduce any complex rule to a set of simple ones using [binary logic](https://en.wikipedia.org/wiki/Boolean_algebra). For example, we can use the operation AND `&&` to check all criteria at once and OR `||` to check at least one.
 
-<aside>
+<SideNote>
 
 This is similar to the algebraic type system - where we can make complex types and simple types using AND and OR operations. You can find more about that in my summary of [Domain Modelling Made Functional by Scott Wlaschin](/blog/domain-modelling-made-functional).
 
-</aside>
+</SideNote>
 
 ### Duplication and Reusable Code
 
@@ -135,11 +135,11 @@ I won't show the code for the markup, the styles, and most of the DOM handling b
 
 This example is intentionally simple. In real projects, validation will be more complicated and relations between rules may be more intricate. But it's much easier to demonstrate new concepts using simple examples. So let's get to work.
 
-<aside>
+<SideNote>
   It's not a single specific example that matters, but the approach as a whole. In this example I
   want to show how to decompose validation into separate tasks: working with business rules,
   UI-logic and their “integration” with each other.
-</aside>
+</SideNote>
 
 ### Defining the Rules
 
@@ -228,11 +228,11 @@ type LocalFile = File;
 type Image = LocalFile;
 ```
 
-<aside>
+<SideNote>
 
 [Shared kernel](http://ddd.fed.wiki.org/view/shared-kernel) is code and data whose dependency does not increase coupling between modules. I wrote more about this in [the post about clean architecture on the frontend](/blog/clean-architecture-on-frontend). There I refer you to another post—["DDD, Hexagonal, Onion, Clean, CQRS, ... How I put it all together"](https://herbertograca.com/2017/11/16/explicit-architecture-01-ddd-hexagonal-onion-clean-cqrs-how-i-put-it-all-together/), I recommend you read it too.
 
-</aside>
+</SideNote>
 
 We describe the form as `ApplicationForm`. We will use this type in the form validation rules as a signature for the input data.
 
@@ -311,10 +311,11 @@ export const contains = (value: string, pattern: RegExp) => value.search(pattern
 const onlySafeCharacters = ({ phone }) => !contains(phone, /[^\d\s\-\(\)\+]/g);
 ```
 
-<aside>
+<SideNote>
   We could have also put the regular expression in a variable, but right now we don't need it. The
   task of “explaining the intent” is solved by the name of the function. So we can leave it as is.
-</aside>
+</SideNote>
+te>
 
 **To check the date of birth** we use the criteria “date as a string with a valid format” and “user's age between 20 and 50”.
 
@@ -354,11 +355,12 @@ Notice that we have no problem with interdependent fields. Functions have enough
 
 We can think of this object as a unit of information transfer. We sort of pack into it everything we might need to check the form. For interdependent fields, such an object turns out to be self-sufficient. The main thing is to make sure that the data inside [relates to the same task](<https://en.wikipedia.org/wiki/Cohesion_(computer_science)>), and that the level of abstraction is the same for all fields.
 
-<aside>
+<SideNote>
 
 I recommend reading more about [DTOs](https://ru.wikipedia.org/wiki/DTO), their serialization, deserialization, and at what point you should validate data when creating domain objects in [Domain Modeling Made Functional by Scott Wlaschin](/blog/domain-modelling-made-functional).
 
-</aside>
+</SideNote>
+</SideNote>
 
 **Next, experience validation**. The rules require colonists to have at least 3 years of experience in their field. Let's write it that way, but don't forget that inputs return strings, and convert the value to a number:
 
@@ -367,11 +369,11 @@ const isNumberLike = ({ experience }) => Number.isFinite(Number(experience));
 const isExperienced = ({ experience }) => Number(experience) >= MIN_EXPERIENCE_YEARS;
 ```
 
-<aside>
+<SideNote>
 
 The `isNumberLike` function is abstract enough to make it a separate function that would take a primitive like `exists`. But we'll skip that this time to avoid extra code.
 
-</aside>
+</SideNote>
 
 **Finally, we check the password**. It must be at least 10 characters long, contain at least one uppercase letter and at least one number:
 
@@ -576,11 +578,11 @@ export function createValidator<TData>(
 
 This function takes rules and errors as input and returns a validator function. This validator will take data, check each field with a matching rule, and record an error if the value fails.
 
-<aside>
+<SideNote>
 
 Functions that take other functions as input or return other functions are called [higher-order functions](https://en.wikipedia.org/wiki/Higher-order_function). This is one of the main abstraction control methods in functional programming.
 
-</aside>
+</SideNote>
 
 We can use such a factory like this:
 
@@ -673,11 +675,11 @@ The validation service itself can be checked once. If we made sure that it compo
 
 Rules described by functions with clear names can be given to “non-programmers” to check. (Not always, of course, but ideally, you can.) Such rules can be made part of the ubiquitous language from [Domain Driven Design](https://en.wikipedia.org/wiki/Domain-driven_design).
 
-<aside>
+<SideNote>
 
 Scott Wlaschin has written extensively about ubiquitous language in [Domain Modeling Made Functional](/blog/domain-modelling-made-functional). Great book, totally recommend it.
 
-</aside>
+</SideNote>
 
 ### No Dependencies
 
