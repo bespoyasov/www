@@ -71,7 +71,7 @@ The main problem in composition is the mismatch between types of arguments and r
 
 In this and the next chapter we will implement the order taking process in code. We want to get something like:
 
-<Switch options={['fs', 'ts']} id="place-order">
+<Switch options={['fs', 'ts']}>
 
 ```fsharp
 let placeOrder unvalidatedOrder =
@@ -105,7 +105,7 @@ In this chapter we will solve the problem that some functions require more param
 
 To let the compiler do all the type-checking work for us, we can specify the type for a function explicitly. That way, if we make an error in the parameters or the return result, we will know about it right away. In the example of a validation function, it might look like this:
 
-<Switch options={['fs', 'ts']} id="validate-order">
+<Switch options={['fs', 'ts']}>
 
 ```fsharp
 let validateOrder : ValidateOrder =
@@ -126,7 +126,7 @@ const validateOrder: ValidateOrder =
 
 For simplicity in this chapter we will discard the effects, so we will simplify the type of address checking for now:
 
-<Switch options={['fs', 'ts']} id="check-address-exists">
+<Switch options={['fs', 'ts']}>
 
 ```fsharp
 type CheckAddressExists = UnvalidatedAddress -> CheckedAddress
@@ -142,7 +142,7 @@ type CheckAddressExists = (address: UnvalidatedAddress) => CheckedAddress;
 
 The the validator type will be:
 
-<Switch options={['fs', 'ts']} id="validate-order-type">
+<Switch options={['fs', 'ts']}>
 
 ```fsharp
 type ValidateOrder =
@@ -171,7 +171,7 @@ To create a validated order from an unvalidated order, we need to:
 - Create an `Address` type from `ShippingAddress` and a second same type from `BillingAddress`;
 - Put the constituent parts of the order together.
 
-<Switch options={['fs', 'ts']} id="validate-order-function">
+<Switch options={['fs', 'ts']}>
 
 ```fsharp
 let validateOrder : ValidateOrder =
@@ -227,7 +227,7 @@ const validateOrder: ValidateOrder = (
 
 The `toCustomerInfo` and `toAddress` functions are helper functions that will create domain types from unvalidated data or throw errors if the data does not fit. Inside them, we'll use the same logic—convert unvalidated data into a domain, and if it fails, throw an error.
 
-<Switch options={['fs', 'ts']} id="to-customer-info">
+<Switch options={['fs', 'ts']}>
 
 ```fsharp
 let toCustomerInfo (customer:UnvalidatedCustomerInfo) : CustomerInfo =
@@ -267,7 +267,7 @@ const toCustomerInfo = (customer: UnvalidatedCustomerInfo): CustomerInfo => {
 
 In the case of address verification, we also need to call a third-party service (dependency):
 
-<Switch options={['fs', 'ts']} id="to-address">
+<Switch options={['fs', 'ts']}>
 
 ```fsharp
 let toAddress (checkAddressExists:CheckAddressExists) unvalidatedAddress =
@@ -322,7 +322,7 @@ In functional programming, we don't use DI containers, but instead keep all depe
 
 Let's look at the helper example we wrote earlier:
 
-<Switch options={['fs', 'ts']} id="helpers">
+<Switch options={['fs', 'ts']}>
 
 ```fsharp
 let toAddress checkAddressExists unvalidatedAddress =  ...
@@ -338,7 +338,7 @@ const toProductCode = (checkProductCodeExists, productCode) => // ...
 
 The functions `checkAddressExists` and `checkProductCodeExists` are dependencies. When we use them in other functions, we must specify dependencies there as well:
 
-<Switch options={['fs', 'ts']} id="to-validated-order-line">
+<Switch options={['fs', 'ts']}>
 
 ```fsharp
 let toValidatedOrderLine checkProductExists unvalidatedOrderLine =
@@ -381,7 +381,7 @@ We want to create a consistent and transparent error handling scheme. In this ch
 
 A function signature must tell you about _all possible_ results of its work explicitly. Therefore such a signature would be deceptive:
 
-<Switch options={['fs', 'ts']} id="check-address-exists-dependency">
+<Switch options={['fs', 'ts']}>
 
 ```fsharp
 type CheckAddressExists = UnvalidatedAddress -> CheckedAddress
@@ -395,7 +395,7 @@ type CheckAddressExists = (address: UnvalidatedAddress) => CheckedAddress;
 
 We may have errors, and we want to display this directly in the type:
 
-<Switch options={['fs', 'ts']} id="explicit-effects">
+<Switch options={['fs', 'ts']}>
 
 ```fsharp
 type CheckAddressExists =
@@ -428,7 +428,7 @@ Domain errors should be included in the domain model and covered by types. Excep
 
 We can type each error and then, for each process, collect a union of possible errors for that process:
 
-<Switch options={['fs', 'ts']} id="place-order-error">
+<Switch options={['fs', 'ts']}>
 
 ```fsharp
 type PlaceOrderError =
@@ -475,7 +475,7 @@ We want to get adapters that correct the “shape of the inputs” of Result-fun
 
 One of such adapters is `bind`:
 
-<Switch options={['fs', 'ts']} id="bind">
+<Switch options={['fs', 'ts']}>
 
 ```fsharp
 let bind switchFn twoTrackInput =
@@ -502,7 +502,7 @@ const bind = (switchFn, twoTrackInput) => {
 
 Next, we can use `map` to handle the result. It will take the function it will execute on the result if there was no error. In case of an error, it will just return the error itself without applying the function:
 
-<Switch options={['fs', 'ts']} id="map">
+<Switch options={['fs', 'ts']}>
 
 ```fsharp
 let map f aResult =
@@ -555,7 +555,7 @@ To make serialization painless, we need to convert domain objects into DTOs, and
 
 Suppose we want to figure out how to serialize the type `Person`:
 
-<Switch options={['fs', 'ts']} id="domain-types">
+<Switch options={['fs', 'ts']}>
 
 ```fsharp
 module Domain =
@@ -589,7 +589,7 @@ type Person = {
 
 Next, let's declare the type for the DTO and the functions that will convert the domain to DTO and back:
 
-<Switch options={['fs', 'ts']} id="working-with-dto">
+<Switch options={['fs', 'ts']}>
 
 ```fsharp
 // DTO type with primitives without constraints:
@@ -721,7 +721,7 @@ In FP, all objects are considered immutable, so let's think of the repository as
 
 In types we could express it this way:
 
-<Switch options={['fs', 'ts']} id="crud-in-types">
+<Switch options={['fs', 'ts']}>
 
 ```fsharp
 type InsertData = DataStoreState -> Data -> NewDataStoreState

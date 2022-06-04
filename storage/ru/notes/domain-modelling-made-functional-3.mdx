@@ -72,7 +72,7 @@ tags:
 
 В этой и следующей главе мы реализуем процесс приёмки заказа в коде. Мы хотим получить нечто типа:
 
-<Switch options={['fs', 'ts']} id="place-order">
+<Switch options={['fs', 'ts']}>
 
 ```fsharp
 let placeOrder unvalidatedOrder =
@@ -106,7 +106,7 @@ const placeOrder = (unvalidatedOrder) =>
 
 Чтобы компилятор сделал за нас всю работу по проверке типов, мы можем указать тип для функции явно. Тогда, если мы сделаем ошибку в параметрах или возвращаемом результате, то узнаем об этом сразу же. На примере функции валидации это могло бы выглядеть так:
 
-<Switch options={['fs', 'ts']} id="validate-order">
+<Switch options={['fs', 'ts']}>
 
 ```fsharp
 let validateOrder : ValidateOrder =
@@ -127,7 +127,7 @@ const validateOrder: ValidateOrder =
 
 Для простоты в этой главе мы отбросим эффекты, поэтому тип проверки адреса пока упростим:
 
-<Switch options={['fs', 'ts']} id="check-address-exists">
+<Switch options={['fs', 'ts']}>
 
 ```fsharp
 type CheckAddressExists = UnvalidatedAddress -> CheckedAddress
@@ -143,7 +143,7 @@ type CheckAddressExists = (address: UnvalidatedAddress) => CheckedAddress;
 
 Тогда тип валидатора будет следующим:
 
-<Switch options={['fs', 'ts']} id="validate-order-type">
+<Switch options={['fs', 'ts']}>
 
 ```fsharp
 type ValidateOrder =
@@ -172,7 +172,7 @@ type ValidateOrder = (
 - создать тип `Address` из `ShippingAddress` и второй такой же из `BillingAddress`;
 - скомпоновать составные части заказа вместе.
 
-<Switch options={['fs', 'ts']} id="validate-order-function">
+<Switch options={['fs', 'ts']}>
 
 ```fsharp
 let validateOrder : ValidateOrder =
@@ -228,7 +228,7 @@ const validateOrder: ValidateOrder = (
 
 Функции `toCustomerInfo` и `toAddress` — это хелперы, которые будут создавать доменные типы из неваладированных данных или выбрасывать ошибки, если данные не подходят. Внутри них мы будем пользоваться той же логикой — преобразовать невалидированные данные в домен, а если не получится — выбросить ошибку.
 
-<Switch options={['fs', 'ts']} id="to-customer-info">
+<Switch options={['fs', 'ts']}>
 
 ```fsharp
 let toCustomerInfo (customer:UnvalidatedCustomerInfo) : CustomerInfo =
@@ -268,7 +268,7 @@ const toCustomerInfo = (customer: UnvalidatedCustomerInfo): CustomerInfo => {
 
 В случае с проверкой адреса нам также потребуется вызвать сторонний сервис (зависимость):
 
-<Switch options={['fs', 'ts']} id="to-address">
+<Switch options={['fs', 'ts']}>
 
 ```fsharp
 let toAddress (checkAddressExists:CheckAddressExists) unvalidatedAddress =
@@ -323,7 +323,7 @@ const toAddress = (checkAddressExists: CheckAddressExists, unvalidatedAddress): 
 
 Посмотрим на пример хелперов, которые мы писали ранее:
 
-<Switch options={['fs', 'ts']} id="helpers">
+<Switch options={['fs', 'ts']}>
 
 ```fsharp
 let toAddress checkAddressExists unvalidatedAddress =  ...
@@ -339,7 +339,7 @@ const toProductCode = (checkProductCodeExists, productCode) => // ...
 
 Функции `checkAddressExists` и `checkProductCodeExists` — это зависимости. Когда мы используем их в других функциях, мы должны указать зависимости и там:
 
-<Switch options={['fs', 'ts']} id="to-validated-order-line">
+<Switch options={['fs', 'ts']}>
 
 ```fsharp
 let toValidatedOrderLine checkProductExists unvalidatedOrderLine =
@@ -382,7 +382,7 @@ const toValidatedOrderLine = (checkProductExists, unvalidatedOrderLine) => {
 
 Сигнатура функций должна сообщать обо _всех возможных_ результатах её работы явно. Поэтому такая сигнатура будет обманчивой:
 
-<Switch options={['fs', 'ts']} id="check-address-exists-dependency">
+<Switch options={['fs', 'ts']}>
 
 ```fsharp
 type CheckAddressExists = UnvalidatedAddress -> CheckedAddress
@@ -396,7 +396,7 @@ type CheckAddressExists = (address: UnvalidatedAddress) => CheckedAddress;
 
 У нас могут возникнуть ошибки, и мы хотим это отобразить прямо в типе:
 
-<Switch options={['fs', 'ts']} id="explicit-effects">
+<Switch options={['fs', 'ts']}>
 
 ```fsharp
 type CheckAddressExists =
@@ -429,7 +429,7 @@ type CheckAddressExists = (
 
 Мы можем типизировать каждую ошибку, а затем для каждого процесса собрать юнион возможных ошибок для этого процесса:
 
-<Switch options={['fs', 'ts']} id="place-order-error">
+<Switch options={['fs', 'ts']}>
 
 ```fsharp
 type PlaceOrderError =
@@ -476,7 +476,7 @@ type PlaceOrderError = ValidationError | ProductOutOfStock | RemoteServiceError;
 
 Один из таких адаптеров — это `bind`:
 
-<Switch options={['fs', 'ts']} id="bind">
+<Switch options={['fs', 'ts']}>
 
 ```fsharp
 let bind switchFn twoTrackInput =
@@ -502,7 +502,7 @@ const bind = (switchFn, twoTrackInput) => {
 
 Далее для работы с результатом мы можем использовать `map`. Он будет принимать функцию, которую выполнит на результате, если ошибки не было. В случае ошибки просто вернёт саму ошибку, не применяя функцию:
 
-<Switch options={['fs', 'ts']} id="map">
+<Switch options={['fs', 'ts']}>
 
 ```fsharp
 let map f aResult =
@@ -555,7 +555,7 @@ _Хранение (persistence)_ — это способность состоя�
 
 Допустим, мы хотим научиться сериализовывать тип `Person`:
 
-<Switch options={['fs', 'ts']} id="domain-types">
+<Switch options={['fs', 'ts']}>
 
 ```fsharp
 module Domain =
@@ -590,7 +590,7 @@ type Person = {
 
 Далее объявим тип для DTO и функции, которые будут конвертировать домен в DTO и обратно:
 
-<Switch options={['fs', 'ts']} id="working-with-dto">
+<Switch options={['fs', 'ts']}>
 
 ```fsharp
 // Тип DTO с примитивами, без ограничений:
@@ -722,7 +722,7 @@ Pattern match on output choice type:
 
 С типах мы бы могли выразить это так:
 
-<Switch options={['fs', 'ts']} id="crud-in-types">
+<Switch options={['fs', 'ts']}>
 
 ```fsharp
 type InsertData = DataStoreState -> Data -> NewDataStoreState

@@ -192,7 +192,7 @@ With all this in mind, let's start writing the tokenizer. First, let's replace l
 
 I suggest the paragraph sign “§”. We can quickly find it in the generated text and replace it with the line break. Besides, if we find such a character in the source text too, we won't lose anything by replacing it with a line break.
 
-<Switch options={['js', 'py']} id="create-tokenizer">
+<Switch options={['js', 'py']}>
 
 ```js
 // tokenizer.js
@@ -219,7 +219,7 @@ def tokenize(text):
 
 To divide the text into tokens, considering the punctuation and spaces, we'll use a regular expression. Let's use [this one](https://stackoverflow.com/questions/6162600/how-do-you-split-a-javascript-string-by-spaces-and-punctuation) as the basis and extend it a bit:
 
-<Switch options={['js', 'py']} id="consider-punctuation">
+<Switch options={['js', 'py']}>
 
 ```js
 // tokenizer.js
@@ -263,7 +263,7 @@ If you want to know how exactly this regular expression works, I suggest you try
 
 To divide the text into tokens, let's use the `split()` method:
 
-<Switch options={['js', 'py']} id="tokenize-text">
+<Switch options={['js', 'py']}>
 
 ```js
 // tokenizer.js
@@ -303,7 +303,7 @@ Now the `tokenize` function returns an array of tokens found in the text. Among 
 
 We don't need empty strings, so we filter them out. Let's add a function called `exists`, which will return `false` if it receives a falsy-value as input:
 
-<Switch options={['js', 'py']} id="check-for-falsy-values">
+<Switch options={['js', 'py']}>
 
 ```js
 // tokenizer.js
@@ -328,7 +328,7 @@ function exists(entity) {
 
 ...And use it to filter the array of tokens:
 
-<Switch options={['js', 'py']} id="filter-out-empty-strings">
+<Switch options={['js', 'py']}>
 
 ```js
 // tokenizer.js
@@ -383,7 +383,7 @@ The sample size is always equal to the sum of the number of tokens in the key an
 
 For a naive implementation, the sample size will be 2. Let's write the `sliceCorpus` function, which divides an array of tokens into such samples:
 
-<Switch options={['js', 'py']} id="slice-corpus">
+<Switch options={['js', 'py']}>
 
 ```js
 // generator.js
@@ -444,7 +444,7 @@ The easiest way to represent a transition matrix in the code is in the form of a
 
 To create such an object, we will run through all samples, take out keys and transitions, and for each key collect a list of all encountered transitions:
 
-<Switch options={['js', 'py']} id="collect-transitions">
+<Switch options={['js', 'py']}>
 
 ```js
 // generator.js
@@ -494,7 +494,7 @@ Now let's write a function that will select the next token based on the current 
 
 The `predictNext` function will take a chain and a transition matrix. The _chain_ will be an array of previously generated tokens. The function will take the last token, search for it in the matrix for a list of possible transitions, and then randomly choose one of those transitions:
 
-<Switch options={['js', 'py']} id="predict-next-token">
+<Switch options={['js', 'py']}>
 
 ```js
 // generator.js
@@ -519,7 +519,7 @@ def predict_next(chain, transitions):
 
 We will write a couple of utilities for random selection. The function `random` will return a random integer within a specified range, and `pickRandom` will return an element from an array with a random index:
 
-<Switch options={['js', 'py']} id="select-random-token">
+<Switch options={['js', 'py']}>
 
 ```js
 // generator.js
@@ -539,7 +539,7 @@ const pickRandom = (list) => list[random(0, list.length - 1)];
 
 The easiest way to check the function is to pass it an array with the most frequent character in the text—space:
 
-<Switch options={['js', 'py']} id="generate-next-token-after-space">
+<Switch options={['js', 'py']}>
 
 ```js
 // generator.js
@@ -575,7 +575,7 @@ We'll use them because we may not know the size of the chain we need to generate
 
 Let's create a generator function named `generateChain`. Note the asterisk after the word `function*` - this is how the generator is noted:
 
-<Switch options={['js', 'py']} id="wrap-generator-in-generator">
+<Switch options={['js', 'py']}>
 
 ```js
 // generator.js
@@ -612,7 +612,7 @@ In this function, we create an infinite loop in which we generate a new token fo
 
 Also, we create the chain before the loop with the `createChain` function. This function creates a chain from the text passed to it. If nothing is passed, it selects a random token from the transition matrix and makes it the start of the chain:
 
-<Switch options={['js', 'py']} id="create-chain">
+<Switch options={['js', 'py']}>
 
 ```js
 // generator.js
@@ -635,7 +635,7 @@ def create_chain(start_text, transitions):
 
 Now when we call the `generateChain` function, we get an object with the `next()` method that returns a generated word:
 
-<Switch options={['js', 'py']} id="call-next-on-generator">
+<Switch options={['js', 'py']}>
 
 ```js
 const startText = " ";
@@ -659,7 +659,7 @@ print(next(generator))
 
 We can call the `next()` method time after time and the chain will continue growing and each call will result in a new token:
 
-<Switch options={['js', 'py']} id="call-next-many-times">
+<Switch options={['js', 'py']}>
 
 ```js
 const generator = generateChain(startText, transitions);
@@ -691,7 +691,7 @@ Next, we will write a wrapper function called `generate` which will generate a t
 
 Internally it will tokenize the source text, split it into samples and create a transition matrix. Then it will create a chain generator and call it as many times as specified in the settings. We will write the result of generation to an array, which we will then glue together using the `textify` function to get the text:
 
-<Switch options={['js', 'py']} id="create-public-api">
+<Switch options={['js', 'py']}>
 
 ```js
 // generator.js
@@ -730,7 +730,7 @@ def generate(source, start = "", words_count = 100):
 
 The `textify` function will join the tokens together and replace paragraph marks with line breaks:
 
-<Switch options={['js', 'py']} id="textify-results">
+<Switch options={['js', 'py']}>
 
 ```js
 // tokenizer.js
@@ -755,7 +755,7 @@ def textify(tokens):
 
 We will call the generator like this:
 
-<Switch options={['js', 'py']} id="call-main-function">
+<Switch options={['js', 'py']}>
 
 ```js
 generate({ source: text, wordsCount: 200 });
@@ -794,7 +794,7 @@ In our naive implementation, we used the sample size of 2 tokens. The first toke
 
 First, we'll update the `sliceCorpus` function. It will now start to take sample size as an argument:
 
-<Switch options={['js', 'py']} id="add-sample-size-to-corpus-slicer">
+<Switch options={['js', 'py']}>
 
 ```js
 // generator.js
@@ -818,7 +818,7 @@ def slice_corpus(corpus, sample_size):
 
 Next, we update the `collectTransitions` function which creates the transition matrix. There, we will generalize the search for key tokens and a transition token:
 
-<Switch options={['js', 'py']} id="generalize-matrix-collector">
+<Switch options={['js', 'py']}>
 
 ```js
 // generator.js
@@ -884,7 +884,7 @@ We won't use [`Map`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Ref
 
 Next, let's update the `predictNext` function to be able to handle the new structure of the transition matrix. It will also take the sample size as an argument. It will use it to extract the right number of tokens to make the key:
 
-<Switch options={['js', 'py']} id="generalize-predictor">
+<Switch options={['js', 'py']}>
 
 ```js
 // generator.js
@@ -909,7 +909,7 @@ def predict_next(chain, transitions, sample_size):
 
 Let's also update the signature of the generator itself, so you can specify the sample size in the parameters:
 
-<Switch options={['js', 'py']} id="generalize-generator">
+<Switch options={['js', 'py']}>
 
 ```js
 // generator.js
@@ -944,7 +944,7 @@ def generate_chain(start_text, transitions, sample_size):
 
 Now we'll add a condition that if no transition is found at some iteration, we remove the last token from the chain:
 
-<Switch options={['js', 'py']} id="generalize-public-api">
+<Switch options={['js', 'py']}>
 
 ```js
 // generator.js
@@ -1006,7 +1006,7 @@ To download all my tweets, I opened a special [page where I could request the da
 
 I found the `data/tweet.js` file in the archive and pulled the text of all my tweets from it. I wrote a script to exclude links, retweets, and automatic messages from IFTTT. I got something like:
 
-<Switch options={['js', 'py']} id="clean-twitter-archive">
+<Switch options={['js', 'py']}>
 
 ```js
 const onlyText = ({ tweet: { full_text } }) => full_text;

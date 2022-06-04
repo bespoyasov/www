@@ -110,7 +110,7 @@ Inputs            Function                              Outputs
 
 Например, если мы описываем тип для фруктового салата, где нам нужны бананы, яблоки **и** вишни, то мы напишем [_рекорд-тип (record type)_](https://docs.microsoft.com/en-us/dotnet/fsharp/language-reference/records):
 
-<Switch options={['fs', 'ts']} id="record-type">
+<Switch options={['fs', 'ts']}>
 
 ```fsharp
 type FruitSalad = {
@@ -132,7 +132,7 @@ type FruitSalad = {
 
 А если мы описываем закуску, в которой можно выбрать яблоко, банан **или** вишню, то опишем его как [_юнион-тип (discriminated union)_](https://docs.microsoft.com/en-us/dotnet/fsharp/language-reference/discriminated-unions):
 
-<Switch options={['fs', 'ts']} id="union-type">
+<Switch options={['fs', 'ts']}>
 
 ```fsharp
 type FruitSnack =
@@ -153,7 +153,7 @@ type FruitSnack = AppleVariety | BananaVariety | CherryVariety;
 
 Композиция типов может помочь при моделировании систем. Допустим, мы хотим смоделировать оплату платежей в интернет-магазине. Начнём с обёрток над примитивными типами:
 
-<Switch options={['fs', 'ts']} id="type-wrappers">
+<Switch options={['fs', 'ts']}>
 
 ```fsharp
 type CheckNumber = CheckNumber of int
@@ -175,7 +175,7 @@ type CardNumber = string;
 
 Затем распишем в виде юниона виды принимаемых карт, а в виде рекорда — всю информацию о карте:
 
-<Switch options={['fs', 'ts']} id="credit-card-info">
+<Switch options={['fs', 'ts']}>
 
 ```fsharp
 type CardType = Visa | Mastercard
@@ -197,7 +197,7 @@ type CreditCardInfo = {
 
 Если магазин принимает несколько методов оплаты, то мы снова можем использовать юнион:
 
-<Switch options={['fs', 'ts']} id="payment-method-type">
+<Switch options={['fs', 'ts']}>
 
 ```fsharp
 type PaymentMethod =
@@ -214,7 +214,7 @@ type PaymentMethod = Cash | CheckNumber | CreditCardInfo;
 
 Сумму и валюту тоже можем описать базовыми типами:
 
-<Switch options={['fs', 'ts']} id="currency-and-amount">
+<Switch options={['fs', 'ts']}>
 
 ```fsharp
 type PaymentAmount = PaymentAmount of decimal
@@ -230,7 +230,7 @@ type Currency = EUR | USD;
 
 Ну а тип оплаты полностью может выглядеть так:
 
-<Switch options={['fs', 'ts']} id="payment-type">
+<Switch options={['fs', 'ts']}>
 
 ```fsharp
 type Payment = {
@@ -252,7 +252,7 @@ type Payment = {
 
 Более того мы можем описать и то, как будет происходить оплата или как конвертировать валюты — в виде типов функций:
 
-<Switch options={['fs', 'ts']} id="function-signatures">
+<Switch options={['fs', 'ts']}>
 
 ```fsharp
 type PayInvoice = UnpaidInvoice -> Payment -> PaidInvoice
@@ -337,7 +337,7 @@ processCustomerId orderId
 
 Часть _тесно связанных данных_ мы можем представить в виде рекорд-типов:
 
-<Switch options={['fs', 'ts']} id="record-type-for-bounded-data">
+<Switch options={['fs', 'ts']}>
 
 ```fsharp
 type Order = {
@@ -365,7 +365,7 @@ type Order = {
 
 В начале проектирования может также не хватать знаний об ограничениях или структуре каких-то типов. Это не проблема, сейчас можно заменить неизвестные типы на _явно_ неизвестные (explicitly undefined). Это позволит продолжить проектирование, не отвлекаясь на ошибки компилятора. (Понятно, что после уточнения ограничений неизвестные структуры надо будет обновить.)
 
-<Switch options={['fs', 'ts']} id="explicitly-undefined-types">
+<Switch options={['fs', 'ts']}>
 
 ```fsharp
 type Undefined = exn
@@ -391,7 +391,7 @@ type BillingAmount = Undefined;
 
 Данные, которые предоставляют выбор, мы можем представить в виде юнион-типов:
 
-<Switch options={['fs', 'ts']} id="choice-types">
+<Switch options={['fs', 'ts']}>
 
 ```fsharp
 type OrderQuantity =
@@ -409,7 +409,7 @@ type OrderQuantity = Unit | Kilogram;
 
 Юнион- и рекорд-типы играют роль _существительных_ в общем языке. Роль _глаголов_ будут играть функциональные типы (function types). Например, процесс валидации заказа мы бы могли отобразить как:
 
-<Switch options={['fs', 'ts']} id="validation-type">
+<Switch options={['fs', 'ts']}>
 
 ```fsharp
 type ValidateOrder = UnvalidatedOrder -> ValidatedOrder
@@ -423,7 +423,7 @@ type ValidateOrder = (order: UnvalidatedOrder) => ValidatedOrder;
 
 Если процесс возвращает несколько событий, то мы можем использовать рекорд-тип, чтобы показать это:
 
-<Switch options={['fs', 'ts']} id="multiple-events-record">
+<Switch options={['fs', 'ts']}>
 
 ```fsharp
 type PlaceOrderEvents = {
@@ -449,7 +449,7 @@ type PlaceOrder = (order: UnvalidatedOrder) => PlaceOrderEvents;
 
 Если процесс принимает несколько групп данных на вход, то можно поступить двумя способами: использовать несколько аргументов или использовать рекорд с несколькими полями:
 
-<Switch options={['fs', 'ts']} id="calculate-prices-type">
+<Switch options={['fs', 'ts']}>
 
 ```fsharp
 type CalculatePrices = OrderForm -> ProductCatalog -> PricedOrder
@@ -483,7 +483,7 @@ type CalculatePrices = (input: CalculatePricesInput) => PricedOrder;
 
 Для описания эффектов мы можем пользоваться типами `Result`, `Async` и своими обёртками над ними:
 
-<Switch options={['fs', 'ts']} id="result-async">
+<Switch options={['fs', 'ts']}>
 
 ```fsharp
 type ValidationResponse<'a> = Async<Result<'a,ValidationError list>>
@@ -530,7 +530,7 @@ printfn "%b" (name1 = name2)  // "true"
 
 Хранить идентификаторы удобнее «внутри» самой сущности, чем «снаружи», потому что это делает удобнее [_паттерн-матчинг_](https://docs.microsoft.com/en-us/dotnet/fsharp/language-reference/pattern-matching).
 
-<Switch options={['fs', 'ts']} id="id-placement">
+<Switch options={['fs', 'ts']}>
 
 ```fsharp
 // ID снаружи:
@@ -604,7 +604,7 @@ type Invoice = Unpaid | Paid
 
 Для value objects _обязательна иммутабельность_ — потому что при изменении какого-то поля, объект становится _другим_, то есть он не может «просто поменяться». Сущности меняться могут, но не будем их просто «менять», вместо этого мы будем создавать _копии с изменениями_, сохраняя идентификатор. Это делает все изменения в сущности явными:
 
-<Switch options={['fs', 'ts']} id="explicit-effects">
+<Switch options={['fs', 'ts']}>
 
 ```fsharp
 // Сразу видно, что функция поменяет сущность Person:
@@ -634,7 +634,7 @@ type UpdateName = (person: Person) => (name: Name) => Person;
 
 Агрегаты — это отдельные, независимые единицы _хранения информации (units of persistence)_. Нам стоит проводить границы так, чтобы иммутабельность не запускала _лишних_ обновлений структур. Например, если в заказе есть ссылка на пользователя, который сделал этот заказ, как лучше сослаться на него: используя всего пользователя или только его ID?
 
-<Switch options={['fs', 'ts']} id="aggregates">
+<Switch options={['fs', 'ts']}>
 
 ```fsharp
 type Order = {
@@ -750,7 +750,7 @@ type KilogramQuantity = KilogramQuantity of decimal<kg>
 
 Одним из вариантов решения мог бы быть такой тип:
 
-<Switch options={['fs', 'ts']} id="boolean-flags">
+<Switch options={['fs', 'ts']}>
 
 ```fsharp
 type CustomerEmail = {
@@ -772,7 +772,7 @@ type CustomerEmail = {
 
 Вместо этого лучше описать ограничение прямо в типе:
 
-<Switch options={['fs', 'ts']} id="type-constraints">
+<Switch options={['fs', 'ts']}>
 
 ```fsharp
 type VerifiedEmailAddress = private VerifiedEmailAddress of EmailAddress
@@ -804,7 +804,7 @@ _Согласованность_ — это больше бизнесовый т
 
 На примере изменения пункта в заказе это могло бы выглядеть так:
 
-<Switch options={['fs', 'ts']} id="change-order-line-price-type">
+<Switch options={['fs', 'ts']}>
 
 ```fsharp
 /// Передаём 3 параметра:
@@ -894,7 +894,7 @@ Start transaction
 
 …Получилась отдельная транзакция, в которой бы разные агрегаты уже не были напрямую ответственны за обновление данных:
 
-<Switch options={['fs', 'ts']} id="money-transfer-type">
+<Switch options={['fs', 'ts']}>
 
 ```fsharp
 type MoneyTransfer = {
@@ -931,7 +931,7 @@ type MoneyTransfer = {
 
 Входными данными должен быть _доменный объект_. Мы посчитаем, что такие объекты мы достаём из десериализованных DTO и будем просто держать это в уме.
 
-<Switch options={['fs', 'ts']} id="unvalidated-order-type">
+<Switch options={['fs', 'ts']}>
 
 ```fsharp
 type UnvalidatedOrder = {
@@ -966,7 +966,7 @@ type PlaceOrder = {
 
 Команд может быть много, поэтому сделаем общий [дженерик-тип](https://www.typescriptlang.org/docs/handbook/2/generics.html) команды, который заберёт на себя описание дополнительных данных:
 
-<Switch options={['fs', 'ts']} id="generic-type">
+<Switch options={['fs', 'ts']}>
 
 ```fsharp
 type Command<'data> = {
@@ -990,7 +990,7 @@ type Command<TPayload> = {
 
 А специфичную команду для конкретного процесса мы сможем создать, передав тип-параметр:
 
-<Switch options={['fs', 'ts']} id="specific-command-type">
+<Switch options={['fs', 'ts']}>
 
 ```fsharp
 type PlaceOrder = Command<UnvalidatedOrder>
@@ -1008,7 +1008,7 @@ type PlaceOrder = Command<UnvalidatedOrder>;
 
 Смоделировать все эти состояния можно разными путями. Наивный путь — это просто создать кучу флагов для разных состояний:
 
-<Switch options={['fs', 'ts']} id="different-flags">
+<Switch options={['fs', 'ts']}>
 
 ```fsharp
 type Order = {
@@ -1038,7 +1038,7 @@ type Order = {
 
 Другой способ — использовать отдельные типы для каждого состояния.
 
-<Switch options={['fs', 'ts']} id="different-types-for-different-states">
+<Switch options={['fs', 'ts']}>
 
 ```fsharp
 type Order =
@@ -1077,7 +1077,7 @@ type Order = Unvalidated | Validated | Priced;
 
 Первым делом опишем валидацию. Мы помним, что она принимает невалидированный заказ, а также ссылается на две «зависимости». Эти зависимости мы тоже можем сперва описать типами, которые станут «интерфейсом» для реализации позже. Тогда получится нечто вроде:
 
-<Switch options={['fs', 'ts']} id="check-product-code-exists">
+<Switch options={['fs', 'ts']}>
 
 ```fsharp
 type CheckProductCodeExists = ProductCode -> bool
@@ -1102,7 +1102,7 @@ type CheckAddressExists = (
 
 Весь шаг валидации тогда мы опишем, как такую сигнатуру:
 
-<Switch options={['fs', 'ts']} id="validate-order-type">
+<Switch options={['fs', 'ts']}>
 
 ```fsharp
 type ValidateOrder =
@@ -1142,7 +1142,7 @@ type ValidateOrder = (
 
 Нам нужны события `OrderPlaced` для отправки и `BillableOrderPlaced` для биллинга. Для первого мы можем использовать алиас над уже имеющимся типом, а второй создадим с нуля:
 
-<Switch options={['fs', 'ts']} id="billable-order-placed-type">
+<Switch options={['fs', 'ts']}>
 
 ```fsharp
 type OrderPlaced = PricedOrder
@@ -1166,7 +1166,7 @@ type BillableOrderPlaced = {
 
 Возможно, нам понадобится добавить каких-то ещё событий, поэтому пусть процесс возвращает _список событий_, типом которых будет:
 
-<Switch options={['fs', 'ts']} id="place-order-event-union">
+<Switch options={['fs', 'ts']}>
 
 ```fsharp
 type PlaceOrderEvent =
@@ -1191,7 +1191,7 @@ type CreateEvents = (order: PricedOrder) => PlaceOrderEvent[];
 
 Части процесса могут вызывать эффекты. Например, в валидации у нас есть вызов стороннего сервиса, это тоже стоит обозначить в типах:
 
-<Switch options={['fs', 'ts']} id="typing-effects">
+<Switch options={['fs', 'ts']}>
 
 ```fsharp
 type AsyncResult<'success,'failure> = Async<Result<'success,'failure>>
@@ -1210,7 +1210,7 @@ type CheckAddressExists = (
 
 `Async`, как и `Result`, заражает то, к чему касается, поэтому тип валидатора нам тоже придётся поменять:
 
-<Switch options={['fs', 'ts']} id="updating-validate-order-type">
+<Switch options={['fs', 'ts']}>
 
 ```fsharp
 type ValidateOrder =

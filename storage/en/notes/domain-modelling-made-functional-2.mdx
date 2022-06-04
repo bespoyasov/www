@@ -110,7 +110,7 @@ Composition is the creation of something from something smaller. It applies to t
 
 For example, if we describe a type for a fruit salad, where we want bananas, apples **and** cherries, we will use a [_record type_](https://docs.microsoft.com/en-us/dotnet/fsharp/language-reference/records):
 
-<Switch options={['fs', 'ts']} id="record-type">
+<Switch options={['fs', 'ts']}>
 
 ```fsharp
 type FruitSalad = {
@@ -132,7 +132,7 @@ type FruitSalad = {
 
 And if we describe a snack in which you can choose an apple, a banana **or** a cherry, then we describe it as a [_discriminated union_](https://docs.microsoft.com/en-us/dotnet/fsharp/language-reference/discriminated-unions):
 
-<Switch options={['fs', 'ts']} id="union-type">
+<Switch options={['fs', 'ts']}>
 
 ```fsharp
 type FruitSnack =
@@ -153,7 +153,7 @@ This is the simplest composition of types. A system in which complex types are c
 
 Type composition can help when modeling systems. Suppose we want to model payment in an online store. Let's start with wrappers over primitive types:
 
-<Switch options={['fs', 'ts']} id="type-wrappers">
+<Switch options={['fs', 'ts']}>
 
 ```fsharp
 type CheckNumber = CheckNumber of int
@@ -175,7 +175,7 @@ In F#, `of` allows you to create a wrapper over a type, so that two wrappers ove
 
 Then we'll write out the types of accepted cards as a union, and all the information about the card as a record:
 
-<Switch options={['fs', 'ts']} id="credit-card-info">
+<Switch options={['fs', 'ts']}>
 
 ```fsharp
 type CardType = Visa | Mastercard
@@ -197,7 +197,7 @@ type CreditCardInfo = {
 
 If the store accepts multiple payment methods, we can again use union:
 
-<Switch options={['fs', 'ts']} id="payment-method-type">
+<Switch options={['fs', 'ts']}>
 
 ```fsharp
 type PaymentMethod =
@@ -214,7 +214,7 @@ type PaymentMethod = Cash | CheckNumber | CreditCardInfo;
 
 The amount and currency can also be described by basic types:
 
-<Switch options={['fs', 'ts']} id="currency-and-amount">
+<Switch options={['fs', 'ts']}>
 
 ```fsharp
 type PaymentAmount = PaymentAmount of decimal
@@ -230,7 +230,7 @@ type Currency = EUR | USD;
 
 And the payment type might look like this:
 
-<Switch options={['fs', 'ts']} id="payment-type">
+<Switch options={['fs', 'ts']}>
 
 ```fsharp
 type Payment = {
@@ -252,7 +252,7 @@ type Payment = {
 
 Moreover, we can also describe how payments will be made or how currencies will be converted—in the form of function types:
 
-<Switch options={['fs', 'ts']} id="function-signatures">
+<Switch options={['fs', 'ts']}>
 
 ```fsharp
 type PayInvoice = UnpaidInvoice -> Payment -> PaidInvoice
@@ -337,7 +337,7 @@ In F#, by the way, also [you can use aliases](https://docs.microsoft.com/en-us/d
 
 Part of the _closely related data_ we can represent as record-types:
 
-<Switch options={['fs', 'ts']} id="record-type-for-bounded-data">
+<Switch options={['fs', 'ts']}>
 
 ```fsharp
 type Order = {
@@ -365,7 +365,7 @@ At first stages, it may not be clear which types are the same and which are not.
 
 At the beginning of the design, you may also lack knowledge about the constraints or structure of some types. This is not a problem, now you can replace unknown types with _explicitly_ undefined types. This will allow you to continue designing without being distracted by compiler errors. (Clearly, after constraints are specified, the unknown structures will need to be updated.)
 
-<Switch options={['fs', 'ts']} id="explicitly-undefined-types">
+<Switch options={['fs', 'ts']}>
 
 ```fsharp
 type Undefined = exn
@@ -391,7 +391,7 @@ type BillingAmount = Undefined;
 
 We can represent the data that provide choices as union-types:
 
-<Switch options={['fs', 'ts']} id="choice-types">
+<Switch options={['fs', 'ts']}>
 
 ```fsharp
 type OrderQuantity =
@@ -409,7 +409,7 @@ type OrderQuantity = Unit | Kilogram;
 
 Unions and record-types play the role of _nouns_ in a common language. The role of _verbs_ would be played by function types. For example, we could represent the order validation process as:
 
-<Switch options={['fs', 'ts']} id="validation-type">
+<Switch options={['fs', 'ts']}>
 
 ```fsharp
 type ValidateOrder = UnvalidatedOrder -> ValidatedOrder
@@ -423,7 +423,7 @@ type ValidateOrder = (order: UnvalidatedOrder) => ValidatedOrder;
 
 If the process returns multiple events, we can use the record-type to show it:
 
-<Switch options={['fs', 'ts']} id="multiple-events-record">
+<Switch options={['fs', 'ts']}>
 
 ```fsharp
 type PlaceOrderEvents = {
@@ -449,7 +449,7 @@ type PlaceOrder = (order: UnvalidatedOrder) => PlaceOrderEvents;
 
 If the process accepts several groups of data as input, there are two ways to proceed: use several arguments or use a record with several fields:
 
-<Switch options={['fs', 'ts']} id="calculate-prices-type">
+<Switch options={['fs', 'ts']}>
 
 ```fsharp
 type CalculatePrices = OrderForm -> ProductCatalog -> PricedOrder
@@ -483,7 +483,7 @@ The second way is more suitable when the inputs are _technically related and man
 
 We can use `Result`, `Async` types and their wrappers to describe effects:
 
-<Switch options={['fs', 'ts']} id="result-async">
+<Switch options={['fs', 'ts']}>
 
 ```fsharp
 type ValidationResponse<'a> = Async<Result<'a,ValidationError list>>
@@ -523,7 +523,7 @@ Entities need an identifier to distinguish one entity from another. Sometimes su
 
 It is more convenient to store identifiers “inside” the entity itself than “outside”, because it makes it more convenient to [_pattern-matching_](https://docs.microsoft.com/en-us/dotnet/fsharp/language-reference/pattern-matching).
 
-<Switch options={['fs', 'ts']} id="id-placement">
+<Switch options={['fs', 'ts']}>
 
 ```fsharp
 // ID outside:
@@ -597,7 +597,7 @@ You can use third-party libraries for pattern-matching in TS, such as [ts-patter
 
 Value objects _must be immutable_ because when some field is changed, the object becomes _another_ object, i.e. it cannot “just change”. Entities can change, but we won't just “change” them; instead, we will create _copies with changes_, keeping the identifier. This makes all changes to the entity explicit:
 
-<Switch options={['fs', 'ts']} id="explicit-effects">
+<Switch options={['fs', 'ts']}>
 
 ```fsharp
 // You can that the function will change the Person entity:
@@ -627,7 +627,7 @@ If the user changes an order item, should the entire order change? Answer: yes, 
 
 Aggregates are separate, independent _units of persistence_. We should draw boundaries so that immutability does not trigger _unnecessary_ updates to structures. For example, if an order contains a reference to the user who placed that order, what's the best way to reference it: using the whole user or just his ID?
 
-<Switch options={['fs', 'ts']} id="aggregates">
+<Switch options={['fs', 'ts']}>
 
 ```fsharp
 type Order = {
@@ -743,7 +743,7 @@ We want to send account recovery links to the verified email addresses, and we d
 
 One of the solutions could be this type:
 
-<Switch options={['fs', 'ts']} id="boolean-flags">
+<Switch options={['fs', 'ts']}>
 
 ```fsharp
 type CustomerEmail = {
@@ -765,7 +765,7 @@ But the `IsVerified` flag is a very unreliable solution. Mainly because it is no
 
 Instead it is better to describe the constraint directly in the type:
 
-<Switch options={['fs', 'ts']} id="type-constraints">
+<Switch options={['fs', 'ts']}>
 
 ```fsharp
 type VerifiedEmailAddress = private VerifiedEmailAddress of EmailAddress
@@ -797,7 +797,7 @@ _Consistency_ is more of a business term than a technical one, because how and w
 
 On the example of changing an item in an order it might look like this:
 
-<Switch options={['fs', 'ts']} id="change-order-line-price-type">
+<Switch options={['fs', 'ts']}>
 
 ```fsharp
 /// Pass 3 parameters:
@@ -887,7 +887,7 @@ Start transaction
 
 ...To a separate transaction in which the different units would no longer be directly responsible for updating the data:
 
-<Switch options={['fs', 'ts']} id="money-transfer-type">
+<Switch options={['fs', 'ts']}>
 
 ```fsharp
 type MoneyTransfer = {
@@ -924,7 +924,7 @@ We will present these steps as parts of a larger pipeline—the process as a who
 
 The input data must be a _domain object_. We'll assume that we get such objects from deserialized DTOs and just keep that in mind.
 
-<Switch options={['fs', 'ts']} id="unvalidated-order-type">
+<Switch options={['fs', 'ts']}>
 
 ```fsharp
 type UnvalidatedOrder = {
@@ -959,7 +959,7 @@ type PlaceOrder = {
 
 There can be many commands, so let's make a generic [generic-type](https://www.typescriptlang.org/docs/handbook/2/generics.html) command that takes care of describing the additional data:
 
-<Switch options={['fs', 'ts']} id="generic-type">
+<Switch options={['fs', 'ts']}>
 
 ```fsharp
 type Command<'data> = {
@@ -983,7 +983,7 @@ type Command<TPayload> = {
 
 And we can create a process-specific command by passing a type-parameter:
 
-<Switch options={['fs', 'ts']} id="specific-command-type">
+<Switch options={['fs', 'ts']}>
 
 ```fsharp
 type PlaceOrder = Command<UnvalidatedOrder>
@@ -1001,7 +1001,7 @@ From the interviews with the experts, it becomes clear to us that “Order” is
 
 All these states can be modeled in different ways. The naive way is to simply create a bunch of flags for different states:
 
-<Switch options={['fs', 'ts']} id="different-flags">
+<Switch options={['fs', 'ts']}>
 
 ```fsharp
 type Order = {
@@ -1031,7 +1031,7 @@ But it has a lot of disadvantages:
 
 Another way is to use separate types for each state.
 
-<Switch options={['fs', 'ts']} id="different-types-for-different-states">
+<Switch options={['fs', 'ts']}>
 
 ```fsharp
 type Order =
@@ -1070,7 +1070,7 @@ I've got a [post about finite state machines](/blog/fsm-to-the-rescue/) and thei
 
 The first thing to describe is validation. We remember that it accepts an unvalidated order and also refers to two “dependencies”. We can also describe these dependencies with types first, which will become an “interface” for the implementation later. Then we get something like:
 
-<Switch options={['fs', 'ts']} id="check-product-code-exists">
+<Switch options={['fs', 'ts']}>
 
 ```fsharp
 type CheckProductCodeExists = ProductCode -> bool
@@ -1095,7 +1095,7 @@ type CheckAddressExists = (
 
 We will then describe the entire validation step as such a signature:
 
-<Switch options={['fs', 'ts']} id="validate-order-type">
+<Switch options={['fs', 'ts']}>
 
 ```fsharp
 type ValidateOrder =
@@ -1135,7 +1135,7 @@ I suggest you read the description of the other steps in the book yourselves. We
 
 We need events `OrderPlaced` for sending and `BillableOrderPlaced` for billing. For the first one, we can use an alias over an existing type, and create the second one from scratch:
 
-<Switch options={['fs', 'ts']} id="billable-order-placed-type">
+<Switch options={['fs', 'ts']}>
 
 ```fsharp
 type OrderPlaced = PricedOrder
@@ -1159,7 +1159,7 @@ type BillableOrderPlaced = {
 
 We may need to add some more events, so let the process return a _list of events_, which type will be:
 
-<Switch options={['fs', 'ts']} id="place-order-event-union">
+<Switch options={['fs', 'ts']}>
 
 ```fsharp
 type PlaceOrderEvent =
@@ -1184,7 +1184,7 @@ This way we make the code extensible, if a new event occurs, we don't have to ch
 
 Parts of the process can cause effects. For example, in validation we have a call to a third-party service, this should also be specified in the types:
 
-<Switch options={['fs', 'ts']} id="typing-effects">
+<Switch options={['fs', 'ts']}>
 
 ```fsharp
 type AsyncResult<'success,'failure> = Async<Result<'success,'failure>>
@@ -1203,7 +1203,7 @@ type CheckAddressExists = (
 
 `Async`, like `Result`, “infects” everything it touches, so we have to change the validator type as well:
 
-<Switch options={['fs', 'ts']} id="updating-validate-order-type">
+<Switch options={['fs', 'ts']}>
 
 ```fsharp
 type ValidateOrder =
