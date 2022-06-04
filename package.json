@@ -33,6 +33,7 @@
     "new:page": "npx hygen page new",
     "new:post": "npx hygen post new"
   },
+  "author": "Alex Bespoyasov <bespoyasov@me.com>",
   "repository": "bespoyasov/www",
   "license": "GNU GPL v3.0",
   "dependencies": {
