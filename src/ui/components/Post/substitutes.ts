@@ -1,22 +1,24 @@
 import { Blockquote } from "@components/Blockquote";
 import { Code } from "@components/Code";
-import { Highlight } from "@components/Highlight";
-import { LinkProxy } from "@components/LinkProxy";
 import { CodeBlock } from "@components/CodeBlock";
-import { Redirect } from "@components/Redirect";
-import { SideNote } from "@components/SideNote";
-import { YouTube } from "@components/YouTube";
 import { Figure } from "@components/Figure";
-import { Switch } from "@components/Switch";
+import { LinkProxy } from "@components/LinkProxy";
 import { Table } from "@components/Table";
 
+import { Highlight } from "@components/Highlight";
+import { SideNote } from "@components/SideNote";
+
+import { Redirect } from "@components/Redirect";
+import { Switch } from "@components/Switch";
+import { YouTube } from "@components/YouTube";
+
 const standardComponents = {
+  a: LinkProxy,
   blockquote: Blockquote,
   code: Code,
-  table: Table,
-  pre: CodeBlock,
   img: Figure,
-  a: LinkProxy,
+  pre: CodeBlock,
+  table: Table,
 };
 
 const htmlSubstitutions = {
