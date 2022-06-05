@@ -122,3 +122,9 @@ This command is run automatically on start of the project.
 ## Plans and TODOs
 
 Everything I consider implementing is in the [projects section](https://github.com/bespoyasov/www/projects) on GitHub.
+
+## License
+
+The source code is distributed under the [GNU GPL v3.0](LICENSE). You can use it, modify and redistribute as long as you keep the license and disclose the source.
+
+The content of the site is distributed under the [CC BY-NC-SA 4.0](LICENSE-SA.md) license. You can use and modify it as long as you mention the source and author, keep the license, and don't use the content in a commercial product.
