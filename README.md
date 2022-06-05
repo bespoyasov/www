@@ -23,7 +23,7 @@ Clone the repo and install dependencies:
 git clone https://github.com/bespoyasov/www.git
 cd www
 
-npm i
+npm install
 ```
 
 ## Development
