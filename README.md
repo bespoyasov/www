@@ -42,25 +42,26 @@ This command will start 3 daemons in parallel:
 
 ### Code Generation
 
-Create a component, post, or a page:
+To create a component, post, or a page, run:
 
 ```sh
 npm run new:component
 npm run new:post
 npm run new:page
 
-# Interactive CLI will guide you after this.
+# After hitting any of these commands,
+# an interactive CLI will guide you.
 ```
 
 ### Testing
 
-To run the tests in development:
+To run the tests while developing:
 
 ```sh
 npm run test:dev
 ```
 
-For running all the tests once:
+To run all tests once:
 
 ```sh
 npm test
@@ -77,11 +78,11 @@ npm run build:en
 npm run build:ru
 ```
 
-After the build, Next exports the generated site sources into `out`. Then the static resources are cleaned up to contain only the media related to the current build locale. In the end, RSS is generated.
+After the build, Next exports the generated site sources into the `out` directory. Then the static resources are cleaned up to contain only the media related to the current build locale. In the end, RSS is generated.
 
-The sources in `out` now can be deployed to a server.
+As a result, you will find sources for a static website in the `out` directory that can be deployed.
 
-## Ops
+## Devops
 
 For operations that aren't included in Next by default, custom `ops` scripts are used.
 
@@ -93,15 +94,15 @@ To optimize images in `public/images` using Squoosh, run:
 npm run images:convert
 ```
 
-Next's Image component doesn't support optimizations when using SSG, hence this script.
+Next's `Image` component doesn't support optimizations when using SSG, hence this script.
 
-Also, generated images are kept in the repository to avoid too long deployments. Since all images require optimizations, every update would last for tens of minutes.
+Also, generated images are kept in the repository to avoid too long deployments. Since all images require optimizations, without this every update would last for tens of minutes.
 
 ### Translation
 
-Instead of [using a third-party library and a localization service](https://github.com/bespoyasov/www/projects/6#card-80516724), the custom translation “library” is used.
+Instead of using a third-party library and a localization service, the custom translation “library” is used.
 
-It collects data from `translations.json` files in the `src` directory and creates a translation dictionary. Except the resulting dictionary, the type definitions for it are created. It improves the IDE support and autocompletion.
+It collects data from `translations.json` files in the `src` directory and creates a translation dictionary. Except the resulting dictionary, the script also creates the type definitions for the dictionary. The typings improve the IDE support and autocompletion.
 
 To collect translations, run:
 
@@ -109,7 +110,7 @@ To collect translations, run:
 npm run dict:collect
 ```
 
-This command is run automatically after installing the dependencies and before project start and build.
+This command is also run automatically after installing the dependencies and before project start and build.
 
 To set up a watcher over the translation data that updates the dictionary on every `translations.json` file change, run:
 
@@ -117,11 +118,11 @@ To set up a watcher over the translation data that updates the dictionary on eve
 npm run dict:watch
 ```
 
-This command is run automatically on start of the project.
+This command is run automatically before start of the project.
 
 ## Plans and TODOs
 
-Everything I consider implementing is in the [projects section](https://github.com/bespoyasov/www/projects) on GitHub.
+Everything I consider implementing is located in the [projects section](https://github.com/bespoyasov/www/projects) on GitHub. If you have an idea of an improvement, please, let me know in the [project issues](https://github.com/bespoyasov/www/issues).
 
 ## License
 
