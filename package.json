@@ -39,8 +39,8 @@
   "license": "GNU GPL v3.0",
   "dependencies": {
     "next": "^12.0.1",
-    "react": "^17.0.1",
-    "react-dom": "^17.0.1"
+    "react": "^18.1.0",
+    "react-dom": "^18.1.0"
   },
   "devDependencies": {
     "@mavrin/remark-typograf": "^2.1.6",
@@ -48,7 +48,7 @@
     "@squoosh/lib": "^0.4.0",
     "@types/jest": "^27.0.1",
     "@types/node": "^17.0.5",
-    "@types/react": "^17.0.18",
+    "@types/react": "^18.0.11",
     "@typescript-eslint/eslint-plugin": "^5.2.0",
     "@typescript-eslint/parser": "^5.2.0",
     "eslint": "^8.1.0",
