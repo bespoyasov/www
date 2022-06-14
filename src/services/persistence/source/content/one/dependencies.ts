@@ -15,7 +15,7 @@ export type Dependencies = {
   withMdx: AddExtension;
 };
 
-export const defaultDependencies: Partial<Dependencies> = {
+export const defaultDependencies: Omit<Dependencies, "query"> = {
   system,
   path,
 
