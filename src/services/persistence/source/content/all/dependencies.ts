@@ -1,7 +1,7 @@
 import system from "fs";
 
 export type Dependencies = {
-  system?: typeof system;
+  system: typeof system;
 };
 
 export const dependencies: Dependencies = {
