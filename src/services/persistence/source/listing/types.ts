@@ -1,4 +1,4 @@
 import type { PostId } from "@core/post";
-import type { Dependencies } from "@persistence/composition";
+import type { QueryKind } from "@persistence/types";
 
-export type QueryListing = (di?: Dependencies) => List<PostId>;
+export type QueryListing = (query: QueryKind) => List<PostId>;
