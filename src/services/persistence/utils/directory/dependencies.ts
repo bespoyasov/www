@@ -1,4 +1,6 @@
-import path, { PlatformPath } from "path";
+import type { PlatformPath } from "path";
+import path from "path";
+
 import { currentLocale as locale } from "@env/locale";
 
 export type Dependencies = {
