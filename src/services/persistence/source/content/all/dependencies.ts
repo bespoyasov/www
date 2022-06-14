@@ -10,7 +10,7 @@ export type Dependencies = {
   query: QueryKind;
 };
 
-export const dependencies: Omit<Dependencies, RuntimeSpecified<"query">> = {
+export const dependencies: Configurable<Dependencies, "query"> = {
   system,
   path,
 };

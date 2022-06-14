@@ -11,7 +11,7 @@ export type Dependencies = {
   hasMdx: HasSpecifiedExtension;
 };
 
-export const dependencies: Omit<Dependencies, RuntimeSpecified<"query">> = {
+export const dependencies: Configurable<Dependencies, "query"> = {
   system,
   directoryFor,
   hasMdx,
