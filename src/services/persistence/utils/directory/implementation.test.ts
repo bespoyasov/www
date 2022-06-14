@@ -1,7 +1,7 @@
 import type { QueryKind } from "@persistence/types";
 
 import { dependencies } from "./dependencies";
-import { createQueryDirectory as create } from "./factory";
+import { createQueryDirectory as create } from "./implementation";
 
 describe("when given a query", () => {
   const directoryFor = create(dependencies);

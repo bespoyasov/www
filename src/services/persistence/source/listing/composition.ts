@@ -1,5 +1,5 @@
 import { dependencies } from "./dependencies";
-import { createQueryListing } from "./factory";
+import { createQueryListing } from "./implementation";
 
 export const projectList = createQueryListing({ ...dependencies, query: "projects" });
 export const noteList = createQueryListing({ ...dependencies, query: "notes" });

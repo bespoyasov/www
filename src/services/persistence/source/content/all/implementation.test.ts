@@ -2,7 +2,7 @@ import type { QueryKind } from "@persistence/types";
 import { mockSystem } from "@testing/mocks";
 
 import { dependencies } from "../dependencies";
-import { createQueryPosts } from "./factory";
+import { createQueryPosts } from "./implementation";
 
 const fileName = "file.mdx";
 const fileContent = "The file content.";

@@ -2,7 +2,7 @@ import type { QueryKind } from "@persistence/types";
 
 import { mockSystem } from "@testing/mocks";
 import { dependencies } from "./dependencies";
-import { createQueryListing } from "./factory";
+import { createQueryListing } from "./implementation";
 
 describe("when called a query", () => {
   const queries: List<QueryKind> = ["notes", "projects", "talks"];

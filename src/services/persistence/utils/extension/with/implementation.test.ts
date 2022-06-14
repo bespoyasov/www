@@ -1,5 +1,5 @@
 import type { FileExtension } from "@persistence/types";
-import { createExtensionAdder } from "./factory";
+import { createExtensionAdder } from "./implementation";
 
 const extensions: List<FileExtension> = ["mdx", "tsx"];
 
