@@ -1,3 +1,3 @@
 import type { ContentDirectory, QueryKind } from "@persistence/types";
 
-export type QueryDirectory = (query: QueryKind) => ContentDirectory;
+export type DirectoryQuery = (query: QueryKind) => ContentDirectory;
