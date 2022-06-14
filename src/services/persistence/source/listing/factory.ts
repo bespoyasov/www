@@ -3,7 +3,7 @@ import { directoryFor, hasMdx } from "@persistence/utils";
 import type { Dependencies } from "./dependencies";
 import type { QueryListing } from "./types";
 
-export const createQueryFactory: Factory<QueryListing, Dependencies> =
+export const createQueryListing: Factory<QueryListing, Dependencies> =
   ({ system, query }) =>
   () =>
     system
