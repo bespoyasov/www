@@ -3,22 +3,14 @@ import path from "path";
 
 import type { PlatformPath } from "path";
 import type { QueryKind } from "@persistence/types";
-import type { AddExtension, QueryDirectory } from "@persistence/utils";
-import { directoryFor, withMdx } from "@persistence/utils";
 
 export type Dependencies = {
-  path: PlatformPath;
   system: typeof system;
-
+  path: PlatformPath;
   query: QueryKind;
-  directoryFor: QueryDirectory;
-  withMdx: AddExtension;
 };
 
 export const dependencies: Configurable<Dependencies, "query"> = {
   system,
   path,
-
-  directoryFor,
-  withMdx,
 };
