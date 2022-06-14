@@ -1,7 +1,7 @@
 import type { Dependencies } from "./dependencies";
-import type { QueryPost_ } from "./types";
+import type { QueryPost } from "./types";
 
-export const createQueryPost: Factory<QueryPost_, Dependencies> =
+export const createQueryPost: Factory<QueryPost, Dependencies> =
   ({ path, system, query: queryKind, directoryFor, withMdx }) =>
   (postId) => {
     const directory = directoryFor(queryKind);
