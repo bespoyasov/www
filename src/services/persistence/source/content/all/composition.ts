@@ -1,4 +1,4 @@
-import { dependencies } from "./dependencies";
+import { dependencies } from "../dependencies";
 import { createQueryPosts } from "./factory";
 
 export const allProjects = createQueryPosts({ ...dependencies, query: "projects" });

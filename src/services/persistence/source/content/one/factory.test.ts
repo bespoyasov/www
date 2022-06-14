@@ -1,7 +1,7 @@
 import type { QueryKind } from "@persistence/types";
 import { mockSystem } from "@testing/mocks";
 
-import { dependencies } from "./dependencies";
+import { dependencies } from "../dependencies";
 import { createQueryPost } from "./factory";
 
 const postId = "file1";

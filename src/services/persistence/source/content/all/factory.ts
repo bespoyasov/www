@@ -1,6 +1,6 @@
 import { directoryFor, hasMdx } from "@persistence/utils";
 
-import type { Dependencies } from "./dependencies";
+import type { Dependencies } from "../dependencies";
 import type { QueryPosts } from "./types";
 
 export const createQueryPosts: Factory<QueryPosts, Dependencies> =
