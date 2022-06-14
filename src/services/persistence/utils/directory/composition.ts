@@ -1,4 +1,4 @@
 import { createQueryDirectory } from "./factory";
-import { defaultDependencies } from "./dependencies";
+import { dependencies } from "./dependencies";
 
-export const directoryFor = createQueryDirectory(defaultDependencies);
+export const directoryFor = createQueryDirectory(dependencies);

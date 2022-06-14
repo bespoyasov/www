@@ -6,7 +6,7 @@ export type Dependencies = {
   locale: Locale;
 };
 
-export const defaultDependencies: Dependencies = {
+export const dependencies: Dependencies = {
   path,
   locale,
 };
