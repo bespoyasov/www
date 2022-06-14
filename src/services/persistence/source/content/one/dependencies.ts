@@ -10,7 +10,7 @@ export type Dependencies = {
   path: PlatformPath;
   system: typeof system;
 
-  queryKind: QueryKind;
+  query: QueryKind;
   directoryFor: QueryDirectory;
   withMdx: AddExtension;
 };
