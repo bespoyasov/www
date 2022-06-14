@@ -1,7 +1,7 @@
 import type { QueryKind } from "@persistence/types";
 import { mockSystem } from "@testing/mocks";
 
-import { defaultDependencies } from "./dependencies";
+import { dependencies } from "./dependencies";
 import { createQueryPost } from "./factory";
 
 const postId = "file1";
@@ -13,7 +13,7 @@ describe("when called a query executor with a post id", () => {
   const system = mockSystem({ readFileSync });
 
   it.each(queries)("should read the file with the post contents (%p)", (query) => {
-    const sut = createQueryPost({ ...defaultDependencies, system, query });
+    const sut = createQueryPost({ ...dependencies, system, query });
     sut(postId);
 
     expect(readFileSync.mock.calls[0][0].endsWith(fileName)).toBe(true);
