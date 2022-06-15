@@ -1,8 +1,12 @@
+import type { QueryKind } from "../types";
 import type { Dependencies } from "../dependencies";
 import type { QueryPost } from "../ports";
 
-export const createQueryPost: Factory<QueryPost, Dependencies> =
-  ({ path, system, query }) =>
+type QueryFactory = (query: QueryKind) => QueryPost;
+
+export const createPostQueryFactory: Factory<QueryFactory, Dependencies> =
+  ({ path, system }) =>
+  (query) =>
   (postId) => {
     const directory = query;
     const fileName = postId;

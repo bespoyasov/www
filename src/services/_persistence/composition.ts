@@ -1,8 +1,9 @@
+import type { Dependencies } from "./dependencies";
+
 import system from "fs";
 import path from "path";
-import type { Predefined } from "./dependencies";
 
-export const dependencies: Predefined = {
+export const dependencies: Dependencies = {
   system,
   path,
 };

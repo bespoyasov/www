@@ -1,6 +1,8 @@
 import { dependencies } from "../composition";
-import { createQueryPost } from "./post";
+import { createPostQueryFactory } from "./post";
 
-export const getProject = createQueryPost({ ...dependencies, query: "projects" });
-export const getNote = createQueryPost({ ...dependencies, query: "notes" });
-export const getTalk = createQueryPost({ ...dependencies, query: "talks" });
+const queryFactory = createPostQueryFactory(dependencies);
+
+export const getProject = queryFactory("projects");
+export const getNote = queryFactory("notes");
+export const getTalk = queryFactory("talks");
