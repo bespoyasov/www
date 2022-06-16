@@ -5,6 +5,7 @@ type System = typeof fs;
 type PathResolver = PlatformPath;
 
 export type Dependencies = {
-  system: System;
   path: PathResolver;
+  system: System;
+  locale: Locale;
 };
