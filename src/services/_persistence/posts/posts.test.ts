@@ -1,7 +1,7 @@
 import { mockSystem } from "@testing/mocks";
 
-import type { QueryKind } from "@_persistence/types";
-import { dependencies } from "@_persistence/composition";
+import type { QueryKind } from "@persistence/types";
+import { dependencies } from "@persistence/composition";
 import { createPostsQueryFactory } from "./posts";
 
 const cases: List<QueryKind> = ["notes", "projects", "talks"];

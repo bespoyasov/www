@@ -19,7 +19,7 @@
       "@core/*": ["src/core/*"],
 
       "@network/*": ["src/services/network/*"],
-      "@_persistence/*": ["src/services/_persistence/*"],
+      "@persistence/*": ["src/services/_persistence/*"],
 
       "@extensions/*": ["src/extensions/*"],
       "@components/*": ["src/ui/components/*"],

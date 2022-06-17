@@ -1,4 +1,4 @@
-import { dependencies } from "@_persistence/composition";
+import { dependencies } from "@persistence/composition";
 import { createListingQueryFactory } from "./listing";
 
 const queryFactory = createListingQueryFactory(dependencies);

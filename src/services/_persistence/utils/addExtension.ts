@@ -1,4 +1,4 @@
-import type { FileExtension, FileName } from "@_persistence/types";
+import type { FileExtension, FileName } from "@persistence/types";
 
 type FileWithoutExtension = FileName;
 type AddExtension = (file: FileWithoutExtension) => `${FileWithoutExtension}.${FileExtension}`;

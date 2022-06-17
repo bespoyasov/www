@@ -1,4 +1,4 @@
-import { dependencies } from "@_persistence/composition";
+import { dependencies } from "@persistence/composition";
 
 import { createPathBuilder } from "./directory";
 import { createExtensionChecker } from "./hasExtension";

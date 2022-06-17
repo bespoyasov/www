@@ -1,8 +1,8 @@
-import type { QueryPost } from "@_persistence/ports";
-import type { QueryKind } from "@_persistence/types";
-import type { Dependencies } from "@_persistence/dependencies";
+import type { QueryPost } from "@persistence/ports";
+import type { QueryKind } from "@persistence/types";
+import type { Dependencies } from "@persistence/dependencies";
 
-import { directoryFor, withMdx } from "@_persistence/utils";
+import { directoryFor, withMdx } from "@persistence/utils";
 
 type QueryFactory = (query: QueryKind) => QueryPost;
 
