@@ -1,5 +1,5 @@
 import type { PostId } from "@core/post";
-import { noteList, projectList, talkList } from "@_persistence/listing";
+import { noteList, projectList, talkList } from "@persistence/listing";
 
 type FetchNames = () => List<PostId>;
 
