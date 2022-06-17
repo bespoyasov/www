@@ -8,6 +8,7 @@
 
     "^@network(.*)$": "<rootDir>/src/services/network$1",
     "^@persistence(.*)$": "<rootDir>/src/services/persistence$1",
+    "^@_persistence(.*)$": "<rootDir>/src/services/_persistence$1",
 
     "^@extensions(.*)$": "<rootDir>/src/extensions$1",
     "^@components(.*)$": "<rootDir>/src/ui/components$1",
