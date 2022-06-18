@@ -1,8 +1,4 @@
-import fs from "fs";
-import type { PlatformPath } from "path";
-
-type System = typeof fs;
-type PathResolver = PlatformPath;
+import type { PathResolver, System } from "@persistence/adapters";
 
 export type Dependencies = {
   path: PathResolver;
