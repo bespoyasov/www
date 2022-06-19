@@ -1,4 +1,4 @@
-import type { FetchListing } from "@network/ports";
+import type { FetchListing } from "./ports";
 import { noteList, projectList, talkList } from "@services/persistence";
 
 export const projectNames: FetchListing = projectList;
