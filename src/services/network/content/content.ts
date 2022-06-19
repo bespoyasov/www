@@ -1,7 +1,7 @@
 import type { QueryPost } from "@services/persistence";
 
-import type { Dependencies } from "@network/dependencies";
-import type { FetchContent } from "@network/ports";
+import type { Dependencies } from "../dependencies";
+import type { FetchContent } from "../ports";
 
 type FetchContentBuilder = (query: QueryPost) => FetchContent;
 

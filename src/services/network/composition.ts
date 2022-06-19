@@ -1,4 +1,4 @@
-import type { Dependencies } from "@network/dependencies";
+import type { Dependencies } from "./dependencies";
 
 import parse from "gray-matter";
 import { serialize } from "next-mdx-remote/serialize";

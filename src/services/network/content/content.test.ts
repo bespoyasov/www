@@ -1,5 +1,6 @@
+import type { Dependencies } from "../dependencies";
+
 import { castTo } from "@utils/castTo";
-import { Dependencies } from "@network/dependencies";
 import { createFetchContentFactory } from "./content";
 
 const postId = "test-post-id";
