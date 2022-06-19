@@ -19,7 +19,6 @@
       "@core/*": ["src/core/*"],
 
       "@services/*": ["src/services/*"],
-      "@network/*": ["src/services/network/*"],
 
       "@extensions/*": ["src/extensions/*"],
       "@components/*": ["src/ui/components/*"],
