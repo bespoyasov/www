@@ -1,4 +1,4 @@
-import type { FileExtension, FileName } from "@persistence/types";
+import type { FileExtension, FileName } from "../types";
 
 type HasExtension = (file: FileName) => boolean;
 

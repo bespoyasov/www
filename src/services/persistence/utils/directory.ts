@@ -1,6 +1,6 @@
-import type { ContentDirectory, QueryKind } from "@persistence/types";
-import { Dependencies } from "@persistence/dependencies";
-import { BASE_DIRECTORY } from "@persistence/const";
+import type { ContentDirectory, QueryKind } from "../types";
+import { Dependencies } from "../dependencies";
+import { BASE_DIRECTORY } from "../const";
 
 type DirectoryPathBuilder = (query: QueryKind) => ContentDirectory;
 

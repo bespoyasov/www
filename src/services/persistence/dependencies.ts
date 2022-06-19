@@ -1,4 +1,4 @@
-import type { PathResolver, System } from "@persistence/adapters";
+import type { PathResolver, System } from "./adapters";
 
 export type Dependencies = {
   path: PathResolver;

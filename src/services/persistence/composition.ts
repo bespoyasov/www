@@ -1,4 +1,4 @@
-import type { Dependencies } from "@persistence/dependencies";
+import type { Dependencies } from "./dependencies";
 
 import system from "fs";
 import path from "path";

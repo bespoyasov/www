@@ -1,5 +1,5 @@
-import { dependencies } from "@persistence/composition";
-import { QueryKind } from "@persistence/types";
+import { dependencies } from "../composition";
+import { QueryKind } from "../types";
 import { createPathBuilder } from "./directory";
 
 describe("when specified a locale", () => {
