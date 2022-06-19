@@ -1,6 +1,6 @@
 import { allNotes, allProjects, allTalks } from "@persistence/posts";
 
-import { dependencies } from "@_network/composition";
+import { dependencies } from "@network/composition";
 import { createFetchMetadataFactory } from "./metadata";
 
 const metadataFor = createFetchMetadataFactory(dependencies);

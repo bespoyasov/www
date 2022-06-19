@@ -1,4 +1,4 @@
-import type { Parse, Serialize, Settings } from "@_network/adapters";
+import type { Parse, Serialize, Settings } from "@network/adapters";
 
 export type Dependencies = {
   settings: Settings;

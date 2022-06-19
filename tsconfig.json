@@ -18,7 +18,7 @@
     "paths": {
       "@core/*": ["src/core/*"],
 
-      "@_network/*": ["src/services/_network/*"],
+      "@network/*": ["src/services/_network/*"],
       "@persistence/*": ["src/services/persistence/*"],
 
       "@extensions/*": ["src/extensions/*"],
