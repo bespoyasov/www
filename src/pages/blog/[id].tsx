@@ -1,9 +1,7 @@
 import type { GetStaticProps, GetStaticPaths } from "next";
 import type { PostProps } from "@views/Post";
 
-import { notesMetadata } from "@network/metadata";
-import { fetchNote } from "@network/content";
-import { noteNames } from "@network/listing";
+import { notesMetadata, fetchNote, noteNames } from "@services/network";
 import { PostView as BlogPost } from "@views/Post";
 
 export const getStaticProps: GetStaticProps<PostProps> = async (context) => {

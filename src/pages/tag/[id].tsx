@@ -2,7 +2,7 @@ import type { GetStaticProps, GetStaticPaths } from "next";
 import type { TagKind } from "@core/tags";
 import { tags } from "@core/tags";
 
-import { projectsMetadata, notesMetadata, talksMetadata } from "@network/metadata";
+import { projectsMetadata, notesMetadata, talksMetadata } from "@services/network";
 import { castTo } from "@utils/castTo";
 import { withTag } from "@utils/filter";
 

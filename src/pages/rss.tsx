@@ -2,8 +2,7 @@ import type { GetStaticProps } from "next";
 import type { FeedEntry, FeedProps } from "@views/Feed";
 import type { Metadata } from "@core/metadata";
 
-import { notesMetadata } from "@network/metadata";
-import { fetchNote } from "@network/content";
+import { notesMetadata, fetchNote } from "@services/network";
 import { Feed as RssPage } from "@views/Feed";
 
 async function createEntry(metadata: Metadata): Promise<FeedEntry> {
