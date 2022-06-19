@@ -20,7 +20,6 @@
 
       "@services/*": ["src/services/*"],
       "@network/*": ["src/services/network/*"],
-      "@persistence/*": ["src/services/persistence/*"],
 
       "@extensions/*": ["src/extensions/*"],
       "@components/*": ["src/ui/components/*"],
