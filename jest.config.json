@@ -6,13 +6,13 @@
   "moduleNameMapper": {
     "^@core(.*)$": "<rootDir>/src/core$1",
 
-    "^@services(.*)$": "<rootDir>/src/services$1",
-
     "^@extensions(.*)$": "<rootDir>/src/extensions$1",
     "^@components(.*)$": "<rootDir>/src/ui/components$1",
     "^@context(.*)$": "<rootDir>/src/ui/context$1",
     "^@effects(.*)$": "<rootDir>/src/ui/effects$1",
     "^@views(.*)$": "<rootDir>/src/ui/views$1",
+
+    "^@services(.*)$": "<rootDir>/src/services$1",
 
     "^@utils(.*)$": "<rootDir>/src/shared/utils$1",
     "^@translation(.*)$": "<rootDir>/src/shared/translation$1",

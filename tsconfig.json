@@ -18,13 +18,13 @@
     "paths": {
       "@core/*": ["src/core/*"],
 
-      "@services/*": ["src/services/*"],
-
       "@extensions/*": ["src/extensions/*"],
       "@components/*": ["src/ui/components/*"],
       "@context/*": ["src/ui/context/*"],
       "@effects/*": ["src/ui/effects/*"],
       "@views/*": ["src/ui/views/*"],
+
+      "@services/*": ["src/services/*"],
 
       "@utils/*": ["src/shared/utils/*"],
       "@styles/*": ["src/shared/styles/*"],
