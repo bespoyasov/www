@@ -1,4 +1,4 @@
-import type { Dependencies } from "@_network/dependencies";
+import type { Dependencies } from "@network/dependencies";
 
 import { castTo } from "@utils/castTo";
 import { createFetchMetadataFactory } from "./metadata";

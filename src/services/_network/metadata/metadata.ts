@@ -1,8 +1,8 @@
 import type { Metadata } from "@core/metadata";
 import type { QueryListing } from "@persistence/ports";
 
-import type { FetchMetadata } from "@_network/ports";
-import type { Dependencies } from "@_network/dependencies";
+import type { FetchMetadata } from "@network/ports";
+import type { Dependencies } from "@network/dependencies";
 
 import { byDateDescending } from "@utils/sort";
 

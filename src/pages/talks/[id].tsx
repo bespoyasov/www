@@ -1,9 +1,9 @@
 import type { GetStaticPaths, GetStaticProps } from "next";
 import type { PostProps } from "@views/Post";
 
-import { talksMetadata } from "@_network/metadata";
-import { fetchTalk } from "@_network/content";
-import { talkNames } from "@_network/listing";
+import { talksMetadata } from "@network/metadata";
+import { fetchTalk } from "@network/content";
+import { talkNames } from "@network/listing";
 import { PostView as TalkPage } from "@views/Post";
 
 export const getStaticProps: GetStaticProps<PostProps> = async (context) => {

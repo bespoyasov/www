@@ -1,6 +1,6 @@
 import { getNote, getProject, getTalk } from "@persistence/post";
 
-import { dependencies } from "@_network/composition";
+import { dependencies } from "@network/composition";
 import { createFetchContentFactory } from "./content";
 
 const contentFor = createFetchContentFactory(dependencies);

@@ -6,7 +6,7 @@
   "moduleNameMapper": {
     "^@core(.*)$": "<rootDir>/src/core$1",
 
-    "^@_network(.*)$": "<rootDir>/src/services/_network$1",
+    "^@network(.*)$": "<rootDir>/src/services/_network$1",
     "^@persistence(.*)$": "<rootDir>/src/services/persistence$1",
 
     "^@extensions(.*)$": "<rootDir>/src/extensions$1",
