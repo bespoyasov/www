@@ -1,4 +1,4 @@
-import { allNotes, allProjects, allTalks } from "@persistence/posts";
+import { allNotes, allProjects, allTalks } from "@services/persistence";
 
 import { dependencies } from "@network/composition";
 import { createFetchMetadataFactory } from "./metadata";

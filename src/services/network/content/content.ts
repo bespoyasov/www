@@ -1,4 +1,4 @@
-import type { QueryPost } from "@persistence/ports";
+import type { QueryPost } from "@services/persistence";
 
 import type { Dependencies } from "@network/dependencies";
 import type { FetchContent } from "@network/ports";
