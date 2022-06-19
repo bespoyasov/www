@@ -10,9 +10,9 @@ type FetchMetadataBuilder = (query: QueryListing) => FetchMetadata;
 
 export const createFetchMetadataFactory: Factory<FetchMetadataBuilder, Dependencies> =
   ({ parse }) =>
-  (query) =>
+  (queryMetadata) =>
   () => {
-    const posts = query();
+    const posts = queryMetadata();
     const results = posts.map((post) => parse(post).data as Metadata);
     return results.sort(byDateDescending);
   };
