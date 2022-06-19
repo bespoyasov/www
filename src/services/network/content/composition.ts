@@ -1,4 +1,4 @@
-import { getNote, getProject, getTalk } from "@persistence/post";
+import { getNote, getProject, getTalk } from "@services/persistence";
 
 import { dependencies } from "@network/composition";
 import { createFetchContentFactory } from "./content";

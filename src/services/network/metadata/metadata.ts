@@ -1,5 +1,5 @@
 import type { Metadata } from "@core/metadata";
-import type { QueryListing } from "@persistence/ports";
+import type { QueryListing } from "@services/persistence";
 
 import type { FetchMetadata } from "@network/ports";
 import type { Dependencies } from "@network/dependencies";
