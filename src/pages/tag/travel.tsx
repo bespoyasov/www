@@ -2,7 +2,7 @@ import type { GetStaticProps } from "next";
 import type { TravelProps } from "@views/Travel";
 
 import { withTravelTag } from "@utils/filter";
-import { notesMetadata } from "@network/fetch";
+import { notesMetadata } from "@_network/metadata";
 import { Travel as TravelPage } from "@views/Travel";
 
 export const getStaticProps: GetStaticProps<TravelProps> = () => {

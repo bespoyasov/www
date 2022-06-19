@@ -1,7 +1,9 @@
 import type { GetStaticProps, GetStaticPaths } from "next";
 import type { PostProps } from "@views/Post";
 
-import { projectsMetadata, projectNames, fetchProject } from "@network/fetch";
+import { projectsMetadata } from "@_network/metadata";
+import { fetchProject } from "@_network/content";
+import { projectNames } from "@_network/listing";
 import { PostView as ProjectPage } from "@views/Post";
 
 export const getStaticProps: GetStaticProps<PostProps> = async (context) => {
