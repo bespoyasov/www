@@ -4,9 +4,9 @@
   "en": {
     "heading": "About me",
     "introduction": "Hi! I'm Alex, a web-developer from Stockholm 👋",
-    "projects": "I help clients turn ideas into websites and applications. I help develop projects from start to completion and help get them up and running on time. I write code and manage developer teams, maintain and develop companies' products as well as my own projects.",
-    "blogging": "I collect experience in my blog and write about the process and results of my work. I explain various technical problems and their possible solutions. I pay attention to architecture and code extensibility. In addition to development, I write about design, management, and books I've read.",
-    "teaching": "I teach people software development, give lectures and consultations, and give public talks. I mentor junior developers and help beginners to master modern development."
+    "projects": "I help clients turn ideas into websites and applications and help get their projects up and running on time. I write code and manage developer teams, maintain and develop companies' products and my own projects.",
+    "blogging": "I collect experience in my blog and write about the process and results of my work. I explain various technical problems and their possible solutions with attention to architecture and code extensibility. In addition to development, I write about design, management, and books I've read.",
+    "teaching": "I teach people software development, give lectures and public talks. I also mentor junior developers and help beginners to master modern development."
   },
 
   "ru": {
