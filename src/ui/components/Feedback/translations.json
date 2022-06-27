@@ -6,6 +6,7 @@
     "subscribe": "Subscribe to RSS",
     "tweet": "Share on Twitter",
     "share": "Share on Facebook",
+    "github": "Like on Github",
     "support": "Support my blog"
   },
 
@@ -14,6 +15,7 @@
     "subscribe": "Подписаться на RSS",
     "tweet": "Твитнуть",
     "share": "Фейсбукнуть",
+    "github": "Звездануть",
     "support": "Поддержать"
   }
 }
