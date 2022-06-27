@@ -4,14 +4,16 @@
   "en": {
     "email": "Send an email",
     "subscribe": "Subscribe to RSS",
-    "follow": "Follow on Titter",
+    "twitter": "Follow on Titter",
+    "github": "Follow on GitHub",
     "donate": "Buy me a coffee"
   },
 
   "ru": {
     "email": "Написать письмо",
     "subscribe": "Подписаться на RSS",
-    "follow": "Подписаться в Твитере",
+    "twitter": "Подписаться в Твитере",
+    "github": "Подписаться в Гитхабе",
     "donate": "Задонатить на кофе"
   }
 }

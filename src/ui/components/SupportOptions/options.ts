@@ -15,7 +15,11 @@ export const options: List<SupportOption> = [
   },
   {
     url: author.twitter,
-    text: translated.supportOptions.follow,
+    text: translated.supportOptions.twitter,
+  },
+  {
+    url: author.github,
+    text: translated.supportOptions.github,
   },
   {
     url: author.donate,
