@@ -29,9 +29,10 @@ class Reader {
 }
 
 const reader = new Reader(someUserData, someBookShelfData);
+const books = reader.getBooksFromShelf();
 
 // The problem's here ↓
-if (reader.getBooksFromShelf().contains(book.id)) {
+if (books.contains(book.id)) {
   // ...
 }
 ```
@@ -51,9 +52,14 @@ if (reader.canRead(book)) {
   // ...
 }
 
+class Shelf {
+  // ...
+  contains = (book) => this.books.includes(book.id);
+}
+
 class Reader {
   // ...
-  canRead = (book) => this.getBooksFromShelf().contains(book.id);
+  canRead = (book) => this.shelf.contains(book);
 }
 ```
 
@@ -69,6 +75,10 @@ Such a method is somewhat like a [facade](https://github.com/kamranahmedse/desig
 
 The book [“97 Things Every Programmer Should Know”](https://www.amazon.com/Things-Every-Programmer-Should-Know/dp/0596809484) has a chapter called “Code in the Language of Domain”. It describes exactly these cases.
 
+## Encapsulation
+
+Also, with this method, we have divided the responsibility between the modules. Now only `Shelf` is responsible for handling the books, since only it knows how to properly check the existence of the book. Previously, the responsibility was spread across different modules, which means we could lead the data to an invalid state.
+
 ## Resources
 
 - [Kevlin Henney. Seven Ineffective Coding Habits of Many Programmers](https://youtu.be/ZsHMHukIlJY?t=2036)
@@ -76,3 +86,4 @@ The book [“97 Things Every Programmer Should Know”](https://www.amazon.com/T
 - [Clean Code by Robert C. Martin](/blog/clean-code/)
 - [The Art of Readable Code by D. Bowsell, T. Foucher](/blog/the-art-of-readable-code/)
 - [Facade Pattern](https://github.com/kamranahmedse/design-patterns-for-humans#-facade)
+- [Law of Demeter](https://en.wikipedia.org/wiki/Law_of_Demeter)

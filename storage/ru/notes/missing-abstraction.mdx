@@ -31,9 +31,10 @@ class Reader {
 }
 
 const reader = new Reader(someUserData, someBookShelfData);
+const books = reader.getBooksFromShelf();
 
 // вот тут проблема ↓
-if (reader.getBooksFromShelf().contains(book.id)) {
+if (books.contains(book.id)) {
   // ...
 }
 ```
@@ -53,9 +54,14 @@ if (reader.canRead(book)) {
   // ...
 }
 
+class Shelf {
+  // ...
+  contains = (book) => this.books.includes(book.id);
+}
+
 class Reader {
   // ...
-  canRead = (book) => this.getBooksFromShelf().contains(book.id);
+  canRead = (book) => this.shelf.contains(book);
 }
 ```
 
@@ -71,6 +77,10 @@ class Reader {
 
 В книге [“97 Things Every Programmer Should Know”](https://97-things-every-x-should-know.gitbooks.io/97-things-every-programmer-should-know/content/ru/) есть глава “Code in the Language of Domain”. Она как раз описывает подобные случаи.
 
+## Инкапсуляция
+
+Также этим методом мы разделили ответственность между модулями. Теперь за работу с книгами отвечает `Shelf`, так как только ему известно, как правильно проверить наличие книги. Раньше ответственность была размазана по разным модулям, а значит мы могли привести данные в невалидное состояние.
+
 ## Ссылочки, ссылочки, ссылочки
 
 Ютуб, книга, два конспекта и статья:
@@ -80,3 +90,4 @@ class Reader {
 - [Чистый код. Роберт Мартин](/blog/clean-code/)
 - [Читаемый код или программирование как искусство. Б. Дастин, Ф. Трэвор](/blog/the-art-of-readable-code/)
 - [Фасад](https://github.com/kamranahmedse/design-patterns-for-humans#-facade)
+- [Закон Деметры](https://ru.wikipedia.org/wiki/Закон_Деметры)
