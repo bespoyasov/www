@@ -1,11 +1,11 @@
-import { useMount } from "@effects/useMount";
+import { useEffect } from "react";
 
 type RedirectProps = {
   to: AbsoluteUrl;
 };
 
 export const Redirect = ({ to }: RedirectProps) => {
-  useMount(() => {
+  useEffect(() => {
     location.href = to;
   });
 
