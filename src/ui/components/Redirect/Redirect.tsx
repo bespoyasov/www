@@ -10,7 +10,7 @@ type RedirectProps = {
 export const Redirect = ({ to, children }: WithChildren<RedirectProps>) => {
   useEffect(() => {
     location.href = to;
-  });
+  }, []);
 
   return <LinkProxy href={to}>{children}</LinkProxy>;
 };
