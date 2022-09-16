@@ -10,7 +10,7 @@ export const Footer = () => {
         {author.email}
       </a>
 
-      <span>{site.createdAt}+ 🇸🇪</span>
+      <span>{site.createdAt}+</span>
     </footer>
   );
 };
