@@ -2,22 +2,22 @@
   "prefix": "tagPage",
 
   "en": {
-    "summary": "All posts and projects by the “%s” tag",
-    "notesTitle": "Notes Tagged by “%s”",
-    "notesDescription": "Recent blog posts from newest to oldest.",
+    "summary": "All posts, talks, and projects by the “%s” tag",
+    "notesTitle": "Blog Posts",
+    "notesDescription": "Recent posts from my blog tagged with “%s”.",
     "projectsTitle": "Projects",
-    "projectsDescription": "Websites, applications, open-source projects, and educational online books.",
+    "projectsDescription": "Sites, applications, open-source projects, and online books tagged with “%s”.",
     "talksTitle": "Public Talks",
-    "talksDescription": "My talks and workshops about software development and frontend."
+    "talksDescription": "My talks and workshops about software development tagged with “%s”."
   },
 
   "ru": {
     "summary": "Все проекты и заметки с тегом «%s»",
-    "notesTitle": "Заметки по тегу «%s»",
-    "notesDescription": "Последние статьи из блога от новых к старым.",
+    "notesTitle": "Заметки",
+    "notesDescription": "Последние статьи из блога по тегу «%s».",
     "projectsTitle": "Проекты",
-    "projectsDescription": "Сайты, приложения, опен-сорс проекты, обучающие пособия и книги.",
+    "projectsDescription": "Сайты, приложения, опен-сорс проекты, обучающие пособия и книги по тегу «%s».",
     "talksTitle": "Публичные выступления",
-    "talksDescription": "Доклады, воркшопы, мастер-классы и подкасты."
+    "talksDescription": "Доклады, воркшопы, мастер-классы и записи подкастов по тегу «%s»."
   }
 }

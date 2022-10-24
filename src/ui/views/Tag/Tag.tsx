@@ -32,21 +32,21 @@ export const Tag = ({ projects, notes, talks }: TagProps) => {
       <main>
         <VisuallyHidden as="h1">{summary}</VisuallyHidden>
 
-        <Section title={injectIn(translated.tagPage.notesTitle, tag)}>
-          <p>{translated.tagPage.notesDescription}</p>
+        <Section title={translated.tagPage.notesTitle}>
+          <p>{injectIn(translated.tagPage.notesDescription, tag)}</p>
           <Anthology notes={notes} />
         </Section>
 
         {sizeOf(talks) > 0 && (
           <Section title={translated.tagPage.talksTitle}>
-            <p>{translated.tagPage.talksDescription}</p>
+            <p>{injectIn(translated.tagPage.talksDescription, tag)}</p>
             <TalkList talks={talks} />
           </Section>
         )}
 
         {sizeOf(projects) > 0 && (
           <Section title={translated.tagPage.projectsTitle}>
-            <p>{translated.tagPage.projectsDescription}</p>
+            <p>{injectIn(translated.tagPage.projectsDescription, tag)}</p>
             <ProjectsList projects={projects} />
           </Section>
         )}
