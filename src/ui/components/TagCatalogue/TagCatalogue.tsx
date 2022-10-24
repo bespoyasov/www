@@ -9,7 +9,7 @@ import styles from "./TagCatalogue.module.css";
 export const TagCatalogue = () => {
   const allTags = Object.keys(tags).sort(byTagValue);
 
-  const columnsCount = 2;
+  const columnsCount = 4;
   const columnsContent = splitInto(allTags, columnsCount);
 
   return (

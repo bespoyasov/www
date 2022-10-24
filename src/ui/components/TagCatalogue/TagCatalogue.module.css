@@ -8,6 +8,6 @@
 
 @media (min-width: 640px) {
   .section {
-    --columns-count: 2;
+    --columns-count: 4;
   }
 }
