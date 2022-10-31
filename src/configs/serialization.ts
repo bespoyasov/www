@@ -36,7 +36,6 @@ export const serializationConfig = {
     [
       syntaxHighlight,
       {
-        subset: false,
         languages: { fsharp },
       },
     ],
