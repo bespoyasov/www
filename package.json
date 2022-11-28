@@ -38,13 +38,13 @@
   "repository": "bespoyasov/www",
   "license": "CC BY-NC-SA 4.0",
   "dependencies": {
-    "next": "^12.0.1",
+    "next": "^13.0.5",
     "react": "^18.1.0",
     "react-dom": "^18.1.0"
   },
   "devDependencies": {
     "@mavrin/remark-typograf": "^2.1.6",
-    "@next/eslint-plugin-next": "^12.0.1",
+    "@next/eslint-plugin-next": "^13.0.5",
     "@squoosh/lib": "^0.4.0",
     "@types/jest": "^29.0.3",
     "@types/node": "^18.0.0",
