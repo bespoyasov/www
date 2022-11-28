@@ -11,11 +11,7 @@ type LinkIfProps = {
 
 export const Link = ({ if: condition, to, children }: WithChildren<LinkIfProps>) => {
   if (condition) {
-    return (
-      <NextLink href={to}>
-        <a>{children}</a>
-      </NextLink>
-    );
+    return <NextLink href={to}>{children}</NextLink>;
   }
 
   return <>{children}</>;

@@ -8,11 +8,5 @@ function isInternalRoute(uri: AbsoluteUrl | UrlSlug): boolean {
 export const LinkProxy = (props: AnchorHTMLAttributes<HTMLAnchorElement>) => {
   const { href, ...rest } = props;
 
-  return isInternalRoute(href) ? (
-    <Link href={href}>
-      <a {...rest} />
-    </Link>
-  ) : (
-    <a {...props} />
-  );
+  return isInternalRoute(href) ? <Link href={href} {...rest}></Link> : <a {...props} />;
 };

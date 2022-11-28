@@ -13,9 +13,7 @@ export const List = ({ notes }: ListProps) => {
     <ul className={classes(styles.list, "reset")}>
       {notes.map(({ slug, title }) => (
         <li key={slug}>
-          <Link href={slug}>
-            <a>{title}</a>
-          </Link>
+          <Link href={slug}>{title}</Link>
         </li>
       ))}
     </ul>

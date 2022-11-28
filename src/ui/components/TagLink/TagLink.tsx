@@ -11,8 +11,8 @@ export const TagLink = ({ tag }: TagLinkProps) => {
   const value = valueOf(tag);
 
   return (
-    <Link href={`/tag/${tag}`}>
-      <a className="text-color">{value}</a>
+    <Link href={`/tag/${tag}`} className="text-color">
+      {value}
     </Link>
   );
 };

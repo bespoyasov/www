@@ -17,11 +17,9 @@ export const Neighbor = ({ is: kind, describes: entity }: NeighborProps) => {
   const prefix = translated.adjacent[kind];
 
   return (
-    <Link href={entity.slug}>
-      <a className={className}>
-        <VisuallyHidden>{prefix}: </VisuallyHidden>
-        {entity.title}
-      </a>
+    <Link href={entity.slug} className={className}>
+      <VisuallyHidden>{prefix}: </VisuallyHidden>
+      {entity.title}
     </Link>
   );
 };

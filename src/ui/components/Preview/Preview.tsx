@@ -15,8 +15,8 @@ export const Preview = ({ metadata }: PreviewProps) => {
     <div className={styles.preview}>
       <Picture src={cover} alt={title} />
       <h2>
-        <Link href={slug}>
-          <a className="text-color">{title}</a>
+        <Link href={slug} className="text-color">
+          {title}
         </Link>
       </h2>
       <p>{description}</p>

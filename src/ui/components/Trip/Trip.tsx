@@ -13,11 +13,9 @@ export const Trip = ({ place }: TripProps) => {
 
   return (
     <article className={styles.trip}>
-      <Link href={slug}>
-        <a className="text-color">
-          <Cover for={place} />
-          <h2>{title}</h2>
-        </a>
+      <Link href={slug} className="text-color">
+        <Cover for={place} />
+        <h2>{title}</h2>
       </Link>
       <p>{description}</p>
     </article>

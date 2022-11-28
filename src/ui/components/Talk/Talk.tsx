@@ -14,8 +14,8 @@ export const Talk = ({ talk }: TalkProps) => {
   return (
     <article className={styles.talk}>
       <h3>
-        <Link href={slug}>
-          <a className="text-color">{title}</a>
+        <Link href={slug} className="text-color">
+          {title}
         </Link>
       </h3>
 
