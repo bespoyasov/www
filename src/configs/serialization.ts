@@ -8,6 +8,7 @@ import syntaxHighlight from "rehype-highlight";
 import fsharp from "highlight.js/lib/languages/fsharp";
 
 export const serializationConfig = {
+  development: false,
   remarkPlugins: [
     githubFlavor,
     unwrapImages,
