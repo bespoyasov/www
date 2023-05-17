@@ -26,7 +26,7 @@ The very first thing we will do when developing the UI is to look at what it wil
 
 ![Converter with a base currency input field, a quote currency selector, and a quotes update button](/images/content/explicit-design-series/03-converter.png)
 
-The converter will store some _state_ - data that will affect the components' render. To understand how to work with this data, let's look at what components will be displayed on the screen, how information will “flow” through the application while working with it.
+The converter will store some _state_—data that will affect the components' render. To understand how to work with this data, let's look at what components will be displayed on the screen, how information will “flow” through the application while working with it.
 
 ### UI as Function of State
 
@@ -92,7 +92,7 @@ CurrentQuoteCode  =>  SortDirection  =>  <CurrencySelector
                                           sort={SortDirection} />
 ```
 
-In code, we will strive to emphasize these dependencies and separate different types of state. We won't always physically separate them (in the file system), but at least we'll try to do it conceptually—in the types and values of variables passed to components.
+In code, we will strive to emphasize these dependencies and separate different types of state. We won't always physically separate them (on the file level), but at least we'll try to do it conceptually—in the types and values of variables passed to components.
 
 Different types of state change for different reasons and at different frequencies. We will often put volatile code closer to the “edges of the application” than more stable code. This way, we will try to eliminate the influence of frequent changes on the core of the application, limit the spread of changes across the codebase, show that the data in the model is primary, and indicate the direction in which data “flows” through the app.
 
