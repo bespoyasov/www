@@ -20,7 +20,9 @@ tags:
 
 # Part 2. Application Core Design
 
-We continue the series of posts and experiments about explicit software design. [Last time](/blog/explicit-design-1), we discussed what a domain model is, its benefits, and how we can use functional programming, static typing, and DDD to simplify modeling. In this post, we will talk about how to design use cases and discuss how to integrate our application with the outside world without the need to rewrite a lot of code.
+Let's continue the series of posts and experiments about explicit software design.
+
+[Last time](/blog/explicit-design-1), we discussed what a domain model is, its benefits, and how we can use functional programming, static typing, and DDD to simplify modeling. In this post, we will talk about how to design use cases and discuss how to integrate our application with the outside world without the need to rewrite a lot of code.
 
 ## Data and Use Cases
 
@@ -749,7 +751,7 @@ export const changeQuoteCode: ChangeQuoteCode = (
 
 ## Next Time
 
-In this post, we designed use cases and discussed how to connect our app with the outside world without depending on third-party services. Next time we'll talk about how to implement application ports, what the difference is between UI and infrastructure from an application core's perspective, and what to do if the outside world doesn't work the way the application wants it to.
+In this post, we designed use cases and discussed how to connect our app with the outside world without depending on third-party services. [Next time](/blog/explicit-design-3) we'll talk about how to implement application ports, what the difference is between UI and infrastructure from an application core's perspective, and what to do if the outside world doesn't work the way the application wants it to.
 
 ## Sources and References
 
@@ -800,7 +802,7 @@ All links to books, articles, and other materials that may be useful.
 - [Introduction, assumptions, and limitations](/blog/explicit-design-series)
 - [Modeling the domain](/blog/explicit-design-1)
 - Designing use cases (this post)
-- Describing the UI as an “adapter” to the application
+- [Describing the UI as an “adapter” to the application](/blog/explicit-design-3)
 - Creating infrastructure to support use cases
 - Composing the application using hooks
 - Composing the application without hooks
