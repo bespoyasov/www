@@ -1,0 +1,631 @@
+---
+title: Part 4. Ports, Adapters, and Infrastructure
+description: "In this part of the series, we will prepare the project infrastructure: write a store for the data model and create a service for API requests."
+datetime: 2023-05-23T12:00
+slug: /blog/explicit-design-4
+cover: /images/content/explicit-design-series/04-short-circuit.png
+tags:
+  - architecture
+  - dev
+  - fp
+  - oop
+  - patterns
+  - react
+  - testing
+  - ts
+---
+
+# Part 4. Ports, Adapters, and Infrastructure
+
+Let's continue the series of posts and experiments about explicit software design. [Last time](/blog/explicit-design-3/) we created UI components and discussed the interaction between the UI and the application core. In this post, we will prepare the project infrastructure: create a store for the data model and a service for API requests.
+
+## Output Ports
+
+If previously the UI was communicating with the application through input ports, then with the infrastructure, the application will communicate through output ports: the types `FetchRates`, `ReadConverter`, and `SaveConverter`.
+
+Output ports are the “levers” on _the “other side”_ of the application core. They describe what “service” functionality the application core needs to solve a particular task.
+
+The core relies on these types and “orchestrates” the work of use cases, initiating the work of necessary services at the right moments.
+
+<SideNote>
+  Since the application core [relies on abstract
+  types](https://en.wikipedia.org/wiki/Inversion_of_control), it becomes decoupled and independent
+  of the infrastructure. Such deliberately explicit separation of code is often excessive and not
+  needed, but we are trying to follow the principles and guidelines from programming books, so we
+  will leave everything completely decoupled.
+</SideNote>
+
+## API Service
+
+The first service that we will need is a module for communicating with the API server. We could describe the function for making requests to the server like this:
+
+```ts
+// services/network
+
+export async function get<T>(url: Url): Promise<T> {
+  const absolute = new URL(url, config.base);
+  const response = await fetch(absolute);
+  if (!response.ok) throw new Error("Failed to perform the request.");
+
+  return await response.json();
+}
+```
+
+The `get` function constructs the URL of the API endpoint, runs the browser's `fetch` function under the hood, and parses the data from the server's JSON response.
+
+Note that the code of this function is [_generic_](https://www.typescriptlang.org/docs/handbook/2/generics.html). It does not know what data will come from the server, except that it will be JSON.
+
+The distinctive feature of _services_ is that they are conceptually not related to the _domain_ and can work with any application. A function like `get` can move from project to project, residing in some `lib` or `shared` folder.
+
+Services typically solve a specific utility task: network communication, internationalization, reading and writing to local storage, etc. In the case of the `get` function, we can check this by describing its type:
+
+```ts
+type ApiRequest<R> = (url: Url) => Promise<R>;
+```
+
+The `ApiRequest<T>` type does not touch _high-level_ application concepts. It expresses itself in _low-level_ terms: “request,” “API,” “URL.” It doesn't even know what kind of data it will get from the API, instead it uses the `R` type-argument, which says that [specific data for this function is not important](https://developer.mozilla.org/ru/docs/Glossary/Abstraction). What matters is the _scheme_ of operation and communication with the server.
+
+Because of their “genericness”, services can be reused in different projects:
+
+![Services are not directly tied to a specific application, they can be reused in different projects with the help of adapters](/images/content/explicit-design-series/04-services-and-adapters.png)
+
+Obviously, such a reusable service will not work exactly as our application core wants it to. To resolve this conflict, we will write an adapter—a function that will transform this service's interface to the type of the application's output port.
+
+### Service Adapter
+
+We can divide all the work of the adapter for the API service into 3 stages:
+
+- Getting data from the API: calling the external `get` service;
+- Converting the data to the format of the domain model: deserializing the API response;
+- Passing the formatted data to the application core: implementing the `FetchRates` output port.
+
+Let's assume that we know that the server sends us data in the following format:
+
+```json
+{
+  "rates": {
+    "RPC": {
+      "IMC": 0.98,
+      "WPU": 1.23,
+      "DRG": 2.2,
+      "ZKL": 1.07
+    },
+    "IMC": { "//": "..." },
+    "WPU": { "//": "..." },
+    "DRG": { "//": "..." },
+    "ZKL": { "//": "..." }
+  }
+}
+```
+
+Then the work of an adapter can be expressed as a sequence of the following transformations:
+
+```
+RefreshRates:
+  API -> ServerRates
+  ServerRates -> ExchangeRates
+  ExchangeRates -> Application Core
+```
+
+Let's write a function `fetchRates` that will implement the `FetchRates` type:
+
+```ts
+// infrastructure/api
+
+export const fetchRates: FetchRates = async () => {
+  // TODO:
+  // 1. Call the API service.
+  // 2. Convert the data format.
+  // 3. Return the data.
+};
+```
+
+...And now let's implement each step.
+
+### Data Serialization
+
+Let's start with something simple: since we know in what format the server returns the response, we can write a function to transform the data format.
+
+```ts
+// infrastructure/api.serialization
+
+type ServerRates = { rates: Record<BaseCurrencyCode, ExchangeRates> };
+const toDomain = (dto: ServerRates): ExchangeRates => dto.rates.RPC;
+```
+
+In this function, we access the value of the required field in the server response and return it. In real projects, [deserialization](https://en.wikipedia.org/wiki/Serialization) can be much more complicated depending on the server response and model data format. (We may need to rename fields or, for example, enrich them with data from another request.)
+
+The purpose of the `toDomain` function is to encapsulate the knowledge of how to convert server data into a model. When such a deserializer is explicitly separated in the code, it is easier for us to find the place where we need to make changes if the shape of the data on the server changes.
+
+Moreover, with the explicitly defined deserialization, we can support multiple API response schemas simultaneously:
+
+```ts
+// infrastructure/api.v1.serialization.ts
+type ServerRates = { rates: Record<BaseCurrencyCode, ExchangeRates> };
+const toDomain = (dto: ServerRates): ExchangeRates => dto.rates.RPC;
+
+// infrastructure/api.v2.serialization.ts
+type ServerRates = { default: [BaseCurrencyCode, ExchangeRates] };
+const toDomain = (dto: ServerRates): ExchangeRates =>
+  dto.default.find(([key]) => key === "RPC").at(1);
+```
+
+<SideNote>
+  Again, whether to make deserialization explicit or not depends on the task, project size, and how
+  volatile the data on the server is. If the server response never changes, it's probably not
+  necessary.
+</SideNote>
+
+The response from the server that we describe as the `ServerRates` type is a so-called [_data transfer object, DTO_](https://en.wikipedia.org/wiki/Data_transfer_object). We will not delve into this concept in detail, but Scott Wlaschin has a [dedicated chapter](https://fsharpforfunandprofit.com/books/#domain-modelling-made-functional) on deserialization and working with DTOs in the book “Domain Modeling Made Functional.” I highly recommend reading it.
+
+Using the deserializer, we can fill in the 2nd step of the `fetchRates` function:
+
+```ts
+// infrastructure/api
+
+import { toDomain } from "./api.serialization";
+
+const fetchRates: FetchRates = async () => {
+  // TODO:
+  // 1. Call the API service.
+
+  // 2. Convert the data format.
+  const data = toDomain(response);
+
+  // 3. Return the data.
+  return data;
+};
+```
+
+### Request to Service
+
+Next, we will call the service itself and retrieve the data from the API:
+
+```ts
+// infrastructure/api
+
+import type { FetchRates } from "../../core/ports.output";
+import type { ServerRates } from "./api.serialization";
+import { toDomain } from "./api.serialization";
+
+import { get } from "~/services/network";
+
+const fetchRates: FetchRates = async () => {
+  // 1. Get the data from the API:
+  const response = await get<ServerRates>("/rates");
+
+  const data = toDomain(response);
+  return data;
+};
+```
+
+Notice that we keep the endpoint URL directly in this module, and not in the `network` service. The reason for this is that the service should remain reusable and independent of the domain and specific project.
+
+The specific endpoint URL is part of a particular feature of the current project. Knowledge of where to retrieve data for the converter from [should be kept nearby](<https://en.wikipedia.org/wiki/Cohesion_(computer_science)>) to the converter itself so that we can quickly locate the necessary places for updates. This increases the _cohesion_ of the feature, as it does not scatter knowledge of it across different parts of the application.
+
+<SideNote>
+  Such a “knowledge packaging” is also known as a [_vertical
+  slice_](https://herbertograca.com/2019/06/05/reflecting-architecture-and-domain-in-code/). We will
+  discuss this architectural pattern in one of the upcoming posts 🙃
+</SideNote>
+
+Overall, this implementation is already sufficient to integrate the API call with the core of the application. Accessing this adapter will make it call the service, transform the data into the required format, and return it.
+
+### Testing, Mocks, and Dependencies
+
+To test such an adapter, we need to create a mock for the `~/services/network` module and verify that the `get` function is called with the required parameters.
+
+```ts
+// infrastructure/api.test
+
+const spy = vi.fn(() => serverStub);
+vi.mock("~/services/network", () => ({ get: spy }));
+
+// ...
+
+it("triggers API call", async () => {
+  await fetchRates();
+  expect(spy).toHaveBeenCalledOnce();
+  expect(spy).toHaveBeenCalledWith("/rates");
+});
+```
+
+Using mocks to replace dependencies is a valid option in JS and TS code. In real tests of functions that work with side effects, we will most likely see mocks. However, if our goal is to make the function dependencies explicit, we can “bake” them in.
+
+### Partial Application and Explicit Dependencies
+
+<SideNote>
+Disclaimer: the code we will be writing from now on is somewhat non-standard&trade;. We will write it this way to demonstrate the idea of loose coupling and explicit dependencies. It's probably not a good idea to write production code in exactly the same way unless you have good reasons to do so.
+
+We will discuss when it's justified to write code this way and when it's not. For now, please keep in mind that we are writing demonstration code from which you can draw ideas for contemplation, but not necessarily do everything exactly the same way.
+
+</SideNote>
+
+In the world of OOP, the idea of “substituting” the necessary dependencies at the right moment is the basis of [_dependency injection_](https://en.wikipedia.org/wiki/Dependency_injection). In general terms, the idea is to free a module from the need to import _specific_ dependencies and work with the reliance on their _guarantees_—public interfaces.
+
+This way, modules become _decoupled_ from each other, and “glued” together via a [_DI container_](https://stackoverflow.com/questions/50718586/what-is-a-di-container). The DI container automatically injects the required concrete dependencies into the places where their interfaces are declared. In object-oriented code, this helps solve the problem of composing objects and their related side effects.
+
+<SideNote>
+  Dependency injection is actually a special case of _inversion of control_, which helps to make the
+  code more flexible. I wrote [a separate article](/blog/di-ts-in-practice/) about the idea of
+  inversion of control, dependency injection, and how to do it in an object-oriented style.
+</SideNote>
+
+Unlike in OOP, in more functional code, all dependencies are [passed _explicitly_](/blog/domain-modelling-made-functional-3/), so we won't be using a DI container. Instead, we'll use [partial application](https://doka.guide/tools/fp/#chastichnoe-primenenie) and the [Factory pattern](https://www.patterns.dev/posts/factory-pattern) to “bake in” the dependencies.
+
+<SideNote>
+  It doesn't mean, however, that a DI container _can't_ be used together with a near-functional
+  approach. This is more of a matter of taste and tooling but, for simplicity, we'll go with the
+  “raw” approach without additional tools.
+</SideNote>
+
+<SideNote>
+Also note that in _pure functional code_, the concept of “dependencies” cannot exist in the first place, because any dependency brings with it a side effect, and functional code should be pure. _All_ side effects (and therefore dependencies) in such code will be located at the _edges of the application_.
+
+We do not follow this approach only for the sake of convenience and easier understanding. If you are interested in how to compose a React application in a purely functional style, let me know!
+
+</SideNote>
+
+In one of our previous posts, we used the fact that inside a function, we can refer to its arguments and use them, relying on their types:
+
+```ts
+// core/changeQuoteCode
+
+// Declare types of all required dependencies:
+type Dependencies = { saveConverter: SaveConverter };
+
+// Get access to them from the `deps` argument:
+export const changeQuoteCode = (quoteCode, deps: Dependencies) => {
+  // Use them inside the function
+  // knowing that they implement specific types:
+  saveConverter({ quoteCode });
+};
+```
+
+Dependencies were passed as the last argument in this variant:
+
+```ts
+const result = changeQuoteCode(realArgument, dependencies);
+```
+
+However, such a “dependency injection” approach raises a contradiction: we either need to always _require_ the argument with dependencies to be passed, or make it _optional_. Neither option is convenient or [sufficiently reliable](https://en.wikipedia.org/wiki/Type_safety).
+
+This contradiction can be resolved by making the function “remember” the references to its dependencies:
+
+```ts
+const result = changeQuoteCode(realArgument); // + Remembered Dependencies
+```
+
+In fact, we can “put” the dependencies in a _closure_ of an outer function:
+
+```ts
+const createChangeQuoteCode = (dependencies) => {
+  // Return another function that has access to `dependencies`
+  // because it's in the parent scope which is visible to it.
+  return (realArgument) => {
+    // Do the stuff with `realArgument` AND `dependencies`.
+  };
+};
+```
+
+And then partially apply the function `createChangeQuoteCode` to get a function with “remembered” dependencies:
+
+```ts
+// Returns a function with “remembered” dependencies:
+const changeQuoteCode = createChangeQuoteCode(dependencies);
+
+// Return the result of calling that function:
+const result = changeQuoteCode(realArgument);
+```
+
+<SideNote>
+  The technique is called partial application because we execute a function of the form `a -> b ->
+  result` “halfway,” as if stopping along the way and getting `b -> result` as a result. A little
+  more about this is written on
+  [learnyouhaskell](http://learnyouahaskell.com/higher-order-functions#curried-functions) and on
+  [Scott Wlaschin's website](https://fsharpforfunandprofit.com/posts/dependencies/).
+</SideNote>
+
+This technique of working with dependencies is sometimes called “baking” dependencies. It is exactly what we'll use to prepare the adapter for the API.
+
+### “Baking” Adapter
+
+To “bake” the dependencies, we will create a factory function that takes the adapter dependencies and returns `FetchRates`:
+
+```ts
+import type { FetchRates } from "../../core/ports.output";
+import type { ServerRates } from "./api.serialization";
+
+type Dependencies = { request: ApiRequest<ServerRates> };
+type CreateFetchRates = (dependencies: Dependencies) => FetchRates;
+```
+
+In the code, we can express this as:
+
+```ts
+// infrastructure/api
+
+import { toDomain } from "./api.serialization";
+
+// Implement the factory that takes dependencies as argument
+// and returns a prepared adapter function:
+
+const createFetchRates: CreateFetchRates =
+  ({ request }) =>
+  async () => {
+    const response = await request("/rates");
+    const data = toDomain(response);
+    return data;
+  };
+```
+
+Then, to create and configure an adapter, we will call the factory and pass an object with the actual service to it:
+
+```ts
+// infrastructure/api.composition
+
+import type { FetchRates } from "../../core/ports.output";
+import { get } from "~/services/network";
+
+export const fetchRates: FetchRates = createFetchRates({ request: get });
+```
+
+Note that the function returned by `createFetchRates` depends only on the types of services. We perform the substitution of specific service implementations separately, during composition. The intention (functionality of the function) and the implementation (composition) are separated again, making modules more independent.
+
+## Functionality and Composition
+
+Let's take a closer look at the structure and composition of the module. We can notice that the implementation of the factory and its result—the function that implements the input port—depends only on two things:
+
+- the internals of _this same_ module;
+- the _types_ of everything else.
+
+```ts
+// infrastructure/api
+
+// When using something outside the module,
+// we import only types:
+import type { ApiRequest } from "~/shared/kernel";
+import type { FetchRates } from "../../core/ports.output";
+
+// Inside the module we can import anything:
+import type { RatesDTO } from "./api.serialization";
+import { toDomain } from "./api.serialization";
+
+export const createFetchRates =
+  ({ request }: Dependencies): FetchRates =>
+  async () => {
+    // ...
+  };
+```
+
+This “isolation” from other modules through abstraction helps to avoid unnecessary coupling. The module has _one_ clear entry point for other modules—the _public interface_:
+
+![Communication and interaction through public interfaces reduce coupling between modules because their internal details become unimportant during application composition](/images/content/explicit-design-series/04-low-coupling.png)
+
+This entry point reduces coupling and stops the spread of changes across the codebase, because other modules no longer need to know the internals of this module, and vice versa.
+
+On the other hand, substituting concrete implementations increases coupling, and this happens at the final stage, during the composition of the module:
+
+```ts
+// infrastructure/api.composition
+
+import { createFetchRates } from "./api";
+import { get as request } from "~/services/network";
+
+export const fetchRates: FetchRates = createFetchRates({ request: get });
+```
+
+Finally, to hide what should not be exposed, we can configure re-exports through `index.ts`:
+
+```ts
+// api/index
+
+export * from "./api.composition";
+```
+
+Then, from all the module internal details:
+
+```
+infrastructure/api/
+  - api.ts                — implementation and factory;
+  - api.serialization.ts  — data serialization;
+  - api.test.ts           — implementation tests;
+  - api.composition.ts    — composition of the module;
+  - index.ts
+```
+
+...The other modules can access only the contents of `api.composition.ts`.
+
+<SideNote>
+It's clear that in JS you cannot completely forbid importing something from specific files. However, firstly, it expresses intention and structure, and secondly, the restriction can be enforced with a linter or [other tools](https://github.com/ts-arch/ts-arch) if desired.
+
+On the other hand, such purism may not be necessary for a real project. Remember that the code is only experimental 🙃
+
+</SideNote>
+
+## Runtime Data Store
+
+In addition to requests to the API, we also need a runtime storage for loaded exchange rates and values entered by users. Today we will write an implementation of the store using the [Context API](https://react.dev/learn/passing-data-deeply-with-context), but in the future we will look at more suitable tools and libraries for this task.
+
+### Ports and Implementation
+
+Let's start with an overview of the required functionality. The core of the application requires 2 functions from the store: for reading and saving model data.
+
+```ts
+// core/ports.output.ts
+
+type ReadConverter = () => Converter;
+type SaveConverter = (patch: Partial<Converter>) => void;
+```
+
+To implement this, we can create a context with this type:
+
+```ts
+// infrastructure/store
+
+// The `Store` type describes the store.
+// It's private so that neighboring modules do not depend
+// on the details of the store implementation.
+type Store = {
+  value: Converter;
+  update: SaveConverter;
+
+  // As an option, we can also explicitly
+  // create a function to read data,
+  // but in the case of context, it's not necessary.
+  read: ReadConverter;
+};
+
+const ConverterContext = createContext<Nullable<Store>>(null);
+export const useStore = () => useContext(ConverterContext);
+```
+
+Then, we'll create a provider:
+
+```tsx
+// infrastructure/store
+
+export const StoreProvider = ({ children }: PropsWithChildren) => {
+  const [value, setValue] = useState<Converter>(initialModel);
+
+  // If we're using a separate function for reading data
+  // (this is not mandatory):
+  const read = () => value;
+
+  const update: StoreWriter = (patch) => setValue((state) => ({ ...state, ...patch }));
+
+  return (
+    <ConverterContext.Provider value={{ value, read, update }}>
+      {children}
+    </ConverterContext.Provider>
+  );
+};
+```
+
+<SideNote>
+  Implementing a store in this way will lead to [unnecessary
+  re-renders](https://alexsidorenko.com/blog/react-render-context/) of components that depend on it.
+  In real projects, try to avoid using context as a state manager and use appropriate libraries for
+  this purpose.
+</SideNote>
+
+### Service Composition
+
+Now we need to associate the types of application ports with the implementation of specific functions by “registering” the service:
+
+```ts
+// infrastructure/store.composition
+
+import type { ReadConverter, SaveConverter } from "../../core/ports.output";
+import { StoreProvider, useStore } from "./store";
+
+export const useStoreWriter: Provider<SaveConverter> = () => useStore().update;
+export const useConverter: ReadConverter = () => useStore().value;
+
+// If we need a separate function for reading data:
+export const useStoreReader: Provider<ReadConverter> = () => useStore().read;
+```
+
+Note that we made the decision about which technology to use for the storage service only at the very end, when the application core was ready. This is a sign of fewer artificial constraints on our choice of tools. When we make a decision about the tooling, we already know a lot more about the project and can choose a more appropriate library for our tasks.
+
+<SideNote>
+  In one of the next posts, we will look at how to choose tools if there are constraints that have
+  been discovered during the design phase, and how loose coupling between modules can help us.
+</SideNote>
+
+### Skipping Application Core
+
+In addition to updating the converter via `SaveConverter`, we also need to read data from the store in the UI:
+
+```ts
+// shared/kernel.ts
+type Selector<T> = () => T;
+
+// core/ports.input.ts
+type SelectBaseValue = Selector<BaseValue>;
+type SelectQuoteValue = Selector<QuoteValue>;
+type SelectQuoteCode = Selector<QuoteCurrencyCode>;
+```
+
+Since the application core is not involved in reading data (we do not transform data with domain functions when reading), we can implement input ports for reading directly in the store service:
+
+```ts
+// infrastructure/store.composition
+
+import type { SelectBaseValue, SelectQuoteCode, SelectQuoteValue } from "../../core/ports.input";
+
+const useValueBase: SelectBaseValue = () => useStore().value.baseValue;
+const useQuoteCode: SelectQuoteCode = () => useStore().value.quoteCode;
+const useValueQuote: SelectQuoteValue = () => useStore().value.quoteValue;
+```
+
+Such a “fast track” bypassing the application core can be used in applications where there is [little or no domain logic](https://en.wikipedia.org/wiki/CRUD).
+
+![Processes without domain logic and data transformations can be “short-circuited” and skipped past the core](/images/content/explicit-design-series/04-short-circuit.png)
+
+Personally, I don't see anything wrong with this implementation because the service is still connected to the rest of the application through abstractions, so the coupling between modules almost doesn't increase.
+
+## (Almost) Everything Together
+
+The application is almost ready. We have created the domain model and worked out use cases, created the UI layer and the necessary components, created services for API requests and data storage. Now we need to put all this together into a working project, which is what we will do next time.
+
+## Next Time
+
+Today we implemented all the infrastructure of the application and connected it to the application's output ports. In the next post, we will compose the entire application from its parts, using hooks as a way of composition, and also discuss what other ways can be used for it.
+
+## Sources and References
+
+Links to books, articles, and other materials I mentioned in this post.
+
+- [Source code for the current step on GitHub](https://github.com/bespoyasov/explicit-design/tree/main/04-ports-and-adapters-infrastructure)
+- [Blog's source code for typos and corrections](https://github.com/bespoyasov/www)
+
+### Patterns and Principles
+
+- [Inversion of control, Wikipedia](https://en.wikipedia.org/wiki/Inversion_of_control)
+- [Serialization, Wikipedia](https://en.wikipedia.org/wiki/Serialization)
+- [Data transfer object, Wikipedia](https://en.wikipedia.org/wiki/Data_transfer_object)
+- [Factory Pattern](https://www.patterns.dev/posts/factory-pattern)
+
+### Functional Programming
+
+- [Curried functions](http://learnyouahaskell.com/higher-order-functions#curried-functions)
+- [Dependency rejection](https://blog.ploeh.dk/2017/02/02/dependency-rejection/)
+- [Domain Modelling Made Functional by Scott Wlaschin](/blog/domain-modelling-made-functional/)
+- [Partial application, Wikipedia](https://en.wikipedia.org/wiki/Partial_application)
+
+### Dependency Management and Architecture
+
+- [Cohesion, Wikipedia](<https://en.wikipedia.org/wiki/Cohesion_(computer_science)>)
+- [Dependency injection, Wikipedia](https://en.wikipedia.org/wiki/Dependency_injection)
+- [Dependency Injection with TypeScript in Practice](/blog/di-ts-in-practice/)
+- [Reflecting architecture and domain in code](https://herbertograca.com/2019/06/05/reflecting-architecture-and-domain-in-code/)
+- [Six approaches to dependency injection](https://fsharpforfunandprofit.com/posts/dependencies/)
+- [What is a DI Container?](https://stackoverflow.com/questions/50718586/what-is-a-di-container)
+
+### React-Specific Topics
+
+- [Passing Data Deeply with Context](https://react.dev/learn/passing-data-deeply-with-context)
+- [Visual Guide to React Rendering](https://alexsidorenko.com/blog/react-render-context/)
+
+### Other Topics
+
+- [Abstraction, MDN](https://developer.mozilla.org/en-US/docs/Glossary/Abstraction)
+- [Architecture unit test framework for Typescript](https://github.com/ts-arch/ts-arch)
+- [CRUD, Wikipedia](https://en.wikipedia.org/wiki/Create,_read,_update_and_delete)
+- [Generics in TypeScript](https://www.typescriptlang.org/docs/handbook/2/generics.html)
+- [Type Safety, Wikipedia](https://en.wikipedia.org/wiki/Type_safety)
+
+### Table of Contents for the Series
+
+- [Introduction, assumptions, and limitations](/blog/explicit-design-series)
+- [Modeling the domain](/blog/explicit-design-1)
+- [Designing use cases](/blog/explicit-design-2)
+- [Describing the UI as an “adapter” to the application](/blog/explicit-design-3)
+- Creating infrastructure to support use cases (this post)
+- Composing the application using hooks
+- Composing the application without hooks
+- Dealing with cross-cutting concerns
+- Extending functionality with a new feature
+- Decoupling features of the application
+- Overview and preliminary conclusions
