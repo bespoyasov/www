@@ -605,14 +605,14 @@ Next, we can describe the tests for the second case, to make sure that the funct
 
 ```ts
 it.each<TestCase>([
-  { base: 10, rate: 1.1, expected: 11 },
+  { base: 10, rate: 1.1, expected: 11.00 },
   { base: 10, rate: 0.725, expected: 7.25 },
 ])("should have a precision of two decimal places", ({ base, rate, expected }) =>
   expect(calculateQuote(base, rate)).toEqual(expected),
 );
 ```
 
-We make sure that the tests fall because there is no rounding. After that we write the implementation:
+We make sure that the tests fall because of rounding. After that we write the implementation:
 
 ```ts
 const calculateQuote: CalculateQuote = (base, rate) => Number((base * rate).toFixed(2));

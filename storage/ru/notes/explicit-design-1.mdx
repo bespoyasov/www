@@ -596,7 +596,7 @@ it.each<TestCase>([
 
 ```ts
 it.each<TestCase>([
-  { base: 10, rate: 1.1, expected: 11 },
+  { base: 10, rate: 1.1, expected: 11.00 },
   { base: 10, rate: 0.725, expected: 7.25 },
 ])("should have a precision of two decimal places", ({ base, rate, expected }) =>
   expect(calculateQuote(base, rate)).toEqual(expected),
