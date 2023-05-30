@@ -605,8 +605,8 @@ Next, we can describe the tests for the second case, to make sure that the funct
 
 ```ts
 it.each<TestCase>([
-  { base: 10, rate: 1.1, expected: 11.00 },
-  { base: 10, rate: 0.725, expected: 7.25 },
+  { base: 10, rate: 1.12, expected: 11.2 },
+  { base: 10, rate: 0.72, expected: 7.2 },
 ])("should have a precision of two decimal places", ({ base, rate, expected }) =>
   expect(calculateQuote(base, rate)).toEqual(expected),
 );
