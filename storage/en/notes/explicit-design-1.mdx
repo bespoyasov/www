@@ -605,14 +605,14 @@ Next, we can describe the tests for the second case, to make sure that the funct
 
 ```ts
 it.each<TestCase>([
-  { base: 10, rate: 1.1, expected: 11 },
-  { base: 10, rate: 0.725, expected: 7.25 },
+  { base: 10, rate: 1.12, expected: 11.2 },
+  { base: 10, rate: 0.72, expected: 7.2 },
 ])("should have a precision of two decimal places", ({ base, rate, expected }) =>
   expect(calculateQuote(base, rate)).toEqual(expected),
 );
 ```
 
-We make sure that the tests fall because there is no rounding. After that we write the implementation:
+We make sure that the tests fall because of rounding. After that we write the implementation:
 
 ```ts
 const calculateQuote: CalculateQuote = (base, rate) => Number((base * rate).toFixed(2));
@@ -748,7 +748,7 @@ Links to books, articles, and other materials I mentioned in this post.
 - [Designing use cases](/blog/explicit-design-2)
 - [Describing the UI as an “adapter” to the application](/blog/explicit-design-3)
 - [Creating infrastructure to support use cases](/blog/explicit-design-4)
-- Composing the application using hooks
+- [Composing the application using hooks](/blog/explicit-design-5)
 - Composing the application without hooks
 - Dealing with cross-cutting concerns
 - Extending functionality with a new feature
