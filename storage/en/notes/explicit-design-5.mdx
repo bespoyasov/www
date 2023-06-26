@@ -18,6 +18,12 @@ tags:
 
 We continue the series of posts and experiments about explicit software design. [Last time](/blog/explicit-design-4) we implemented the infrastructure for the application and connected it to the application core's output ports. In this post, we'll talk about composition, assemble the converter from its components, and discuss various types of testing.
 
+<SideNote>
+  By the way, all the [source code for this series](https://github.com/bespoyasov/explicit-design)
+  and the [blog's source code](https://github.com/bespoyasov/www) are available on GitHub. Give
+  these repositories a star if you liked the post!
+</SideNote>
+
 ## Building “Bottom-Up”
 
 We will be building the application from its components “bottom-up.” We already have use cases, infrastructure services, and a certain number of UI components. From these, we can build a feature.
