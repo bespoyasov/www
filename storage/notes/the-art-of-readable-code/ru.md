@@ -1,0 +1,217 @@
+---
+title: Читаемый код или программирование как искусство. Д. Бозвел, Т. Фаучер
+description: Сейчас я читаю книгу «Читаемый код или программирование как искусство». В ней куча годных мыслей и примеров, которыми хочется поделиться.
+datetime: 2017-03-27T18:10
+cover: cover.webp
+tags:
+  - antipatterns
+  - books
+  - patterns
+---
+
+# Читаемый код или программирование как искусство. Д. Бозвел, Т. Фаучер
+
+Сейчас я читаю книгу «Читаемый код или программирование как искусство». В ней куча годных мыслей и примеров, которыми хочется поделиться. Но в одну заметку всё не уместится, поэтому я решил пересказывать книгу по несколько глав за раз. В этой заметке 1–4 главы.
+
+## Глава 1: код должен быть простым для понимания
+
+Кратко:
+
+- Компактный код лучше громоздкого;
+- Но читаемый код всегда лучше компактного.
+
+Код чаще читают чем пишут. Чем быстрее человек понимает незнакомый код, тем он проще. В понятном коде легко найти баги и исправить их, не сломав при этом программу.
+
+Короче — не всегда лучше для понимания:
+
+```
+// такую строку сложнее понять
+assert((!(bucket = FindBucket(key))) || !bucket->IsOccupied());
+
+// чем эти две
+bucket = FindBucket(key);
+if (bucket != NULL) assert(!bucket->IsOccupied());
+```
+
+Поэтому стремиться к компактности хорошо, но стремиться к высокой читаемости лучше.
+
+## Глава 2: подбирайте точные имена для переменных, функций и классов
+
+Кратко:
+
+- Подбирайте точные слова;
+- Избегайте общих и абстрактных понятий;
+- Уточняйте смысл с помощью суффиксов и префиксов;
+- Не придумывайте слишком длинное название.
+
+Например, в функции `GetPage` слово `get` неточное. Оно не объясняет, берётся ли страница из кэша или из сети. Названия `FetchPage` или `DownloadPage` лучше объяснят, что происходит.
+
+В примере ниже из тела функции и так понятно, что `retval` — возвращаемое значение.
+
+```
+var euclidean_norm = function (v) {
+  var retval = 0.0;
+  for (var i = 0; i < v.length; i += 1)
+    retval += v[i] * v[i]
+  }
+
+  return Math.sqrt(retval);
+}
+```
+
+Однако неясно, что оно в себе содержит, из-за этого просто пропустить ошибку:
+
+```
+retval += v[i];      // Можно забыть, что внутри, и пропустить ошибку
+sum_squares += v[i]; // «Сумма квадратов? Но здесь нет квадратов — здесь ошибка»
+```
+
+Вместо абстрактных имён используйте конкретные, заточенные под ситуацию. Такие имена сами объясняют, для чего нужна переменная или функция. А конкретика помогает избежать двусмысленности.
+
+Префиксы и суффиксы уточняют смысл. Например, измеряем скорость загрузки веб-страницы:
+
+```
+var start = (new Date()).getTime();
+var elapsed = (new Date()).getTime() - start;
+document.write("Загрузилось за: " + elapsed + " секунд");
+```
+
+Если вы знакомы с JS, то заметили ошибку — `getTime` возвращает результат в миллисекундах. Поэтому код работает неправильно. Если добавить суффикс `_ms`, то ошибку будет заметно:
+
+```
+var start_ms = (new Date()).getTime();
+var elapsed_ms = (new Date()).getTime() - start_ms;
+document.write("Загрузилось за: " + elapsed_ms + " секунд"); // «Тут не секунды, а миллисекунды, надо поделить на 1000»
+```
+
+Длина имени зависит от размера области видимости. Если переменная лежит внутри функции из 3 строк, то короткое имя ей подойдёт. Но чем больше область видимости, тем точнее должно быть имя. Например, `days_since_last_update` будет лучше, чем просто `days`.
+
+Сокращения в именах вызывают вопросы. Для расшифровки сокращения может не хватать знаний. Кроме того сокращение проще всего истолковать неправильно. Поэтому `BEManager` — плохое имя, `BackEndManager` — лучше.
+
+Если слово не дополняет смысл названия, его лучше выбросить. Например, `convert_to_string` можно заменить на `to_string`.
+
+Правило для выбора имени: «Если новый член команды не может понять смысла функции или переменной по её названию, это плохое имя».
+
+## Глава 3: избегайте двусмысленных названий
+
+Кратко:
+
+- Название должно отражать суть;
+- Используйте префиксы и суффиксы, чтобы добавить смысла;
+- Убирайте неважное.
+
+Тестируйте названия на неверные интерпретации. Спросите себя, что ещё может подразумеваться под этим именем. Например, функция `filter` непонятная: она выбирает или значения, которые подходят под условие, или наоборот. А вот названия `select` или `exclude` сразу говорят, какие результаты мы получим.
+
+```
+results = Database.all_objects.filter("year <= 2011")
+// в results будут записи <= 2011 или >2011?
+```
+
+Чтобы точно определить предел диапазона, используйте префиксы `max` или `min`. Для включительных диапазонов можно использовать префиксы `first` и `last`.
+
+```
+CART_TOO_BIG_LIMIT = 10
+if shopping_cart.num_items() >= CART_TOO_BIG_LIMIT:
+  Error("Too many items in cart.")
+// а сколько можно: 10 или 9?
+
+MAX_ITEMS_IN_CART = 10
+if shopping_cart.num_items() > MAX_ITEMS_IN_CART:
+  Error("Too many items in cart.")
+// всё ясно, больше 10 нельзя
+```
+
+Для булевых переменных используйте префиксы `is`, `has`, `can`, `should` <nobr>и т.д.</nobr> Актуально и для функций, которые возвращают булево значение.
+
+## Глава 4: красивый код быстрее считывается
+
+Кратко:
+
+- Используйте последовательный стиль, чтобы читатель привык к нему;
+- Пишите схожий код схожим образом;
+- Объединяйте связанные по смыслу куски кода в блоки.
+
+Избавляйтесь от непоследовательности. Используйте вспомогательные функции. Например, функция и тест для неё:
+
+```
+string ExpandFullName(DatabaseConnection dc, string partial_name, string* error);
+
+DatabaseConnection database_connection;
+string error;
+assert(ExpandFullName(database_connection, "Doug Adams", &error)
+  == "Mr. Douglas Adams");
+assert(error == "");
+assert(ExpandFullName(database_connection, " Jake Brown ", &error)
+  == "Mr. Jacob Brown III");
+assert(error == "");
+assert(ExpandFullName(database_connection, "No Such Guy", &error) == "");
+assert(error == "no match found");
+assert(ExpandFullName(database_connection, "John", &error) == "");
+assert(error == "more than one result");
+```
+
+Две строки не влезают и перескакивают на следующие, читатель собьётся. Этого можно избежать с помощью вспомогательной функции:
+
+```
+CheckFullName("Doug Adams", "Mr. Douglas Adams", "");
+CheckFullName(" Jake Brown ", "Mr. Jake Brown III", "");
+CheckFullName("No Such Guy", "", "no match found");
+CheckFullName("John", "", "more than one result");
+
+void CheckFullName(string partial_name,
+                   string expected_full_name,
+                   string expected_error) {
+    string error;
+    string full_name = ExpandFullName(database_connection, partial_name, &error);
+    assert(error == expected_error);
+    assert(full_name == expected_full_name);
+}
+```
+
+При объявлении переменных, разбивайте их на смысловые блоки:
+
+```
+// мешанина:
+class FrontendServer {
+    public:
+        FrontendServer();
+        void ViewProfile(HttpRequest* request);
+        void OpenDatabase(string location, string user);
+        void SaveProfile(HttpRequest* request);
+        string ExtractQueryParam(HttpRequest* request, string param);
+        void ReplyOK(HttpRequest* request, string html);
+        void ReplyNotFound(HttpRequest* request, string error);
+        void CloseDatabase(string location);
+        ~FrontendServer();
+};
+
+// по блокам:
+class FrontendServer {
+    public:
+        FrontendServer();
+        ~FrontendServer();
+
+        // Handlers
+        void ViewProfile(HttpRequest* request);
+        void SaveProfile(HttpRequest* request);
+
+        // Request/Reply Utilities
+        string ExtractQueryParam(HttpRequest* request, string param);
+        void ReplyOK(HttpRequest* request, string html);
+        void ReplyNotFound(HttpRequest* request, string error);
+
+        // Database Helpers
+        void OpenDatabase(string location, string user);
+        void CloseDatabase(string location);
+};
+```
+
+Сам код тоже можно разбивать на «параграфы». Если функция состоит из нескольких шагов, выделите эти шаги в коде пустыми строками между ними.
+
+## Что дальше?
+
+На следующей неделе поговорим о главах 5–7. Расскажу, как:
+
+- Писать или не писать комментарии;
+- Оформлять условия;
+- Проверять циклы на читаемость.

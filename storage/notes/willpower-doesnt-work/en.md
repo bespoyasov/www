@@ -1,0 +1,311 @@
+---
+title: Willpower Doesn't Work by Benjamin Hardy
+description: Notes from the book, my summary and review.
+datetime: 2020-06-08T07:30
+cover: cover.webp
+tags:
+  - behavior
+  - communication
+  - books
+  - brain
+  - focus
+  - habit
+  - health
+  - management
+  - productivity
+---
+
+# Willpower Doesn't Work by Benjamin Hardy
+
+When I opened [this book](https://www.goodreads.com/book/show/35604684-willpower-doesn-t-work), I already had a rough idea of what it would be about. I had come to the conclusion of the book's title more than once myself.
+
+I decided to read it in order to discover details I hadn't thought of before. And I found some interesting thoughts and tricks there.
+
+<aside>
+
+I read this book in translation, not in English. Quotes I show in this summary might be imprecise
+and slightly different from the original text.
+
+</aside>
+
+## Introduction
+
+I liked the way the author starts the book—straight and to the point:
+
+> Let's be fair. You've tried a million times to dramatically change your life
+
+Yup. I have tried a million times to “radically change” my life: not to eat added sugar, to work with a straight back, not to go to bed later than some hour. Something worked, something didn't—the author tries to explain why.
+
+> ...There's no absolute free will
+
+> There are external variables, like gravity, that constrain... Although we can control our behavior to a large extent, we can't control the consequences
+
+Although I've come to similar conclusions myself and with [other books](/blog/the-tao-of-physics/), I wanted to put this knowledge into a system that I could use.
+
+In the book, Hardy not only describes how the environment affects us and why willpower doesn't work, but he also gives advice on how to behave and what to do.
+
+You'll find a list of these tips at the very end of the post, but for now...
+
+## Environment Influence
+
+The author starts with:
+
+> You can't defeat the environment. Even if you try to do it, you're still a creature of it
+
+> Almost all actions have an external source in the environment
+
+> Animals are the direct product of their environment, while humans are the indirect product of their
+
+And I really like his comparison with the situation in life, which I myself found myself in when I was a student:
+
+> It's hard to say no all the time when everyone else is eating fast food
+
+It's like he's telling readers, you can try to “start with yourself,” “change your life,” and stuff like that, but:
+
+> If the environment doesn't support your values and goals, they won't be realized
+
+> Most people are reactive and reckless in the face of whatever environment they find themselves in
+
+The problem is that we don't notice the influence of the environment (or don't want to notice) because we are so “brought up.”
+
+> The reason people underestimate the importance of the environment is because we as a society are trained to focus on ourselves
+
+> We as a society tend to overemphasize individuals and ignore the context that forms them
+
+This is also where the root of the problem of our perception of failure, failure, unsuccess and life's difficulties lies. Many (looking at myself) don't like problems, failures and difficulties. But this is wrong, because difficulties according to the author are not only good for us, but necessary:
+
+> Most people live mediocre lives not because they lack innate talents, but because the situation does not require more of them
+
+> Trying to get rid of “the environment” is not only impossible, but foolish if you are striving for growth. A radical transformation can only happen through cooperation
+
+> History is not shaped by great personalities, but by difficult situations. Necessity is the most important unique ingredient in the formula for greatness, not the brilliant minds of specific individuals or the acumen of a single leader
+
+## Relativity of Values and People
+
+That values are not absolute, but relative, Hardy repeats often:
+
+> Your values are relative, not absolute
+
+But he also reminds us that we ourselves are not absolute either - we have weight and value in some context:
+
+> The power of any piece is relative and depends on variables such as the construction of pawns and other pieces
+
+> No one has absolute value. On the contrary, we all have relative value depending on what surrounds us
+
+> From this he also deduces that problems are not absolute either, but relative
+
+> A person is never objectively depressed, intellectual, or beautiful. On the contrary, these are all subjective meanings based on context
+
+## Problems and Attitudes
+
+There's a lot about problems and attitudes. I felt like I was reading [Manson's “The Subtle Art of not Givin a F\*ck”](/blog/the-subtle-art-of-not-giving-a-fuck/).
+
+> Life in general tends not to behave the way we want it to. It doesn't matter how organized you are, or how smart you are, or how great you are
+
+> Many people mistakenly believe that happiness is a lack of exertion. We want life to be easy, without hardship or challenge
+
+> A comfortable life is not the path that leads to development and happiness
+
+> Instead of fixating on yourself, try a more impactful approach - focus on situational factors and how you can better tailor them to help you achieve your goals
+
+Like Manson, he advises a problem-seeking orientation:
+
+> With a psychological growth mindset, you are much more persistent if things don't go well. You don't look at failure as most people do. They're not a negative for you, but a feedback loop
+
+...But more importantly, he tells you how to work with the failures that happen:
+
+> Planning for failure so you can actively respond to it. One way to apply the implementation of intentions is to determine in advance the conditions under which you will fail to continue
+
+Although warns that in order for this to work, you have to be able to intelligently choose what you want, what you're interested in.
+
+> If you're interested in something, negative emotions and experiences along the way are to be expected. Even desirable
+
+## Choice
+
+Hardy reminds us that choice is an important thing. Choosing anything: what to do on your day off, what to do in life, what to want, what not to want, what to change and what not to change. But most importantly, it says what and...
+
+> ...Development is a matter of choice, and the choice is rarely about development
+
+> ...Instantly referring to the influence of the environment
+
+> By not paying attention to the environment, you may, without your own consciousness, become something you don't want to become
+
+> In the new environment, I could have been anything. Nobody knew who I was
+
+> And saying that you have to make a choice so that you don't have to worry about whether it's good or not
+
+> With partial interest, you're full of indecision
+
+> ...[To choose or not to choose] there is no third choice. All means of retreat have been destroyed
+
+> If you're not too interested in the goal, your “if/then” response may be ineffective
+
+Choosing all the time is difficult, so Hardy suggests having patterns for behavior. “Think well once,” because...
+
+> The fewer decisions you have to make, the more serious the ones you do make
+
+Well, patterns help with default behaviors:
+
+> Simply changing the default choices in certain decisions is an easy way to change the behavior right away
+
+> You need to break down the triggers in your environment that lead to unconscious addictive behavior. You need to deepen the quality of your relationships with others and increase the degree of intimacy
+
+> In other words, you'll need to create a stimulus for the stimulus. When you tend to self-sabotage, that very tendency will motivate you to do the right thing
+
+Roughly speaking, he suggests using brain bugs as exploits.
+
+## Brain and Processes
+
+Hardy talks both about [DMN](https://en.wikipedia.org/wiki/Default_mode_network) and the importance of rest.
+
+Sometimes, by the way, it's similar to the [Dorofeev's “Jedi Techniques”](/blog/jedi-techniques/). For example, here's a similar idea incubator.
+
+> The longer you let an idea sit in your mind without putting it down on paper or in some other form, the more it loads your working memory
+
+But it's mostly nothing new:
+
+> In taking in new information, your brain has to work much harder. You're connecting the new with an already existing mental model, thus rewriting your brain chemistry
+
+> Creativity is the result of making clear and useful connections. These connections cannot be formed unless they are preceded by hard thinking and deep immersion in a project or task, followed by rest
+
+> The brain functions best when it is rested and relaxed
+
+However, he writes things about rest itself that I have missed.
+
+## Rest and Switching, Health Influence
+
+The leitmotif of Hardy's theme is that we need to be able to disconnect from work.
+
+> Continuous stress has put us into survival mode, and our bodies instinctively store nutrition in the form of body fat. Our physiological response to stress is survival
+
+> We need to create a space where we can truly shut down, reset, refresh and recharge. Otherwise, our natural evolutionary response will be to store fat rather than burn it off
+
+Again, to completely shut down means...
+
+> In stressful environments you are 100% “on.” In restorative environments you are “off.”
+
+> To excel at anything, you have to constantly switch from extremely demanding environments to extremely relaxing ones. In both, you have to be completely immersed in every experience
+
+Because according to Hardy it directly affects the ability to concentrate on the task at hand:
+
+> The ability to immerse oneself in the job is becoming increasingly rare at the very time when it's becoming more and more valuable to our economy
+
+> In order to be fully engaged and effective one needs to be psychologically disengaged from the work
+
+The whole thing about creating a certain environment for every activity:
+
+> Each environment has to be a trigger for the psychological state required to do a particular type of work
+
+> If you notice yourself becoming disconnected or distracted, move to a new environment. Often the mere act of changing rooms contributes to the flow of ideas
+
+This is very similar to my experiments with [workday division](/blog/efficient-workday-division/). Although I'm not as radical in the amount of time I devote to work as Hardy is:
+
+> 20% of your energy should be devoted to work. The other 80% should be spent on rest and self-improvement
+
+But maybe he's right, because he goes on to write that:
+
+> If you're not completely disconnected from work, your chances of developing depression are much higher
+
+> Long breaks are important for mental health
+
+I really didn't find him citing any medical articles or studies here, but let's say that's okay. I can believe him because he writes:
+
+> Caffeine should be used with intention, not compulsively
+
+...And I was just recently restricting myself to coffee, and what he writes about it is similar to my experience.
+
+## Addictions
+
+He doesn't write about caffeine by accident—the book contains a lot of stuff about addictions.
+
+> We live in a culture of addiction. And not just from the phone, but also from technology, food, pornography, drugs and God knows what else
+
+On technology he goes into more detail:
+
+> Here are some of the results of unhealthy smartphone use:
+>
+> - increased depression and anxiety,
+> - sleep disorders,
+> - decreased psychological and emotional well-being,
+> - reduced emotional intelligence,
+> - severe distress,
+> - impaired performance in learning
+
+And the author writes that the best cure for addiction is social bonding:
+
+> You can't truly overcome addiction without displacing it with something else
+
+> The opposite of addiction is contact. In fact addiction is an indicator of their absence
+
+> Nothing in life is more important than other people
+
+## Conclusions and Advice from the Author
+
+Hardy has scattered all these conclusions and advice here and there in the book. I've compiled what I think are the most important ones into one list. Enjoy!
+
+Environment and context are stronger than willpower:
+
+> ...What you do is based on context, not willpower,
+>
+> - each environment has its own rules,
+> - each environment has its own “lid.”
+> - your value is relative, not absolute,
+> - you always have a role to play,
+> - you have to organize your environment wisely
+
+You can exploit this fact through _compelling functions_.
+
+> Compelling functions are the making of one decision from which all the other decisions, either already easier or irrelevant, flow out
+
+> The most powerful coercive functions are:
+>
+> - considerable investment,
+> - social pressure,
+> - serious consequences for inefficiency,
+> - high difficulty,
+> - novelty
+
+Forcing yourself is useless. Better is to [rearrange](/blog/do-not-push/) the [context](/blog/do-not-push-automate-instead/):
+
+> ...The best way to work is to put yourself in a position to honor the contract. In essence, force yourself to do the task
+
+Expect difficulties, but create a context around yourself so that they don't hit you too hard when they happen.
+
+> ...[It's like] the scaffolding principle in training. You create support systems around yourself so that you can take more weight or cope with more difficulties than you can handle on your own
+
+> Visualize the process, not just the result
+
+Make choices and eliminate unnecessary things.
+
+> Eliminate commitments you shouldn't have made in the first place
+
+Use public promises.
+
+> Compete in public
+
+If something bothers you or could go wrong, [speak up right away](/blog/no-more-mr-nice-guy/).
+
+> Make a habit of communicating promptly and directly when you have information others need
+
+And my now favorite metaphor for technical debt:
+
+> Little things, if not corrected, always end up in big trouble
+
+## Resources
+
+- [Willpower Doesn't Work by Benjamin Hardy](https://www.goodreads.com/book/show/35604684-willpower-doesn-t-work)
+- [Default Mode Network](https://en.wikipedia.org/wiki/Default_mode_network)
+
+### Books on Similar Topics
+
+- [The Tao of Physics by Fritjof Capra](/blog/the-tao-of-physics/)
+- [The Subtle Art of Not Giving a F\*ck by Mark Manson](/blog/the-subtle-art-of-not-giving-a-fuck/)
+- [Jedi Techniques by Maxim Dorofeev](/blog/jedi-techniques/)
+- [No More Mr. Nice Guy by Robert A. Glover](/blog/no-more-mr-nice-guy/)
+- Thinking, Fast and Slow by Daniel Kahneman
+
+### From My Blog
+
+- [How I Divide My Work Time](/blog/efficient-workday-division/)
+- [Don't Push Yourself](/blog/do-not-push/)
+- [Don't Push: Automate Instead](/blog/do-not-push-automate-instead/)

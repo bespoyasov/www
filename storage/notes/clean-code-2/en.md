@@ -1,0 +1,177 @@
+---
+title: Clean Code. Part 2
+description: Let's continue discussing “Clean Code” by Robert Martin.
+datetime: 2017-10-27T16:00
+cover: cover.webp
+tags:
+  - books
+  - coupling
+  - error
+  - tdd
+---
+
+# Clean Code. Part 2
+
+We continue reading [Robert Martin's book “Clean Code”](https://www.goodreads.com/book/show/3735293-clean-code). [Last time](/blog/clean-code/) we discussed variable naming, functions, and comments. Today we'll look at chapters 5-8.
+
+## Chapter 5. Formatting
+
+TL;DR:
+
+- divide the code into vertical blocks;
+- keep related entities close to each other;
+- automate formatting checks.
+
+Formatting the code helps it be read faster. Vertical and horizontal formatting are equally important.
+
+Divide the code into meaningful blocks by using line breaks. Remember to keep related lines closer together than unrelated lines:
+
+```
+// Instead of:
+import _ from 'lodash'
+import userTemplate from './templates'
+const transformUsersList = (users) => {
+  return _.chain(users).filter(user => !!user.id).map(user => ({...userTemplate, id: user.id, name: user.name})).value()
+}
+export default transformUsersList
+
+// Try:
+import _ from 'lodash'
+import userTemplate from './templates'
+
+const transformUsersList = (users=[]) => {
+  return _
+    .chain(users)
+    .filter(user => !!user.id)
+    .map(user => ({
+      ...userTemplate,
+      id: user.id,
+      name: user.name
+     }))
+    .value()
+}
+
+export default transformUsersList
+```
+
+Declare variables as close to where they are used as possible. This makes it easier to understand what happens to a variable and how it changes. It is the same with functions: if one calls another, they must be placed side by side. (This is not always possible, but it's worth trying.)
+
+If one function calls another, the first must be declared at the top:
+
+```
+// Instead of:
+const showUsersList = () => {
+  /* ... */
+}
+
+const fetchUsersList = () => {
+  /* ... */
+  // Calls showUsersList.
+}
+
+const handleButtonClick = () => {
+  /* ... */
+  // Calls fetchUsersList.
+}
+
+
+// Try:
+const handleButtonClick = () => {
+  /* ... */
+  // Calls fetchUsersList.
+}
+
+const fetchUsersList = () => {
+  /* ... */
+  // Calls showUsersList.
+}
+
+const showUsersList = () => {
+  /* ... */
+}
+```
+
+<aside>Blog author's note: In my experience, it's better to do otherwise though.</aside>
+
+Horizontal formatting should adhere to the conventions of a particular language. If there are documented conventions, use them; if not, use best practices.
+
+Horizontal alignment is mostly useless. If you add a variable with more characters in its name, you will have to change the alignment:
+
+```
+// Useless:
+const users     = []
+const fakeUsers = []
+
+// New variable breaks everything:
+const users     = []
+const fakeUsers = []
+const confirmedUsers = []
+```
+
+It is better to choose not the alignment but the optimal number of variables. If required, you can put some part of the code into a separate function.
+
+Monitoring the formatting must be given to robots. Create linters in the project, which will watch for hyphenation, indentation and other things.
+
+## Chapter 6. Objects and Data Structures
+
+TL;DR:
+
+- objects and data structures are not the same thing;
+- low coupling is [good](https://en.wikipedia.org/wiki/Law_of_Demeter).
+
+The difference between objects and data structures is that objects hide data behind abstractions and provide functions to manipulate data. Data structures, on the other hand, do not hide data.
+
+Therefore it's easier to add new functions to procedural code (which uses data structures) without changing the structure. In object-oriented code it's easier to add classes without changing existing functions.
+
+According to [the Law of Demeter](https://en.wikipedia.org/wiki/Law_of_Demeter) the client object should avoid method calls to objects, internal members returned by the method of the service object. Roughly speaking, method chains violate the law:
+
+```
+// Instead of:
+userInstance.getName().getInitials()
+
+// Try:
+userInstance.getInitials()
+```
+
+## Chapter 7. Error Handling
+
+TL;DR:
+
+- use exceptions instead of error codes;
+- pass the execution context along with the error;
+- error handling should be as separate from the business logic as possible.
+
+Error handling is an important part of the program, but it should not be confusing and should be transparent.
+
+If possible, use language exceptions instead of error codes, this will save you from a lot of flags and checks. Start writing code with `try-catch`. This will help you understand how the function should behave, what its interface should be, what exceptions can arise.
+
+Pass the context along with the error: source, environment, some variable values. This will reduce debugging time. When creating your own exceptions, think about how they will be caught first.
+
+When handling third-party APIs, try to minimize dependency on them. Error handling should be separated from the business logic as much as possible.
+
+## Chapter 8. Boundaries
+
+TL;DR:
+
+- before using third-party libraries, understand how they work;
+- write adapters for third-party code and code that doesn't yet exist;
+- clearly distinguish between the responsibilities of your code and third-party code.
+
+Before you can use someone else's code in your project, you must understand how it works. As soon as you take it into your project, all of its problems become yours. To learn how third-party code works, you may use tests. They call some third-party API method and describe the expected response.
+
+If your application has modules that need to work with modules that don't exist yet, describe an interface for them that's comfortable for you. If it doesn't match a real interface, write an adapter for it.
+
+## In the Next Post
+
+In the next post, we'll discuss:
+
+- unit tests and the three laws of TDD;
+- working with classes;
+- scaling systems.
+
+## Resources
+
+- [Clean Code. Part 1](/blog/clean-code/)
+- [The Law of Demeter](https://en.wikipedia.org/wiki/Law_of_Demeter)
+- [Adapter patter on Wiki...](https://en.wikipedia.org/wiki/Adapter_pattern)
+- [And on my blog](/blog/adapter-pattern/)

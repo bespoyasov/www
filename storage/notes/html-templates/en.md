@@ -1,0 +1,25 @@
+---
+title: Templates for HTML Coding
+description: Now I have a piece of code for every trivial task that just needs to be inserted in the right place on the page.
+datetime: 2013-02-13T14:00
+tags:
+  - automatization
+  - components
+  - css
+  - html
+  - javascript
+  - productivity
+  - tools
+---
+
+# Templates for HTML Coding
+
+The HTML coding is quite a chore, and sometimes it all comes down to putting together a few standard pieces into one page. And so it's worth thinking about reusing those pieces in your next projects.
+
+First, I made a library of layouts: one-column, two-column, three-column, etc.
+
+Then I noticed that some dynamic elements occur quite often. I decided to combine them into separate modules: image slider, drop-down menu, lightboxes, popups—I put the code for each of these elements into separate files. In addition to them I wrote CSS placeholders in which I had prewritten the names of the necessary properties for module integration.
+
+I had templates for projects before, but they were not convenient to use. Mainly because they were not universal. Now it's better: today I made a standard template layout without needing to write half of it. There was no problem with the dynamics too—I inserted the code in the correct place and provided a link to a script file. As a result, it saved me 2-3 hours.
+
+The moral of the story: _collect solutions and automate your routine_.

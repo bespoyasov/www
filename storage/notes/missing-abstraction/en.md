@@ -1,0 +1,93 @@
+---
+title: Missing Abstraction
+description: The book “97 Things Every Programmer Should Know” advises to write code in terms of domain concepts. In this post, I show the advantages of this approach are using a simple example.
+datetime: 2019-01-13T10:00
+tags:
+  - abstraction
+  - encapsulation
+  - facade
+  - favorite
+  - intention
+  - javascript
+  - oop
+  - patterns
+  - refactoring
+---
+
+# Missing Abstraction
+
+Imagine there is a program that manages the distribution of books to readers. Each reader is assigned a shelf with books available to them.
+
+We have a class `Reader` that represents the reader. It takes in data about the user and the shelf assigned to him. We will also have code that uses an instance of this class in the condition below. There we will check if a certain book is on the user's shelf and if they can read it.
+
+Question: what's wrong with this condition at the end?
+
+```js
+class Reader {
+	constructor(user, shelf) {
+		this.user = user;
+		this.shelf = shelf;
+	}
+
+	getBooksFromShelf = () => this.shelf.getBooks();
+}
+
+const reader = new Reader(someUserData, someBookShelfData);
+const books = reader.getBooksFromShelf();
+
+// The problem's here ↓
+if (books.contains(book.id)) {
+	// ...
+}
+```
+
+At first glance, everything seems okay, but it could be done better.
+
+## Meaning Instead of Implementation
+
+The code shows how the action is implemented technically, in terms of data structures. Technical implementation is usually verbose and complicated, so it is hard to understand what is going on here at once.
+
+But as soon as we...
+
+```js
+// ...replace the condition by the predicate method `canRead`,
+// in which we put all technical implementation...
+if (reader.canRead(book)) {
+	// ...
+}
+
+class Shelf {
+	// ...
+	contains = (book) => this.books.includes(book.id);
+}
+
+class Reader {
+	// ...
+	canRead = (book) => this.shelf.contains(book);
+}
+```
+
+...the code becomes clearer and easier to read.
+
+## Self-Describing Method
+
+Not much has changed: we have added a method that hides inside itself what used to be in the condition. But thanks to it, we no longer say _how_ we want to do something; we say _what_ we want to do.
+
+We begin to describe the interaction between entities through processes from the domain. Such a description makes it easier to read the code because it expresses _intention_—what we want to achieve as a result.
+
+Such a method is somewhat like a [facade](https://github.com/kamranahmedse/design-patterns-for-humans#-facade), because it hides implementation details behind itself. Only in our case we additionally switch from technical language to the domain concepts, which is more natural and easier to operate with when describing processes in the system.
+
+The book [“97 Things Every Programmer Should Know”](https://www.amazon.com/Things-Every-Programmer-Should-Know/dp/0596809484) has a chapter called “Code in the Language of Domain”. It describes exactly these cases.
+
+## Encapsulation
+
+Also, with this method, we have divided the responsibility between the modules. Now only `Shelf` is responsible for handling the books, since only it knows how to properly check the existence of the book. Previously, the responsibility was spread across different modules, which means we could lead the data to an invalid state.
+
+## Resources
+
+- [Kevlin Henney. Seven Ineffective Coding Habits of Many Programmers](https://youtu.be/ZsHMHukIlJY?t=2036)
+- [97 Things Every Programmer Should Know](https://www.amazon.com/Things-Every-Programmer-Should-Know/dp/0596809484)
+- [Clean Code by Robert C. Martin](/blog/clean-code/)
+- [The Art of Readable Code by D. Bowsell, T. Foucher](/blog/the-art-of-readable-code/)
+- [Facade Pattern](https://github.com/kamranahmedse/design-patterns-for-humans#-facade)
+- [Law of Demeter](https://en.wikipedia.org/wiki/Law_of_Demeter)

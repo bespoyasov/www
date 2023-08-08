@@ -1,0 +1,165 @@
+---
+title: Debug It! by Paul Butcher
+description: Notes from the book and summary.
+datetime: 2018-06-26T14:00
+tags:
+  - books
+  - bugs
+  - checklist
+  - error
+  - patterns
+  - testing
+---
+
+# Debug It! by Paul Butcher
+
+[This is a book](https://www.goodreads.com/book/show/6770868-debug-it) about how to look for bugs in programs and fix them. I have divided the summary into two parts. Today, we will go through the process of debugging.
+
+## Chapter 1. Among Madness
+
+Debugging is more than “making the bug disappear”. The components of effective debugging are:
+
+- Understand why the program doesn't behave as expected.
+- Fix the bug.
+- Not break anything along the way.
+- Not spoil the quality of the code: readability, architecture, test coverage, etc..
+- Take measures so that such a problem does not appear in the future.
+
+Often developers, instead of understanding the problem first, write patches right away. This is bad, because it can break what was working.
+
+Observations can help with understanding the problem. In software development, it's relatively easy to experiment and see how the code works.
+
+Debugging consists of 4 steps:
+
+- _Reproduce_, find a way to accurately and conveniently reproduce the problem.
+- _Determine the cause_, build a hypothesis of the problem, and test it with experiments.
+- _Fix the problem_ without breaking the behavior of other parts of the program.
+- _Think how to prevent_ what to do to prevent similar problems in the future.
+
+Before you try to reproduce the problem, you must decide how the program should work, and what exactly is going wrong.
+
+Fix the bugs one by one, do not try to solve several problems at a time. The bugs can be interlinked and if you fix them all at once, you will miss the connections.
+
+Start simple and do not hesitate to ask for help or ask if anyone has encountered the problem before.
+
+## Chapter 2. Reproduce
+
+If you can't reproduce the problem, you can't fix it:
+
+- Debugging depends on how the program behaves. If you cannot make it behave incorrectly, there is nothing to observe.
+- Even if you can make a hypothesis about the causes of the error, you will not be able to test it.
+- You won't be able to demonstrate that the problem has been fixed.
+
+If there is a bug report, repeat the steps from there. At the same time, do not forget to monitor and verify:
+
+- Program version;
+- Environment, software and hardware;
+- Input data.
+
+If there was no input data in the bug report, you have two options: go to the logs or guess what the users might have entered. Don't forget about boundary values and input order. Try to imagine that there was an error in the middle of the path that you didn't immediately notice. Try to use random inputs: either completely random or modified by some rules.
+
+For logging, it is worth choosing a tool that:
+
+- Knows how to turn logging on and off in the places you need it.
+- Allows you to set the depth of the logging.
+- Can tell you about the module that caused the bug, or even a line of code.
+- Automatically logs exceptions and events you define.
+
+Logging embedded in code has disadvantages:
+
+- It complicates the code.
+- Can become obsolete and not keep up with code updates.
+- It is always insufficient.
+
+Reproducing errors should not only be accurate, but also convenient. So you have to remove unnecessary steps that are not relevant to the problem. The shorter the path to the problem, the easier it is to solve it. If possible, automate this path to reduce the time it takes to reproduce.
+
+There are bugs that sometimes appear, sometimes don't. They occur because of:
+
+- Starting the program from undefined initial conditions.
+- Interaction with external systems.
+- Dealing with random values.
+- Multithreading.
+
+Against such bugs, use runtime analyzers; determine exactly what came from the external system and at what moment; use pseudorandom numbers. Automate the process with autotests and software playback of log files.
+
+If you still can't reproduce the issue:
+
+- Try working on another problem from the same area (module, component, etc.);
+- Ask for help.
+
+## Chapter 3. Determine the Cause
+
+To determine the cause, you have to think a lot. When you notice that a program is not behaving as intended, you need to rethink how the program works. To do this, hypothesize about the reasons for the undesirable behavior:
+
+- Determine what you know about the problem and build a hypothesis about what is causing it.
+- Do an experiment to test it.
+- If the experiment disproves the hypothesis, construct a new hypothesis.
+- If you confirmed part of the hypothesis, create new experiments until the result is sufficient to consider the hypothesis confirmed completely.
+
+To see how changes will affect the result, experiment:
+
+- With the internal state of the program;
+- The input data, the environment;
+- The logic of the program itself.
+
+Every experiment must explain or prove something, otherwise it is useless. Don't forget that experiments can not only confirm your hypothesis, but also disprove it—the latter is often forgotten, although such experiments can be easier to conduct.
+
+The basic rule for an experiment is one change in the program at a time. Multiple changes can lead to incorrect conclusions. Make a note of what you were testing. Go back to the work you did from time to time to draw intermediate conclusions.
+
+Don't ignore anything; any strange or unexpected behavior can help identify the problem. (Even if not this one—come back to it later.) Remember: _anything you don't understand is potentially a bug_.
+
+Use a binary search to determine where the problem is coming from. Very, very roughly speaking, if the error is on line 23 in a program of 200 lines, then the first step is to determine which half it is in: 0-100 or 100-200. Next - in which quarter 0-50 or 50-100. And so on, until we get to the 23rd line.
+
+Analyze whether you are changing the right part of the program or environment. If nothing changes as a result, then you are not changing what you intended to change. Always critically analyze your assumptions.
+
+Try to explain the problem to someone, this clears your thoughts. If you have no one to tell, try to write it down. Take a rest if you are very tired. If nothing at all helps, try to change something, anything at all. Sometimes the problem lies where it would seem impossible to be.
+
+Always make changes and experiments in your copy of the project so that you don't introduce accidental side-effects.
+
+## Chapter 4. Fix the Bug
+
+Start writing the fixes in a clean copy of your project. This way you won't forget to clean up any changes you make during the experiment. Before you start, check that the existing tests pass—this is to make sure that the fix does not break other functionality.
+
+While working on the problem:
+
+- Check that the tests pass.
+- Add a new test (or change one of the existing tests) that demonstrates the problem.
+- Fix the problem.
+- Check that the test from step 2 passes.
+- Check that the other tests pass as well.
+
+Fix the cause, not the effect, of the error. To get to the cause, you have to fully understand the problem. If you say something like “for some reason” or “it's not particularly clear why” during the explanation, then you haven't gotten to the root of the problem yet, and a fix won't fix it completely.
+
+_Never do refactoring in conjunction with a bug fix_. Either you fix the code or you refactor it.
+
+If you use a version control system, you should commit one logical change at a time. This will help you figure out how you solved the problem in the future if something else breaks.
+
+Give your solutions to reviews more often.
+
+## Chapter 5. Prevent Similar Bugs
+
+Think about how the program worked before you discovered the error. Why it worked as you expected, and why it stopped afterwards.
+
+To benefit from the situation, think about what went wrong. Try the “Five why” principle, for example:
+
+- The program went down—why?
+- It did not handle a network error during the request—why?
+- There was no unit test for network error—why?
+- The previous developer did not write such a test—why?
+- There are no unit-tests for network errors for any request at all—why?
+- We have missed network errors in the program architecture.
+
+Make sure that such errors do not occur in the future: write tests, add logging, make sure that users update the program.
+
+Make sure that the solution meets the standards of the project:
+
+- Tests are written;
+- Documentation exists;
+- Standards for code style, architectural approaches are complied with;
+- The program passes performance tests, etc.
+
+If you need to update any of the old tests, documentation, etc—don't forget to do so.
+
+## Next Time
+
+In [Part 2](/blog/debug-it-2/) we'll talk about defining problems and seeing the big picture of development, as well as consider debugging techniques.

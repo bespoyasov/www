@@ -1,0 +1,458 @@
+---
+title: Generating Trees Images on Canvas Using L-Systems, TypeScript and OOP
+description: Let's create a tree image generator using TypeScript, following all the rules of OOP and the precepts of Martin's Clean Architecture.
+datetime: 2021-04-10T12:00
+cover: tree-example.webp
+tags:
+  - adapter
+  - architecture
+  - dependencies
+  - domain
+  - dip
+  - encapsulation
+  - favorite
+  - maths
+  - modelling
+  - ocp
+  - oop
+  - research
+  - solid
+  - typescript
+---
+
+# Generating Trees Images on Canvas Using <nobr>L-Systems</nobr>, TypeScript and OOP
+
+Frontend development and Object-Oriented Programming are closer than they might seem. The SOLID principles and Clean Architecture can be used to create frontend applications and they provide convenient tools for the development.
+
+In this series of 3 posts, we will create an image generator that will draw trees on `canvas`. We will accent the architecture and write the code in compliance with OOP principles. I will show the basics of system design and examples of using TypeScript for writing code in the OOP style.
+
+As a result, we will create an [application](https://bespoyasov.me/showcase/treees/) that will draw images like this one:
+
+![Generated tree image](./tree-example.webp)
+
+## Prerequisites
+
+In this post, I suppose you know the basics of OOP, the difference between classes and interfaces, and how dependency injection works.
+
+I've got a [post about dependency injection](/blog/di-ts-in-practice/). It might be worth reading for a better understanding of DI and DI-containers.
+
+Also, we will refer to [SOLID](https://en.wikipedia.org/wiki/SOLID) principles. You don't need to know them in detail but it's better if you've heard something about them.
+
+## What We'll Cover in the First Part
+
+In this post, we're going to design the application architecture using [Clean Architecture](/blog/clean-architecture/) principles and [Domain Driven Design](https://en.wikipedia.org/wiki/Domain-driven_design). Then, we will set up the dev-environment. In the end, we will write the code for one of the domain layer modules.
+
+Let's begin with the design!
+
+## What We're Going to Need
+
+We want to split responsibilities between different modules as it is advised in [Single Responsibility Principle, SRP](https://en.wikipedia.org/wiki/Single-responsibility_principle). Let's define what problems we need to solve.
+
+### L-System Module
+
+For generating the basics of the tree, we're going to use [L-Systems](https://en.wikipedia.org/wiki/L-system). Those are sets of entities and rules that describe how those entities transform over time.
+
+Trees are fractals, and L-Systems are a convenient mathematical model for describing fractals. So, the first module we're going to need is an L-System generator.
+
+It will create a set of transforming characters like this:
+
+```
+1st iteration:	1[0]0
+2nd iteration:	11[1[0]0]1[0]0
+3rd iteration:	1111[11[1[0]0]1[0]0]11[1[0]0]1[0]0
+```
+
+We will take those characters and interpret them as commands for drawing on `canvas`.
+
+### Geometry Module
+
+We will use the [Pythagoras tree](<https://en.wikipedia.org/wiki/Pythagoras_tree_(fractal)>) as a basic fractal for our tree image. In the end, we will add some randomness to make it look more like a real tree.
+
+![Pythagoras tree, 5th iteration](./pythagoras-tree.webp)
+
+For drawing it, we're going to need to know where on canvas to draw lines and what length those lines should have. The geometry module will handle these calculations.
+
+### L-System Interpretation, Graphics, and DOM Modules
+
+For showing a generated image, we're going to need the access to the DOM and a `canvas` element. Also, we will need a “translator” from L-System characters language to the drawing commands language.
+
+Okay, we now determined all the tasks and problems. Let's design the relationships between modules.
+
+## Project Architecture
+
+When I need to design an architecture I like to re-read this post: [DDD, Hexagonal, Onion, Clean, CQRS, …How I put it all together](https://herbertograca.com/2017/11/16/explicit-architecture-01-ddd-hexagonal-onion-clean-cqrs-how-i-put-it-all-together/).
+
+I like to use it as a guide. I take principles and heuristics from it, and apply them to my code.
+
+The first thing to do is to split the application into layers:
+
+- domain,
+- application (including ports),
+- adapters layer.
+
+### Domain Layer
+
+This layer contains _business-logic_. The code and the data in the domain layer make an application different from other applications. Modules in this layer _should not have any dependencies_.
+
+In our case, the domain layer contains L-Systems and Geometry modules.
+
+### Application Layer
+
+This layer contains code and rules _specific to this particular_ application. In our case, the application layer contains an interpreter that “translates” L-System characters into drawing commands.
+
+The difference between the domain layer and the application layer is similar to the difference between a melody and the playing manner. The melody is written in notes and doesn't change (domain). The accompaniment, tempo, timbre, and so on depend on the situation and the mood (application).
+
+Modules in the application layer depend only on the domain layer.
+
+Application layer also contains _ports_. Ports are specifications for external services how they _can_ connect to our application. It describes how our application _wants_ to use or be used by external services.
+
+Ports satisfy **application needs**. If an external service interface is incompatible with application needs we create an _adapter_.
+
+### Adapters Layer
+
+An _adapter_ makes an external service interface compatible with our application. In our case, a port is an application entry point. It tells how the application can be used.
+
+Adapters, in our case, are modules for working with the DOM and accessing `canvas`.
+
+### Combine Layers
+
+Let's draw an architecture diagram:
+
+![Diagram of application components, arranged by layers and zones of UI and infrastructure](./architecture.webp)
+
+Notice that dependencies' direction is towards the domain. It means that _outmost layers depend on inmost_ and never otherwise.
+
+Why divide code in such a way?
+
+- The most important code (the domain) can be transferred from one project to another without modifications since it doesn't depend on anything.
+- If the UI is changed (e.g. we change `canvas` to `svg`) we will only need to replace UI adapters and nothing else.
+- It's more convenient to split the application in [packages that can be deployed independently](https://herbertograca.com/2017/11/16/explicit-architecture-01-ddd-hexagonal-onion-clean-cqrs-how-i-put-it-all-together/).
+
+Okay, we designed the app. Let's set up the environment.
+
+## Setting Up the Environment and DI
+
+For initial setup, I used [createapp.dev](https://createapp.dev).
+
+<aside>
+
+All the configs and settings you can find in the [project repo on GitHub](https://github.com/bespoyasov/treees).
+
+</aside>
+
+For setting up the dependency injection (DI), we will use [`wessberg/DI`](https://github.com/wessberg/di) as a DI-container and [`wessberg/di-compiler`](https://github.com/wessberg/di-compiler) to resolve all the dependencies at compile-time.
+
+Let's add DI configs in `webpack.config.js`:
+
+```js
+// webpack.config.js
+
+const { di } = require("@wessberg/di-compiler");
+
+// …
+
+rules: [
+  {
+    test: /\.ts$/,
+    use: [
+      {
+        loader: "ts-loader",
+        options: {
+          getCustomTransformers: (program) => di({ program }),
+        },
+      },
+    ],
+  },
+],
+
+// …
+```
+
+The custom `di` transformer [replaces interfaces with according class instances](https://github.com/wessberg/di-compiler#faq). In the future, we will explicitly define which class should implement a particular interface.
+
+Then, create the container itself:
+
+```ts
+// `src/composition/core.ts`
+
+import { DIContainer } from '@wessberg/di';
+export const container = new DIContainer();
+```
+
+The `container` object will be used for interface registrations.
+
+## Writing Domain Layer
+
+As we remember, the `l-system` module generates L-System characters using specific rules.
+
+First, we will define a public API of this module, then implement it, and finally, register the module in the DI container.
+
+### Defining Public API
+
+We create an interface `SystemBuilder`. This interface will be the entry point to this module:
+
+```ts
+// src/l-system/types.ts
+
+export type SystemSettings = {
+	rules: RuleSet;
+	initiator: Axiom;
+	iterations: IterationsCount;
+};
+
+export interface SystemBuilder {
+	build(settings: SystemSettings): Expression;
+}
+```
+
+All the modules that somehow use L-Systems will depend on the _`SystemBuilder` interface and only_ on it. I will explain the reasons why a bit later 🙂
+
+The `Axiom`, `RuleSet`, `IterationsCount`, and `Expression` types are [type-aliases](https://www.typescriptlang.org/docs/handbook/2/everyday-types.html#type-aliases) that describe module entities and rules:
+
+- `Axiom`, is a starting character of an L-System;
+- `RuleSet`, is a set of rules that describe characters transformation;
+- `IterationsCount`, how many times we need to transform characters;
+- `Expression`, is the final string of characters.
+
+We make all these types globally accessible via type annotations:
+
+```ts
+// typings/l-system.d.ts
+
+type Combined<TCharacter> = TCharacter;
+type Transformed<TExpression> = TExpression;
+
+type Character = string;
+type Variable = Character;
+type Constant = Character;
+
+type Expression = Combined<Variable | Constant>;
+type RuleSet = Record<Expression, Transformed<Expression>>;
+
+type Axiom = Variable;
+type SystemState = Expression;
+type IterationsCount = number;
+```
+
+Now, we can start implementing the logic.
+
+### `SystemBuilder` Implementation
+
+For implementation, we will create a class:
+
+```ts
+// src/l-system/implementation.ts
+
+import { SystemBuilder, SystemSettings } from './types';
+
+export class Builder implements SystemBuilder {
+	public build(settings: SystemSettings): Expression {
+		// …
+	}
+}
+```
+
+When creating a class, we define that it `implements SystemBuilder`. The `implements` keyword tells a compiler to make sure that the class contains all the public methods and properties defined in the interface.
+
+An _interface_ is a behavior contract. It describes how this module can be used. It guarantees that a module has defined methods and properties.
+
+Other modules don't need to know the implementation details. They only need to be sure that they can call `SystemBuilder.build` and get the result.
+
+The interface becomes the only input that an external world can communicate to the module:
+
+![Component diagram: the top indicates the interface through which the module can be accessed from the outside world](./l-system-1.webp)
+
+This makes the code less [coupled](<https://en.wikipedia.org/wiki/Coupling_(computer_programming)>), and hence more replaceable.
+
+Let's get back to the implementation. To create the Pythagoras tree we're going to need:
+
+- 2 variables: `"0"` и `"1"`;
+- 2 constants: `[` и `]`;
+- an axiom (initial character): `"0"`;
+- and transformation rules: `"1" → "11"`, `"0" → "1[0]0"`.
+
+So we expect that starting character `"0"` will be transforming into:
+
+- 1st iteration: `"1[0]0"`;
+- then: `"11[1[0]0]1[0]0"`;
+- then: `"1111[11[1[0]0]1[0]0]11[1[0]0]1[0]0"`;
+- and so on...
+
+We're going to need a local state. It will keep all the characters for a current iteration. Let's use a private field called `state` for it.
+
+Extract an axiom, rules, and iteration count from the argument. In every iteration apply the rules:
+
+```ts
+// src/l-system/implementation.ts
+
+import { SystemBuilder, SystemSettings } from './types';
+
+export class Builder implements SystemBuilder {
+	private state: SystemState = '';
+
+	public build({ axiom, rules, iterations }: SystemSettings): Expression {
+		this.state = axiom;
+
+		for (let i = 0; i < iterations; i++) {
+			this.applyRules(rules);
+		}
+
+		return this.state;
+	}
+}
+```
+
+In our case, applying the rules means replacing each character in the `state` with those from the rules set:
+
+```ts
+// src/l-system/implementation.ts
+// …
+
+private applyRules(rules: RuleSet): void {
+  const characters: List<Character> = this.state.split("");
+  this.state = "";
+
+  for (const character of characters) {
+    const addition = rules[character] ?? character;
+    this.state += addition;
+  }
+}
+
+// …
+```
+
+Notice that the `applyRules` method is _private_. External modules won't be able to access it directly. We expose only methods defined in the `SystemBuilder` interface.
+
+We remember that modules on the outside only care about meeting the contract from the interface. So exactly how we work with the data is a matter _only of this class_. All the transformation details are [encapsulated](<https://en.wikipedia.org/wiki/Encapsulation_(computer_programming)>) inside of this module.
+
+Now, let's register this module in the container and try to run the application.
+
+### Registering Module in DI Container
+
+Usually, for creating class instances we use the `new` keyword:
+
+```ts
+const builder = new Builder();
+// builder.build();
+```
+
+In our case, we will use a slightly different approach.
+
+```ts
+// src/l-system/composition.ts
+
+// Importing the DI-container:
+import { container } from '../composition';
+
+// ...the interface:
+import { SystemBuilder } from './types';
+
+// ...and the implementation:
+import { Builder } from './implementation';
+
+container.registerSingleton<SystemBuilder, Builder>();
+```
+
+On the last line, we tell the container to return an instance of the `Builder` class when it's _asked to give something that implements the `SystemBuilder` interface_.
+
+Remember, all the modules that depend on L-Systems refer to the `SystemBuilder` interface. They “ask” the container to give them something that implements it. When this happens the container returns the `Builder` instance.
+
+So, if we need to change the implementation, we change only the `Builder` class and nothing else. As long as the `SystemBuilder` interface stays the same [no external modules are affected](https://en.wikipedia.org/wiki/Open–closed_principle).
+
+Okay, to complete the registration we need to import it into `composition/index.ts`:
+
+```ts
+// src/composition/index.ts
+
+import { container } from './core';
+import '../l-system/composition';
+
+export { container };
+```
+
+### Wait, What's a Singleton?
+
+Here, `singleton` refers to the [object lifetime type](https://simpleinjector.readthedocs.io/en/latest/lifetimes.html). In general, `registerSingleton` creates at most one instance of the registered service, and the clients will always receive that same instance from the container.
+
+I explained it in a bit more detail in the [post about DI](/blog/di-ts-in-practice/).
+
+### Well, Okay But How to Use It?
+
+Fair question 😃
+
+Indeed, we cannot access the `builder` right away. We need to ask the container to give it to us:
+
+```ts
+// src/index.ts
+
+import { container } from './composition';
+import { SystemBuilder } from './l-system/types';
+
+const builder = container.get<SystemBuilder>();
+
+console.log(
+	builder.build({
+		axiom: '0',
+		iterations: 3,
+		rules: { '1': '11', '0': '1[0]0' }
+	})
+);
+
+// 1111[11[1[0]0]1[0]0]11[1[0]0]1[0]0
+```
+
+In the code above, we ask the container to give us _something that implements `SystemBuilder`_. Earlier, we registered the `Builder` class as the implementation of `SystemBuilder`:
+
+```ts
+container.registerSingleton<SystemBuilder, Builder>();
+```
+
+So, the container will give us an instance of this class. Again, we don't know anything about implementation details, we access only the interface.
+
+Let's run the app and check if everything works properly:
+
+![Console output is the same as expected](./console-output.webp)
+
+Everything works! 🥳
+
+## In the Next Posts
+
+In [the second part](/blog/generating-trees-on-canvas-using-typescript-and-oop-2), we will create the geometry module and the DOM adapter. In the end, we will display our first image on the `canvas.
+
+In [the last part](/blog/generating-trees-on-canvas-using-typescript-and-oop-3), we will write a “translator” for L-System characters. Also, we will generate the Pythagoras tree and add some randomness to make it look more like a real tree.
+
+## Resources
+
+- [Generating Trees. Part 2](/blog/generating-trees-on-canvas-using-typescript-and-oop-2)
+- [Generating Trees. Part 3](/blog/generating-trees-on-canvas-using-typescript-and-oop-3)
+- [The app itself](https://bespoyasov.me/showcase/treees/)
+- [Sources on GitHub](https://github.com/bespoyasov/treees)
+
+### L-Systems and Fractals
+
+- [L-Systems](https://en.wikipedia.org/wiki/L-system)
+- [Pythagoras tree](<https://en.wikipedia.org/wiki/Pythagoras_tree_(fractal)>)
+
+### Architecture, OOP, DI
+
+- [Clean Architecture by Robert C. Martin](/blog/clean-architecture/)
+- [Domain Driven Design](https://en.wikipedia.org/wiki/Domain-driven_design)
+- [DDD, Hexagonal, Onion, Clean, CQRS, …How I put it all together](https://herbertograca.com/2017/11/16/explicit-architecture-01-ddd-hexagonal-onion-clean-cqrs-how-i-put-it-all-together/)
+- [Dependency Injection with TypeScript in Practice](/blog/di-ts-in-practice/)
+- [Encapsulation](<https://en.wikipedia.org/wiki/Encapsulation_(computer_programming)>)
+- [Object Lifetime](https://simpleinjector.readthedocs.io/en/latest/lifetimes.html)
+
+### SOLID principles
+
+- [Single Responsibility Principle, SRP](https://en.wikipedia.org/wiki/Single-responsibility_principle)
+- [Open–Closed Principle, OCP](https://en.wikipedia.org/wiki/Open–closed_principle)
+- [Code Coupling](https://en.wikipedia.org/wiki/Coupling_%28computer_programming%29)
+
+### Terms from TypeScript and C#
+
+- [Type Aliases](https://www.typescriptlang.org/docs/handbook/2/everyday-types.html#type-aliases)
+- [Fields and Properties](https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/classes-and-structs/properties)
+
+### Tools
+
+- [createapp.dev](https://createapp.dev)

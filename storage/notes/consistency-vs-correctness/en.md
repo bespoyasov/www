@@ -1,0 +1,34 @@
+---
+title: When Consistency is More Important than Correctness
+description: It's true when otherwise is too complicated.
+datetime: 2019-03-04T11:00
+tags:
+  - communication
+  - focus
+  - opinion
+  - refactoring
+---
+
+# When Consistency is More Important than Correctness
+
+Imagine the situation: a task comes to extend the validation of user data that was written before you. You open the code and see:
+
+```js
+const validateUserData = (userData) => {
+	const { socialNumber, email } = userData;
+	return validateSocialNumber(socialNumber) || validateEmail(email);
+};
+```
+
+You know that all fields are required, and you don't understand why they return `true` if at least one value is valid and not all of them together.
+
+You open the code of functions `validateSocialNumber` and `validateEmail` and see that they, for some reason, return `true` if there is an error in the data. From which you conclude that `validateUserData` also returns `true` if there is an error. A quick look at the codebase showed that there are a lot of such functions, they occur in different modules, and there's no quick fix for everything.
+
+Your job is to add email validation and do it “ASAP!!!”. Because of the deadline, you don't have time to refactor the code before that (there are lots of such functions). You understand that the right thing to do is to write a new function so that it returns true if there are no errors...
+
+<mark>However, right now consistency is more important than correctness, and the first step is to do by
+analogy, to design the function API “incorrectly”</mark>
+
+Otherwise, adding a “correctly designed” function will cause similar entities (functions that have the same name) to behave differently. Because of this the cognitive load will greatly increase, because you will constantly have to keep in mind which function returns true when there is an error, and which function returns true when the value is valid.
+
+When the problem is solved, I can (and should) already go on a refactoring trip and rewrite everything. But until then, between consistency and correctness, I would choose consistency.

@@ -1,0 +1,132 @@
+---
+title: Deep Survival by Laurence Gonzales
+description: Notes from the book “Deep Survival” by Laurence Gonzales.
+datetime: 2017-12-02T12:00
+cover: cover.webp
+tags:
+  - books
+  - brain
+  - behavior
+  - evolution
+  - health
+  - history
+---
+
+# Deep Survival by Laurence Gonzales
+
+I had wanted to read this book for a long time, but I was afraid it would contain thoughts like “Don't jump off a skyscraper or you'll die”. It turned out to be more of a book about the brain and perception of the world than an instruction manual for behavior in emergency situations.
+
+The author not only describes the processes in the body when one finds oneself in danger. But also gives advice on how to behave, what to pay attention to.
+
+<aside>
+
+I read [this book](https://www.goodreads.com/book/show/30231750-deep-survival) in translation, not
+in English. Quotes I show in this summary might be imprecise and slightly different from the
+original text.
+
+</aside>
+
+The best part is that this advice is applicable to ordinary life, too. And that makes sense, because he believes that:
+
+> Universal survival rules can be helpful in any difficult situation involving increased nervous-emotional stress: divorce; job loss; severe physical trauma; coping with illness; managing a business in a rapidly changing world
+
+The book begins by telling us that a human is not as a rational creature as we're used to think:
+
+> ...There seems to be an inexplicable force within man that pushes him to do crazy things. Most people find it hard to imagine that reason is not always in control of our behavior. We believe in rational thought and free will. However... it never ceases to amaze me that perfectly rational people start acting irrationally
+
+> ...In times of danger, a person must be aware that he is somewhat inadequate. And the altered state of consciousness affects a variety of areas: perception, cognition, memory, and feelings
+
+The book tells a story of why it's hard to remember simple things when you're stressed:
+
+> ...Cortisol appears in the blood, which complicates the hippocampus (a state of prolonged stress kills the cells of this brain structure). The amygdala can directly affect... almost the entire memory system, both in the sense of accessing old memories and creating new ones. As a result... most people are only able to do the simplest things. They can't remember the most basic things
+
+In general, emotions work faster than the rational part of the brain because evolution has developed them over thousands of years:
+
+> ...The information flow from the senses goes through two neural channels, one of which is faster to reach the amygdala and the other, a millisecond later, the neocortex. Rational (and conscious) thinking never keeps up with the emotional response
+
+> All of this happens without the participation and control of our consciousness. Rational perception, that is, our intellect, works slowly, cautiously, and can make mistakes, while emotional perception, that is, our feelings, reacts swiftly, confidently, and without hesitation
+
+The organism still considers itself in a state of constant survival:
+
+> ...The motives for all behavior can be traced back to the starting point, the idea of survival. Consequently, there must be some strategic value embedded in every action
+
+The author goes on to show that people like to adjust the model of the world to themselves when things do not go according to their plan. This is how we think things aren't really that bad. (Italics are mine.)
+
+> ...People often take _any_ information as confirmation of the correctness of the cognitive models they have created. By nature, people are optimists: they seem to perceive the world as it is. But in a harsh environment... it's all too easy to mistake wishful thinking for reality
+
+The author tells us that human beings are social creatures, and this is reflected in our behavior too. He talks about the benefits of laughter and sociality in times of stress and danger:
+
+> In the movie “Cast Away,” Tom Hanks' character talks to a volleyball. ...In fact, this scene fairly reflects natural human behavior in such a situation. We are social animals, and everything and everyone around us is part of our “social circle”. We have a need to love, and all that we love we strive to bring as close to ourselves as possible
+
+> Often doctors and nurses survive better than others because they help others. People in this profession have a clearly defined purpose. Having a purpose is an important element necessary for salvation. However, a goal alone is not enough; one must work to achieve it... Those who want to survive set small, realistic goals and systematically achieve them
+
+> Such people survive not only because they save themselves, but because they save the entire human race, our species as a whole. This is the paradox of survival: the individual is ultimately irrelevant. What matters is the individual's survival instinct for the survival of the species as a whole. This is why people survive for and for the sake of someone else
+
+> Laughter occurs automatically and is transmitted from one to the other. It stimulates the left prefrontal cortex, the area responsible for well-being and motivation. Stimulation of this area reduces feelings of dissatisfaction and anxiety. ...Laughter reduces the activity of the amygdala, which dampens feelings of anxiety
+
+> ...A sense of humor is not a “luxury item” but a vital “organ” necessary for salvation. Trench humor is widespread among soldiers, helping them to survive not only in war but also during a solitary voyage in the ocean, a divorce, or the death of a loved one
+
+A good note about how people put themselves at the center of the world and then get disappointed:
+
+> When, in doing something, one finds oneself facing death, one must realize that one has come to this development in a well-trodden way. The first reaction usually fits into a pattern: “What a disaster this is! How could this have happened to me!” But if a person survives, and if they then decide to find out “How they came to live like this,” then the overall scheme of tragedy will not look much more complicated: something like “Two hoots, three hoots.” The fact is that there is no such thing as an “accident”. Very few people have a conscious desire to suffer or commit suicide. People usually create their own conditions and systems which allow accidents to happen
+
+> I cannot change the world; the only thing I can change is myself. In order to survive in this world, one must see and understand it. I had to acknowledge the world I found myself in. I had to settle down and start living in it. Just as in Zen Buddhism, martial arts and archery, this behavior will help to bring perception and feeling into the present
+
+And another one about the fact that reality is not cognizable in principle, and we base our view of the world only on what our senses give us:
+
+> Each of us in one way or another sees not the real world, but the ever-changing state of ourselves in an ever-changing imagined view of the world. We live under the constant interpretation of memories and information about the world received through the senses. Blocks of memories at any moment can activate the neural net and turn the ever-changing, kaleidoscope-like energy into what we take to be reality. It's part of the adaptation that helps the survival of the individual and the species
+
+> Not everyone realizes that they are mortal-until they feel the breath of death on them. But even then, many quickly forget their experiences. Death seems too far away to begin to prepare for it
+
+> The knowledge you need begins not with information, but with experience and perception
+
+> The neuroscientist Joseph Ledoux... wrote, “The brain that remembers is not the same brain that remembered the original information. The information must be updated in order for the memory to be understood by the brain.” Here is one of the sad reasons why memory is so imperfect
+
+And so people who are lost behave illogically. It seems to them that they are doing everything right!
+
+> Quite often a person doesn't know at all how to estimate either the scale of the territory or the length of his route, without thinking about how they will have to expend their physical strength, especially if they get lost
+
+> It is very easy to get lost. You have to stop updating your cognitive map and persist despite the fact that the terrain itself is telling you and the compass is telling you that you're off track
+
+In general, you can get lost not only in the woods. This is also the behavior of a person who is undecided about what he wants to do:
+
+> If people who are lost in a panic do not exhaust all their strength and suffer, sooner or later they will come to one or another plan of action. Their decisions may seem completely irrational to an outside observer, but to the lost person they seem to make perfect sense. Often it would be better and safer for the lost people not to run anywhere, but to warm up and rest, nevertheless the subconscious pushes many to move on. The subconscious mind is unhappy that the brain is trying to establish where the body is for a long time, to no avail. One of the main tasks of the body is to create self-identity maps and environmental maps, and to maintain a harmonious relationship between them. Without this balance, the body dies
+
+Another good point about large systems is that it is difficult to make predictions and predict their behavior. And if the system has a lot of connected components, it's hell.
+
+> All complex adaptive systems include predictions of the future... Expectation of the future is encoded in the genes of all living things... any complex adaptive system constantly predicts the future based on internal models of the world... Internal models are the bricks from which behavior is built. And just like any other building material, they are tested, improved and rearranged as experience is gained
+
+And this describes software systems perfectly. For example, here's why you should write tests:
+
+> ...There can be unexpected and complex interactions between the components of a system and the forces that occur in it. An accident only happens in a tightly coupled system whose components are capable of unpredictable interactions
+
+And here's about how a team saws a typical project:
+
+> In classical science, scientists try to predict the outcome, then conduct an experiment to confirm their hypothesis. Natural systems, however, do not behave so predictably. You can talk about their components and details, but you can't predict the outcome from the interaction
+
+> That said, don't fall in love with the plan. Watch what happens around you and, if necessary, abandon one plan in order to adopt another
+
+But there's also specifically about survival:
+
+> Exactly the same paradox arises in boundary situations when the question of survival comes to the fore. It cannot be said that one or the other has “finally” survived or that one has “correctly” survived a catastrophe, because-until one dies-for one is a preparation for the next. Survival by nature is an unexpected phenomenon. Therefore, only if one's whole life is marked by survival can one hope to act flawlessly at the critical moment. Survival is the path from birth to death. It is a way of life
+
+> The main conclusion I've drawn is not to panic and to keep your sanity
+
+> The first and most important rule of life is to be here and now
+
+> In a perilous situation, one must remember that man has a limited supply of water and strength, which will diminish each time they put their strength into a fist and takes action. It is necessary to expend one's resources very sparingly, to choose actions with minimum risk and maximum reward, and to invest one's strength only in those actions that yield the maximum return
+
+There's even humor!
+
+> On a bulletin board I read, “I want to die in my sleep like my grandfather died.” Below in small print was a postscript, “And not with screams and shrieks like the passengers in the car he was driving died.” Typical pilot humor
+
+Totally recommend!
+
+## Other Books on Similar Topics
+
+- [Deep Survival by Laurence Gonzales](https://www.goodreads.com/book/show/30231750-deep-survival)
+- [Driven to Distraction by Edward M. Hallowell](/blog/driven-to-distraction/)
+- The Emotional Brain by Joseph Ledoux
+- Complexity by Mitchell Wardrope
+- The Man Who Mistook His Wife for a Hat by Oliver Sacks
+- Your Inner Fish by Neil Shubin

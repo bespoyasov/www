@@ -1,0 +1,238 @@
+---
+title: Patterns for Fault Tolerant Software by Robert S. Hanmer
+description: Notes from the book, my summary and review.
+datetime: 2019-08-04T12:00
+cover: patterns.webp
+tags:
+  - architecture
+  - books
+  - bugs
+  - checklist
+  - crosscutting
+  - eventdriven
+  - error
+  - favorite
+  - patterns
+  - tools
+---
+
+# Patterns for Fault Tolerant Software by Robert S. Hanmer
+
+[This book](https://www.goodreads.com/book/show/3346135-patterns-for-fault-tolerant-software) about error-handling techniques and patterns.
+
+In the first part of the summary, we'll discuss the introduction and chapters 1-4. We will look at the concepts of fault tolerance, principles of fault-tolerant design, and architectural patterns.
+
+## Introduction
+
+We do not live in a perfect world. All systems have bugs that cause failures. The task of developers is to minimize the number of these errors and their negative impact on the system and users.
+
+Templates are not a panacea. They solve problems within a certain context. After solving a problem, they can leave the system in a new context with new problems.
+
+## Chapter 1: Introduction to Fault Tolerance
+
+Fault, error, and failure are three different terms.
+
+- _Fault_, a system defect, a reason for _error_.
+- _Error_, incorrect system behavior that leads to _failure_.
+- _Failure_, system behavior that does not conform to the specifications.
+
+The chain of cause and effect looks like this: _fault → error → failure_.
+
+Errors and faults are important for a fault-tolerant system because they can be noticed before a failure occurs. Failures are of several types:
+
+- _Fail-silent failure_, in which the failed part either does not provide the result of the work or provides the correct result.
+- _Crash failure_, in which the failed part stops working after the first fail-silent failure.
+- _Fail-stop failure_, such crash failure so that it's visible to other parts of the system.
+
+Failures can also be divided into consistent and inconsistent. The former appear the same for all parts of the system. The latter may appear differently for different observers. For example, they may present correct results to the parts that follow the failures, and incorrect results to the other parts.
+
+_Coverage_ is the conditional probability that the system will recover from the error automatically in a given time interval. _Reliable_ and _available_ systems strive for coverage of at least 0.95.
+
+_Reliability_ is the probability that the system will work without failure for a given period of time. Reliability is described by:
+
+- _MTTF (mean time to failure)_, from start to the first failure;
+- _MTTR (mean time to repair)_, from the moment of failure to full recovery;
+- _MTBF (mean time between failures)_, the sum of MTTF and MTTR.
+
+_Availability_ is the fraction of time in which the system is capable of performing its function. _Uptime_ is the time when the system is available, _downtime_ is time when the system isn't available.
+
+The fault-tolerant system is designed to handle normal workloads efficiently and to handle overloads gracefully.
+
+## Chapter 2: Fault Tolerant Thinking
+
+The key question in developing fault-tolerant applications is “What can go wrong?”
+
+_Fault tolerance_ is the ability of the system to function normally even in the presence of failures. It is also the ability to limit harm from an error occurring in the system. _Quality_ is how well the system can work without failures.
+
+The pursuit of fault tolerance can lead to technological and architectural overhead. Excessive increase in complexity for error detection and correction is likely to lead to even more errors. Apply [KISS](https://en.wikipedia.org/wiki/KISS_principle).
+
+Important assumptions and checks:
+
+- Don't rely blindly on storage data, it may contain errors—check all data before using it.
+- Memory leaks are a common and highly likely error.
+- Design data structures so that they can be checked and validated, and so that invalid ones can be corrected.
+
+It is useful to use _N-version programming_ to design a system. [This is an approach](https://en.wikipedia.org/wiki/N-version_programming) in which several teams independently design the system. The advantage is that the teams are likely to use different algorithms, structures, and approaches. This will increase the number of alternatives from which to choose the one containing the minimum number of faults.
+
+Testing and verification are key features of a fault-tolerant system. They show whether fault prevention and fault correction are successful. _Fault Insertion Testing_ is the only way to determine _coverage_.
+
+Fault-tolerant design methodology:
+
+- Identify what can go wrong;
+- Define risk mitigation strategies, what actions can prevent potential failures from occurring;
+- Create a model of the system, highlighting the key points of the system and _modes of redundancy_;
+- Make key architectural decisions;
+- Integrate risk-reduction techniques into the architecture;
+- Consider the need for people to administer all systems, no matter how fault tolerant.
+
+## Chapter 3: Introduction to Patterns
+
+The failure lifecycle consists of four phases:
+
+- _error detection_;
+- _error recovery_;
+- _error mitigation_;
+- _fault treatment_.
+
+_Stateless_ systems tend to contain fewer errors than _stateful_ ones. If a system has operations that take a long time, it is considered a stateful system. When a stateful system loses its internal state, it loses the ability to continue functioning.
+
+Developing a fault-tolerant system is expensive. Be prepared to invest more resources compared to developing a normal system.
+
+## Chapter 4: Architectural Patterns
+
+Architectural patterns tell you how to design a system with fault tolerance in mind.
+
+![Relationship map of architectural patterns](./patterns.webp)
+
+### 4.1 Units of Mitigation
+
+_When developing you want to reduce the risk of a complete system shutdown. How do you keep the system operational when a failure occurs?_
+
+Monolith is not suitable, since if a failure occurs, the monolith does not work completely. The interfaces between the units of mitigation must be marked clearly and understandably. The boundary between the parts of the system must be clear and divide the system into understandable parts. This division is a way to prevent the spread of error from one part of the system to other parts.
+
+Units of mitigation:
+
+- can be duplicated to provide redundancy;
+- work while the program is running (so they are runtime entities);
+- can be grouped into modules;
+- must be able to do self-monitoring when malfunction is suspected;
+- must be an impenetrable barrier to error.
+
+### 4.2. Correcting Audits
+
+_Data errors can and will occur._
+
+Data must be understood inseparably from its context. (1984 may be a valid year, but it may not be a valid number of years of the user.) Errors in the data result in:
+
+- calculations relying on this data will be incorrect;
+- an error in the data associated with it;
+- an complete failure of the operation.
+
+Audits can identify incorrect data.
+
+- Check structural properties. For example, that linked lists are really linked.
+- Check known ratios. For example, a temperature in degrees Fahrenheit can be double-checked with a value in degrees Celsius.
+- Check that the data does not contradict common sense. It is unlikely that 1984 is a valid number of years of the user.
+- Check the data by direct comparison. If there is a separate copy of the same data, check for consistency.
+
+For each data structure, foresee what can go wrong with it. When an error appears in the data, it's considered good form to:
+
+- correct them;
+- write down in the logs what happened;
+- restore program execution from where the data was last correct.
+
+Try to detect and correct data errors as early as possible; check related data, write all occurrences in the logs.
+
+### 4.3. Redundancy
+
+_How can I reduce the time between detecting an error and returning to normal operation after recovery?_
+
+All the time until the system has returned to normal operation after an error, it is unavailable. Reducing this time period increases availability. One way to speed up the recovery process is to do only what is necessary to handle the error. Everything else is postponed until after the recovery.
+
+_Redundancy_ comes in several types:
+
+- spatial;
+- temporal;
+- informational.
+
+The redundant elements do not necessarily have the same functionality, all that is needed is for the redundant element to be able to do _some_ of the work of the duplicated element. Diversity is a good tool in fighting the spread of bugs in a system.
+
+Redundancy is not free.
+
+There are several ways to provide spatial redundancy:
+
+- _“Active-Active” method_, complete duplication of the functionality of the active element; early recovery, high costs;
+- _“Active-Standby” method_, same but duplicating element doesn't perform a useful function at once; slightly bigger recovery time, slightly lower costs;
+- _“N+M”_, there are M active elements, there are N redundant elements, which are ready to replace any of M elements when a failure occurs.
+
+![Cost to recovery time function by the type of redundancy](./cost-to-redundancy.webp)
+
+### 4.4. Recovery blocks
+
+_There are hidden errors in programs. How do you make sure that the result is error-free?_
+
+A program with _recovery blocks_ consists of parts with a main block and side blocks. If the result of the main block fails the acceptance test, the side blocks do useful work until the result passes the test. If the test still fails, the error is logged in the _Error Handler_.
+
+A common scheme for building side blocks is to make each successive one simpler than the previous one. Be prepared that information may get lost along the way, since each successive block performs fewer actions than the previous ones.
+
+Avoid creating too many side-blocks. Use _Limit retries_ to avoid looping the system.
+
+### 4.5. Minimize Human Intervention
+
+_People are a frequent cause of many mistakes. How do you keep people from doing the wrong things that lead to errors?_
+
+In addition to hardware and software errors, there are procedural errors, which appear as a result of human actions. Design the system to reduce the number of possible procedural errors. People quickly become bored and stop paying attention to routine and monotonous tasks.
+
+The system should give clear and unambiguous instructions on what to do if a failure occurs. But personnel should not be needed to resolve the error.
+
+### 4.6. Maximize Human Participation
+
+_Does the system have to ignore people in principle?_
+
+For many types of systems (e.g. avionics), the ability for the operator to override or change the error handling is vital. Such systems can go into “safe mode” and stop performing automatic actions, waiting for human intervention.
+
+Determine who the system is designed for. Create ways for qualified users to participate in error handling if needed.
+
+### 4.7. Maintenance Interface
+
+_Should the application signals and maintenance signals be mixed?_
+
+No, they must be separated. Maintenance signals must be processed even when the system is overloaded. In addition, mixing signals can lead to security holes.
+
+### 4.8. Someone in Charge
+
+_Anything can go wrong, even while an error is being processed. Not only can the system stop performing its primary function, but it can also stop processing errors._
+
+When the system knows what it is supposed to perform at a particular point in time, it is more robust. The part of the system that can detect that something is not working, or is not working correctly, is called the _Fault observer_.
+
+There must be one well-defined entity for each individual fault-handling action.
+
+### 4.9. Escalation
+
+_What should the system do if its attempts to process an error have failed?_
+
+Apply processing methods from the following levels, raise the error “up” in the system hierarchy. The “up” signal must be given by _Someone in charge_.
+
+### 4.10. Fault Observer
+
+_The system does not crash after an error, but handles them automatically. How do we know which errors occurred and when?_
+
+The Failure Observer notifies personnel of errors that have occurred through the _Maintenance Interface_. The _Fault Observer_ does not have to be an internal part of the system, it can be an external service.
+
+Report _all_ errors to the _Fault Observer_. It will make sure that all interested parties know about the errors that have occurred.
+
+### 4.11. Software Update
+
+_The system should not have to stop working even to update itself._
+
+Implement the ability to make changes, patches, updates to the architecture from the _first_ release. Don't expect that even after that, updating will be an easy task in the future.
+
+## Next Posts
+
+[In the next part](/blog/patterns-for-fault-tolerant-software-2/) we'll read chapters 5–8. Consider patterns of error detection, recovery from errors, and reducing their likelihood.
+
+## Resources
+
+- [Patterns for Fault Tolerant Software. Robert Hanmer](https://www.goodreads.com/book/show/3346135-patterns-for-fault-tolerant-software)
+- [KISS](<https://ru.wikipedia.org/wiki/KISS_(принцип)>)
+- [N-version programming](https://en.wikipedia.org/wiki/N-version_programming)

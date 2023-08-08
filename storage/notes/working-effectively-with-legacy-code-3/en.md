@@ -1,0 +1,214 @@
+---
+title: Working Effectively with Legacy Code. Part 3
+description: In the third part we talk about changing obscure code, giant classes and methods.
+datetime: 2018-03-19T19:00
+cover: cover.webp
+tags:
+  - books
+  - coupling
+  - entropy
+  - patterns
+  - refactoring
+  - solid
+  - srp
+  - tdd
+  - testing
+---
+
+# Working Effectively with Legacy Code. Part 3
+
+[Last time](/blog/working-effectively-with-legacy-code-2) we talked about adding features, TDD and dependencies. Today we'll discuss modifying obscure code, giant classes and methods.
+
+## Chapter 16. I Don't Understand the Code. How to Change It?
+
+The most effective way to understand legacy is to reorganize it. Create a new branch in the repo, forget about tests and extract methods, move variables, do whatever: this will give you an idea of how the code works. With that knowledge, it will be easier to really change that code later. Remove unused and commented code.
+
+## Chapter 17. App Has No Structure. What to Do?
+
+When developers on a team don't care about the architecture, it degrades over time. A poorly structured application prevents you from adding features to the project, fixing bugs, and slowing things down.
+
+When working with legacy, the “system description” technique can help. Ask yourself the question “what is the system structure?” and answer it as if you know nothing about it beforehand. When you begin to explain to yourself how the system functions, you will simplify the logic of how it works. This will help you identify the really important elements and build an ideal pattern of interactions within the system.
+
+## Chapter 18. Test Code Distracts Me
+
+Label test classes or functions with suffixes `.test`, `.spec`, and fake objects with `.fake`, `.mock`, `.stub`. Tests also can be placed in a separate folder in the project. It is convenient when the structure of files of tests repeats the structure of files of the project.
+
+## Chapter 19. My Project isn't Object-Oriented. How to Refactor?
+
+The legacy dilemma: to change code, you have to cover it with tests, and to cover it with tests, you have to change it. This dilemma is not only true for OOP. The solutions are the same: break dependency, use fake objects and TDD.
+
+## Chapter 20. Class is Huge. I Don't Want It to Become Bigger
+
+If a class has 50 methods, it takes a long time to figure out how it works before you make any changes. Not increasing the size of the class will help with extracting a method or class, but this is a temporary solution. The real solution is refactoring.
+
+Refactoring large classes should be based on the principle of single responsibility: when one entity is responsible for one specific task. If there is only one reason to change some method of a class, you have done everything right.
+
+To determine the responsibility of methods, try grouping them together. Methods that perform close tasks should be in one class, the rest can be moved to another. If a class has many private methods, you can probably put them in a separate class. If you want to test any private method, it should be public.
+
+Pay attention to code actions which seem to be hardcoded: accessing the database, external objects. Such methods can hide a lot and be too abstract. Check all internal dependencies before extracting them so that you do not break anything.
+
+Decide on the main responsibility for the class. Check that all methods inside help achieve the main goal of the class.
+
+## Chapter 21. I Change the Same Code Over and Over
+
+The same repetitive code can be restructured in different ways:
+
+```
+const func = () => {
+  a(); a(); b(); a(); b(); b();
+}
+
+// Can be either:
+const func = () => {
+  aa(); b(); a(); bb();
+}
+
+// ...Or:
+const func = () => {
+  a(); ab(); ab(); b();
+}
+```
+
+Start small and move with an eye toward the main goal of the class or method. As you go along, it will become clearer to you how to do the right thing. When two methods or classes look almost identical, take the difference out into other methods or classes, and merge the former ones:
+
+```js
+class AddEmployeeCmd extends Command {
+	constructor() {
+		this.name = '';
+		this.address = '';
+
+		this.header = ['some', 'sophisticated', 'data', 'structure'];
+		this.commandCharIndex = 42;
+		this.footer = ['some', 'sophisticated', 'data', 'structure'];
+	}
+}
+
+class LoginCommand extends Command {
+	constructor() {
+		this.userName = '';
+		this.password = '';
+
+		this.header = ['some', 'sophisticated', 'data', 'structure'];
+		this.commandCharIndex = 44;
+		this.footer = ['some', 'sophisticated', 'data', 'structure'];
+	}
+}
+
+// We can put the header and footer right in Command,
+// because they're the same:
+
+class Command {
+	constructor() {
+		this.header = ['some', 'sophisticated', 'data', 'structure'];
+		this.footer = ['some', 'sophisticated', 'data', 'structure'];
+		// ...
+	}
+}
+
+class AddEmployeeCmd extends Command {
+	constructor() {
+		this.name = '';
+		this.address = '';
+	}
+	// ...
+}
+
+class LoginCommand extends Command {
+	constructor() {
+		this.userName = '';
+		this.password = '';
+	}
+	// ...
+}
+```
+
+The code has a good design if we don't need to change a lot of code to add a new feature.
+
+## Chapter 22. I Need to Change a Huge Method. I Can't Write Tests for It
+
+When changing giant methods, use automatic refactoring tools, don't change the code manually. Stick to two goals:
+
+- Clear the logic of obscure dependencies.
+- Add seams to help write tests for the method.
+
+Introduce new variables to determine when the program reaches the point you intend to refactor.
+
+```
+// This class builds the DOM.
+// We want to refactor the condition to add a node at the root of the tree,
+// but we don't know at what point it happens:
+
+class DomBuilder {
+  processNode(node) {
+    // ...
+    if (node.type() === 'TYPE1'
+        || node.type() === 'TYPE2'
+        || node.type() === 'TYPE3' && node.isVisible()) {
+      this.root.appendChild(node)
+    }
+  }
+}
+
+// We introduce a variable that will help identify this point:
+
+class DomBuilder {
+  constructor() {
+    this._nodeAdded = false
+  }
+
+  processNode(node) {
+    // ...Spaghetti logic.
+    if (this.isBaseChild(node)) {
+      this.root.appendChild(node)
+      this._nodeAdded = true
+    }
+  }
+
+  isBaseChild(node) {
+    return node.type() === 'TYPE1'
+        || node.type() === 'TYPE2'
+        || node.type() === 'TYPE3' && node.isVisible()
+  }
+}
+
+// Test for a case when a node should have been added...
+// And for the case when it should not have been...
+
+it('tests if node is base child', () => {
+  const node = new Node('TYPE1')
+  const builder = new DomBuilder()
+
+  builder.processNode(node)
+
+  expect(builder._nodeAdded).toEqual(true)
+})
+
+it('tests if node is not base child', () => {
+  const node = new Node('TYPE5')
+  const builder = new DomBuilder()
+
+  builder.processNode(node)
+
+  expect(builder._nodeAdded).toEqual(false)
+})
+```
+
+After refactoring and testing is complete, the recognition variable can be removed.
+
+Look for sequences of actions that can be brought into a separate method. Extract the method into the current class first, and then, if needed, into another class. Do not extract a lot of code at once.
+
+## Chapter 23. How to Make Sure I Haven't Broken Anything
+
+Use the principle of “one task at a time”. Before you start, decide what kind of result you want. Break down the instructions into several steps, doing only what is necessary to achieve the goal in one step. Do all the side tasks afterwards.
+
+## Rest Chapters
+
+Each chapter in the third part of the book is an example on one of the dependency-breaking methods. There's no point in summarizing it, because I'd have to rewrite the whole thing. It's better if you [read the rest chapters](https://www.amazon.com/Working-Effectively-Legacy-Robert-Martin-ebook/dp/B005OYHF0A) yourselves.
+
+## Resources
+
+- [Working Effectively with Legacy Code by Michael C. Feathers](https://www.goodreads.com/book/show/44919.Working_Effectively_with_Legacy_Code)
+- [Single-Responsibility principle](https://en.wikipedia.org/wiki/Single_responsibility_principle)
+- [SOLID](<https://en.wikipedia.org/wiki/SOLID_(object-oriented_design)>)
+- [Working Effectively with Legacy Code. Part 1](/blog/working-effectively-with-legacy-code/)
+- [Working Effectively with Legacy Code. Part 2](/blog/working-effectively-with-legacy-code-2/)
