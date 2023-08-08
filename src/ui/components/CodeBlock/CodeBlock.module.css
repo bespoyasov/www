@@ -1,8 +1,0 @@
-.container {
-  padding: 0.5em 1em;
-  overflow: scroll;
-  font-family: var(--font-monospace);
-  border: 1px dashed var(--grey-transparent);
-  border-left: 2px solid var(--grey-transparent);
-  -webkit-overflow-scrolling: touch;
-}

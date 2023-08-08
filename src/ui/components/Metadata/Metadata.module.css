@@ -1,9 +1,0 @@
-.metadata {
-  max-width: var(--max-content-width);
-  font-size: var(--small-font-size);
-  line-height: var(--small-line-height);
-}
-
-.metadata > * {
-  margin-right: 1em;
-}
