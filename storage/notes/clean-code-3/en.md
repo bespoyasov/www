@@ -1,0 +1,121 @@
+---
+title: Clean Code. Part 3
+description: Let's finish reading “Clean Code” by Robert Martin.
+datetime: 2017-11-10T20:00
+cover: cover.webp
+tags:
+  - abstraction
+  - books
+  - oop
+  - patterns
+  - testing
+  - tdd
+---
+
+# Clean Code. Part 3
+
+We finish reading [Robert Martin's book “Clean Code”](https://www.goodreads.com/book/show/3735293-clean-code). In the previous parts we discussed [names, functions, comments](/blog/clean-code/) and [formatting, data structures and error handling](/blog/clean-code-2/).
+
+## Chapter 9. Unit Tests
+
+TL;DR:
+
+- tests are as important as production code;
+- tests must be transparent and understandable.
+
+The three laws of TDD:
+
+- you can write production code after a failure test has been written for that code;
+- the amount of code for that test should not be more than necessary to make the test fail;
+- the amount of production code should not be more than necessary for the test to pass.
+
+In essence, the development cycle boils down to first writing a test that uses the necessary functions and methods, and then writing the functions and methods themselves.
+
+Tests should be transparent, understandable, and automated. A test is transparent and understandable if you can tell from its code what result is expected from a function. One test should test one thing at a time.
+
+```
+// Instead of:
+const result = testedFunction()
+
+it('should be okay', () => {
+  expect(typeof result).toEqual('number')
+  expect(result / Math.abs(result)).toEqual(1)
+  expect(isFinite(result)).toEqual(true)
+})
+
+// Try:
+const result = testedFunction()
+
+it('should return number', () => {
+  expect(typeof result).toEqual('number')
+})
+
+it('should return a positive number', () => {
+  expect(result / Math.abs(result)).toEqual(1)
+})
+
+it('should return a finite number', () => {
+  expect(isFinite(result)).toEqual(true)
+})
+```
+
+Tests must be fast, independent of each other, reusable, and must return a boolean value.
+
+## Chapter 10. Classes
+
+TL;DR:
+
+- classes should be compact;
+- the class name should describe its functionality;
+- low coupling is good.
+
+Classes should be compact. A compact class doesn't contain more than 10 public methods and shouldn't take on too many responsibilities.
+
+<aside>Blog author's note: Again, controversial.</aside>
+
+The name of the class should fully represent what duties it performs. The name, on the other hand, helps define the duties of the class. Words like `Processor`, `Manager`, `Super` hint that the class is too big and can be broken up. Ideally, when a class can be described in 25 words without using “but”, “if”, “or”.
+
+<aside>Blog author's note: C'mon, where do those numbers come from?</aside>
+
+A set of classes should give a complete picture of the application, they should complement each other.
+
+Classes should be designed with future development in mind. Making changes should not be too difficult. To achieve this, it is necessary to reduce the relatedness of classes and modules.
+
+## Chapters 11–12. Systems and Design
+
+TL;DR:
+
+- separate the startup logic from the runtime logic;
+- define areas of responsibility in the architecture phase;
+- the design of the software system should be simple.
+
+Software systems should separate startup logic from runtime logic. Often, lazy initialization is used:
+
+```
+const getService = () => {
+  if (!service) service = new SomeService()
+  return service
+}
+```
+
+This approach has its merits, but every such entry is a hardcoded dependency. The problem is that such dependencies are difficult to test. A variant to solve the problem is [dependency injection](https://en.wikipedia.org/wiki/Dependency_injection).
+
+The optimal system architecture consists of bounded areas of responsibility that are loosely coupled.
+
+The design (in terms of software system design) should be transparent and simple. A simple design:
+
+- passes all tests;
+- contains no duplication;
+- reflects what the programmer wanted to do;
+- contains the minimum-necessary number of classes and components.
+
+## Rest Chapters
+
+The 13th tells about parallel computing, which is not very relevant for the frontend, but interesting. The 16th—about refactoring, when to do it, what to start with. The most interesting one is the 17th. It is a long list of symptoms that your code should be refactored. The signs are grouped by types: comments, dependencies, functions, etc.
+
+## Resources
+
+- [Clean Code by Robert C. Martin](https://www.goodreads.com/book/show/3735293-clean-code)
+- [Clean Code. Part 1](/blog/clean-code/)
+- [Clean Code. Part 2](/blog/clean-code-2/)
+- [Dependency Injection](https://en.wikipedia.org/wiki/Dependency_injection)

@@ -1,0 +1,32 @@
+---
+title: Marking Emails as Read Automatically
+description: How to stop getting distracted by non-important stuff.
+datetime: 2019-12-10T15:00
+tags:
+  - automatization
+  - focus
+  - habit
+  - opinion
+  - productivity
+  - tools
+---
+
+# Marking Emails as Read Automatically
+
+I live without notifications. The exceptions are the badge on the email app icon and Slack (from mentions through `@` and personal messages).
+
+About three years ago [I started unsubscribing](/blog/unsubscribe-now/) from all garbage mailings instantly. The only problem is that sometimes even the needed newsletters come at the wrong time and distract me from work. The last straw for me was when I was sitting and trying to focus on a task, but couldn't because of the mail.
+
+Although I have the dock and the top menu hidden, I switch between programs via `Cmd + Tab`. If an email appears in the mail, the badge is visible in that window as well—that's what was distracting:
+
+![Distracting badge on mail when switching programs](./cmd-tab.webp)
+
+I didn't want to unsubscribe from mailing lists that I liked. Shutting down my email client completely wasn't an option either; I was waiting for emails from logging services.
+
+When I got distracted by mail for the third time that day, I decided to do something about that. I took my time and went to set up a rule that any incoming email that wasn't from logging services or people in my address book would automatically be read:
+
+![Configured rule in mail that any email not from logging services and not from people in the address book becomes automatically read](./email-rule.webp)
+
+I now handle all unimportant email on [daily review](/blog/jedi-techniques/), it doesn't distract me, and it takes less time to do it all.
+
++10 to concentration and focus.

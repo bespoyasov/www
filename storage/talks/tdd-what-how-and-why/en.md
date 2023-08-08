@@ -1,0 +1,44 @@
+---
+title: 'TDD: What, How, and Why'
+description: Talk on the benefits of test-driven development (TDD) and how to introduce and use it in your project, with a little live coding session at the end.
+summary: Benefits of test-driven development and how to use it in your project.
+datetime: 2021-04-20T18:00
+tags:
+  - communication
+  - finance
+  - favorite
+  - javascript
+  - livecoding
+  - management
+  - talks
+  - testing
+  - tdd
+  - tradeoffs
+  - typescript
+materials:
+  - video
+  - slides
+---
+
+# TDD: What, How, and Why
+
+A talk at the Podlodka Frontend Crew conference on the benefits of test-driven development (TDD) and how to implement it in your project, with a little live coding session at the end.
+
+In the talk I talk about how TDD helps me in different projects, where I use it and why. We'll touch on:
+
+- Development culture and what testing has to do with it;
+- The benefits and challenges of writing automated tests;
+- How TDD helps solve those problems;
+- How to help the team lead and the business see the benefits of using TDD;
+- How to use tests to find “smelly” code;
+- How to simplify test writing.
+
+## Video
+
+<YouTube caption="Talk on YouTube (English subtitles)" src="https://www.youtube.com/embed/1SGb-lZclcU">https://youtu.be/1SGb-lZclcU</YouTube>
+
+## Slides, Sources, and Related Posts
+
+- [Talk on YouTube (in Russian with English subtitles)](https://youtu.be/1SGb-lZclcU)
+- [Slides, Sources, and Various Useful Links](https://bespoyasov.me/slides/tdd-what-how-and-why/)
+- [Blog Post with Transcript and Additional Details](/blog/tdd-what-how-and-why)

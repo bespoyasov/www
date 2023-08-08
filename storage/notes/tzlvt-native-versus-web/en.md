@@ -1,0 +1,73 @@
+---
+title: Tzlvt. Native vs Web
+description: Over the course of my work on Tzlvt, I've learned that it's still difficult for web applications to replace native ones. In this post, I'll discuss the advantages and disadvantages of web apps.
+datetime: 2016-02-29T15:50
+tags:
+  - bugs
+  - deadlines
+  - javascript
+  - mobile
+  - process
+  - native
+  - product
+  - react
+  - research
+  - tradeoffs
+  - tzlvt
+---
+
+# Tzlvt. Native vs Web
+
+Over the course of my work on Tzlvt, I've learned that it's still difficult for web applications to replace native ones. In this post, I'll discuss the advantages and disadvantages of web apps.
+
+## Web App is Easier to Build and Publish. 0:1 in Favor of the Web
+
+Working on the first version of Tzlvt took me 3 weeks, 2-3 hours a day.
+
+The web application is no different from the website. There are fewer limitations in web development than in native development. The entry threshold is lower, there are more tools for developers.
+
+A native app needs to be published to the store, it might take a long time. To publish a web app, you need to buy a domain, upload the files on the server, and it's up and running.
+
+## Web Apps are Cross-Platform. 0:2
+
+You don't need to spend money for developing the app for different platforms. The web app will work on any smartphone.
+
+## Unreliable Data Storage. 1:2
+
+In native apps, data can be safely stored on the phone. The user cannot erase them _accidentally_.
+
+On the web, user data is mostly stored on the server. The device mostly stores additional things like cached resources. Storing user data in the browser is dangerous. The user can lose it by erasing the networking data and history.
+
+Storing the data on a server handles this problem, but adds a new one—if there's no internet, the app either stops working or requires complex synchronization between the server and the local data.
+
+## Webview. 2:2
+
+The webview doesn't allow you to work with the device directly, only through the browser. And if the view doesn't know how to do something, the application won't know how to do it either.
+
+Therefore, a web application cannot work directly with other programs and the operating system. It's a bit limiting.
+
+## Web App is Hard to Install with Single Tap. 3:2
+
+A web application is hard to install with a single tap, like a native application. The user has to know how to “add a bookmark” or “add a shortcut to the main screen”.
+
+This is not obvious. You can't write a script to “add an icon to the main screen” because of the browser limitations.
+
+The application can also be used from the browser, but then the address bar and menu eat up a lot of useful space.
+
+## New Tabs Behave Inconsistently. 4:2
+
+The web application on the iPhone is kind of a browser, but kind of not. So when a new window opens, it's hard to predict how it will appear. There's also no navigation through tabs and windows, because it's “not a browser”.
+
+To overcome this, you need to open most of new windows in the browser separately or open them in a “new tab” manually.
+
+## Web Apps Are Harder to Monetize. 5:2
+
+By monetization here, we mean the technical aspect of it. It's pretty much equally difficult to come up with a good monetization strategy for an app but the technical process for collecting money is different for native and web apps.
+
+It's easier to monetize native apps: you just sell them in the store or add a subscription or in-app purchases. That's not the case with web apps. To monetize them, you have to get more creative.
+
+By the way, we've made Tzlvt free. We hope it helps you save money :–)
+
+## Conclusion
+
+Web apps cannot completely replace native apps yet. But the web is okay for tests and prototypes, it helps to avoid spending too much money to test the idea.

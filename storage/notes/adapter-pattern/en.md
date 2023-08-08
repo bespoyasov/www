@@ -1,0 +1,163 @@
+---
+title: Cure for Broken Backwards Compatibility
+description: Frontend developers like to complain that backend developers are keen on breaking backward compatibility. “They describe data structures and APIs, we use this API to bind the interface, but a month later the structure changes and nothing works,” they say. Today I will show how to make your life a little easier in these situations.
+datetime: 2017-09-11T11:15
+tags:
+  - adapter
+  - beginners
+  - favorite
+  - javascript
+  - patterns
+  - refactoring
+---
+
+# Cure for Broken Backwards Compatibility
+
+Frontend developers like to complain that backend developers are keen on breaking backward compatibility. “They describe data structures and APIs, we use this API to bind the interface, but a month later the structure changes and nothing works,” they say. Today I will show how to make your life a little easier in these situations.
+
+## Adapters for the Win
+
+There is a design pattern called an _adapter_. It helps you connect entities that should communicate with each other, but can't do so directly. Like an adapter for an English plug to a European socket.
+
+Most of the time these entities are classes or objects. But no one stops you from using the same logic to work with data structures or network queries. The idea is to move the work with the structure away from both the request and the UI. This way it will be easier and faster to make changes later.
+
+## Example
+
+Let's take an abstract application. It has a _state_, where the _user_ field stores information about the user.
+
+```js
+class State {
+	constructor(initialState) {
+		this.state = { ...initialState };
+	}
+
+	update(key, value) {
+		this.state = {
+			...this.state,
+			[key]: value
+		};
+	}
+
+	get(key) {
+		return this.state[key];
+	}
+}
+
+const state = new State({ user: {} });
+```
+
+To get the information and show it, the client requests the API server. When it receives the data, it updates the state:
+
+```js
+fetch('/fetch/user.json')
+	.then((response) => response.json())
+	.then((user) => state.update('user', user))
+	.catch(handleError);
+```
+
+Suppose a user in an application is described by such an object:
+
+```js
+{
+  name: 'John',
+  lastName: 'Doe',
+  birthYear: 1981,
+  city: 'Berlin'
+}
+```
+
+As long as this structure comes from the server, our application runs smoothly. But suddenly the server starts sending data with this structure:
+
+```js
+{
+  fullName: {
+    name: 'John',
+    lastName: 'Doe'
+  },
+  birthDate: {
+    year: 1981
+  },
+  address: {
+    city: 'Berlin',
+    street: '1 Hasselhoff Lane'
+  }
+}
+```
+
+If the application has been alive for a long time, some parts of it are already tied to the `user.name`, `user.birthYear`, `user.city` fields. There may be several of them, and it is not an option to edit each of them.
+
+Fitting the response structure in the request handler is also not a good idea. User information can be requested not only here. And the request handler's code will get bloated.
+
+Therefore it's better to work with the response structure somewhere else. Let's write the adapter:
+
+```js
+class UserToStateAdapter {
+	constructor(state) {
+		this.state = state;
+	}
+
+	update(serviceUser) {
+		const { fullName, birthDate, address } = serviceUser;
+		const { name, lastName } = fullName;
+		const { year } = birthDate;
+		const { city } = address;
+
+		const clientUser = {
+			name,
+			lastName,
+			birthYear: year,
+			city,
+			address
+		};
+
+		this.state.update('user', clientUser);
+	}
+}
+
+const userToStateAdapter = new UserToStateAdapter(state);
+```
+
+...And use it:
+
+```js
+fetch('/fetch/user.json')
+	.then((response) => response.json())
+	.then((user) => userToStateAdapter.update(user))
+	.catch(handleError);
+```
+
+We have now put all the logic behind the structure into a separate part of the application. If the structure changes again, we only need to fix the adapter to make it work.
+
+## In Real Life
+
+The adapter can come in handy not only when backward compatibility is broken, but also when you need to make a more complex structure out of a flat structure.
+
+At one project I needed to build two different trees from two lists. One list had senders, the other had recipients. We needed to group the data by sender or recipient depending on the user's choice:
+
+![Initial data structure](./initial.svg)
+![First tree variant](./option-1.svg)
+![Second tree variant](./option-2.svg)
+
+Since we put all the processing of structures in a separate place, the code is cleaner. In addition, we don't chase extra bits through the network, because we don't duplicate information and queries.
+
+## Couple of Drawbacks
+
+There's however something to keep in mind when using it:
+
+- it adds another abstraction to the project, which might increase complexity;
+- when creating a new adapter, you need to find all the places where you want to call it.
+
+The second point is problematic if the application is large. Although it is better to consider such moments at the stage of architecture design.
+
+## When to Use
+
+The adapter helps to avoid code duplication and multiple fixes. Allows you not to rewrite existing logic on the client if something suddenly changes on the server (at least not immediately). It allows you to use flat data structures more often and create complex ones only when needed.
+
+Yes, if the new structure is fundamentally different from the old one, you probably can't do with just one adapter. But for tasks like “they rename all the fields again” it's a perfect fit.
+
+## Resources
+
+- [Adapter on Wiki](https://en.wikipedia.org/wiki/Adapter_pattern)
+- [Adapter on Dofactory](http://www.dofactory.com/javascript/adapter-design-pattern)
+- [Design Patterns for Humans](https://github.com/kamranahmedse/design-patterns-for-humans#-adapter)
+- [Adapter on Refactoring.guru](https://refactoring.guru/design-patterns/adapter)

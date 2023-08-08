@@ -1,0 +1,1286 @@
+---
+title: Domain Modelling Made Functional. Part 2
+description: The second part of the summary with examples in TypeScript.
+datetime: 2022-01-11T12:05
+cover: cover.webp
+tags:
+  - books
+  - communication
+  - composition
+  - documentation
+  - domain
+  - fp
+  - fsharp
+  - immutability
+  - management
+  - modelling
+  - patterns
+  - typescript
+---
+
+# Domain Modelling Made Functional. Part 2
+
+Let's continue reading “Domain Modelling Made Functional” by Scott Wlaschin. [Last time](/blog/domain-modelling-made-functional) we read the first part of the book. We discussed what a domain is, why it is needed, and how to decompose large domains into small components that can develop independently of each other.
+
+This time we will design one of the processes in a functional style. We'll look at the functional decomposition of the domain model and learn how to use types to reflect business requirements. By the end of the chapter, we will have written code that is both documentation and a compilable basis for implementing the system.
+
+## Chapter 4. Understanding Types
+
+In this chapter, we will try to reflect business requirements with the help of the type system. We will learn what types are, how to declare and use them, and how they can represent the domain model.
+
+### Understanding Functions
+
+Each function has a signature—a description of its behavior in the form of types. In most cases F# will be able to define types by itself. For example:
+
+```fsharp
+let add1 x = x + 1   // Signature: int -> int
+let add x y = x + y  // Signature: int -> int -> int
+```
+
+<aside>
+
+In F# you don't need `return`, the result is the last expression of the function.
+
+</aside>
+
+If a function can handle different types, it is called a [generic function](https://docs.microsoft.com/en-us/dotnet/fsharp/language-reference/generics/). Generic types in the signature start with quotes:
+
+```fsharp
+// areEqual : 'a -> 'a -> bool
+let areEqual x y =
+  (x = y)
+```
+
+<aside>
+
+In F# everything is immutable by default, so `=` is not an assignment but a comparison. For assignment, `<-` is used.
+
+</aside>
+
+In typeScript we would express it like this:
+
+```ts
+function areEqual<T>(a: T, b: T): boolean {
+	return a === b;
+}
+```
+
+### Types and Functions
+
+_Type_ is a name for some set of possible values.
+
+```
+Set of                              Set of
+valid      →     Function     →     valid
+inputs                              outputs
+```
+
+We can denote this type as a conversion of input data to output data:
+
+```
+input -> output
+```
+
+For example, if the function takes as input a number between `-32768` and `32767`, then it takes int16 as input. And if it returns some string, such as `"abc"`, `"cool"`, it returns string. We can write such a function and its signature as follows:
+
+```
+Inputs                    Function                Outputs
+-32768, -32767,                                   "abc"
+…, -1, 0, 1, …,     →     int -> string     →     "cool"
+32766, 32767                                      "something"
+```
+
+Types do not necessarily have to contain primitives. They can reflect “complex things” as well:
+
+```
+Inputs             Function                  Outputs
+😊 😃 😄     →     Person -> Fruit     →     🍉 🍎 🍌
+```
+
+Functions are “things” too, so we can use function sets as types too! In the signature, such a type will be enclosed in brackets:
+
+```
+Inputs            Function                              Outputs
+"abc"                                                   😊 → 🍉
+"cool"      →     string -> (Person -> Fruit)     →     😃 → 🍎
+"yeah"                                                  😄 → 🍌
+```
+
+A value is something that can be used as an argument or a result. All values in FP are immutable by default and have no “methods” that do anything. Values are _only_ data.
+
+### Composition of Types
+
+Composition is the creation of something from something smaller. It applies to types, too. You can compose types with logical “AND” and logical “OR”.
+
+For example, if we describe a type for a fruit salad, where we want bananas, apples **and** cherries, we will use a [_record type_](https://docs.microsoft.com/en-us/dotnet/fsharp/language-reference/records):
+
+<Switch options="fsharp,ts">
+
+```fsharp
+type FruitSalad = {
+  Apple: AppleVariety
+  Banana: BananaVariety
+  Cherries: CherryVariety
+}
+```
+
+```ts
+type FruitSalad = {
+	apple: AppleVariety;
+	banana: BananaVariety;
+	cherries: CherryVariety;
+};
+```
+
+</Switch>
+
+And if we describe a snack in which you can choose an apple, a banana **or** a cherry, then we describe it as a [_discriminated union_](https://docs.microsoft.com/en-us/dotnet/fsharp/language-reference/discriminated-unions):
+
+<Switch options="fsharp,ts">
+
+```fsharp
+type FruitSnack =
+  | Apple of AppleVariety
+  | Banana of BananaVariety
+  | Cherries of CherryVariety
+```
+
+```ts
+type FruitSnack = AppleVariety | BananaVariety | CherryVariety;
+```
+
+</Switch>
+
+This is the simplest composition of types. A system in which complex types are combined from simple types using AND and OR operations is called [_algebraic type system_](https://en.wikipedia.org/wiki/Algebraic_data_type).
+
+### Building a Domain Model by Composing Types
+
+Type composition can help when modeling systems. Suppose we want to model payment in an online store. Let's start with wrappers over primitive types:
+
+<Switch options="fsharp,ts">
+
+```fsharp
+type CheckNumber = CheckNumber of int
+type CardNumber = CardNumber of string
+```
+
+```ts
+type CheckNumber = number;
+type CardNumber = string;
+```
+
+</Switch>
+
+<aside>
+
+In F#, `of` allows you to create a wrapper over a type, so that two wrappers over `int` will be different types. You can reproduce this in TypeScript (e.g., with [branding](https://github.com/kourge/ts-brand)), but I decided not to overload the summary with it and will use [aliases](https://www.typescriptlang.org/docs/handbook/advanced-types.html#type-aliases) everywhere. This doesn't work as strictly, but it won't hurt to get the gist of the book.
+
+</aside>
+
+Then we'll write out the types of accepted cards as a union, and all the information about the card as a record:
+
+<Switch options="fsharp,ts">
+
+```fsharp
+type CardType = Visa | Mastercard
+type CreditCardInfo = {
+  CardType: CardType
+  CardNumber: CardNumber
+}
+```
+
+```ts
+type CardType = Visa | Mastercard;
+type CreditCardInfo = {
+	cardType: CardType;
+	cardNumber: CardNumber;
+};
+```
+
+</Switch>
+
+If the store accepts multiple payment methods, we can again use union:
+
+<Switch options="fsharp,ts">
+
+```fsharp
+type PaymentMethod =
+  | Cash
+  | Check of CheckNumber
+  | Card of CreditCardInfo
+```
+
+```ts
+type PaymentMethod = Cash | CheckNumber | CreditCardInfo;
+```
+
+</Switch>
+
+The amount and currency can also be described by basic types:
+
+<Switch options="fsharp,ts">
+
+```fsharp
+type PaymentAmount = PaymentAmount of decimal
+type Currency = EUR | USD
+```
+
+```ts
+type PaymentAmount = number;
+type Currency = EUR | USD;
+```
+
+</Switch>
+
+And the payment type might look like this:
+
+<Switch options="fsharp,ts">
+
+```fsharp
+type Payment = {
+  Amount: PaymentAmount
+  Currency: Currency
+  Method: PaymentMethod
+}
+```
+
+```ts
+type Payment = {
+	amount: PaymentAmount;
+	currency: Currency;
+	method: PaymentMethod;
+};
+```
+
+</Switch>
+
+Moreover, we can also describe how payments will be made or how currencies will be converted—in the form of function types:
+
+<Switch options="fsharp,ts">
+
+```fsharp
+type PayInvoice = UnpaidInvoice -> Payment -> PaidInvoice
+type ConvertPaymentCurrency = Payment -> Currency -> Payment
+```
+
+```ts
+type PayInvoice = (invoice: UnpaidInvoice, payment: Payment) => PaidInvoice;
+type ConvertPaymentCurrency = (payment: Payment, currency: Currency) => Payment;
+
+// Let's pretend that our code by default knows how to treat all functions as curried.
+// Then we can write the signatures a bit closer to F#:
+type PayInvoice = (invoice: UnpaidInvoice) => (payment: Payment) => PaidInvoice;
+type ConvertCurrency = (payment: Payment) => (currency: Currency) => Payment;
+
+// From now on, I will give examples of code in TS in this way.
+// In F#, all functions are curried by default, you don't have to do anything else,
+// the signatures are presented that way automatically.
+```
+
+</Switch>
+
+<aside>
+
+This is the way I designed the cookie store in my [post about clean architecture on the frontend](/blog/clean-architecture-on-frontend/) even before I read this book. It's generally about creating the kind of “meta-program” that describes the subject area in types. This has been useful to me since [rewriting Tzlvt in TypeScript](/blog/tzlvt-architecture-upgrade/).
+
+</aside>
+
+### Modeling Optional Values, Errors, and Collections
+
+F# uses `Option<'a>` to handle optional values, `Result<'Success,'Failure>` to handle errors, `unit` is used instead of `void`, and several types are used to handle collections. To designate collections, the author suggests always using `list` when modeling. The implementation may vary, but it is easier to use it in a model.
+
+It is better to read about subtleties of F# directly [in the book](https://pragprog.com/titles/swdddf/domain-modeling-made-functional/) or [in the language manual](https://docs.microsoft.com/en-us/dotnet/fsharp/language-reference/).
+
+## Chapter 5. Domain Modeling with Types
+
+In this chapter, we'll create a domain model using a type system so that it can be read not only by F# developers but also by domain experts.
+
+### Seeing Patterns in a Domain Model
+
+Each area of knowledge is unique, but some things will still repeat from project to project. For example:
+
+- Simple values are basic building blocks, most often will be defined as primitives in wrappers.
+- Groups of values combined by “AND”, in these, the data is _closely related_.
+- Groups of values combined by “OR” represent some sort of _selection_;
+- Processes are types with input and output values.
+
+### Modeling Simple Values
+
+Experts don't think of simple values as “strings” or “numbers”. They think of “product codes,” “quantities,” and “prices.” This means two things:
+
+- In the domain, primitives will always be _limited_ somehow (numbers will have valid value ranges, strings will have format, etc.)
+- The different value types are _not interchangeable_; number in the item quantity is different from number in the item code.
+
+There is a native way in F# to declare such types to be different:
+
+```fsharp
+type CustomerId = CustomerId of int
+type OrderId = OrderId of int
+```
+
+Then you cannot pass `OrderId` to a function that expects `CustomerId`:
+
+```fsharp
+let processCustomerId (id:CustomerId) = ...
+
+// If try and call with OrderId the error will appear:
+processCustomerId orderId
+//                ^ This expression was expected to have type
+//                'CustomerId' but here has type 'OrderId'
+```
+
+In the summary, in TypeScript code samples, we will ignore this nuance. As I said above, you can use branding to achieve the same result. We will just use aliases to make the code easier to understand.
+
+<aside>
+
+In F#, by the way, also [you can use aliases](https://docs.microsoft.com/en-us/dotnet/fsharp/language-reference/type-abbreviations), but there it is related to performance. More ways to increase performance are in the book.
+
+</aside>
+
+### Modeling Complex Data
+
+Part of the _closely related data_ we can represent as record-types:
+
+<Switch options="fsharp,ts">
+
+```fsharp
+type Order = {
+  CustomerInfo : CustomerInfo
+  ShippingAddress : ShippingAddress
+  BillingAddress : BillingAddress
+  OrderLines : OrderLine list
+  AmountToBill : // ...
+}
+```
+
+```ts
+type Order = {
+  customerInfo: CustomerInfo;
+  shippingAddress: ShippingAddress;
+  billingAddress: BillingAddress;
+  orderLines: OrderLine[];
+  amountToBill: // ...
+};
+```
+
+</Switch>
+
+At first stages, it may not be clear which types are the same and which are not. This is worth checking with the experts. If they talk about `ShippingAddress` and `BillingAddress` as different things, it is better to make them different types. They may evolve in different directions, and it will be harder to separate the types than to put them together.
+
+At the beginning of the design, you may also lack knowledge about the constraints or structure of some types. This is not a problem, now you can replace unknown types with _explicitly_ undefined types. This will allow you to continue designing without being distracted by compiler errors. (Clearly, after constraints are specified, the unknown structures will need to be updated.)
+
+<Switch options="fsharp,ts">
+
+```fsharp
+type Undefined = exn
+
+type CustomerInfo = Undefined
+type ShippingAddress = Undefined
+type BillingAddress = Undefined
+type OrderLine = Undefined
+type BillingAmount = Undefined
+```
+
+```ts
+type Undefined = unknown;
+
+type CustomerInfo = Undefined;
+type ShippingAddress = Undefined;
+type BillingAddress = Undefined;
+type OrderLine = Undefined;
+type BillingAmount = Undefined;
+```
+
+</Switch>
+
+We can represent the data that provide choices as union-types:
+
+<Switch options="fsharp,ts">
+
+```fsharp
+type OrderQuantity =
+  | Unit of UnitQuantity
+  | Kilogram of KilogramQuantity
+```
+
+```ts
+type OrderQuantity = Unit | Kilogram;
+```
+
+</Switch>
+
+### Modeling Workflows with Functions
+
+Unions and record-types play the role of _nouns_ in a common language. The role of _verbs_ would be played by function types. For example, we could represent the order validation process as:
+
+<Switch options="fsharp,ts">
+
+```fsharp
+type ValidateOrder = UnvalidatedOrder -> ValidatedOrder
+```
+
+```ts
+type ValidateOrder = (order: UnvalidatedOrder) => ValidatedOrder;
+```
+
+</Switch>
+
+If the process returns multiple events, we can use the record-type to show it:
+
+<Switch options="fsharp,ts">
+
+```fsharp
+type PlaceOrderEvents = {
+  AcknowledgmentSent: AcknowledgmentSent
+  OrderPlaced: OrderPlaced
+  BillableOrderPlaced: BillableOrderPlaced
+}
+
+type PlaceOrder = UnvalidatedOrder -> PlaceOrderEvents
+```
+
+```ts
+type PlaceOrderEvents = {
+	acknowledgmentSent: AcknowledgmentSent;
+	orderPlaced: OrderPlaced;
+	billableOrderPlaced: BillableOrderPlaced;
+};
+
+type PlaceOrder = (order: UnvalidatedOrder) => PlaceOrderEvents;
+```
+
+</Switch>
+
+If the process accepts several groups of data as input, there are two ways to proceed: use several arguments or use a record with several fields:
+
+<Switch options="fsharp,ts">
+
+```fsharp
+type CalculatePrices = OrderForm -> ProductCatalog -> PricedOrder
+
+// Or:
+
+type CalculatePricesInput = {
+  OrderForm: OrderForm
+  ProductCatalog: ProductCatalog
+}
+
+type CalculatePrices = CalculatePricesInput -> PricedOrder
+```
+
+```ts
+type CalculatePrices = (form: OrderForm) => (catalog: ProductCatalog) => PricedOrder;
+
+// Or:
+
+type CalculatePricesInput = {
+	OrderForm: OrderForm;
+	ProductCatalog: ProductCatalog;
+};
+
+type CalculatePrices = (input: CalculatePricesInput) => PricedOrder;
+```
+
+</Switch>
+
+The second way is more suitable when the inputs are _technically related and mandatory_. But if one of the parameters is more of a _dependency_ rather than a direct argument, it is better to use the first variant—it will help in the future with “functional dependency injection”.
+
+We can use `Result`, `Async` types and their wrappers to describe effects:
+
+<Switch options="fsharp,ts">
+
+```fsharp
+type ValidationResponse<'a> = Async<Result<'a,ValidationError list>>
+type ValidateOrder = UnvalidatedOrder -> ValidationResponse<ValidatedOrder>
+```
+
+```ts
+// TypeScript doesn't have a built-in `Result` for error handling,
+// so we'll have to implement it ourselves.
+// We can do something like this:
+type Result<TSuccess, TFailure = Error> =
+	| { ok: true; value: TSuccess }
+	| { ok: false; error: TFailure };
+
+type ValidationResponse<TResponse> = Promise<Result<TResponse, ValidationError[]>>;
+
+type ValidateOrder = (order: UnvalidatedOrder) => ValidationResponse<ValidatedOrder>;
+```
+
+</Switch>
+
+### A Question of Identity
+
+The DDD divides things into _“entities”_ and _“value objects”_. The former have a unique identity, while the latter are the same if they have the same contents.
+
+For example, if we are talking about names of people, two _different_ people can have _the same_ names. The name may then represent a value object. In F#, two record values of the same type are the same if their field values are the same. This is called _structural identity_:
+
+```fsharp
+let name1 = {FirstName="Alex"; LastName="Adams"}
+let name2 = {FirstName="Alex"; LastName="Adams"}
+printfn "%b" (name1 = name2)  // "true"
+```
+
+But sometimes we need to model things that remain _the same_, even if their _content changes_. For example, a person moving to a new address is still the same person. Such things are called _entities_.
+
+Entities need an identifier to distinguish one entity from another. Sometimes such identifiers are provided by the domain area (serial number, social security number, etc.), sometimes you have to create them yourself (GUID, UUID).
+
+It is more convenient to store identifiers “inside” the entity itself than “outside”, because it makes it more convenient to [_pattern-matching_](https://docs.microsoft.com/en-us/dotnet/fsharp/language-reference/pattern-matching).
+
+<Switch options="fsharp,ts">
+
+```fsharp
+// ID outside:
+
+type UnpaidInvoiceInfo = ...
+type PaidInvoiceInfo = ...
+type InvoiceInfo =
+  | Unpaid of UnpaidInvoiceInfo
+  | Paid of PaidInvoiceInfo
+
+type InvoiceId = ...
+type Invoice = {
+  InvoiceId : InvoiceId
+  InvoiceInfo : InvoiceInfo
+}
+
+
+// ID inside:
+
+type UnpaidInvoice = {
+	InvoiceId : InvoiceId
+  // …
+}
+
+type PaidInvoice = {
+  InvoiceId : InvoiceId
+  // …
+}
+
+type Invoice =
+  | Unpaid of UnpaidInvoice
+  | Paid of PaidInvoice
+```
+
+```ts
+// ID outside:
+
+type UnpaidInvoiceInfo = // ...
+type PaidInvoiceInfo = // ...
+type InvoiceInfo = Unpaid | Paid
+
+type InvoiceId = // ...
+type Invoice = {
+  invoiceId : InvoiceId
+  invoiceInfo : InvoiceInfo
+}
+
+
+// ID inside:
+
+type UnpaidInvoice = {
+	invoiceId : InvoiceId
+  // …
+}
+
+type PaidInvoice = {
+  invoiceId : InvoiceId
+  // …
+}
+
+type Invoice = Unpaid | Paid
+```
+
+</Switch>
+
+<aside>
+
+You can use third-party libraries for pattern-matching in TS, such as [ts-pattern](https://github.com/gvergnaud/ts-pattern).
+
+</aside>
+
+Value objects _must be immutable_ because when some field is changed, the object becomes _another_ object, i.e. it cannot “just change”. Entities can change, but we won't just “change” them; instead, we will create _copies with changes_, keeping the identifier. This makes all changes to the entity explicit:
+
+<Switch options="fsharp,ts">
+
+```fsharp
+// You can that the function will change the Person entity:
+type UpdateName = Person -> Name -> Person
+```
+
+```ts
+// You can that the function will change the Person entity:
+type UpdateName = (person: Person) => (name: Name) => Person;
+```
+
+</Switch>
+
+### Aggregates
+
+If the user changes an order item, should the entire order change? Answer: yes, it should, for three reasons:
+
+- To preserve _consistency_ of the data;
+- To avoid violation of _invariance_;
+- Immutability makes it _necessary_ ¯\\\_(ツ)\_/¯
+
+**By consistency** we mean that if even one item changes, we will need to recalculate the total order amount. If this is not done, the data will become inconsistent.
+
+**By invariance** we mean that if there should be at least one item in the order, we need to check that after removing several items, there will still be at least one item there.
+
+**Immutability** actually triggers a chain of changes from internal structures to the “root” structure, that is, from the item to the order to which it belongs. In DDD terms, a list of items would be called _aggregate_, and an order would be called _aggregate root_.
+
+Aggregates are separate, independent _units of persistence_. We should draw boundaries so that immutability does not trigger _unnecessary_ updates to structures. For example, if an order contains a reference to the user who placed that order, what's the best way to reference it: using the whole user or just his ID?
+
+<Switch options="fsharp,ts">
+
+```fsharp
+type Order = {
+  OrderId: OrderId
+  Customer: Customer
+  OrderLines: OrderLine list
+  // …
+}
+
+// Or:
+
+type Order = {
+  OrderId: OrderId
+  CustomerId: CustomerId
+  OrderLines: OrderLine list
+  // …
+}
+```
+
+```ts
+type Order = {
+	orderId: OrderId;
+	customer: Customer;
+	orderLines: OrderLine[];
+	// …
+};
+
+// Or:
+
+type Order = {
+	orderId: OrderId;
+	customerId: CustomerId;
+	orderLines: OrderLine[];
+	// …
+};
+```
+
+</Switch>
+
+In the first case, if you change the user name, you will have to change the orders, and in the second case, you won't have to. The second way is preferable, because it does not entail unnecessary changes.
+
+## Chapter 6. Integrity and Consistency in the Domain
+
+In this chapter, we will look at the concepts of [_integrity_](https://en.wikipedia.org/wiki/Data_integrity) and [_consistency_](https://en.wikipedia.org/wiki/Data_consistency). We want to make sure that the data within a bounded context can be trusted, that it is valid, and that the different parts of the domain are consistent with each other and that there is no data that contradict each other.
+
+### The Integrity of Simple Values
+
+The domain rarely has unrestricted strings, numbers, etc. More often than not, businesses have some valid ranges for values. We want to use these ranges so that a non-valid value simply cannot be created.
+
+In F#, we can use a smart constructor to do this. We first make the constructor private, and then we add our own constructor that will validate the data:
+
+```fsharp
+type UnitQuantity = private UnitQuantity of int
+
+module UnitQuantity =
+  let create qty =
+    if qty < 1 then
+      Error "UnitQuantity can not be negative"
+    else if qty > 1000 then
+      Error "UnitQuantity can not be more than 1000"
+    else
+      Ok (UnitQuantity qty)
+
+	// To make it possible to use pattern-matching:
+	let value (UnitQuantity qty) = qty
+
+// And use it like this:
+let unitQtyResult = UnitQuantity.create 1
+```
+
+In TypeScript, it is more difficult to automate this, but you can agree not to create types by hand. Instead, use mechanisms with prevalidation, such as factories:
+
+```ts
+type UnitQuantity = number;
+
+function createQuantity(raw: number): UnitQuantity {
+	if (raw < 1) throw new Error('UnitQuantity can not be negative');
+	if (raw > 1000) throw new Error('UnitQuantity can not be more than 1000');
+	return raw as UnitQuantity;
+}
+```
+
+### Units of Measure
+
+In F# you can use measures to tag types:
+
+```fsharp
+[<Measure>]
+type kg
+
+[<Measure>]
+type m
+
+type KilogramQuantity = KilogramQuantity of decimal<kg>
+```
+
+In TypeScript you can also [tag types](https://medium.com/@KevinBGreene/surviving-the-typescript-ecosystem-branding-and-type-tagging-6cf6e516523d), but again, it would not be as reliable or convenient as in F#.
+
+### Capturing Business Rules in the Type System
+
+One of the main rules of domain modeling sounds like:
+
+> Make illegal [data] states unrepresentable
+
+That is, try to build the type model in such a way that it is _impossible_ to represent invalid data in these types.
+
+The easiest way to understand this is to use an example. Suppose we want to write a module for confirming and restoring accounts via email. We have two versions of user mail:
+
+- Confirmed, such addresses have already been sent a confirmation link and users have clicked on it;
+- And unconfirmed.
+
+We want to send account recovery links to the verified email addresses, and we don't want to send validation links to the unverified ones. And vice versa, we don't want to send recovery links to unconfirmed addresses, but only email confirmation links.
+
+One of the solutions could be this type:
+
+<Switch options="fsharp,ts">
+
+```fsharp
+type CustomerEmail = {
+  EmailAddress: EmailAddress
+  IsVerified: bool
+}
+```
+
+```ts
+type CustomerEmail = {
+	emailAddress: EmailAddress;
+	isVerified: boolean;
+};
+```
+
+</Switch>
+
+But the `IsVerified` flag is a very unreliable solution. Mainly because it is not clear from the description when it should be on and when it should be off. But also because the rules to toggle it will be described in runtime, which means they can be skipped, forgotten, overlooked and written code that will invalidate the data.
+
+Instead it is better to describe the constraint directly in the type:
+
+<Switch options="fsharp,ts">
+
+```fsharp
+type VerifiedEmailAddress = private VerifiedEmailAddress of EmailAddress
+type CustomerEmail =
+  | Unverified of EmailAddress
+  | Verified of VerifiedEmailAddress
+```
+
+```ts
+type EmailAddress = string;
+type VerifiedEmailAddress = EmailAddress;
+type CustomerEmail = EmailAddress | VerifiedEmailAddress;
+
+function createCustomerEmail(raw: string): CustomerEmail {
+	// ...Validation, checks, string conversion to the right form.
+	return email as EmailAddress;
+}
+```
+
+</Switch>
+
+Now you can see that you can't “just create” a confirmed email address. If we create a new address, it will be _by default_ unconfirmed. Such a type system could replace some of the runtime unit tests. (Well... at least in F#.)
+
+### Consistency
+
+_Consistency_ is more of a business term than a technical one, because how and what kind of data should be consistent depends on the needs of the business.
+
+**Consistency within a single aggregate** is easiest to achieve, just count all the dependent data from the original source. (As in the example with the total amount, it is enough to calculate it from the list of orders.) If additional data has to be saved, then, of course, before saving you should additionally make sure that the data is consistent.
+
+On the example of changing an item in an order it might look like this:
+
+<Switch options="fsharp,ts">
+
+```fsharp
+/// Pass 3 parameters:
+/// * top-level order;
+/// * the ID of the order item to be changed;
+/// * new price.
+let changeOrderLinePrice order orderLineId newPrice =
+
+  // Find the item among the order.OrderLines with orderLineId:
+  let orderLine = order.OrderLines |> findOrderLine orderLineId
+
+  // Make a copy of OrderLine with updated price:
+  let newOrderLine = {orderLine with Price = newPrice}
+
+  // Create a new order list with replacing the old line with the new one:
+  let newOrderLines =
+    order.OrderLines |> replaceOrderLine orderLineId newOrderLine
+
+  // Recalculate AmountToBill:
+  let newAmountToBill = newOrderLines |> List.sumBy (fun line -> line.Price)
+
+  // Create an order copy with updated data:
+  let newOrder = {
+      order with
+        OrderLines = newOrderLines
+        AmountToBill = newAmountToBill
+      }
+
+  // Return the created order:
+  newOrder
+```
+
+```ts
+/// Pass 3 parameters:
+/// * top-level order;
+/// * the ID of the order item to be changed;
+/// * new price.
+function changeOrderLinePrice(order: Order, orderLineId: OrderLineId, newPrice: Price): Order {
+	// Find the item among the order.OrderLines with orderLineId:
+	const orderLine = findOrderLine(order.orderLines, orderLineId);
+
+	// Make a copy of OrderLine with updated price:
+	const newOrderLine = { ...orderLine, price: newPrice };
+
+	// Create a new order list with replacing the old line with the new one:
+	const newOrderLines = replaceOrderLine(order.orderLines, orderLineId, newOrderLine);
+
+	// Recalculate AmountToBill
+	const newAmountToBill = newOrderLines.reduce((total, line) => total + line.price, 0);
+
+	// Create an order copy with updated data:
+	const newOrder = {
+		...order,
+		orderLines: newOrderLines,
+		amountToBill: newAmountToBill
+	};
+
+	// Return the created order:
+	return newOrder;
+}
+```
+
+</Switch>
+
+Here the order is the _aggregate_. We intentionally count and update the data at the order (aggregate) level, because only it knows _how_ to reconcile the total price from the list of items. If we store this data, then the order and list items need to be stored in the same transaction.
+
+**Consistency between different contexts** is harder to enforce, but it's not always necessary. In most cases, it's enough to have [_eventual consistency_](https://en.wikipedia.org/wiki/Eventual_consistency) and to set up communication through messages.
+
+If a message gets lost, there are three chairs:
+
+- Do nothing, it might cost money;
+- Determine which message didn't get through and resend it;
+- Roll back the previous actions.
+
+If immediate consistency is a requirement, you could look at [2 Phase Commit](https://en.wikipedia.org/wiki/Two-phase_commit_protocol) and other fun stuff.
+
+**Consistency between different aggregates within the same context** is highly dependent on requirements. A general rule of thumb is to update one aggregate per transaction, but ensure final consistency between aggregates.
+
+Sometimes, though, you need to update two aggregates in the same transaction—for example, to transfer money from one bank account to another. But more often than not, this can be redesigned to go from:
+
+```
+Start transaction
+  Add X amount to accountA
+  Remove X amount from accountB
+  Commit transaction
+```
+
+...To a separate transaction in which the different units would no longer be directly responsible for updating the data:
+
+<Switch options="fsharp,ts">
+
+```fsharp
+type MoneyTransfer = {
+  Id: MoneyTransferId
+  ToAccount: AccountId
+  FromAccount: AccountId
+  Amount: Money
+}
+```
+
+```ts
+type MoneyTransfer = {
+	id: MoneyTransferId;
+	toAccount: AccountId;
+	fromAccount: AccountId;
+	amount: Money;
+};
+```
+
+</Switch>
+
+## Chapter 7. Modeling Workflows as Pipelines
+
+In this chapter we will try to apply the type system to describe the order-taking process. The process now consists of several steps:
+
+- Validation
+- Placement
+- Confirmation
+- Generation of output events
+
+We will present these steps as parts of a larger pipeline—the process as a whole. Each step will somehow transform the input data. We will try to make each step stateless.
+
+### The Workflow Input
+
+The input data must be a _domain object_. We'll assume that we get such objects from deserialized DTOs and just keep that in mind.
+
+<Switch options="fsharp,ts">
+
+```fsharp
+type UnvalidatedOrder = {
+  OrderId: string
+  CustomerInfo: UnvalidatedCustomerInfo
+  ShippingAddress: UnvalidatedAddress
+  // …
+}
+```
+
+```ts
+type UnvalidatedOrder = {
+	orderId: string;
+	customerInfo: UnvalidatedCustomerInfo;
+	shippingAddress: UnvalidatedAddress;
+	// …
+};
+```
+
+</Switch>
+
+But we remember that it is not the object itself that really starts the process, but the command. As a rule, we often add additional data like user or timestamp to commands. In our case we can think of it this way:
+
+```fsharp
+type PlaceOrder = {
+  OrderForm: UnvalidatedOrder
+  Timestamp: DateTime
+  UserId: string
+  // …
+}
+```
+
+There can be many commands, so let's make a generic [generic-type](https://www.typescriptlang.org/docs/handbook/2/generics.html) command that takes care of describing the additional data:
+
+<Switch options="fsharp,ts">
+
+```fsharp
+type Command<'data> = {
+  Data: 'data
+  Timestamp: DateTime
+  UserId: string
+  // …
+}
+```
+
+```ts
+type Command<TPayload> = {
+	Data: TPayload;
+	Timestamp: DateTime;
+	UserId: string;
+	// …
+};
+```
+
+</Switch>
+
+And we can create a process-specific command by passing a type-parameter:
+
+<Switch options="fsharp,ts">
+
+```fsharp
+type PlaceOrder = Command<UnvalidatedOrder>
+```
+
+```ts
+type PlaceOrder = Command<UnvalidatedOrder>;
+```
+
+</Switch>
+
+### Modeling an Order as a Set of States
+
+From the interviews with the experts, it becomes clear to us that “Order” is not a static document, but rather a set of data that go through different transformations, i.e. are in different states.
+
+All these states can be modeled in different ways. The naive way is to simply create a bunch of flags for different states:
+
+<Switch options="fsharp,ts">
+
+```fsharp
+type Order = {
+  OrderId: OrderId
+  // …
+  IsValidated: bool
+  IsPriced: bool
+}
+```
+
+```ts
+type Order = {
+	orderId: OrderId;
+	// …
+	isValidated: boolean;
+	isPriced: boolean;
+};
+```
+
+</Switch>
+
+But it has a lot of disadvantages:
+
+- These states are implicit, so they will require a bunch of checks right in the code;
+- Some states contain data that other states don't need, we don't need to drag everything everywhere;
+- It's not clear which data belongs to which flags, and when we'll need it.
+
+Another way is to use separate types for each state.
+
+<Switch options="fsharp,ts">
+
+```fsharp
+type Order =
+  | Unvalidated of UnvalidatedOrder
+  | Validated of ValidatedOrder
+  | Priced of PricedOrder
+  // …
+```
+
+```ts
+type Order = Unvalidated | Validated | Priced;
+```
+
+</Switch>
+
+The advantage of this approach is that you can add another state without much effort. It is enough to add a new type to the union.
+
+The top-level `Order` type reflects an order at any point in its lifecycle, and individual types reflect it in individual states. The `Order` type can be used for storage or transfer between contexts.
+
+### State Machines
+
+The union from the example is similar to a state machine, a model of transitions between different states. Programming in terms of state machines is actually a good thing, because it encourages:
+
+- _Defining valid transitions_ for each of the states (where you can and cannot go from that state);
+- _Documenting all possible states_ in advance;
+- _Thinking about all the possible states_ the application might be in;
+- _Thinking about errors_.
+
+<aside>
+
+I've got a [post about finite state machines](/blog/fsm-to-the-rescue/) and their application on the frontend too 🙃
+
+</aside>
+
+### Modeling Each Step in the Workflow with Types
+
+The first thing to describe is validation. We remember that it accepts an unvalidated order and also refers to two “dependencies”. We can also describe these dependencies with types first, which will become an “interface” for the implementation later. Then we get something like:
+
+<Switch options="fsharp,ts">
+
+```fsharp
+type CheckProductCodeExists = ProductCode -> bool
+
+type CheckedAddress = CheckedAddress of UnvalidatedAddress
+type AddressValidationError = AddressValidationError of string
+type CheckAddressExists = UnvalidatedAddress -> Result<CheckedAddress,AddressValidationError>
+```
+
+```ts
+type CheckProductCodeExists = (code: ProductCode) => boolean;
+
+type CheckedAddress = Address;
+type AddressValidationError = string;
+
+type CheckAddressExists = (
+	address: UnvalidatedAddress
+) => Result<CheckedAddress, AddressValidationError>;
+```
+
+</Switch>
+
+We will then describe the entire validation step as such a signature:
+
+<Switch options="fsharp,ts">
+
+```fsharp
+type ValidateOrder =
+  CheckProductCodeExists    // dependency
+    -> CheckAddressExists   // dependency
+    -> UnvalidatedOrder     // input
+    -> Result<ValidatedOrder,ValidationError>  // output
+```
+
+```ts
+type ValidateOrder = (
+	codeChecker: CheckProductCodeExists // dependency
+) => (
+	addressChecker: CheckAddressExists // dependency
+) => (
+	order: UnvalidatedOrder // input
+) => Result<ValidatedOrder, ValidationError>; // output
+```
+
+</Switch>
+
+<aside>
+
+The result will be inside `Result`, because one of the dependencies had this return type. The `Result` “infects” everything around it, just like `Async`.
+
+</aside>
+
+Note that we put dependencies _at the beginning_, before arguments. We need this for partial application of arguments in the future. This will be the functional equivalent of dependency injection.
+
+<aside>
+
+In fact, there can be no dependency injection in FP, as Mark Seemann [wrote about in a blog post](https://blog.ploeh.dk/2017/02/02/dependency-rejection/). But Wlaschin often uses this term in quotes just to draw parallels and build associations.
+
+</aside>
+
+I suggest you read the description of the other steps in the book yourselves. We will go straight to the return events :–)
+
+We need events `OrderPlaced` for sending and `BillableOrderPlaced` for billing. For the first one, we can use an alias over an existing type, and create the second one from scratch:
+
+<Switch options="fsharp,ts">
+
+```fsharp
+type OrderPlaced = PricedOrder
+type BillableOrderPlaced = {
+  OrderId: OrderId
+  BillingAddress: Address
+  AmountToBill: BillingAmount
+}
+```
+
+```ts
+type OrderPlaced = PricedOrder;
+type BillableOrderPlaced = {
+	orderId: OrderId;
+	billingAddress: Address;
+	amountToBill: BillingAmount;
+};
+```
+
+</Switch>
+
+We may need to add some more events, so let the process return a _list of events_, which type will be:
+
+<Switch options="fsharp,ts">
+
+```fsharp
+type PlaceOrderEvent =
+  | OrderPlaced of OrderPlaced
+  | BillableOrderPlaced of BillableOrderPlaced
+  | AcknowledgmentSent  of OrderAcknowledgmentSent
+
+type CreateEvents = PricedOrder -> PlaceOrderEvent list
+```
+
+```ts
+type PlaceOrderEvent = OrderPlaced | BillableOrderPlaced | AcknowledgmentSent;
+
+type CreateEvents = (order: PricedOrder) => PlaceOrderEvent[];
+```
+
+</Switch>
+
+This way we make the code extensible, if a new event occurs, we don't have to change the whole process code.
+
+### Documenting Effects
+
+Parts of the process can cause effects. For example, in validation we have a call to a third-party service, this should also be specified in the types:
+
+<Switch options="fsharp,ts">
+
+```fsharp
+type AsyncResult<'success,'failure> = Async<Result<'success,'failure>>
+type CheckAddressExists =
+  UnvalidatedAddress -> AsyncResult<CheckedAddress,AddressValidationError>
+```
+
+```ts
+type AsyncResult<TSuccess, TFailure> = Promise<Result<TSuccess, TFailure>>;
+type CheckAddressExists = (
+	address: UnvalidatedAddress
+) => AsyncResult<CheckedAddress, AddressValidationError>;
+```
+
+</Switch>
+
+`Async`, like `Result`, “infects” everything it touches, so we have to change the validator type as well:
+
+<Switch options="fsharp,ts">
+
+```fsharp
+type ValidateOrder =
+  CheckProductCodeExists    // dependency
+    -> CheckAddressExists   // AsyncResult dependency
+    -> UnvalidatedOrder     // input
+    -> AsyncResult<ValidatedOrder,ValidationError list>  // output
+```
+
+```ts
+type ValidateOrder = (
+	codeChecker: CheckProductCodeExists // dependency
+) => (
+	addressChecker: CheckAddressExists // AsyncResult dependency
+) => (
+	order: UnvalidatedOrder // input
+) => AsyncResult<ValidatedOrder, ValidationError[]>; // output
+```
+
+</Switch>
+
+Now we see that not only can the validation step gives an error, but it will also work asynchronously. We can use this knowledge when designing and working with requirements: we can decide if we trust third-party services enough to use them, or if we should write the validation from scratch.
+
+The question may arise, do we need to show dependencies in types? There is no right answer, but the author suggests following these rules:
+
+- For public functions, we will hide dependencies;
+- For functions within a context, we will keep dependencies explicit.
+
+This helps document what each step _really_ requires for its work and what it _really_ will return.
+
+## What Next
+
+This time we discussed how to design flow of programs in a functional style, what the difference is from OOP, and how types can help document and reflect business requirements. In the [next post](/blog/domain-modelling-made-functional-3) we'll run through the steps of implementing a domain model, learning about functional composition, partial application, and monads.
+
+## Resources
+
+- [Domain Modelling Made Functional. Scott Wlaschin](https://www.goodreads.com/book/show/34921689-domain-modeling-made-functional)
+- [F# Language Guide](https://docs.microsoft.com/en-us/dotnet/fsharp/language-reference/)
+
+### Other Posts in Series
+
+- [Part 1, Understanding Domain](/blog/domain-modelling-made-functional)
+- [Part 3, Model Implementation](/blog/domain-modelling-made-functional-3)
+
+### Types and Type Systems
+
+- [Algebraic Data Type](https://en.wikipedia.org/wiki/Algebraic_data_type)
+- [Records, F#](https://docs.microsoft.com/en-us/dotnet/fsharp/language-reference/records)
+- [Discriminated Unions, F#](https://docs.microsoft.com/en-us/dotnet/fsharp/language-reference/discriminated-unions)
+- [Discriminated Unions, TypeScript](https://www.typescriptlang.org/docs/handbook/unions-and-intersections.html#discriminating-unions)
+- [Type Aliases, TypeScript](https://www.typescriptlang.org/docs/handbook/advanced-types.html#type-aliases)
+- [Type Abbreviations, F#](https://docs.microsoft.com/en-us/dotnet/fsharp/language-reference/type-abbreviations)
+- [Generics, F#](https://docs.microsoft.com/en-us/dotnet/fsharp/language-reference/generics/)
+- [Generics, TypeScript](https://www.typescriptlang.org/docs/handbook/2/generics.html)
+
+### Programming Techniques and TypeScript Helpers
+
+- [Pattern Matching, F#](https://docs.microsoft.com/en-us/dotnet/fsharp/language-reference/pattern-matching)
+- [2 Phase Commit Protocol](https://en.wikipedia.org/wiki/Two-phase_commit_protocol)
+- [Dependency Rejection](https://blog.ploeh.dk/2017/02/02/dependency-rejection/)
+- [Branding and Type-Tagging](https://medium.com/@KevinBGreene/surviving-the-typescript-ecosystem-branding-and-type-tagging-6cf6e516523d)
+- [ts-brand](https://github.com/kourge/ts-brand)
+- [ts-pattern](https://github.com/gvergnaud/ts-pattern)
+
+### From Wiki
+
+- [Data Integrity](https://en.wikipedia.org/wiki/Data_integrity)
+- [Data Consistency](https://en.wikipedia.org/wiki/Data_consistency)
+- [Eventual Consistency](https://en.wikipedia.org/wiki/Eventual_consistency)
+
+### From My Blog
+
+- [Clean Architecture on Frontend](/blog/clean-architecture-on-frontend/)
+- [Application State Management with Finite State Machines](/blog/fsm-to-the-rescue/)
+- [Dependency Injection with TypeScript in Practice](/blog/di-ts-in-practice/)
+- [Error Handling in Asynchronous Functions](/blog/error-handling-async-await/)

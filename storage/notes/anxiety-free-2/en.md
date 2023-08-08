@@ -1,0 +1,333 @@
+---
+title: Anxiety Free. Part 2
+description: Let's continue reading “Anxiety Free” by Robert L. Leahy.
+datetime: 2020-02-15T14:35
+cover: cover.webp
+tags:
+  - anxiety
+  - books
+  - behavior
+  - brain
+  - health
+---
+
+# Anxiety Free. Part 2
+
+In the [first part of this summary](/blog/anxiety-free) we discussed where anxiety comes from, why it was needed and learned about specific phobias, panic attacks and OCD. In this part we will talk about generalized anxiety disorder, sociophobia and post-traumatic stress disorder.
+
+## Generalized Anxiety Disorder
+
+> _— In fact, you treat anxiety the way an alcoholic treats booze: it's a way for you to dull the pain_
+
+> _— Anxiety is in many ways simply a bad habit_
+
+[Generalized anxiety disorder, GAD](https://en.wikipedia.org/wiki/Generalized_anxiety_disorder) is a persistent excessive anxiety that interferes with “normal living”. As Leahy says:
+
+> You can tell if you have generalized anxiety disorder by how often you worry and how much that worry affects your life
+
+> If you're really chronically worried about everything, can't “turn off” your anxiety, and it constantly prevents you from enjoying the pleasures of life, there's a good chance you have GAD. Another key question—how much anxiety puts you in the wheels. If it interferes with your work or destroys relationships with other people, it's likely that you have GTR
+
+### What's That
+
+From an evolutionary point of view, this is an excellent tool for survival, because if an individual is not constantly worrying about his immediate future, he is less likely to survive.
+
+> But there were other threats, more distant ones, related to the future. Lack of food at certain times of the year. A possible attack by a predator-not right now, but hours or days later. As mankind has evolved, it has become increasingly important to identify such dangers in time and to respond to them correctly
+
+> And that's what people with GAD are overly active in doing. They think ahead, they try to foresee what can go wrong, they try to anticipate any threat
+
+> With GAD always comes an underlying inability to relax. There is one constant in the life of the perpetually anxious person—this tension, physical and mental
+
+Among the causes, the author singles out both genetics and the environment and upbringing:
+
+> But we know that there is some genetic predisposition to generalized anxiety disorder.
+
+> There are other factors, chief among which is your family history. If your parents' divorce marred your childhood years, your chances of developing GAD increase by 70%. This probably explains the fact that many anxiety-prone people are constantly afraid of separation, the possibility of losing their home, or being left without money
+
+### How's That
+
+Leahy describes GAD as a constant anxiety that doesn't let you relax for a second:
+
+> Anxiety-prone people are constantly afraid that the situation will suddenly become dangerous. They can't bear the risks
+
+> Recognize danger, elevate it to a catastrophic degree, control all circumstances, avoid discomfort
+
+Evolution wanted anxiety to help us solve problems, but...
+
+> From a physiological point of view, anxiety activates the cerebral cortex (that is, its “rational” part) and blocks the amygdala (“emotional” part). When emotions make you uncomfortable, excitement is a surefire way to block them out. In fact, excitement is anesthesia for other unpleasant feelings
+
+> In fact, you treat excitement the same way an alcoholic treats booze: for you, it's a means of dulling the pain
+
+GAD also has a “set of rules” that you can start living with constant anxiety about everything:
+
+> 1. You need complete certainty.
+> 1. You are surrounded by danger.
+> 1. You need to be prepared to react.
+> 1. You need to keep everything under control.
+> 1. If you start to worry about something, you need to do something urgently.
+> 1. You need to avoid any emotional discomfort.
+> 1. You need all the answers you need right now.
+> 1. You can't live in the present moment.
+> 1. You need to avoid the things that make you anxious.
+
+…But in reality…
+
+> _The world is a much safer place than you think_. Almost everything you were so worried about didn't come true
+
+> You constantly think you need to take matters into your own hands. _But you don't_
+
+> _Why do you want to know right now?_ When it happens, that's when you'll know
+
+> You're living in a future that never comes
+
+And Leahy sums it up...
+
+> Worry is a way for you to avoid risks, anticipate dangers, resolve problems, motivate yourself, remove uncertainty, and ultimately avoid difficult emotions
+
+> Worry is largely just a bad habit
+
+### What to Do
+
+1. Formulate the motivation for change.
+
+   > Write down as many benefits of worry as you can think of...
+   > After that, list the tensions and difficulties that come up in your life because of too much excitement
+   > As it turns out, worrying about what needs to be done and actually doing the tasks at hand are very different things
+   > Remember: _acting and worrying are not the same thing. Act, not worry_ > _You can never completely eliminate anxiety from your life_. If that's your aim, you've got the wrong track. The goal is not to get rid of worry completely, but to act in spite of it. Excitement comes and goes, it appears in the mind, only to disappear again
+
+1. Challenge your thoughts.
+
+   > The mere decision that they are irrational is not enough to stop them. But you will no longer need to react to them so urgently
+
+1. Designate a time to worry and test your predictions. Observe if what you “predict” comes true when you worry about something.
+
+1. Acknowledge your emotions.
+
+   > No one is rational all the time, and we don't need to be. Emotions have a very important function: to inform us of our needs.
+   > Here's a good thing to remember about emotions: _if you feel them, you're alive_.
+   > _Feelings are not facts_, they can't hurt anybody. It's only actions that hurt.
+
+1. You can't control everything, accept that.
+
+   > _That's the time to let go of your responsibility_.
+   > If something unpleasant, unfair, uncertain, unclear happens—you need to accept it as it is—even if you don't like it or understand anything and even if you can't control the situation. Everything is as it is, and protesting, worrying, endlessly ruminating, or seeking solace from reality will not change
+
+1. [Accept uncertainty](/blog/the-tao-of-physics/).
+
+   > Many of us are well aware that nothing is certain in the world. And yet this is what is most difficult for people suffering from GAD to accept.
+   > Ask yourself: “What are the advantages and disadvantages of accepting uncertainty?”
+   > Which scenario would you bet money on?
+
+1. Get rid of the urgency.
+
+   > _There is no reason to seek an answer immediately_. But for some reason there is a belief ingrained in your mind that you have no right to rest until you know what is in store for you in the future
+   > _There is no emergency_. Besides, there is only one way of knowing exactly what is going to happen and whether it will be a good or a bad event: wait for it
+
+1. Face your main fears.
+1. Do the things you would normally avoid doing.
+1. Engage in relaxation.
+
+   > When we relieve tension in the body, it affects tension in the mind and vice versa; the body and mind are inextricably linked
+
+1. Practice mindfulness.
+
+   > It is the practice of moving from thinking about the future and the past to the present moment, observing what is happening here and now without evaluation or comment
+
+## Social Anxiety Disorder
+
+> _— Successful social interaction is based on empathy_
+
+[Social anxiety disorder, SAD (or sociophobia)](https://en.wikipedia.org/wiki/Social_anxiety_disorder) is a persistent irrational fear of performing any social action.
+
+Leahy describes the effect of SAD on life through the example of a certain Ken:
+
+> Ken is in his early twenties. Ever since he was a little boy he was always anxious in the presence of other people. He was always teased and humiliated by other boys because he was small for his age. In high school and college he never asked girls out—he was too shy; so he never made a real girlfriend
+
+> Ken spent a lot of time in his room. He felt uncomfortable at parties or social gatherings, so he avoided them. He rarely answered his teacher's questions in class, though he studied diligently and always prepared for class
+
+He remarks that...
+
+> ...Although social phobia is not considered the most common anxiety disorder, it is the most disruptive to his life
+
+> People with SAD have a hard time finding a mate. They earn less and are less likely to have successful careers. They are more likely to be unemployed. They have higher rates of drug and alcohol use, and are more likely to suffer from depression and commit suicide. They are also more likely than others to suffer from the other anxiety disorders described in this book
+
+The main problem with SAD is that .
+
+> ...[It] doesn't cause problems for anyone but the patient himself, and those around him don't push him into treatment
+
+The reasons, of course, are evolutionary again, that shit helped survival too ¯\\\_(ツ)\_/¯
+
+> An encounter with strangers, and indeed with members of one's own tribe, could suddenly end in violence. This is why people developed the capacity for submissive behavior—it neutralized threats coming from the outside.
+
+Leahy also notes that...
+
+> Situations in which we feel social anxiety often involve potential competition with others
+
+> Even if you initially have a predisposition to SAD, it is the atmosphere in the family that is likely to determine whether or not it develops into a full-blown disorder
+
+### How's That
+
+The mechanism of fear is related to the way of thinking associated with [over-focusing](https://en.wikipedia.org/wiki/Egocentric_bias) on oneself.
+
+> People with SAD tend to form a negative self-image that serves as a basis for interpreting every experience
+
+> [If you're suffering from SAD you] hardly pay any attention to other people; you think only about what they think about you
+
+Because of that, of course, your self-esteem and basically your perception of yourself in relation to the outside world suffers a lot:
+
+> Your image of yourself is based on the idea of how other people think of you - but the object of your own and other people's thoughts is always you. More precisely, your imaginary image that others supposedly see
+
+And anxiety arises from the perception that people with SAD “need to be perfect.”
+
+> Their perceptions are based on the following underlying beliefs.
+>
+> - I'm anxious, so my anxiety is visible to others.
+> - If people see that I'm anxious, they'll think I'm a failure.
+> - I need to always hold myself together and look confident.
+> - I need to get approval from everyone.
+> - There is a way to behave properly (perfectly) in society.
+> - I always need to behave perfectly when there are other people around.
+
+But in reality it is a vicious circle:
+
+> The more insecure a person feels, the worse the impression he makes; the worse the impression, the fewer positive reactions he gets from others; the fewer positive reactions he gets, the more his self-confidence suffers
+
+This disorder also has a “set of rules,” by following which you can earn yourself an excellent SAD:
+
+> Before you talk to people:
+>
+> - Think that everybody can see how much you're worrying, know your every anxious thought.
+> - Focus all of your attention on how much you are worrying.
+> - Try to hide your anxiety
+
+> After you've talked to people:
+>
+> - Remember how awful it was.
+> - Assume that now everyone is just talking about how clumsy you are.
+> - Think carefully about every mistake you made.
+> - Criticize yourself for being imperfect
+
+### What to Do
+
+Everything is about the same as last time.
+
+1. Build motivation for change.
+
+1. Stop assuming what others think.
+
+   > The discomfort you feel in the presence of others is based on _assumptions_ about what they think of you
+   > It's absolutely wrong to think that anxiety is always despicable. On the contrary, many people sympathize with people who are very nervous
+
+1. Seek positive feedback.
+
+   > Other people are shy, too, and will be glad if you cheer them up. Almost all socially anxious patients underestimate the amount of positive reactions they can elicit
+
+1. Pay attention to what is being said around you.
+
+1. Give yourself permission to be anxious.
+
+1. Stop having debriefings.
+
+   > As soon as you get home from a date or a meeting that didn't go perfectly, you're likely to start debriefing immediately... try [at least] to put it all off for a while
+
+1. Be realistic about your self-image.
+
+   > You need to challenge negative thoughts about yourself
+
+1. Meet with your chief critic.
+1. Build a hierarchy of fears.
+1. Experience the fear in your imagination.
+1. List your anxious thoughts—and challenge them.
+1. Get rid of the guarding behavior.
+
+   > ...You need to set a goal of giving up all guarded behavior. For example, start looking people straight in the eye, not pulling a fake smile, interrupting people occasionally, letting your hands hang freely
+
+1. Practice doing what you are afraid to do.
+1. Increase anxiety.
+1. Praise yourself.
+
+## Post-Traumatic Stress Disorder
+
+> _— Those are just thoughts_
+
+[Post-traumatic stress disorder, PTSD](https://en.wikipedia.org/wiki/Post-traumatic_stress_disorder) is, according to Leahy, a defense mechanism of the psyche that has failed or failed to work through negative and traumatic experiences.
+
+> PTSD is basically an inability to work through difficult images, emotions, and thoughts-a kind of “psychological indigestion’
+
+> Traumas may be different, but they haunt you all the time. They come back in dreams or memories, which feel as if they are forcing you to relive the painful experience. Terrible images may creep into your consciousness. You feel like it's happening all over again—and it feels “real”
+
+### How's That
+
+People with PTSD cannot tolerate anything that reminds them of a traumatic experience:
+
+> People with PTSD usually experience intense fear, horror, disgust, shock, and helplessness
+
+> Symptoms of PTSD can persist in a person for years, sometimes even for life, especially if left untreated
+
+PTSD also has “rules” and mechanisms by which it works:
+
+> - Once something terrible has already happened once, it can happen again. You extend one traumatic experience to the rest of your life.
+> - Images and feelings are signs of danger. You treat emotions, physical sensations and intrusive images as evidence that something bad will happen.
+> - You are not allowed to remember things that have happened.
+> - If you're scared, it means it's happening again. Your emotions and feelings are telling you that it's back.
+> - You avoid anything that might remind you of the traumatic experience. You try to cope with what is happening by avoiding anything that can even remotely remind you of the past.
+> - Try to go into a daze, to feel nothing.
+> - Your life has changed forever
+
+### What to Do
+
+- Build motivation.
+- Observe your thoughts. If your thought tells you that something bad is going to happen, remember: it's just a thought, nothing more.
+- Evaluate your negative thoughts.
+- Allow your anxiety to be.
+- Challenge the belief that you are still in danger.
+- Retell your story.
+- Restructure your images. Anxious images gain power when you feel like you don't control them. You can dispel this feeling by consciously changing the images in your mind.
+- Expose yourself to frightening feelings.
+- Build a hierarchy of fears.
+- Look at images that remind you of a traumatic experience.
+- If possible, visit the scene of the incident.
+- Get rid of the guarding behavior. The main problem with guarding behavior is that it reinforces the belief that you are still in danger.
+- Test your beliefs.
+- Praise and reward yourself. To overcome fear, it's important to constantly face it: immerse yourself in it, not suppress it... It's the same with the feeling of despair. It doesn't last forever. Even despair goes away... Another important point is to remember to empathize with yourself. You not only need to stop avoiding discomfort, but also learn to be kind to yourself.
+
+## Afterwords
+
+> _- If you condemn yourself for what you feel, it will only get worse_
+
+Instead of a conclusion, Leahy gives a huge list of literature, exercises, and appendices. I won't cite it all in full, because then it would be easier to retype the whole book. I will give only a few key thoughts with which to summarize the book.
+
+> 1. Anxiety is part of life.
+> 1. Everyone gets anxious from time to time. You're not alone.
+> 1. Your anxiety makes sense. Remember, in this book we've already looked at a lot of reasons for it-evolution, genetics, false anxiety.
+> 1. Your anxiety is temporary and not dangerous.
+> 1. You have no reason to feel shame or guilt.
+> 1. You can be productive even when you are anxious.
+
+> Thoughts cause anxiety... _Separate thoughts from facts_
+
+> Assess your confidence in the validity of each thought as well as the strength of the feelings associated with it
+
+> Ask yourself, would you apply that thought (interpretation, standard) to others as you apply it to yourself?.. _Is your evidence really good? Would they stand up to scrutiny?_
+
+> _Study your past predictions_. Have you been able to draw conclusions from past unfulfilled predictions? Have you often foreseen a negative outcome before?
+
+> _Practice acceptance_. Instead of trying to control everything, you might want to learn to accept something and proceed from what is
+
+> Practice facing a frightening image
+
+> _Reward yourself_
+
+## Resources
+
+- [Anxiety Free by Robert L. Leahy](https://www.goodreads.com/book/show/7923900-anxiety-free)
+- [First Part of the Summary](/blog/anxiety-free)
+- [The Subtle Art of Not Giving a F\*ck by Mark Manson](/blog/the-subtle-art-of-not-giving-a-fuck/)
+- [Red Pill by Andrey Kurpatov](/blog/red-pill/)
+- [The Tao of Physics by Fritjof Capra](/blog/the-tao-of-physics/)
+
+### Wiki
+
+- [Generalized Anxiety Disorder, GAD](https://en.wikipedia.org/wiki/Generalized_anxiety_disorder)
+- [Social Anxiety Disorder, SAD](https://en.wikipedia.org/wiki/Social_anxiety_disorder)
+- [Post-Traumatic Stress Disorder, PTSD](https://en.wikipedia.org/wiki/Post-traumatic_stress_disorder)
+- [Egocentric Bias](https://en.wikipedia.org/wiki/Egocentric_bias)

@@ -1,0 +1,37 @@
+---
+title: Copypaste in Code
+description: Copypaste in code is not a pure evil, but a tool.
+datetime: 2018-08-22T15:00
+tags:
+  - communication
+  - documentation
+  - dry
+  - favorite
+  - opinion
+  - process
+  - refactoring
+---
+
+# Copypaste in Code
+
+Copypaste in code is not a pure evil, but a tool.
+
+Don't remove the duplication right away. Let it show you how things _really_ work, and what patterns you haven't seen yet. Removing duplication is about predicting the future. The more raw data you can gather, the more accurate the prediction will be.
+
+I usually wait for 3 repeats to start cleaning up the code. To make sure I don't lose all the copied lines I mark them with comment-flag `@DUPLICATE`.
+
+After the flag itself, I write what functionality that is duplicated. This gives the flag a meaningful and unique name, which makes it easier to find places for refactoring later. It looks like this:
+
+```js
+// @DUPLICATE: solves difficult problem
+const someFunc = (a, b) => {
+	/* Some sophisticated logic. */
+};
+
+// @DUPLICATE: solves difficult problem
+const duplicatesFunctionality = (a, b) => {
+	/* Possibly the same sophisticated logic. */
+};
+```
+
+No, I'm not against [DRY](https://en.wikipedia.org/wiki/Don%27t_repeat_yourself), I'm for using it wisely.

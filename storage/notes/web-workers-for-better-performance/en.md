@@ -1,0 +1,115 @@
+---
+title: Using Web Workers to Boost Performance
+description: Everyone has heard of service workers. But when it comes to web workers, I often get the question, “What is it?” In this post, I want to discuss what this technology is when it's worth using it.
+datetime: 2017-08-07T14:30
+tags:
+  - beginners
+  - favorite
+  - javascript
+  - performance
+  - research
+---
+
+# Using Web Workers to Boost Performance
+
+Everyone has heard of service workers. But when it comes to web workers, I often get the question, “What is it?” In this post, I want to discuss what this technology is when it's worth using it.
+
+## Web Worker
+
+A [web worker](https://developer.mozilla.org/en-US/docs/Web/API/Web_Workers_API/Using_web_workers) is a simple means for web content to run scripts in background threads. This means that it can run without blocking the rendering of the page. To put it simply, if you run something heavy in the main script, the page will slow down, but if you run it in the web worker, it won't.
+
+## Prerequisites
+
+There are a few things we need to know before starting to use web workers:
+
+- Javascript is single-threaded, so if we want to run some task in parallel, it has to be in a separate file.
+- A web worker has access neither to the DOM nor to the `window` object. `localStorage` cannot be accessed directly inside it either. All this is because the web worker works in parallel.
+- We have to communicate with the web worker through messages, which have to be sent between the worker and the main script. But keep in mind that transferring objects by reference inside the web worker will not work, the objects will be copied before they are sent.
+
+## API
+
+Web workers have a fairly simple API. To check if the technology is supported by the browser we can type:
+
+```js
+if (window.Worker) {
+	/* ... */
+}
+```
+
+To create a worker:
+
+```js
+const worker = new Worker('./path/to/file.js');
+
+// The path must be specified relative
+// to the current html file,
+// where the main script is run.
+```
+
+To send a message from the main script to the worker:
+
+```js
+worker.postMessage({ key: 'value' });
+```
+
+To subscribe to a message inside the worker:
+
+```js
+self.onmessage = (e) => console.log(e);
+
+// `self` is the global object inside the worker,
+// like `window` in the main script.
+```
+
+To send a message from the worker to the main script:
+
+```js
+self.postMessage({ key: 'value' });
+```
+
+And to subscribe to a message from the worker in the main script:
+
+```js
+worker.onmessage = (e) => console.log(e);
+```
+
+## Sample App
+
+I made a [small example](https://github.com/bespoyasov/web-worker-example), where I ran complex calculations first in the main script and then in the web worker. After that I compared how the animation behaves, using the debugger in Chrome.
+
+At first I tried to do the animation without CSS transformations in order to get a better idea of the result. Without web worker animation stops and FPS drops to 0. This happens because the processor is busy with a complicated task. On the screenshot you can see how much space _response_ takes up—it's a calculation:
+
+![CPU time allocation](./before.webp)
+
+The web worker runs in parallel, so the animation is kept at an average of 60 FPS. The screenshot shows that the calculations are now performed separately:
+
+![How the web worker affects FPS](./after.webp)
+
+The result for animation without CSS transformations is visible to the naked eye. [Try clicking](https://bespoyasov.me/showcase/web-workers-for-better-performance/) on the different buttons yourself and compare the responsiveness.
+
+CSS transformations save the situation, the page becomes more responsive and the animation smoother. But even with them at slightly higher loads FPS drops to 45-50. With the web worker FPS is stable at 60.
+
+## Where to Use
+
+Extracting complex calculations into a separate script seems farfetched until you're faced with processing streaming data, large texts, or numbers in a browser. On one project, our team needs to analyze text on the client, so we're thinking in the direction of web workers for better performance.
+
+## Who Uses It
+
+[Pokedex](https://www.pokedex.org) uses a web worker to observe changes in the _shadow DOM_. Because of this, the app scrolls smoothly and works without freezing, even on older phones.
+
+## Last But Not Least
+
+Web workers are supported by all browsers except Opera Mini. They even work in IE 11:
+
+![Browser support](./support.webp)
+
+## Resources
+
+- [Sample App](https://bespoyasov.me/showcase/web-workers-for-better-performance/)
+- [Source Code on GitHub](https://github.com/bespoyasov/web-worker-example)
+
+### More About Web Workers
+
+- [Specification for workers](https://www.w3.org/TR/workers/)
+- [Using Web Workers](https://developer.mozilla.org/en-US/docs/web/api/web_workers_api/using_web_workers)
+- [Tutorial on Html5rocks](https://www.html5rocks.com/en/tutorials/workers/basics/)

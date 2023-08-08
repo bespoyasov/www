@@ -1,0 +1,176 @@
+---
+title: No More Mr. Nice Guy by Robert A. Glover
+description: Notes from the book, my summary and review.
+datetime: 2018-12-04T11:30
+cover: cover.webp
+tags:
+  - behavior
+  - books
+  - brain
+  - communication
+  - health
+---
+
+# No More Mr. Nice Guy by Robert A. Glover
+
+The book is super straightforward, but useful. It is about, as Glover calls them, the nice guys, their problems, and the problems they create for those around them. If anyone recognizes themselves in her, I have bad news—it will be hard to read.
+
+<aside>
+
+I read [this book](https://www.goodreads.com/book/show/97642.No_More_Mr_Nice_Guy) in translation,
+not in English. Quotes I show in this summary might be imprecise and slightly different from the
+original text.
+
+</aside>
+
+By Glover, nice guys are people who constantly seek the approval of those around them, forgetting their own needs and sacrificing themselves “for the benefit” of others. The author identifies several typical patterns of behavior that are common to nice guys.
+
+## Behavior Patterns
+
+The pattern by which their behavior in general can be summarized is this:
+
+> Nice guys seek the approval of those around them
+
+And it would seem, “What's wrong with that, aren't we all?” But in reality it's more complicated than that. This need for approval among nice guys is so strong that it interferes with their lives and the lives of those around them.
+
+The need for approval from the outside leads to...
+
+> ...Belief they have to hide their faults and mistakes
+
+> It's hard for nice guys to prioritize their needs. ...[They] most often think that putting their needs first is selfish
+
+> Nice guys aren't honest. ...[They] hide their mistakes, avoid conflict, say what others want to hear, and suppress their feelings
+
+> Although nice guys try to be selfless, their generosity often has ulterior motives
+
+> Although nice guys often claim that they never get angry, because of the constant feeling of disappointment and resentment, a huge amount of repressed rage accumulates in the back of their minds
+
+You can already see from the list that nice guys build most of their relationships with others by manipulation. They are unable to say “no,” express their opinions, and defend their position. It seems selfish and wrong to them.
+
+Glover, before dealing with this problem, suggests understanding where it came from.
+
+## Reasons for This Behavior
+
+The author begins his analysis with the attitude that drives the nice guys. The attitude is that...
+
+> [Nice guys believe that] if they are “nice,” they will become loved, their needs will be met, and life will be trouble-free. When this strategy fails, nice guys usually try even harder, doing the same
+
+There are two problems with this setup. The first is “Lost Person Error,” which Gonzales [wrote about in “Deep Survival”](/blog/deep-survival/) when described why a lost person keeps going the same route as before, even though it's obviously wrong.
+
+The problem is that nice guys think like their strategy isn't working because they're not trying hard enough. But in fact, the more they try, the more they scare off those around them.
+
+> Unfortunately, if [paradigms] aren't accurate or outdated, they can steer us in the wrong direction or cause us to circle fruitlessly around the same area. When this happens, we tend to strive even harder toward the goal, feeling more and more desperate. ...The man himself believes that his behavior is perfectly reasonable
+
+Kurpatov [wrote about the same thing in “Red Pill”](/blog/red-pill/), explaining why we don't change our behavior pattern and keep chewing on the cactus.
+
+Glover goes on to suggest finding the roots of the problem by pointing to childhood:
+
+> Trying to cope with the uncertainty of their chaotic childhoods, glorious boys have formed the following belief system: if they do everything right, everything in life will also be right
+
+> Because the needs of the nice guys as children were ignored or not met in the right way, they developed a distorted view of themselves. Through naive childish logic, they have concluded that their needs are not important, which means they are not important themselves. This is the basis of poisonous shame. Deep down, all the nice guys think that they are not that important and not particularly good
+
+The author gives an awkward definition to poisoning shame:
+
+> Poisoning shame is the belief that one is inherently bad, spoiled, unlike others, or unworthy of love, ...[it's] the hidden certainty that one is bad
+
+...From whence deduces that...
+
+> Almost everything a nice guy does, consciously or unconsciously, is calculated to get someone's approval or to avoid criticism
+
+Which, in fact, leads to the problems that nice guys face.
+
+## Nice Guys' Problems
+
+They live in fear all the time. Fear of losing a job, of insulting someone, of not meeting expectations, of asking for help, of appearing weak or, conversely, of being too dry.
+
+> If I had to identify one common trait that underlies any glorious guy problem, I would call fear. Virtually everything nice guys dos and donts driven by fear
+
+They try their best to hide their shortcomings, to consider the needs of everyone around them, and to satisfy them. But because they are oblivious to their needs, they constantly feel “unfair.”
+
+> Reese's eagerness to patronize allowed him to engage in self-destruction, wasting all his energy trying to fix others. As is often the case with nice guys, no matter how much Reese gave to others, he didn't feel he was getting enough in return
+
+And the “injustice” comes from this kind of flawed logic:
+
+> A nice guy gives something to others, expecting to get something in return. When he realizes that the reward is disproportionate, he feels resentment and disappointment... Once accumulated in large enough quantities, the resentment and frustration erupt outward in fits of rage, passive-aggressive behavior, withdrawal, accusations, criticism, and even physical violence
+
+When the nice guys encounter this, they try harder to try harder, causing them to get even more bogged down in this quagmire, taking those around them with them.
+
+## Problems Nice Guys Impose on Others
+
+These problems can be summarized as follows:
+
+> Trying to please others, they most often do not please anyone, including themselves
+
+Because of the “injustice” they feel, they want to demand something from others, but can't because of the fear that holds them back. In the end this translates into the only way they know how to get something: manipulation:
+
+> ...[They are] demanding. And so in trying to get what they want, nice guys often tend to take detours, to control and manipulate those around them
+
+And in doing so, it hurts them to ask for help because it hurts them:
+
+> They all grew up with the belief that having wishes is bad and dangerous. All the nice guys are convinced that if they're going to get anything in life, they're going to have to do it themselves. That's why nice guys don't know how to accept help from others. They're scared to death to ask for support. They feel miserable when they get help. They have a hard time delegating their responsibilities
+
+Okay, but if it's so poisonous and so visible, why don't they change their behavior? Because it's freaking hard.
+
+## Why They Don't Change Behavior
+
+The main reason grows out of childhood and fear. They are afraid that they will be left alone.
+
+> For nice guys, “want” means “need,” and that's a direct path to loneliness
+
+And they think that if they stand up for their position or their opinion or put their needs above somebody else's, everybody will turn away from them.
+
+> It's hard for nice guys to understand that no one is attracted to perfection. People are attracted to a commonality of interests, problems, and vitality
+
+> In fact, it's the imperfections that give those around us a chance to connect with us
+
+And when they try to change something, they feel like they're doing something wrong. They can feel guilt, they can feel fear:
+
+> At the beginning, doing something nice for himself, the nice guy feels uncomfortable. He may feel frightened, anxious, guilty, or insecure. These feelings are the result of cognitive dissonance. When the nice guy does something for himself, he thereby increases his importance. This conflicts with his deep-seated belief in his own worthlessness. The contradiction creates dissonance—the mismatch of two opposing messages. Over time, one of the beliefs will win out
+
+But in order to overcome the problem, one must admit that there is a problem. This is very difficult for them:
+
+> Liberation from the nice guy syndrome requires taking responsibility for one's needs. Other people may help the nice guy, but they are not responsible for his needs. By understanding the importance of their wants and putting them first, nice guys will see that the world around them is an abundant place. They will realize that their needs are important and others are happy to help them
+
+## The Solution
+
+Glover breaks down the solution into several components. The first is prolonged solitude:
+
+> Prolonged solitude is an important process for healing from glorious boyfriend syndrome. Being away from others makes it easier to understand who you are and what rules to choose to manage your life. I highly recommend that glorious guys take a trip to places where no one knows them. That way there will be far less reason to fight for the approval of others or to hide their flaws and mistakes
+
+Because...
+
+> Left to himself, a nice guy can do whatever he wants without trying to please anyone or look for compromises. Lie down and get up when it suits him. Eat what he wants. To go wherever he wants and do whatever comes into his head. He has no one to care for or to impress, no one to sacrifice himself for, no one else's problems that need to be urgently solved
+
+> It is very useful during a period of loneliness to pay attention to what habitual (and destructive) ways the nice guy tries to distract himself. It can be constant busyness, food, alcohol, sex. Keeping a journal is not unreasonable. I myself have my moments of enlightenment most often during weekend outings with a tent, week-long retreats, and those days when my wife is out of town
+
+During the period when they are alone, they may not pay attention to anyone else and only spend time on themselves. They will have to learn to consider their needs important and meet them, because there are no others.
+
+> Since the nice guys have learned to sacrifice themselves in order to survive, the cure must be to learn to put themselves first and make their needs important
+
+If loneliness begins to take its toll, the glorious guy develops a new state of mind:
+
+> Personal strength is what I call the state of mind when a person is confident: he can handle anything, no matter what happens. Such strength not only successfully copes with problems, difficulties and adversities, but also is happy about them, ready to meet them face to face, grateful for them. Personal strength is not the absence of fear. Even the strongest people are subject to fear. Personal strength is the result of feeling fear without being willing to surrender to it
+
+But there's a second component to it—they have to stop controlling everything.
+
+> Let things run their course-it helps glorious guys let go of their problems and respond to the complex beauty of life instead of trying to control it
+
+Getting rid of unnecessary anxiety was also written about by Mark Manson in [“The Subtle Art of Not Giving a F\*ck”](/blog/the-subtle-art-of-not-giving-a-fuck/) and by Fritjof Capra in [“The Tao of Physics”](/blog/the-tao-of-physics/).
+
+The last component of the solution is communicating with other men. This is important because...
+
+> Men's friendships can be very intimate because there are no sexual overtones to them. A nice guy sometimes avoids upsetting his girlfriend for fear of going without sex. With men, there is no need to please, comfort, lie, patronize, and sacrifice as there is with women. The lack of sexual overtones takes away the fear and ritualistic dancing characteristic of glorious guys in their relationships with the opposite sex
+
+Often nice guys' problems are tied to the fact that they associate “masculine” qualities (in the “traditional” sense) with something bad. Often nice guys' fathers were either bad fathers or somehow mistreated their mother, causing glorious guys to automatically associate any conflicting behavior with a bad paternal character.
+
+Healthy interactions with other men prove to them that there is nothing wrong with “masculine” behavior, and it also gives them a role model they didn't have before.
+
+> Boys are only drawn into unhealthy relationships with their mothers if their fathers allow it. You can change that by creating normal relationships with men
+
+## Other Books on Similar Topics
+
+- [No More Mr. Nice Guy by Robert A. Glover](https://www.goodreads.com/book/show/97642.No_More_Mr_Nice_Guy)
+- [The Subtle Art of Not Giving a F\*ck by Mark Manson](/blog/the-subtle-art-of-not-giving-a-fuck/)
+- [The Tao of Physics by Fritjof Capra](/blog/the-tao-of-physics/)
+- [Deep Survival by Laurence Gonzales](/blog/deep-survival/)
+- [Red Pill by Andrey Kurpatov](/blog/red-pill/)
