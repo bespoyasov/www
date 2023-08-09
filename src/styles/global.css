@@ -1,4 +1,8 @@
-/* Reset. */
+/* Imports & reset. */
+
+@import '@fontsource/pt-sans/400.css';
+@import '@fontsource/pt-sans/700.css';
+@import '@fontsource/pt-mono';
 
 *,
 *::before,
@@ -47,4 +51,11 @@ body {
 body {
 	background-color: var(--color-background);
 	color: var(--color-foreground);
+}
+
+/* Typography. */
+
+:root {
+	--ff-text: 'PT Sans', sans-serif;
+	--ff-code: 'PT Mono', monospace;
 }
