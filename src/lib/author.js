@@ -2,7 +2,7 @@ import { locale } from './config';
 
 export const author = {
 	en: {
-		author: 'Alex Bespoyasov',
+		name: 'Alex Bespoyasov',
 		email: 'bespoyasov@me.com',
 
 		github: 'https://github.com/bespoyasov',
