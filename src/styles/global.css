@@ -146,3 +146,27 @@ ol {
 ul ::marker {
 	color: transparent;
 }
+
+/* Utility classes. */
+
+.visually-hidden {
+	clip: rect(0 0 0 0);
+	clip-path: inset(50%);
+	height: 1px;
+	overflow: hidden;
+	position: absolute;
+	white-space: nowrap;
+	width: 1px;
+}
+
+.reset,
+.reset > li {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+
+.caps {
+	text-transform: uppercase;
+	font-size: var(--fs-smaller);
+}
