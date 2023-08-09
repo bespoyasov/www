@@ -137,3 +137,12 @@ img {
 	max-block-size: 65vh;
 	box-shadow: 0 1px 3px var(--color-adornment);
 }
+
+ul,
+ol {
+	padding-inline-start: 1.5em;
+}
+
+ul ::marker {
+	color: transparent;
+}
