@@ -53,9 +53,13 @@ body {
 	color: var(--color-foreground);
 }
 
-/* Typography. */
+/* Typography & vertical rhythm. */
 
 :root {
 	--ff-text: 'PT Sans', sans-serif;
 	--ff-code: 'PT Mono', monospace;
+
+	--fs-regular: 1rem;
+	--fs-smaller: 0.75em;
+	--fs-tiny: 0.5em;
 }
