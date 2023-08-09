@@ -15,6 +15,10 @@
 		"predev": "npm run static",
 		"prebuild": "npm run static"
 	},
+	"dependencies": {
+		"@fontsource/pt-mono": "^5.0.8",
+		"@fontsource/pt-sans": "^5.0.8"
+	},
 	"devDependencies": {
 		"@playwright/test": "^1.28.1",
 		"@sveltejs/adapter-static": "^2.0.3",
