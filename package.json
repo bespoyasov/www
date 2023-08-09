@@ -4,7 +4,9 @@
 	"private": true,
 	"scripts": {
 		"dev": "vite dev",
+		"dev:ru": "LOCALE=ru npm run dev",
 		"build": "vite build",
+		"build:ru": "LOCALE=ru npm run build",
 		"preview": "vite preview",
 		"test": "playwright test",
 		"lint": "prettier --plugin-search-dir . --check . && eslint .",
