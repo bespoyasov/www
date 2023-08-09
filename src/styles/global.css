@@ -63,3 +63,49 @@ body {
 	--fs-smaller: 0.75em;
 	--fs-tiny: 0.5em;
 }
+
+body {
+	font-family: var(--ff-text);
+	font-size: var(--fs-regular);
+	line-height: 1.6;
+}
+
+code,
+pre {
+	font-family: var(--ff-code);
+	tab-size: 2;
+}
+
+h1,
+h2,
+h3 {
+	margin-block: 1.5em -0.5em;
+	text-wrap: balance;
+}
+
+h1 {
+	margin: 0 0 -0.2em;
+	font-size: 2.5em;
+	line-height: 1.2;
+}
+
+h2 {
+	font-size: 1.6em;
+	line-height: 1.5;
+}
+
+h3 {
+	margin-block-end: -1em;
+	font-size: 1em;
+}
+
+p,
+ul,
+ol {
+	margin-block: 1em;
+}
+
+p + ol,
+p + ul {
+	margin-block-start: -1em;
+}
