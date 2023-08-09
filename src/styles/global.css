@@ -34,3 +34,12 @@ body {
 		--color-support: #181a21;
 	}
 }
+
+@supports (background: oklch(from #000 l c h)) {
+	@media (color-gamut: p3) {
+		:root {
+			--color-control: oklch(57.22% 0.202 250.06);
+			--color-accents: oklch(from var(--color-control) l c 30);
+		}
+	}
+}
