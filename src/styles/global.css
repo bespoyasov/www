@@ -127,3 +127,13 @@ a:focus {
 :is(.text, [aria-current='true']):not(:hover, :focus) {
 	--color: var(--color-foreground);
 }
+
+/* Default element styles. */
+
+img {
+	display: block;
+	block-size: auto;
+	max-inline-size: 100%;
+	max-block-size: 65vh;
+	box-shadow: 0 1px 3px var(--color-adornment);
+}
