@@ -1,11 +1,18 @@
 <script>
 	import '../styles/global.css';
+
+	import Footer from '../components/Footer.svelte';
+	import Header from '../components/Header.svelte';
 </script>
 
 <div class="layout">
+	<Header />
+
 	<div class="content">
 		<slot />
 	</div>
+
+	<Footer />
 </div>
 
 <style>
