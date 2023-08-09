@@ -8,7 +8,10 @@
 		"preview": "vite preview",
 		"test": "playwright test",
 		"lint": "prettier --plugin-search-dir . --check . && eslint .",
-		"format": "prettier --plugin-search-dir . --write ."
+		"format": "prettier --plugin-search-dir . --write .",
+		"static": "node ./ops/static",
+		"predev": "npm run static",
+		"prebuild": "npm run static"
 	},
 	"devDependencies": {
 		"@playwright/test": "^1.28.1",
