@@ -19,7 +19,8 @@ const config = {
 		mdsvex({
 			extensions: ['.md'],
 			remarkPlugins: [unwrapImages],
-			rehypePlugins: [slugify, [linkHeadings, { behavior: 'append' }]]
+			rehypePlugins: [slugify, [linkHeadings, { behavior: 'append' }]],
+			layout: './src/components/PostLayout.svelte'
 		})
 	]
 };
