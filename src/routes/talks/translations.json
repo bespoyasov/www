@@ -1,0 +1,10 @@
+{
+	"en": {
+		"title": "Public Talks",
+		"description": "Talks and workshops about software development and adjacent topics."
+	},
+	"ru": {
+		"title": "Публичные выступления",
+		"description": "Доклады, воркшопы и лекции о разработке, архитектуре и смежных темах."
+	}
+}
