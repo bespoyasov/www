@@ -1,16 +1,15 @@
 <script>
+	import Meta from '../../components/Meta.svelte';
+
 	export let data;
 
 	const { t } = data;
 </script>
 
-<svelte:head>
-	<title>{t.title}</title>
-	<meta name="description" content={t.description} />
-</svelte:head>
+<Meta metadata={t} />
 
 <main class="error">
-	<h1>{t.heading}</h1>
+	<h1>{t.title}</h1>
 	<p>{t.message}</p>
 </main>
 
