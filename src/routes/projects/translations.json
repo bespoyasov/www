@@ -1,0 +1,39 @@
+{
+	"en": {
+		"title": "Personal Projects",
+		"description": "All the stuff I've done throughout the years.",
+		"intro": "Recently released applications, tools, and educational products.",
+
+		"archive": {
+			"title": "Archive",
+			"about": "Projects that are no longer maintained."
+		},
+		"misc": {
+			"title": "Miscellaneous",
+			"about": "Small and “not really real” projects."
+		},
+		"limb": {
+			"title": "Limb",
+			"about": "Ancient stuff that got lost over time. No source code preserved."
+		}
+	},
+
+	"ru": {
+		"title": "Проекты",
+		"description": "Штуки, которые я сделал за последние годы, кроме работы.",
+		"intro": "Недавно запущенные приложения, инструменты и обучающие продукты.",
+
+		"archive": {
+			"title": "Архив",
+			"about": "Перестал активно поддерживать."
+		},
+		"misc": {
+			"title": "Разное",
+			"about": "Маленькие и «не совсем настоящие» проекты."
+		},
+		"limb": {
+			"title": "Лимб",
+			"about": "Древние штуки; исходный код не сохранился."
+		}
+	}
+}
