@@ -1,14 +1,12 @@
 {
 	"en": {
-		"title": "404 · Not Found",
+		"title": "404",
 		"description": "Page you were looking for wasn't found.",
-		"heading": "404",
 		"message": "Oops! Page not found."
 	},
 	"ru": {
-		"title": "404 · Страница не найдена",
+		"title": "404",
 		"description": "Запрошенная страница не найдена.",
-		"heading": "404",
 		"message": "Упс! Страница не найдена."
 	}
 }
