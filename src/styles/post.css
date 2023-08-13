@@ -1,0 +1,134 @@
+/* Vertical rhythm. */
+
+.post pre,
+.post mark,
+.post aside,
+.post figure,
+.post blockquote {
+	margin-block: 1em;
+	display: block;
+}
+
+/* Images, media, and code samples. */
+
+figure {
+	margin-inline: 0;
+}
+
+figcaption {
+	font-style: italic;
+	margin-block: 0.5em;
+}
+
+/* YouTube embeds. */
+
+iframe {
+	inline-size: 100%;
+	max-inline-size: 100%;
+	max-block-size: 65vh;
+	aspect-ratio: 16/9;
+	box-shadow: 0 1px 3px var(--color-adornment);
+}
+
+/* Code samples. */
+
+pre {
+	max-inline-size: 100%;
+	border: 1px dashed var(--color-adornment);
+	border-inline-start-style: solid;
+}
+
+pre > code {
+	display: block;
+	padding: 1em;
+	overflow-x: auto;
+}
+
+:not(pre) > code {
+	padding: 0.1em 0.2em;
+	border: 1px solid var(--color-adornment);
+	border-radius: 3px;
+}
+
+/* Highlighted text. */
+
+mark {
+	padding-inline: 1.5rem;
+	display: block;
+	background: none;
+
+	color: var(--color-foreround);
+	font-size: 1.6rem;
+	font-style: italic;
+	line-height: 1.25;
+	text-wrap: balance;
+}
+
+/* Aside & blockquote elements. */
+
+.post aside,
+.post blockquote {
+	margin-inline: 0;
+	padding-inline-start: 1.5em;
+	position: relative;
+}
+
+.post aside::before,
+.post blockquote::before {
+	top: 0;
+	left: 0;
+	position: absolute;
+
+	font-size: 3rem;
+	line-height: 0.95;
+	color: var(--color-adornment);
+}
+
+.post aside::before {
+	content: '*';
+}
+
+.post blockquote::before {
+	content: '”';
+}
+
+/* Tables. */
+
+table {
+	border-collapse: collapse;
+}
+
+th,
+td {
+	padding: 0.25em 1em;
+	border: 1px solid var(--color-adornment);
+	text-align: start;
+}
+
+.table {
+	overflow-x: auto;
+}
+
+/* Autolink headings & anchoring. */
+
+.post h1 > a {
+	display: none;
+}
+
+.post :is(h2, h3) > a:has(.icon-link) {
+	text-decoration: none;
+}
+
+.post :is(h2, h3) > a:has(.icon-link):not(:hover) {
+	color: var(--color-adornment);
+}
+
+.icon-link::before {
+	content: '#';
+	padding-inline: 0.25em;
+}
+
+html {
+	scroll-padding-top: 0.5em;
+	scroll-behavior: smooth;
+}
