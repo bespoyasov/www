@@ -10,7 +10,8 @@ import { autoImport } from './ops/auto-import.js';
 /** @type {import('@sveltejs/kit').Config} */
 const config = {
 	kit: {
-		adapter: adapter()
+		adapter: adapter(),
+		alias: { $components: './src/components' }
 	},
 	extensions: ['.svelte', '.md'],
 	preprocess: [
