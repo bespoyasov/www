@@ -14,7 +14,7 @@ export const feedTemplate = ({ posts }) =>
 <rss version="2.0" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/">
 <channel>
   <title>${site.title}</title>
-  <description>${site.description}</description>
+  <description>${site.about}</description>
   <link>${site.url}</link>
 
   <language>${locale}</language>
