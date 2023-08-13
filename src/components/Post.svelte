@@ -1,12 +1,22 @@
+<script context="module">
+	import { locale } from '../lib/config';
+
+	const t = {
+		en: { label: 'Other posts' },
+		ru: { label: 'Другие посты' }
+	}[locale];
+</script>
+
 <script>
 	export let data;
+	export let scope;
 </script>
 
 <main class="post">
 	{@html data.content}
 </main>
 
-<footer class="footer">
+<footer>
 	<time datetime={data.meta.datetime}>{data.meta.date.full}</time>
 
 	{#each data.meta.tags as tag}
@@ -14,12 +24,23 @@
 	{/each}
 </footer>
 
+<nav aria-label={t.label}>
+	{#if data.prev}
+		<a class="text" href={`/${scope}/${data.prev.slug}`}>← {data.prev.title}</a>
+	{/if}
+
+	{#if data.next}
+		<a class="text" href={`/${scope}/${data.next.slug}`}>{data.next.title} →</a>
+	{/if}
+</nav>
+
 <style>
 	.post {
 		margin-block-end: 1em;
 	}
 
-	.footer {
+	nav,
+	footer {
 		display: flex;
 		flex-wrap: wrap;
 		gap: 0 1em;
@@ -28,7 +49,8 @@
 
 	@media (min-width: 800px) {
 		.post,
-		.footer {
+		nav,
+		footer {
 			inline-size: 75%;
 			max-inline-size: 800px;
 		}
