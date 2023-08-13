@@ -110,6 +110,10 @@ p + ul {
 	margin-block-start: -1em;
 }
 
+h1 > sup {
+	line-height: 0.5;
+}
+
 /* Controls, and accents. */
 
 a {

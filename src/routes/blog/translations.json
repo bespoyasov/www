@@ -1,0 +1,15 @@
+{
+	"en": {
+		"title": "Blog",
+		"description": "Posts about software development, design, management, and similar topics.",
+		"heading": "Blog",
+		"rss": "RSS"
+	},
+
+	"ru": {
+		"title": "Все статьи",
+		"description": "Статьи о разработке приложений, дизайне, управлении и на другие похожие темы.",
+		"heading": "Блог",
+		"rss": "RSS"
+	}
+}
