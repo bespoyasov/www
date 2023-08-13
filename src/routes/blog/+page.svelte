@@ -1,5 +1,6 @@
 <script>
 	import Meta from '../../components/Meta.svelte';
+	import PostList from '../../components/PostList.svelte';
 
 	export let data;
 
@@ -15,7 +16,7 @@
 	{#each data.notes as [year, notes]}
 		<section class="section">
 			<h2>{year}</h2>
-			<!-- TODO: PostList. -->
+			<PostList {notes} />
 		</section>
 	{/each}
 </main>
