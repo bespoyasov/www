@@ -1,3 +1,5 @@
+import { fetchPosts } from '../../lib/fetch-posts';
+import { fetchContent } from '../../lib/fetch-content';
 import { feedTemplate } from './templates';
 
 const headers = {
@@ -6,7 +8,14 @@ const headers = {
 };
 
 export async function GET() {
-	const posts = [];
+	const kind = 'notes';
+	const posts = await Promise.all(
+		fetchPosts({ kind }).map(async (metadata) => {
+			const { html: content } = await fetchContent({ kind, slug: metadata.slug });
+			return { metadata, content };
+		})
+	);
+
 	const feed = feedTemplate({ posts });
 	return new Response(feed, { headers });
 }
