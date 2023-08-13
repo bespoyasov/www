@@ -1,0 +1,191 @@
+/* Based on https://github.com/PrismJS/prism-themes. */
+
+code[class*='language-'],
+pre[class*='language-'] {
+	-moz-tab-size: 2;
+	-o-tab-size: 2;
+	tab-size: 2;
+
+	-webkit-hyphens: none;
+	-moz-hyphens: none;
+	-ms-hyphens: none;
+	hyphens: none;
+}
+
+.token.important,
+.token.bold {
+	font-weight: bold;
+}
+
+.token.italic {
+	font-style: italic;
+}
+
+/* Palette. */
+
+code,
+pre {
+	--light-base: rgba(255, 255, 255, 0.3);
+	--dark-base: rgba(46, 52, 64, 0.5);
+
+	/* “One Light”. */
+	--light-mono-1: hsl(230, 8%, 24%);
+	--light-mono-2: hsl(230, 6%, 44%);
+	--light-mono-3: hsl(230, 4%, 64%);
+	--light-hue-1: hsl(198, 99%, 37%);
+	--light-hue-2: hsl(221, 87%, 60%);
+	--light-hue-3: hsl(301, 63%, 40%);
+	--light-hue-4: hsl(119, 34%, 47%);
+	--light-hue-5: hsl(5, 74%, 59%);
+	--light-hue-5-2: hsl(344, 84%, 43%);
+	--light-hue-6: hsl(35, 99%, 36%);
+	--light-hue-6-2: hsl(35, 99%, 40%);
+	--light-syntax-fg: hsl(230, 8%, 24%);
+	--light-syntax-bg: hsl(230, 1%, 98%);
+	--light-syntax-gutter: hsl(230, 1%, 62%);
+	--light-syntax-guide: hsla(230, 8%, 24%, 0.2);
+	--light-syntax-accent: hsl(230, 100%, 66%);
+
+	/* “One Dark”. */
+	--dark-mono-1: hsl(220, 14%, 71%);
+	--dark-mono-2: hsl(220, 9%, 55%);
+	--dark-mono-3: hsl(220, 10%, 40%);
+	--dark-hue-1: hsl(187, 47%, 55%);
+	--dark-hue-2: hsl(207, 82%, 66%);
+	--dark-hue-3: hsl(286, 60%, 67%);
+	--dark-hue-4: hsl(95, 38%, 62%);
+	--dark-hue-5: hsl(355, 65%, 65%);
+	--dark-hue-5-2: hsl(5, 48%, 51%);
+	--dark-hue-6: hsl(29, 54%, 61%);
+	--dark-hue-6-2: hsl(39, 67%, 69%);
+	--dark-syntax-fg: hsl(220, 14%, 71%);
+	--dark-syntax-bg: hsl(220, 13%, 18%);
+	--dark-syntax-gutter: hsl(220, 14%, 45%);
+	--dark-syntax-guide: hsla(220, 14%, 71%, 0.15);
+	--dark-syntax-accent: hsl(220, 100%, 66%);
+}
+
+/* Theme. */
+
+@media screen and (prefers-color-scheme: light) {
+	:is(code, pre) {
+		--ide-base: var(--light-base);
+		--ide-mono-1: var(--light-mono-1);
+		--ide-mono-2: var(--light-mono-2);
+		--ide-hue-1: var(--light-hue-1);
+		--ide-hue-2: var(--light-hue-2);
+		--ide-hue-3: var(--light-hue-3);
+		--ide-hue-4: var(--light-hue-4);
+		--ide-hue-5: var(--light-hue-5);
+		--ide-hue-6: var(--light-hue-6);
+	}
+}
+
+@media screen and (prefers-color-scheme: dark) {
+	:is(code, pre) {
+		--ide-base: var(--dark-base);
+		--ide-mono-1: var(--dark-mono-1);
+		--ide-mono-2: var(--dark-mono-2);
+		--ide-hue-1: var(--dark-hue-1);
+		--ide-hue-2: var(--dark-hue-2);
+		--ide-hue-3: var(--dark-hue-3);
+		--ide-hue-4: var(--dark-hue-4);
+		--ide-hue-5: var(--dark-hue-5);
+		--ide-hue-6: var(--dark-hue-6);
+	}
+}
+
+code {
+	background-color: var(--ide-base);
+}
+
+.token.comment,
+.token.prolog,
+.token.cdata {
+	color: var(--ide-mono-2);
+}
+
+.token.doctype,
+.token.punctuation,
+.token.entity {
+	color: var(--ide-mono-1);
+}
+
+.token.attr-name,
+.token.class-name,
+.token.boolean,
+.token.constant,
+.token.number,
+.token.atrule {
+	color: var(--ide-hue-6);
+}
+
+.token.keyword {
+	color: var(--ide-hue-3);
+}
+
+.token.property,
+.token.tag,
+.token.symbol,
+.token.deleted,
+.token.important {
+	color: var(--ide-hue-5);
+}
+
+.token.selector,
+.token.string,
+.token.char,
+.token.builtin,
+.token.inserted,
+.token.regex,
+.token.attr-value,
+.token.attr-value > .token.punctuation {
+	color: var(--ide-hue-4);
+}
+
+.token.variable,
+.token.operator,
+.token.function {
+	color: var(--ide-hue-2);
+}
+
+.token.url {
+	color: var(--ide-hue-1);
+}
+
+/* Language labels. */
+
+pre[class*='language-'] {
+	position: relative;
+}
+
+pre[class*='language-']::before {
+	position: absolute;
+	top: 0;
+	right: 0;
+
+	padding: 0.1em 0.5em;
+
+	font-family: var(--ff-text);
+	font-size: var(--fs-smaller);
+	color: var(--color-adornment);
+}
+
+pre.language-js::before {
+	content: 'JavaScript';
+}
+pre.language-ts::before {
+	content: 'TypeScript';
+}
+pre.language-tsx::before {
+	content: 'TypeScript';
+}
+pre.language-py::before {
+	content: 'Python';
+}
+pre.language-fsharp::before {
+	content: 'F#';
+}
+pre.language-json::before {
+	content: 'JSON';
+}
