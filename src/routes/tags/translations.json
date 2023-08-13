@@ -1,0 +1,20 @@
+{
+	"en": {
+		"title": "Tags",
+		"description": "All topics that I post and talk about.",
+
+		"labels": {
+			"alphabet": "Order by name",
+			"frequency": "or by frequency"
+		}
+	},
+	"ru": {
+		"title": "Теги",
+		"description": "Список тем, о которых я что-то писал или говорил",
+
+		"labels": {
+			"alphabet": "По алфавиту",
+			"frequency": "По частоте упоминаний"
+		}
+	}
+}
