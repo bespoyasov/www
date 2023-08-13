@@ -8,6 +8,8 @@
 </script>
 
 <script>
+	import Support from './Support.svelte';
+
 	export let data;
 	export let scope;
 </script>
@@ -33,6 +35,8 @@
 		<a class="text" href={`/${scope}/${data.next.slug}`}>{data.next.title} →</a>
 	{/if}
 </nav>
+
+<Support metadata={data.meta} />
 
 <style>
 	.post {
