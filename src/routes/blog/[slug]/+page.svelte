@@ -10,4 +10,4 @@
 </svelte:head>
 
 <Meta metadata={data.meta} />
-<Post {data} />
+<Post scope="blog" {data} />
