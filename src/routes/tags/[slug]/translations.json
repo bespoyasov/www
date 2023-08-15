@@ -1,0 +1,47 @@
+{
+	"en": {
+		"title": "$t",
+		"description": "Notes, projects, and public talks tagged with $t.",
+
+		"other": "Other tags",
+		"notes": {
+			"title": "Notes",
+			"about": "Blog posts grouped by year."
+		},
+		"talks": {
+			"title": "Public Talks",
+			"about": "Public talks, YouTube videos, workshops, and live coding sessions."
+		},
+		"projects": {
+			"title": "Projects",
+			"about": "Recent personal projects and open-source stuff I develop and maintain."
+		},
+		"similar": {
+			"title": "Similar Topics",
+			"about": "Tags most often used together with $t."
+		}
+	},
+
+	"ru": {
+		"title": "$t",
+		"description": "Все заметки, проекты и публичные выступления по тегу $t.",
+		"other": "Другие теги",
+
+		"notes": {
+			"title": "Заметки",
+			"about": "Посты из блога от новых к старым."
+		},
+		"talks": {
+			"title": "Публичные выступления",
+			"about": "Доклады, воркшопы, YouTube-видео и лайв-кодинг сессии."
+		},
+		"projects": {
+			"title": "Проекты",
+			"about": "Недавние личные проекты и опен-сорс штуки."
+		},
+		"similar": {
+			"title": "Связанные темы",
+			"about": "Теги, которые чаще всего появляются вместе с тегом $t."
+		}
+	}
+}
