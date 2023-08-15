@@ -32,7 +32,7 @@
 <aside class="share">
 	<strong>{t.title}</strong>
 	<menu>
-		<a class="text" href="/rss">{t.rss}</a>
+		<a class="text" href="/rss.xml">{t.rss}</a>
 		<a class="text" href={shareUrl}>{t.twitter}</a>
 		<a class="text" href={site.src}>{t.github}</a>
 		<a class="text" href={author.support}>{t.coffee}</a>
