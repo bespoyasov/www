@@ -17,6 +17,9 @@ export function fetchPosts({ kind }) {
 				full: format(meta.datetime)
 			};
 
+			meta.tags ??= [];
+			meta.materials ??= [];
+
 			return { ...meta, favorite, slug, date };
 		})
 		.toSorted((a, b) => Date.parse(b.datetime) - Date.parse(a.datetime));
