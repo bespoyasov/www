@@ -10,3 +10,5 @@ vite.config.js.timestamp-*
 vite.config.ts.timestamp-*
 .vscode
 /static/images
+/test-results
+/tests/**-snapshots
