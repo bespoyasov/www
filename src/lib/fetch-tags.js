@@ -6,6 +6,7 @@ export function fetchTags() {
 		.flat()
 		.map((file) => file.metadata.tags)
 		.flat()
+		.filter(Boolean)
 		.reduce((acc, tag) => {
 			acc[tag] ??= 0;
 			acc[tag] += 1;
