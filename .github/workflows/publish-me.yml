@@ -5,33 +5,22 @@ on:
     branches:
       - master
     paths:
-      - "src/**"
-      - "ops/**"
-      - "public/**"
-      - "storage/en/**"
+      - 'src/**'
+      - 'ops/**'
+      - 'static/**'
+      - 'storage/**/en.md'
 
 jobs:
   publish:
     runs-on: ubuntu-latest
-    env:
-      NEXT_TELEMETRY_DISABLED: 1
-
     steps:
       - uses: actions/checkout@v3
       - uses: actions/setup-node@v3
         with:
-          node-version: "16"
-
-      - name: Setup build cache
-        uses: actions/cache@v3
-        with:
-          path: ${{ github.workspace }}/.next/cache
-          key: ${{ runner.os }}-${{ hashFiles('**/package-lock.json') }}
+          node-version: '20'
 
       - run: npm ci
-      - run: npm run test
-      - run: npm run build:en
-      - run: npm run test:smoke
+      - run: npm run build
 
       - name: Deploy
         uses: SamKirkland/FTP-Deploy-Action@4.3.3

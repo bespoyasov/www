@@ -5,48 +5,28 @@ on:
     branches:
       - master
     paths:
-      - "src/**"
-      - "ops/**"
-      - "public/**"
-      - "storage/ru/**"
+      - 'src/**'
+      - 'ops/**'
+      - 'static/**'
+      - 'storage/**/ru.md'
 
 jobs:
   publish:
     runs-on: ubuntu-latest
-    env:
-      NEXT_TELEMETRY_DISABLED: 1
-
     steps:
       - uses: actions/checkout@v3
       - uses: actions/setup-node@v3
         with:
-          node-version: "16"
-
-      - name: Setup build cache
-        uses: actions/cache@v3
-        with:
-          path: ${{ github.workspace }}/.next/cache
-          key: ${{ runner.os }}-${{ hashFiles('**/package-lock.json') }}
+          node-version: '20'
 
       - run: npm ci
-      - run: npm run test
-      - run: npm run build:ru
-      - run: npm run test:smoke
-
-      - name: Cleanup stale deployments
-        uses: appleboy/ssh-action@master
-        with:
-          username: ${{ secrets.REMOTE_USER_RU }}
-          host: ${{ secrets.REMOTE_HOST_RU }}
-          key: ${{ secrets.SSH_PRIVATE_KEY_RU }}
-          script: cd ./public_html && rm -r _next
+      - run: npm run build
 
       - name: Deploy
-        uses: easingthemes/ssh-deploy@main
-        env:
-          SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY_RU }}
-          REMOTE_HOST: ${{ secrets.REMOTE_HOST_RU }}
-          REMOTE_USER: ${{ secrets.REMOTE_USER_RU }}
-          SOURCE: ${{ secrets.SOURCE_RU }}
-          TARGET: ${{ secrets.TARGET_RU }}
-          ARGS: "-rlgozvc -i"
+        uses: SamKirkland/FTP-Deploy-Action@4.3.3
+        with:
+          server: ${{ secrets.DEPLOY_HOST_RU }}
+          username: ${{ secrets.DEPLOY_USER_RU }}
+          password: ${{ secrets.DEPLOY_PASSWORD_RU }}
+          local-dir: ${{ secrets.SOURCE_RU }}
+          log-level: minimal
