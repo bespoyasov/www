@@ -39,7 +39,7 @@ npm run build:ru
 
 ## Previous Versions
 
-- `v7`, built with Next and React.
+- [`v7`](https://github.com/bespoyasov/www/tree/www-v7), built with Next and React.
 
 ## License
 
