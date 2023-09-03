@@ -33,4 +33,4 @@ materials:
 - [Блог CSSSR](https://blog.csssr.com/ru/)
 - [Доклад «Чистая архитектура во фронтенде»](/talks/clean-architecture-on-frontend)
 - [Пост по мотивам доклада](/blog/clean-architecture-on-frontend)
-- [Солидбук](/projects/solid)
+- [Солидбук](http://solidbook.vercel.app/)

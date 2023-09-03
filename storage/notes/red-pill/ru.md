@@ -124,8 +124,3 @@ tags:
 - [Остаться в живых. Лоуренс Гонсалес](/blog/deep-survival/)
 - [Дао физики. Фритьоф Капра](/blog/the-tao-of-physics/)
 
-И я тут ещё написал немного:
-
-- [Вопросы себе](/blog/question-yourself/)
-- [Неправильные выводы](/blog/do-not-lie-to-yourself/)
-- [Самое важное в самокопании](/blog/the-most-important-thing-in-self-searching/)
