@@ -21,7 +21,7 @@ tags:
 
 # Process of Creating MRKT. Part 1
 
-For the last year and a half, I've been working on the frontend for the [MRKT trading platform](https://bespoyasov.ru/projects/mrkt/). This project is a place where agricultural businesses can make deals, create auctions and tenders with bids and real-life competitions, order equipment, sell goods and services.
+For the last year and a half, I've been working on the frontend for the [MRKT trading platform](/blog/mrkt-release/). This project is a place where agricultural businesses can make deals, create auctions and tenders with bids and real-life competitions, order equipment, sell goods and services.
 
 We couldn't afford to iteratively release new features and roll them out as they were ready. We had to completely redesign the whole service and roll out the new version all at once.
 
