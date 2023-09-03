@@ -28,12 +28,6 @@
 		padding-block: 0.2em;
 	}
 
-	@media (max-width: 480px) {
-		.posts li {
-			margin-block-end: 0.5em;
-		}
-	}
-
 	.date {
 		flex-basis: 6.5ch;
 		flex-grow: 0;
