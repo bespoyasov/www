@@ -128,7 +128,7 @@ td {
 	padding-inline: 0.25em;
 }
 
-html {
+html:not(.instant-scroll) {
 	scroll-padding-top: 0.5em;
 	scroll-behavior: smooth;
 }

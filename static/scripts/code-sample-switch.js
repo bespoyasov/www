@@ -8,6 +8,8 @@ document.addEventListener('click', (event) => {
 	const origin = control.parentElement;
 	const initialPosition = origin.getBoundingClientRect().top;
 
+	document.documentElement.classList.add('instant-scroll');
+
 	document.querySelectorAll('[data-show]').forEach((container) => {
 		container.dataset.show = language;
 	});
@@ -20,5 +22,6 @@ document.addEventListener('click', (event) => {
 		const currentPosition = origin.getBoundingClientRect().top;
 		const adjustedPosition = window.scrollY + currentPosition - initialPosition;
 		window.scrollTo(0, adjustedPosition);
+		document.documentElement.classList.remove('instant-scroll');
 	});
 });
