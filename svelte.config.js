@@ -11,6 +11,7 @@ import { autoImport } from './ops/auto-import.js';
 const config = {
 	kit: {
 		adapter: adapter(),
+		paths: { relative: false },
 		alias: { $components: './src/components' }
 	},
 	extensions: ['.svelte', '.md'],
