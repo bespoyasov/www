@@ -16,7 +16,7 @@
 			<img src="/photo/2023-06.jpg" alt={t.photo} width="800" height="533" />
 		</picture>
 
-		<h1 class="visually-hidden">{t.title}</h1>
+		<h1 class="visually-hidden">{t.intro}</h1>
 		{#each t.about as paragraph}
 			<p>{paragraph}</p>
 		{/each}

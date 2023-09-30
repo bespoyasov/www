@@ -1,8 +1,9 @@
 {
 	"en": {
-		"title": "Alex Bespoyasov",
+		"title": "Hello!",
 		"description": "Blog about web development and software design.",
 
+		"intro": "Alex Bespoyasov",
 		"photo": "Author of the blog.",
 		"about": [
 			"Hi! I'm Alex, a web-developer and consultant at 0+X based in Stockholm 👋",
@@ -18,9 +19,10 @@
 	},
 
 	"ru": {
-		"title": "Саша Беспоясов",
+		"title": "Привет!",
 		"description": "Блог о веб-разработке и проектировании приложений.",
 
+		"intro": "Саша Беспоясов",
 		"photo": "Автор блога.",
 		"about": [
 			"Привет! Я Саша, веб-разработчик и консультант в 0+X 👋",
