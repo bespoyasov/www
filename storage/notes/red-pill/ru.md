@@ -123,4 +123,3 @@ tags:
 - [Тонкое искусство пофигизма. Марк Мэнсон](/blog/the-subtle-art-of-not-giving-a-fuck/)
 - [Остаться в живых. Лоуренс Гонсалес](/blog/deep-survival/)
 - [Дао физики. Фритьоф Капра](/blog/the-tao-of-physics/)
-
