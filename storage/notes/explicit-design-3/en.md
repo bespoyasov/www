@@ -9,7 +9,6 @@ tags:
   - architecture
   - coupling
   - dependencies
-  - dev
   - dip
   - fp
   - patterns

@@ -7,7 +7,6 @@ tags:
   - antipatterns
   - checklist
   - communication
-  - dev
   - finance
   - entropy
   - opinion
