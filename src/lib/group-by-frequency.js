@@ -1,7 +1,7 @@
 import { locale } from './config';
 
 const usesLabel = { en: 'Uses', ru: 'упоминаний' }[locale];
-const groups = [30, 20, 15, 10, 8, 6, 5, 4, 3, 2, 1];
+const groups = [30, 20, 15, 10, 8, 7, 6, 5, 4, 3, 2, 1];
 
 const composeKey = (current, previous) => {
 	if (current === groups.at(0)) return `${current}+ ${usesLabel}`;
