@@ -23,9 +23,10 @@
 
 <script>
 	export let metadata;
+	export let scope;
 
 	const text = encodeURIComponent(metadata.title);
-	const url = `${site.url}/${metadata.slug}`;
+	const url = `${site.url}/${scope}/${metadata.slug}`;
 	const shareUrl = `https://twitter.com/intent/tweet?text=${text}&url=${url}`;
 </script>
 

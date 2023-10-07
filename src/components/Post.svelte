@@ -36,7 +36,7 @@
 	{/if}
 </nav>
 
-<Support metadata={data.meta} />
+<Support {scope} metadata={data.meta} />
 
 <style>
 	.post {
