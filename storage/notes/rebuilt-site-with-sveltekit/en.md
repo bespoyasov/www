@@ -154,4 +154,4 @@ In any case, all these problems can be fixed by workarounds, and the number of w
 ### Redesign Inspired
 
 - [Andrey Romanov](https://andreyromanov.com)
-- [Salavat Abdullin](https://slvt.ru).
+- [Salavat Abdullin](https://slvt.ru)
