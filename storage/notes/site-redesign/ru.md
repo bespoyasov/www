@@ -2,7 +2,6 @@
 title: Как я переписал свой сайт и почему
 description: Рассказал, почему решил переписать свой сайт с нуля, и как это сделал.
 datetime: 2017-09-02T18:30
-slug: /blog/site-redesign
 tags:
   - design
   - html

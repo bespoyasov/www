@@ -2,7 +2,6 @@
 title: Text Generation with Markov Chains
 description: Let's write a text generator in JavaScript and Python using Markov Chains.
 datetime: 2021-11-29T12:00
-slug: /blog/text-generation-with-markov-chains
 cover: markov-sequence.webp
 tags:
   - favorite

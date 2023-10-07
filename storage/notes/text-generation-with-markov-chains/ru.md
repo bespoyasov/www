@@ -2,7 +2,6 @@
 title: Генерация текста с помощью цепей Маркова
 description: Пишем генератор «почти-настоящего-даже-вроде-звучит-нормально» текста на JavaScript и Python.
 datetime: 2021-11-29T12:00
-slug: /blog/text-generation-with-markov-chains
 cover: markov-sequence.webp
 tags:
   - favorite
