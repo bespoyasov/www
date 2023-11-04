@@ -15,6 +15,7 @@
 </script>
 
 <main class="post">
+	<!-- eslint-disable-next-line svelte/no-at-html-tags -->
 	{@html data.content}
 </main>
 
@@ -28,11 +29,11 @@
 
 <nav aria-label={t.label}>
 	{#if data.prev}
-		<a class="text" href={`/${scope}/${data.prev.slug}`}>← {data.prev.title}</a>
+		<a class="text" href={`/${scope}/${data.prev.slug}`}>←&nbsp;{data.prev.title}</a>
 	{/if}
 
 	{#if data.next}
-		<a class="text" href={`/${scope}/${data.next.slug}`}>{data.next.title} →</a>
+		<a class="text" href={`/${scope}/${data.next.slug}`}>{data.next.title}&nbsp;→</a>
 	{/if}
 </nav>
 
