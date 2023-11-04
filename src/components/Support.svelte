@@ -44,7 +44,7 @@
 	.share {
 		position: relative;
 		margin-block: 2.5em;
-		padding: 1em 1.5em;
+		padding: 1em 2.5em 1em 1.5em;
 		background-color: var(--color-support);
 	}
 
