@@ -144,7 +144,9 @@
 			}
 
 			.project {
-				transition: scale var(--transition), rotate var(--transition);
+				transition:
+					scale var(--transition),
+					rotate var(--transition);
 			}
 
 			.link {
