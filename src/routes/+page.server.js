@@ -21,6 +21,7 @@ export async function load() {
 	const tags = Object.entries(fetchTags())
 		.sort((a, b) => b[1] - a[1])
 		.map(([tag]) => tag)
+		.filter((tag) => tag !== 'favorite')
 		.slice(0, MAX_TAGS);
 
 	return { projects, notes, talks, tags, t };
