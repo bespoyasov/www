@@ -2,6 +2,7 @@
 	"name": "www",
 	"version": "8.0.0",
 	"private": true,
+	"type": "module",
 	"scripts": {
 		"dev": "vite dev",
 		"dev:ru": "LOCALE=ru npm run dev",
@@ -35,6 +36,5 @@
 		"remark-unwrap-images": "^4.0.0",
 		"svelte": "^4.0.5",
 		"vite": "^5.2.12"
-	},
-	"type": "module"
+	}
 }
