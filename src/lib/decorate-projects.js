@@ -20,6 +20,7 @@ const adornment = {
 	'loose-equals': { color: '#fbd952', emoji: '🤡' },
 
 	// Limb:
+	'carousel-generator': { color: '#4262b1', emoji: '🎠', inverted: true },
 	'screen-keyboard': { color: '#f6f5f5', emoji: '🧑‍💻' }
 };
 
