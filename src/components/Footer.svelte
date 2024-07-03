@@ -31,7 +31,9 @@
 		</ul>
 	</div>
 
-	<div class="since">2010+</div>
+	<div class="copyright">
+		<a href="/license" class="text">© 2010+</a>
+	</div>
 </footer>
 
 <style>
@@ -47,7 +49,7 @@
 		gap: 0.5em;
 	}
 
-	.since {
+	.copyright {
 		font-size: var(--fs-smaller);
 	}
 </style>
