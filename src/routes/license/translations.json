@@ -1,0 +1,35 @@
+{
+	"en": {
+		"title": "Licenses",
+		"description": "Things you can and cannot do with the source code and the content of this site.",
+		"intro": "Things you can and cannot do with the source code and the content of this site.",
+
+		"source": {
+			"title": "Source Code",
+			"premise": "The source code is distributed under",
+			"clause": "You can use, modify, and redistribute it as long as you keep the license and disclose the source."
+		},
+		"content": {
+			"title": "Content",
+			"premise": "The content of the site is distributed under",
+			"clause": "You can use and modify it as long as you mention the source and author, keep the license, and don't use the content in commercial products."
+		}
+	},
+
+	"ru": {
+		"title": "Лицензии",
+		"description": "Что можно и нельзя делать с исходным кодом и контентом этого сайта.",
+		"intro": "Что можно и нельзя делать с исходным кодом и контентом этого сайта.",
+
+		"source": {
+			"title": "Исходный код",
+			"premise": "Исходный код распространяется под",
+			"clause": "Его можно использовать и изменять под свои нужды при указании лицензии, авторства и ссылки на исходник."
+		},
+		"content": {
+			"title": "Контент",
+			"premise": "Контент распространяется под",
+			"clause": "Его можно использовать и изменять при указании лицензии, авторства и ссылки на оригинал, но нельзя использовать в коммерческих продуктах."
+		}
+	}
+}
