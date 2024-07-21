@@ -89,15 +89,15 @@ To define domain events, we can use _event storming_. Anyone who understands how
 
 In the book, an example would be a kind of “order-taking system”. This is roughly what the first event storming might look like:
 
-— In our department, we process applications.<br />
-— What triggers this kind of work in your department?<br />
-— We receive an application from customers by email.<br />
-— So we can record the event “Application received”.<br />
-— We fulfill these orders when they are signed.<br />
-— At what point does this happen?<br />
-— When we receive an order from the receiving department.<br />
-— We can call this event “The order is placed”.<br />
-…etc
+> “In our department, we process applications.”<br />
+> “What triggers this kind of work in your department?”<br />
+> “We receive an application from customers by email.”<br />
+> “So we can record the event “Application received”.”<br />
+> “We fulfill these orders when they are signed.”<br />
+> “At what point does this happen?”<br />
+> “When we receive an order from the receiving department.”<br />
+> “We can call this event “The order is placed”.”<br />
+> …etc
 
 After a while we will get a list of domain events:
 
