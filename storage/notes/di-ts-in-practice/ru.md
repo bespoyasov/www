@@ -157,7 +157,7 @@ interface RandomSource {
 // а значит — обязан вести себя так, как описано в этом интерфейсе.
 
 const otherRandomSource: RandomSource = {
-	random = () => {
+	random: () => {
 		// Он должен вернуть число,
 		// иначе TypeScript-компилятор укажет на ошибку.
 		return 42;
@@ -168,7 +168,7 @@ const otherRandomSource: RandomSource = {
 Теперь нам осталось в функции `random` указать, что последним аргументом мы ждём исключительно объект, который реализует интерфейс `RandomSource`.
 
 ```ts
-function random(a: number, b: number, source: RandomSource): number {
+function random(min: number, max: number, source: RandomSource = Math): number {
 	if (typeof min === 'undefined' || typeof max === 'undefined' || typeof source === 'undefined') {
 		throw new Error('All arguments are required');
 	}
@@ -191,7 +191,7 @@ const randomNumber3 = random(1, 10, otherRandomSource);
 // Тоже ок, otherRandomSource реализует требуемый интерфейс.
 
 const otherObject = {
-  otherMethod() {};
+  otherMethod() {}
 };
 
 const randomNumber4 = random(1, 10, otherObject);
@@ -431,7 +431,7 @@ container.registerSingleton<Counter>();
 
 ## Польза контейнера
 
-В первую очередь польза в том, что мы можем поменять реализацию во всех модулях одной строчкой. Таким образом мы добиваемся той самой _инверсии контроля_, о которой говорится в последней букве SOLID.
+В первую очередь польза в том, что мы можем поменять реализацию во всех модулях одной строчкой. Таким образом мы добиваемся той самой _инверсии зависимостей_, о которой говорится в последней букве SOLID.
 
 Например, если мы захотим поменять реализацию логгера во всех местах, которые зависят от этого интерфейса, нам будет достаточно поменять реализацию в регистрации:
 

@@ -150,7 +150,7 @@ To fixate that a concrete object must have this method, we declare that this obj
 // that this object implements a `RandomSource` interface,
 // hence must behave in a way described in this interface.
 const otherRandomSource: RandomSource = {
-	random = () => {
+	random: () => {
 		// It must return a number,
 		// otherwise TypeScript compiler will throw an error.
 		return 42;
@@ -161,7 +161,7 @@ const otherRandomSource: RandomSource = {
 Now we can declare that our `random` function takes as the last argument only an object that implements the `RandomSource` interface:
 
 ```ts
-function random(a: number, b: number, source: RandomSource): number {
+function random(min: number, max: number, source: RandomSource = Math): number {
 	if (typeof min === 'undefined' || typeof max === 'undefined' || typeof source === 'undefined') {
 		throw new Error('All arguments are required');
 	}
@@ -185,7 +185,7 @@ const randomNumber3 = random(1, 10, otherRandomSource);
 // the `RandomSource` interface.
 
 const otherObject = {
-  otherMethod() {};
+  otherMethod() {}
 };
 
 const randomNumber4 = random(1, 10, otherObject);
