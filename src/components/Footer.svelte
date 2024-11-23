@@ -6,13 +6,11 @@
 		en: {
 			title: 'Contacts',
 			github: 'GitHub',
-			twitter: 'Twitter',
 			linkedin: 'LinkedIn',
 			employer: '0+X'
 		},
 		ru: {
 			title: 'Контакты',
-			twitter: 'Твитер',
 			github: 'Гитхаб',
 			linkedin: 'Линкед',
 			employer: '0+X'
@@ -24,7 +22,6 @@
 	<div>
 		<h2 class="visually-hidden">{t.title}</h2>
 		<ul class="reset">
-			<li><a href={author.twitter}>{t.twitter}</a></li>
 			<li><a href={author.github}>{t.github}</a></li>
 			<li><a href={author.linkedin}>{t.linkedin}</a></li>
 			<li><a href={author.employer}>{t.employer}</a></li>

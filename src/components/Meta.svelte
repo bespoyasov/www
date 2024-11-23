@@ -1,8 +1,5 @@
 <script context="module">
 	import { site } from '../lib/site';
-	import { author } from '../lib/author';
-
-	const handle = '@' + author.twitter.substring(author.twitter.lastIndexOf('/') + 1);
 </script>
 
 <script>
@@ -21,7 +18,6 @@
 	<meta property="og:description" content={description} />
 	{#if preview}<meta property="og:image" content={preview} />{/if}
 
-	<meta name="twitter:site" content={handle} />
 	<meta name="twitter:title" content={title} />
 	<meta name="twitter:description" content={description} />
 

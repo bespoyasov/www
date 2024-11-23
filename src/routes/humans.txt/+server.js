@@ -3,8 +3,7 @@ import { author } from '../../lib/author';
 const humans = `/* TEAM */
 	Author: ${author.name}
 	Contact: ${author.email}
-	Github: ${author.github}
-	Twitter: ${author.twitter}`;
+	Github: ${author.github}`;
 
 const headers = { 'Content-Type': 'text/plain; charset=UTF-8' };
 
