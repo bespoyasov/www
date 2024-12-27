@@ -3,7 +3,7 @@ title: Солидбук
 description: Интерактивная книга о принципах ООП с примерами и тестами для самопроверки.
 datetime: 2019-07-09T12:00
 redirect: https://solidbook.vercel.app
-category: 'live'
+category: 'archived'
 tags:
   - abstraction
   - architecture

@@ -2,7 +2,7 @@
 	"en": {
 		"title": "Personal Projects",
 		"description": "All the stuff I've done throughout the years.",
-		"intro": "Recently released applications, tools, and educational products.",
+		"intro": "Independently released applications, tools, and educational products.",
 
 		"archive": {
 			"title": "Archive",
@@ -21,7 +21,7 @@
 	"ru": {
 		"title": "Проекты",
 		"description": "Штуки, которые я сделал за последние годы, кроме работы.",
-		"intro": "Недавно запущенные приложения, инструменты и обучающие продукты.",
+		"intro": "Приложения, инструменты и обучающие проекты, которые я сделал в свободное время.",
 
 		"archive": {
 			"title": "Архив",
