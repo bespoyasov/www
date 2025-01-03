@@ -29,7 +29,7 @@ const adornment = {
 	'netology-experience': { color: '#9af5d8' },
 	'novostroy-m': { color: '#cc3030', inverted: true },
 	'request-crm': { color: '#582d74', inverted: true },
-	'request-site': { color: '#f88f3a' },
+	'request-site': { color: '#f89120', inverted: true },
 	'tzlvt-release': { color: '#141517', inverted: true },
 	mrkt: { color: '#33328d', inverted: true },
 	resonar: { color: '#f5f5f5' },
