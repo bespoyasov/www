@@ -108,8 +108,6 @@
 
 		position: absolute;
 		inset: 0;
-		bottom: auto;
-		height: 100%;
 
 		border-radius: 0 var(--radius) 0 0;
 		background-image: linear-gradient(
