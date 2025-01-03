@@ -39,7 +39,7 @@
 <style>
 	.projects {
 		--columns: 1;
-		--radius: 1.75rem;
+		--radius: 1.8rem;
 
 		margin-block: 2.5em;
 
