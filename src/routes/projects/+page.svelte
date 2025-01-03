@@ -12,26 +12,38 @@
 <main>
 	<section>
 		<h1>{t.title}</h1>
-		<p>{t.intro}</p>
+		<p>{t.about}</p>
 		<ProjectList projects={data.projects} />
 	</section>
 
 	<section>
-		<h2>{t.archive.title}</h2>
+		<h2 id="personal">{t.personal.title}</h2>
+		<p>{t.personal.about}</p>
+		<ProjectList projects={data.personal} />
+	</section>
+
+	<section>
+		<h2 id="archive">{t.archive.title}</h2>
 		<p>{t.archive.about}</p>
 		<ProjectList projects={data.archived} />
 	</section>
 
 	<section>
-		<h2>{t.misc.title}</h2>
+		<h2 id="misc">{t.misc.title}</h2>
 		<p>{t.misc.about}</p>
 		<ProjectList projects={data.misc} />
 	</section>
 
 	<section>
-		<h2>{t.limb.title}</h2>
+		<h2 id="limb">{t.limb.title}</h2>
 		<p>{t.limb.about}</p>
 		<ProjectList projects={data.limb} />
+	</section>
+
+	<section>
+		<h2 id="trenches">{t.trenches.title}</h2>
+		<p>{t.trenches.about}</p>
+		<ProjectList projects={data.trenches} />
 	</section>
 </main>
 
