@@ -22,5 +22,6 @@ export function fetchPosts({ kind }) {
 
 			return { ...meta, favorite, slug, date };
 		})
-		.toSorted((a, b) => Date.parse(b.datetime) - Date.parse(a.datetime));
+		.toSorted((a, b) => Date.parse(b.datetime) - Date.parse(a.datetime))
+		.toSorted((a, b) => (a.pinned ? -1 : b.pinned ? 1 : 0));
 }
