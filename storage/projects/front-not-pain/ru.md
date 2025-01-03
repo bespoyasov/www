@@ -3,7 +3,7 @@ title: Фронтенд — не больно!
 description: Пособие о том, как работать с удовольствием и без напряга.
 datetime: 2018-01-30T10:00
 redirect: https://bespoyasov.ru/front-not-pain/
-category: 'live'
+category: 'archived'
 featured: true
 tags:
   - behavior
