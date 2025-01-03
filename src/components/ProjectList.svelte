@@ -67,9 +67,6 @@
 	.emoji {
 		font-size: 3em;
 		line-height: 1;
-
-		-webkit-user-select: none;
-		user-select: none;
 	}
 
 	.reduced {
@@ -151,19 +148,6 @@
 
 			.link {
 				transition: opacity var(--transition);
-			}
-		}
-	}
-
-	@supports (background: oklch(from #ffffff l c h)) {
-		@media (color-gamut: p3) {
-			.project {
-				--base: oklch(from var(--background) l calc(c + 0.035) h);
-				--start: oklch(from var(--base) calc(l - 0.03) c h);
-				--stop: oklch(from var(--base) calc(l + 0.07) c h);
-
-				background-color: var(--base);
-				background-image: linear-gradient(45deg, var(--start), var(--stop));
 			}
 		}
 	}
