@@ -3,7 +3,7 @@ title: Refactor Like Superhero
 description: Book about refactoring code efficiently and with ease.
 datetime: 2022-10-10T08:00
 redirect: https://refactor-like-a-superhero.vercel.app/en
-category: 'live'
+category: 'personal'
 featured: true
 tags:
   - abstraction

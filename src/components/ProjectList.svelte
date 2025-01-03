@@ -17,13 +17,18 @@
 			>
 				<header class="header">
 					<svelte:element this={`h${level}`}>{project.title}</svelte:element>
-					<span class="emoji" class:reduced={locale !== 'en'} aria-hidden="true">
-						{project.emoji}
-					</span>
+
+					{#if project.emoji}
+						<span class="emoji" class:reduced={locale !== 'en'} aria-hidden="true">
+							{project.emoji}
+						</span>
+					{:else if project.years}
+						<span class="years">{project.years}</span>
+					{/if}
 				</header>
 
 				<div class="content">
-					<p>{project.description}</p>
+					<p>{project.description ?? project.position}</p>
 					<a class="link" href={project.redirect} aria-label="See Project" />
 				</div>
 			</article>
@@ -34,7 +39,7 @@
 <style>
 	.projects {
 		--columns: 1;
-		--radius: 1.5rem;
+		--radius: 1.8rem;
 
 		margin-block: 2.5em;
 
@@ -67,14 +72,16 @@
 	.emoji {
 		font-size: 3em;
 		line-height: 1;
-
-		-webkit-user-select: none;
-		user-select: none;
 	}
 
 	.reduced {
 		font-size: 2em;
 		margin-inline: -0.05em;
+	}
+
+	.years {
+		max-width: 6ch;
+		font-size: var(--fs-smaller);
 	}
 
 	.header {
@@ -91,6 +98,28 @@
 		line-height: 1.2;
 	}
 
+	.header > * {
+		z-index: 0;
+	}
+
+	.header::before {
+		content: '';
+		display: block;
+
+		position: absolute;
+		inset: 0;
+
+		border-radius: 0 var(--radius) 0 0;
+		background-image: linear-gradient(
+			45deg,
+			rgba(255, 255, 255, 0) 0%,
+			rgba(255, 255, 255, 0) 60%,
+			rgba(255, 255, 255, 0.1) 85%,
+			rgba(255, 255, 255, 0.1) 90%,
+			rgba(255, 255, 255, 0.05) 100%
+		);
+	}
+
 	.content p {
 		margin: 0;
 	}
@@ -98,6 +127,7 @@
 	.link {
 		position: absolute;
 		inset: 0;
+		z-index: 1;
 		border-radius: var(--radius);
 	}
 
@@ -151,19 +181,6 @@
 
 			.link {
 				transition: opacity var(--transition);
-			}
-		}
-	}
-
-	@supports (background: oklch(from #ffffff l c h)) {
-		@media (color-gamut: p3) {
-			.project {
-				--base: oklch(from var(--background) l calc(c + 0.035) h);
-				--start: oklch(from var(--base) calc(l - 0.03) c h);
-				--stop: oklch(from var(--base) calc(l + 0.07) c h);
-
-				background-color: var(--base);
-				background-image: linear-gradient(45deg, var(--start), var(--stop));
 			}
 		}
 	}

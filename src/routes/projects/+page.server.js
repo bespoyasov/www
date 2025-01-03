@@ -11,8 +11,10 @@ export async function load() {
 		decorateProjects(posts.filter((item) => item.category === category));
 
 	return {
-		projects: prepare('live'),
+		projects: prepare('company'),
+		personal: prepare('personal'),
 		archived: prepare('archived'),
+		trenches: prepare('trenches'),
 		misc: prepare('misc'),
 		limb: prepare('limb'),
 		t: translations[locale]

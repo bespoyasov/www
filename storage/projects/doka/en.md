@@ -3,7 +3,7 @@ title: Doka Guide
 description: Encyclopedia for web developers.
 datetime: 2021-10-12T17:50
 redirect: https://github.com/doka-guide/content
-category: 'live'
+category: 'archived'
 tags:
   - abstraction
   - antipatterns
