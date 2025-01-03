@@ -3,7 +3,7 @@ title: Рефакторь на макси­малках
 description: Бесплатная онлайн-книга о том, как эффективно рефакторить код.
 datetime: 2022-10-10T08:00
 redirect: https://refactor-like-a-superhero.vercel.app/ru
-category: 'live'
+category: 'personal'
 featured: true
 tags:
   - abstraction
