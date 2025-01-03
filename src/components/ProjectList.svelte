@@ -39,7 +39,7 @@
 <style>
 	.projects {
 		--columns: 1;
-		--radius: 1.5rem;
+		--radius: 1.75rem;
 
 		margin-block: 2.5em;
 
@@ -98,6 +98,30 @@
 		line-height: 1.2;
 	}
 
+	.header > * {
+		z-index: 0;
+	}
+
+	.header::before {
+		content: '';
+		display: block;
+
+		position: absolute;
+		inset: 0;
+		bottom: auto;
+		height: 100%;
+
+		border-radius: 0 var(--radius) 0 0;
+		background-image: linear-gradient(
+			45deg,
+			rgba(255, 255, 255, 0) 0%,
+			rgba(255, 255, 255, 0) 60%,
+			rgba(255, 255, 255, 0.1) 85%,
+			rgba(255, 255, 255, 0.1) 90%,
+			rgba(255, 255, 255, 0.05) 100%
+		);
+	}
+
 	.content p {
 		margin: 0;
 	}
@@ -105,6 +129,7 @@
 	.link {
 		position: absolute;
 		inset: 0;
+		z-index: 1;
 		border-radius: var(--radius);
 	}
 
