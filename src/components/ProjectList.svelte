@@ -17,13 +17,18 @@
 			>
 				<header class="header">
 					<svelte:element this={`h${level}`}>{project.title}</svelte:element>
-					<span class="emoji" class:reduced={locale !== 'en'} aria-hidden="true">
-						{project.emoji}
-					</span>
+
+					{#if project.emoji}
+						<span class="emoji" class:reduced={locale !== 'en'} aria-hidden="true">
+							{project.emoji}
+						</span>
+					{:else if project.years}
+						<span class="years">{project.years}</span>
+					{/if}
 				</header>
 
 				<div class="content">
-					<p>{project.description}</p>
+					<p>{project.description ?? project.position}</p>
 					<a class="link" href={project.redirect} aria-label="See Project" />
 				</div>
 			</article>
@@ -72,6 +77,11 @@
 	.reduced {
 		font-size: 2em;
 		margin-inline: -0.05em;
+	}
+
+	.years {
+		max-width: 6ch;
+		font-size: var(--fs-smaller);
 	}
 
 	.header {
