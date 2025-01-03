@@ -1,39 +1,63 @@
 {
 	"en": {
-		"title": "Personal Projects",
-		"description": "All the stuff I've done throughout the years.",
-		"intro": "Independently released applications, tools, and educational products.",
+		"title": "Projects",
+		"description": "Brands and companies I worked with and personal projects I launched outside of work.",
+		"about": "Brands and companies I worked with.",
+
+		"personal": {
+			"title": "Personal Products",
+			"about": "Apps and educational projects I launched besides work."
+		},
 
 		"archive": {
-			"title": "Archive",
-			"about": "Projects that are no longer maintained."
+			"title": "Archived Projects",
+			"about": "Personal projects that I no longer actively maintain or stopped participating in."
 		},
+
 		"misc": {
-			"title": "Miscellaneous",
-			"about": "Small and “not really real” projects."
+			"title": "Toy Projects",
+			"about": "Not “really real” projects made for research or out of boredom."
 		},
+
 		"limb": {
 			"title": "Limb",
 			"about": "Ancient stuff that got lost over time. No source code preserved."
+		},
+
+		"trenches": {
+			"title": "Stories from Trenches",
+			"about": "Notes about project releases, development process, and user feedback."
 		}
 	},
 
 	"ru": {
 		"title": "Проекты",
-		"description": "Штуки, которые я сделал за последние годы, кроме работы.",
-		"intro": "Приложения, инструменты и обучающие проекты, которые я сделал в свободное время.",
+		"description": "Компании и бренды, с которыми я работал, а также проекты, которые запустил в свободное от работы время.",
+		"about": "Компании и бренды, с которыми я работал.",
+
+		"personal": {
+			"title": "Личные проекты",
+			"about": "Приложения и обучающие продукты, которые я запустил в свободное время."
+		},
 
 		"archive": {
 			"title": "Архив",
-			"about": "Перестал активно поддерживать."
+			"about": "Проекты, которые я перестал активно поддерживать."
 		},
+
 		"misc": {
 			"title": "Разное",
-			"about": "Маленькие и «не совсем настоящие» проекты."
+			"about": "«Ненастоящие» проекты, сделанные ради ресёрча технологий."
 		},
+
 		"limb": {
 			"title": "Лимб",
 			"about": "Древние штуки; исходный код не сохранился."
+		},
+
+		"trenches": {
+			"title": "Процесс",
+			"about": "Истории о разработке, релизах и проблемах, которые возникали по пути."
 		}
 	}
 }
