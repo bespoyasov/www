@@ -1,4 +1,13 @@
 const adornment = {
+	// Brands & Companies
+	'0x': { color: '#1a1a1a', inverted: true },
+	dodo: { color: '#ff6904', inverted: true },
+	drive2: { color: '#cc0233', inverted: true },
+	king: { color: '#fecf02' },
+	netology: { color: '#9af5d8' },
+	simployer: { color: '#9773ff', inverted: true },
+	wbd: { color: '#03006c', inverted: true },
+
 	// Personal Projects
 	'fullstack-react-typescript': { color: '#be4bdb', emoji: '🦄', inverted: true },
 	'refactor-like-a-superhero': { color: '#aedfff', emoji: '🦸' },
