@@ -29,5 +29,6 @@ jobs:
           username: ${{ secrets.DEPLOY_USER_RU }}
           password: ${{ secrets.DEPLOY_PASSWORD_RU }}
           local-dir: ${{ secrets.SOURCE_RU }}
+          server-dir: ${{ secrets.TARGET_RU }}
           log-level: minimal
           timeout: 60000
