@@ -13,7 +13,7 @@ tags:
 
 # How We Launched “Frontend with Ease!”
 
-[“Frontend with Ease!”](https://front-not-pain.bespoyasov.ru/) is a guide that aims to help developers learn how to cope with the routine and enjoy their work. It's written in Russian but I have plans on translating it in English too. In this post, I want to share how the idea came about and why this project was important to me.
+[“Frontend with Ease!”](https://bespoyasov.ru/front-not-pain) is a guide that aims to help developers learn how to cope with the routine and enjoy their work. It's written in Russian but I have plans on translating it in English too. In this post, I want to share how the idea came about and why this project was important to me.
 
 ## Prerequisites
 
@@ -33,7 +33,7 @@ There seemed to be too much material, it was hard to formulate ideas. It was eve
 
 After that, I decided once again to think about the purpose of the idea of reaching out to more developers. Mailing lists, lectures, and public talks are a good tool but not for this. You have to subscribe to the mailing list or go to a conference to listen to the talk. Articles, however, have a potentially larger audience because they are easier to read and distribute. And the greater the reach, the more people they can help.
 
-So I wrote to [Andrew](https://andreyromanov.com/) and suggested we do a series of articles together. Andrew also suggested that we make a kind of long-read manual. The result was [this](https://front-not-pain.bespoyasov.ru/).
+So I wrote to [Andrew](https://andreyromanov.com/) and suggested we do a series of articles together. Andrew also suggested that we make a kind of long-read manual. The result was [this](https://bespoyasov.ru/front-not-pain).
 
 ## Launch, Results, and Plans
 
