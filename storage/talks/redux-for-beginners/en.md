@@ -1,6 +1,6 @@
 ---
 title: State Management for Beginners
-description: Live coding workshop about state management in React applications using Redux Toolkit and alternatives for beginner frontend developers.
+description: Live coding session and workshop about state management in React applications using Redux Toolkit and alternatives for beginner frontend developers.
 summary: Live coding workshop about managing the application state.
 datetime: 2022-12-21T18:00
 tags:
