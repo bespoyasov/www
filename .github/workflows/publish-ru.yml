@@ -30,3 +30,4 @@ jobs:
           password: ${{ secrets.DEPLOY_PASSWORD_RU }}
           local-dir: ${{ secrets.SOURCE_RU }}
           log-level: minimal
+          timeout: 60000
