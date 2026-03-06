@@ -30,4 +30,5 @@ jobs:
           password: ${{ secrets.DEPLOY_PASSWORD_ME }}
           local-dir: ${{ secrets.SOURCE_ME }}
           log-level: minimal
-          timeout: 60000
+          protocol: ftps
+          timeout: 300000
