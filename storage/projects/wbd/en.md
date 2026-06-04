@@ -1,8 +1,8 @@
 ---
 title: Warner Bros Discovery
-position: Fullstack engineering consultant.
+position: Fullstack engineer, consultant.
 datetime: 2025-01-07
-years: 2025
+years: 2025–2026
 redirect: https://www.wbd.com
 category: 'company'
 ---
