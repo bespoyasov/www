@@ -15,7 +15,7 @@
 				class:inverted={project.inverted}
 				style={`--background: ${project.color}`}
 			>
-				<header class="header">
+				<header class="header" class:company={project.category === 'company'}>
 					<svelte:element this={`h${level}`}>{project.title}</svelte:element>
 
 					{#if project.emoji}
@@ -102,7 +102,7 @@
 		z-index: 0;
 	}
 
-	.header::before {
+	.header:not(.company)::before {
 		content: '';
 		display: block;
 
