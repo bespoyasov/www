@@ -1,6 +1,6 @@
 ---
 title: Tzlvt
-description: Mobile app that helps you save money.
+description: Finance management mobile app.
 datetime: 2016-02-29T12:00
 redirect: https://mstryshk.in/tzlvt/
 category: 'personal'
