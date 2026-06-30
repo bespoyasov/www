@@ -5,18 +5,18 @@
 		"about": "Brands and companies I worked with.",
 
 		"personal": {
-			"title": "Personal Products",
+			"title": "Personal Projects",
 			"about": "Apps and educational projects I launched besides work."
 		},
 
 		"archive": {
 			"title": "Archived Projects",
-			"about": "Personal projects that I no longer actively maintain or have stopped participating in."
+			"about": "Personal projects that I no longer actively maintain."
 		},
 
 		"misc": {
 			"title": "Toy Projects",
-			"about": "Not “really real” projects made for research or out of boredom."
+			"about": "Not “really real” projects made out of curiosity or boredom."
 		},
 
 		"limb": {
