@@ -1,6 +1,6 @@
 ---
 title: Simployer
-position: Frontend engineer, consultant.
+position: Frontend developer, consultant.
 datetime: 2021-10-06
 years: 2021—2022
 redirect: https://www.simployer.com/
