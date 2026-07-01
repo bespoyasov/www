@@ -6,6 +6,7 @@ const adornment = {
 	king: { color: '#fecf02' },
 	netology: { color: '#9af5d8' },
 	simployer: { color: '#9773ff', inverted: true },
+	spotify: { color: '#1bd760' },
 	wbd: { color: '#03006c', inverted: true },
 
 	// Personal Projects
