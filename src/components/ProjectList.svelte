@@ -1,5 +1,10 @@
 <script context="module">
 	import { locale } from '../lib/config';
+
+	export const t = {
+		en: { cta: 'See Project' },
+		ru: { cta: 'Подробнее о клиенте' }
+	}[locale];
 </script>
 
 <script>
@@ -29,7 +34,7 @@
 
 				<div class="content">
 					<p>{project.description ?? project.position}</p>
-					<a class="link" href={project.redirect} aria-label="See Project" />
+					<a class="link" href={project.redirect} aria-label={t.cta} />
 				</div>
 			</article>
 		</li>
