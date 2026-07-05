@@ -9,7 +9,6 @@ on:
       - 'ops/**'
       - 'static/**'
       - 'storage/**/en.md'
-      - '.github/workflows/publish-me.yml'
 
 jobs:
   publish:
@@ -30,4 +29,4 @@ jobs:
           username: ${{ secrets.DEPLOY_USER_ME }}
           password: ${{ secrets.DEPLOY_PASSWORD_ME }}
           local-dir: ${{ secrets.SOURCE_ME }}
-          log-level: verbose
+          log-level: minimal
