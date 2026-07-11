@@ -4,18 +4,16 @@
 	"private": true,
 	"type": "module",
 	"scripts": {
-		"dev": "vite dev",
-		"dev:ru": "LOCALE=ru npm run dev",
-		"build": "vite build",
-		"build:ru": "LOCALE=ru npm run build",
+		"dev": "npm run static && vite dev",
+		"dev:ru": "npm run static && LOCALE=ru npm run dev",
+		"build": "npm run static && vite build",
+		"build:ru": "npm run static && LOCALE=ru npm run build",
 		"preview": "vite preview",
 		"test": "playwright test",
 		"test:refresh": "playwright test --update-snapshots",
 		"lint": "prettier --check . && eslint .",
 		"format": "prettier --write .",
-		"static": "node ./ops/static",
-		"predev": "npm run static",
-		"prebuild": "npm run static"
+		"static": "node ./ops/static"
 	},
 	"dependencies": {
 		"@fontsource/pt-mono": "^5.0.8",
