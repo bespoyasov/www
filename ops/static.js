@@ -13,7 +13,7 @@ async function copyFiles(source, target) {
 		if (stat.isDirectory()) {
 			if (!existsSync(targetPath)) await fs.mkdir(targetPath);
 			await copyFiles(sourcePath, targetPath);
-		} else if (stat.isFile() && entry.match(/\.(webp|svg)$/i)) {
+		} else if (stat.isFile() && entry.match(/\.(avif|webp|svg)$/i)) {
 			await fs.copyFile(sourcePath, targetPath);
 		}
 	}
