@@ -2,6 +2,7 @@
 title: Солидбук
 description: Интерактивная книга о принципах ООП с примерами и тестами для самопроверки.
 datetime: 2019-07-09T12:00
+years: 2018–2019
 redirect: https://solidbook.vercel.app
 category: 'archived'
 tags:

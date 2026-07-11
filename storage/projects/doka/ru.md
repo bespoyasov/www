@@ -2,6 +2,7 @@
 title: Дока
 description: Энциклопедия о веб-технологиях, написанная с заботой и понятным языком.
 datetime: 2021-10-12T17:50
+years: 2020—2021
 redirect: https://github.com/doka-guide/content
 category: 'archived'
 featured: true

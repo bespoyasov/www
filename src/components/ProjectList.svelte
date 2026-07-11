@@ -14,21 +14,31 @@
 
 <ul class="reset projects" class:compact={level > 2}>
 	{#each projects as project}
+		{@const isCompany = project.category === 'company'}
+
 		<li>
 			<article
 				class="project"
 				class:inverted={project.inverted}
 				style={`--background: ${project.color}`}
 			>
-				<header class="header" class:company={project.category === 'company'}>
+				{#if isCompany}
+					<img
+						class="logo"
+						data-company={project.slug}
+						src={`/images/projects/${project.slug}/logo.avif`}
+						aria-hidden="true"
+						alt=""
+					/>
+				{/if}
+
+				<header class="header" class:company={isCompany}>
 					<svelte:element this={`h${level}`}>{project.title}</svelte:element>
 
-					{#if project.emoji}
-						<span class="emoji" class:reduced={locale !== 'en'} aria-hidden="true">
-							{project.emoji}
-						</span>
-					{:else if project.years}
-						<span class="years">{project.years}</span>
+					{#if project.years}
+						<span class="period">{project.years}</span>
+					{:else if project.datetime}
+						<span class="period">{new Date(project.datetime).getFullYear()}</span>
 					{/if}
 				</header>
 
@@ -60,6 +70,7 @@
 	.project {
 		padding: 1.5em;
 		min-block-size: 200px;
+		overflow: clip;
 
 		position: relative;
 		display: flex;
@@ -68,23 +79,14 @@
 		color: #000;
 		background-color: var(--background);
 		border-radius: var(--radius);
+		box-shadow: 0 1px 2px var(--color-adornment);
 	}
 
 	.inverted {
 		color: #fff;
 	}
 
-	.emoji {
-		font-size: 3em;
-		line-height: 1;
-	}
-
-	.reduced {
-		font-size: 2em;
-		margin-inline: -0.05em;
-	}
-
-	.years {
+	.period {
 		max-width: 6ch;
 		font-size: var(--fs-smaller);
 	}
@@ -118,7 +120,7 @@
 		background-image: linear-gradient(
 			45deg,
 			rgba(255, 255, 255, 0) 0%,
-			rgba(255, 255, 255, 0) 60%,
+			rgba(255, 255, 255, 0) 50%,
 			rgba(255, 255, 255, 0.1) 85%,
 			rgba(255, 255, 255, 0.1) 90%,
 			rgba(255, 255, 255, 0.05) 100%
@@ -127,6 +129,29 @@
 
 	.content p {
 		margin: 0;
+	}
+
+	.logo {
+		--offset: 0em;
+		--size: calc(100% - calc(2 * var(--offset)));
+
+		z-index: 0;
+		position: absolute;
+		inset: var(--offset);
+
+		max-block-size: var(--size);
+		max-inline-size: var(--size);
+		block-size: var(--size);
+		inline-size: var(--size);
+
+		object-fit: cover;
+		object-position: center;
+		box-shadow: none;
+	}
+
+	.header,
+	.content {
+		z-index: 1;
 	}
 
 	.link {
@@ -164,13 +189,9 @@
 			rotate: 10 0 1 -5deg;
 		}
 
-		.link {
-			opacity: 0;
-			box-shadow: 1px 2px 2px var(--color-adornment);
-		}
-
-		.project:is(:hover, :focus-within) .link {
-			opacity: 1;
+		.project:focus-within {
+			outline: 2px solid Highlight;
+			outline-offset: 3px;
 		}
 
 		@media (prefers-reduced-motion: no-preference) {
@@ -183,10 +204,69 @@
 					scale var(--transition),
 					rotate var(--transition);
 			}
-
-			.link {
-				transition: opacity var(--transition);
-			}
 		}
+	}
+
+	/* Logo-specific styles: */
+
+	[data-company='0x'] {
+		--offset: -2em;
+
+		object-fit: contain;
+		opacity: 0.2;
+	}
+
+	[data-company='spotify'] {
+		mix-blend-mode: overlay;
+		opacity: 0.2;
+	}
+
+	@media (min-width: 540px) {
+		[data-company='spotify'] {
+			--offset: 1em;
+
+			inset-block-start: calc(1.2 * var(--offset));
+		}
+	}
+
+	[data-company='wbd'] {
+		--offset: -2em;
+
+		object-fit: cover;
+		filter: grayscale(100%);
+		opacity: 0.2;
+	}
+
+	[data-company='king'] {
+		--offset: -1em;
+
+		filter: brightness(50%);
+		opacity: 0.1;
+	}
+
+	[data-company='simployer'] {
+		--offset: -5em;
+
+		opacity: 0.2;
+	}
+
+	[data-company='drive2'] {
+		--offset: -0.5em;
+
+		object-fit: cover;
+		object-position: 2em center;
+		opacity: 0.2;
+	}
+
+	[data-company='netology'] {
+		--offset: -1em;
+
+		opacity: 0.15;
+	}
+
+	[data-company='dodo'] {
+		--offset: -1em;
+
+		opacity: 0.2;
 	}
 </style>

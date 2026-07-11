@@ -2,6 +2,7 @@
 title: Курсовик
 description: Приложение для отслеживания курса доллара.
 datetime: 2017-01-15T12:00
+years: 2017—2018
 redirect: https://bespoyasov.ru/course/
 category: 'misc'
 ---
